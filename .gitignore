@@ -1,0 +1,7 @@
+# Data
+data/
+.fipe_cache/
+*.json
+
+# Jupyter
+*.ipynb_checkpoints/
