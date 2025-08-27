@@ -73,11 +73,19 @@ except Exception:
 
 DATA_DIR     = Path("data")
 FIPE_DIR     = DATA_DIR / "fipe"
+TUPLES_DIR   = DATA_DIR / "tuples"
 RAW_DIR      = Path("raw")
 RAW_LOCALIZA = RAW_DIR / "localiza"
 RAW_MOVIDA   = RAW_DIR / "movida"
 
-for d in (DATA_DIR, FIPE_DIR, RAW_LOCALIZA, RAW_MOVIDA):
+# Where the auditable match table lives
+MATCH_DIR = DATA_DIR / "localiza"
+MATCH_DIR.mkdir(parents=True, exist_ok=True)
+MATCH_TABLE = DATA_DIR / "localiza_match_table.csv"
+VERSION_MATCH_TABLE = DATA_DIR / "localiza_version_match.csv"  # simplified cache (brand_norm, model_norm, version_norm, model_year) → fipe_code (model_token deprecated)
+
+
+for d in (DATA_DIR, FIPE_DIR, TUPLES_DIR, RAW_LOCALIZA, RAW_MOVIDA):
     d.mkdir(parents=True, exist_ok=True)
 
 def ensure_dir(p: Path):
@@ -132,8 +140,8 @@ def match_today_candidates() -> list[Path]:
     """Return potential filenames for today's Localiza match output (case variants)."""
     ymd = ymd_compact()
     return [
-        DATA_DIR / f"localiza_with_fipe_match_{ymd}.csv",
-        DATA_DIR / f"Localiza_with_fipe_match_{ymd}.csv",
+        MATCH_DIR / f"localiza_with_fipe_match_{ymd}.csv",
+        MATCH_DIR / f"Localiza_with_fipe_match_{ymd}.csv",
     ]
 
 def find_today_match_csv() -> Optional[Path]:
@@ -141,12 +149,6 @@ def find_today_match_csv() -> Optional[Path]:
         if p.exists():
             return p
     return None
-
-# Where the auditable match table lives
-MATCH_DIR = DATA_DIR / "match"
-MATCH_DIR.mkdir(parents=True, exist_ok=True)
-MATCH_TABLE = MATCH_DIR / "localiza_match_table.csv"
-VERSION_MATCH_TABLE = MATCH_DIR / "localiza_version_match.csv"  # simplified cache (brand_norm, model_norm, version_norm, model_year) → fipe_code (model_token deprecated)
 
 def match_table_columns():
     return [
@@ -673,7 +675,7 @@ def find_fipe_models_csv(explicit: Optional[str] = None) -> Optional[Path]:
     if explicit:
         p = Path(explicit)
         return p if p.exists() else None
-    for candidate in (FIPE_DIR / "fipe_models.csv", Path("fipe_models.csv")):
+    for candidate in (DATA_DIR / "fipe_models.csv", Path("fipe_models.csv")):
         if candidate.exists():
             return candidate
     return None
@@ -1556,7 +1558,7 @@ def tuples_audit(localiza_match_csv: Optional[Path],
     audit = audit.sort_values(["total_count","fipe_code","model_year"], ascending=[False, True, True])
 
     if out_path is None:
-        out_path = FIPE_DIR / f"fipe_tuples_{ymd_compact()}.csv"
+        out_path = TUPLES_DIR / f"fipe_tuples_{ymd_compact()}.csv"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     audit.to_csv(out_path, index=False, sep=";")
     log.info("wrote %s rows -> %s", len(audit), out_path)
@@ -2048,7 +2050,7 @@ def run_all(args):
         match_out = existing_match
     else:
         fm_path = find_fipe_models_csv()
-        match_out = DATA_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"
+        match_out = MATCH_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"
         match_localiza(
             lcz_csv,
             None,
@@ -2211,7 +2213,7 @@ def main():
         fipe_path = Path(args.fipe_csv) if args.fipe_csv else (latest("fipe_dump_*.csv", FIPE_DIR) or latest("fipe_dump*.csv", Path(".")))
         mv_fallback = Path(args.movida_fallback_csv) if args.movida_fallback_csv else latest("movida_seminovos_*.csv", RAW_MOVIDA)
         fm_path = Path(args.fipe_models_csv) if args.fipe_models_csv else find_fipe_models_csv()
-        out_path = Path(args.out) if args.out else DATA_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"
+        out_path = Path(args.out) if args.out else MATCH_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"
         match_localiza(lcz_path, fipe_path, out_path, args.threshold, movida_csv_fallback=mv_fallback, fipe_models_csv=fm_path, strategy=args.strategy)
     elif args.cmd == "fipe-list":
         asyncio.run(fipe_list(args))
