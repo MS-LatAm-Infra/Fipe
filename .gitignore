@@ -1,8 +1,5 @@
 # Data
-data/
-raw/
 .fipe_cache/
-*.json
 
 # Jupyter
 *.ipynb_checkpoints/
