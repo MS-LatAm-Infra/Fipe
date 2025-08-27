@@ -1045,16 +1045,15 @@ def match_localiza(localiza_csv: Path,
                    out_csv: Path,
                    threshold: float = 0.0,
                    movida_csv_fallback: Optional[Path] = None,
-                   fipe_models_csv: Optional[Path] = None,
-                   strategy: str = "contains"):
-    """Simplified Localiza → FIPE matcher (algorithm from localiza_match.py).
+                   fipe_models_csv: Optional[Path] = None):
+    """Match Localiza rows to FIPE codes using a cache to skip known versions.
 
-    Replaces the previous auditable match-table pipeline with a direct fuzzy
-    scorer per row. Keeps the same public signature so CLI commands continue
-    to work. Unmatched rows are kept (fipe_code empty) instead of aborting.
+    Versions already stored in ``localiza_version_match.csv`` are not re-scored.
+    Newly observed versions are matched and appended to the cache with
+    ``first_seen``/``last_seen`` columns maintained. ``match_score`` compared
+    against ``threshold`` yields ``match_accepted``.
     """
     log = logging.getLogger("match.simple")
-
     # ---- Load Localiza dataset (already parsed CSV) ----
     loc = pd.read_csv(localiza_csv, sep=";")
     if "model_year" in loc.columns:
@@ -1070,407 +1069,114 @@ def match_localiza(localiza_csv: Path,
     if not (fm_path and Path(fm_path).exists()):
         raise SystemExit("match-localiza requires fipe_models.csv (data/fipe/fipe_models.csv).")
     fipe = load_fipe_models_df(Path(fm_path))[ ["Marca","Modelo","CodigoFipe","AnoModelo"] ].copy()
-    # Normalize AnoModelo: keep sentinel 32000 (zero-km) separate; ensure Int64
     fipe["AnoModelo"] = pd.to_numeric(fipe["AnoModelo"], errors="coerce").astype("Int64")
-    # Deduplicate by (CodigoFipe, AnoModelo) keeping first (fuel/reference month differences not needed for matching)
-    fipe = fipe.sort_values(["CodigoFipe","AnoModelo"]).drop_duplicates(subset=["CodigoFipe","AnoModelo"]).reset_index(drop=True)
+    fipe = (fipe.sort_values(["CodigoFipe","AnoModelo"])
+                 .drop_duplicates(subset=["CodigoFipe","AnoModelo"])
+                 .reset_index(drop=True))
 
-    # If the user requested the new simple brand/year + model containment strategy, run it and return early.
-    if strategy == "contains":
-        # Prepare normalization helpers from existing functions
-        # Reuse norm_text (version-level) and norm_brand defined above.
-        def _safe_norm_version(s: str) -> str:
-            return norm_text(s)
-        def _safe_norm_model(s: str) -> str:
-            # Model normalization should be lighter; reuse generic_norm_text if model tokens are simpler
-            return generic_norm_text(s)
+    # ---- Normalize ----
+    def _safe_norm_version(s: str) -> str:
+        return norm_text(s)
+    def _safe_norm_model(s: str) -> str:
+        return generic_norm_text(s)
 
-        # Normalize Localiza rows
-        loc["_brand_norm"] = loc["brand"].map(norm_brand)
-        loc["_model_norm_lcz"] = loc["model"].map(_safe_norm_model)
-        loc["_version_norm"] = loc["version"].map(_safe_norm_version)
+    loc["_brand_norm"] = loc["brand"].map(norm_brand)
+    loc["_model_norm"] = loc["model"].map(_safe_norm_model)
+    loc["_version_norm"] = loc["version"].map(_safe_norm_version)
 
-        # Normalize FIPE
-        fipe_norm = fipe.copy()
-        fipe_norm["_brand_norm"] = fipe_norm["Marca"].map(norm_brand)
-        fipe_norm["_model_norm"] = fipe_norm["Modelo"].map(norm_text)  # full normalization for robust contains
+    fipe_norm = fipe.copy()
+    fipe_norm["_brand_norm"] = fipe_norm["Marca"].map(norm_brand)
+    fipe_norm["_model_norm"] = fipe_norm["Modelo"].map(norm_text)
 
-        results: List[Dict[str, Any]] = []
-        for idx, row in loc.iterrows():
-            brand_n = row["_brand_norm"]
-            year = row.get("model_year")
-            model_n = row["_model_norm_lcz"] or ""
-            version_n = row["_version_norm"] or ""
-
-            if pd.isna(year) or not model_n:
-                results.append({"fipe_code": None, "fipe_model": None, "match_score": 0.0})
-                continue
-
-            # Step 1: brand + same model year filter
-            cand = fipe_norm[(fipe_norm["_brand_norm"] == brand_n) & (fipe_norm["AnoModelo"] == int(year))]
-            if cand.empty:
-                results.append({"fipe_code": None, "fipe_model": None, "match_score": 0.0})
-                continue
-
-            # Step 2: ensure each remaining FIPE model contains the Localiza model (substring containment over normalized text)
-            # Use simple containment OR all model tokens subset of candidate tokens.
-            model_tok_set = set(model_n.split())
-            def _model_contains(fipe_model_norm: str) -> bool:
-                f_toks = set(fipe_model_norm.split())
-                return model_n in fipe_model_norm or model_tok_set.issubset(f_toks)
-            cand = cand[cand["_model_norm"].apply(_model_contains)]
-            if cand.empty:
-                results.append({"fipe_code": None, "fipe_model": None, "match_score": 0.0})
-                continue
-
-            # Step 3: score each remaining FIPE model comparing to Localiza normalized version
-            v_toks = set(version_n.split()) if version_n else set()
-            best_score = -1.0
-            best_code = None
-            best_model = None
-            for _, fr in cand.iterrows():
-                f_model_norm = fr["_model_norm"]
-                f_toks = set(f_model_norm.split())
-                inter = len(v_toks & f_toks)
-                coverage = inter / len(v_toks) if v_toks else 0.0
-                precision = inter / len(f_toks) if f_toks else 0.0
-                f1 = (2 * precision * coverage / (precision + coverage)) if (precision + coverage) else 0.0
-                jacc = (len(v_toks & f_toks) / len(v_toks | f_toks)) if (v_toks or f_toks) else 0.0
-                seq = SequenceMatcher(None, version_n, f_model_norm).ratio() if version_n else 0.0
-                score = 0.5 * seq + 0.3 * f1 + 0.2 * jacc
-                if score > best_score:
-                    best_score = score
-                    best_code = fr["CodigoFipe"]
-                    best_model = fr["Modelo"]
-
-            if best_code:
-                results.append({
-                    "fipe_code": best_code,
-                    "fipe_model": best_model,
-                    "match_score": round(float(best_score), 4),
-                    "match_accepted": 1 if best_score >= threshold else 0
-                })
-            else:
-                results.append({
-                    "fipe_code": None,
-                    "fipe_model": None,
-                    "match_score": 0.0,
-                    "match_accepted": 0
-                })
-        # Attach results to DataFrame
-        res_df = pd.DataFrame(results)
-        loc = pd.concat([loc.reset_index(drop=True), res_df], axis=1)
-        # Build / update version match cache (localiza_version_match.csv) for auditing consistency
-        try:
-            today_iso = date.today().isoformat()
-            cache_df = load_version_match_table()
-            vm_rows = []
-            for _, r in loc.iterrows():
-                vm_rows.append({
-                    "brand_norm": r.get("_brand_norm"),
-                    "model_norm": r.get("_model_norm_lcz"),
-                    "version_norm": r.get("_version_norm"),
-                    "model_year": r.get("model_year"),
-                    "fipe_brand": None,  # brand from FIPE (we can look it up if matched)
-                    "fipe_model": r.get("fipe_model"),
-                    "fipe_code": r.get("fipe_code"),
-                    "score": r.get("match_score"),
-                    "match_source": "contains",
-                    "first_seen": today_iso,
-                    "last_seen": today_iso,
-                })
-            add_df = pd.DataFrame(vm_rows)
-            # If we want the FIPE brand for matched rows, map via fipe table
-            if not add_df.empty:
-                matched_codes = add_df[add_df["fipe_code"].notna()]["fipe_code"].unique().tolist()
-                if matched_codes:
-                    fipe_brand_map = fipe.set_index("CodigoFipe")["Marca"].to_dict()
-                    add_df.loc[add_df["fipe_code"].notna(), "fipe_brand"] = add_df.loc[add_df["fipe_code"].notna(), "fipe_code"].map(fipe_brand_map)
-            # Merge with existing cache: keep oldest first_seen, update last_seen
-            if not cache_df.empty:
-                key_cols = ["brand_norm","model_norm","version_norm","model_year"]
-                cache_df = cache_df.copy()
-                add_df = add_df.copy()
-                # Align dtypes
-                add_df["model_year"] = pd.to_numeric(add_df["model_year"], errors="coerce").astype("Int64")
-                cache_df["model_year"] = pd.to_numeric(cache_df["model_year"], errors="coerce").astype("Int64")
-                merged = pd.merge(add_df, cache_df, on=key_cols, how="left", suffixes=("","_old"))
-                # If existed, keep original first_seen and update last_seen to today
-                existed_mask = merged["fipe_code_old"].notna() | merged["score_old"].notna()
-                merged.loc[existed_mask, "first_seen"] = merged.loc[existed_mask, "first_seen_old"].fillna(today_iso)
-                merged.loc[existed_mask, "last_seen"] = today_iso
-                # Prefer new match data where score improved or previously empty
-                def pick(col):
-                    return np.where(merged[f"{col}_old"].notna(), merged[col].fillna(merged[f"{col}_old"]), merged[col])
-                for c in ["fipe_brand","fipe_model","fipe_code","score","match_source"]:
-                    if f"{c}_old" in merged.columns:
-                        merged[c] = pick(c)
-                keep_cols = version_match_table_columns()
-                add_df_final = merged[keep_cols]
-                # Combine with cache (drop keys from cache that are being replaced)
-                existing_keys = set(tuple(x) for x in add_df_final[key_cols].itertuples(index=False, name=None))
-                cache_filtered = cache_df[~cache_df[key_cols].apply(tuple, axis=1).isin(existing_keys)]
-                cache_df = pd.concat([cache_filtered, add_df_final], ignore_index=True, sort=False)
-            else:
-                cache_df = add_df[version_match_table_columns()]
-            save_version_match_table(cache_df)
-        except Exception as e:
-            log.warning("could not update version match cache (contains strategy): %s", e)
-        # Write output
-        out_csv = Path(out_csv)
-        out_csv.parent.mkdir(parents=True, exist_ok=True)
-        loc.to_csv(out_csv, index=False, sep=";")
-        log.info("wrote %s rows -> %s (contains strategy)", len(loc), out_csv)
-        return
-
-    # ---- Normalization helpers (legacy strategy below) ----
-    def _strip_accents(s: str) -> str:
-        return "".join(c for c in unicodedata.normalize("NFD", str(s)) if unicodedata.category(c) != "Mn")
-
-    def _remove_duplicate_words(text: str) -> str:
-        seen=set(); out=[]
-        for w in str(text).split():
-            k = w.casefold()
-            if k not in seen:
-                seen.add(k); out.append(w)
-        return " ".join(out)
-
-    def _norm_text(s: str) -> str:
-        if s is None or (isinstance(s,float) and pd.isna(s)): return ""
-        s0 = _strip_accents(str(s).lower())
-        s0 = s0.replace(",", ".")
-        s0 = s0.replace("c/ar", "")
-        s0 = re.sub(r'/', ' ', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:T\.)(?!\w)', 'turbo', s0)
-        s0 = re.sub(r"[^a-z0-9\.\s]", " ", s0)
-        s0 = re.sub(r"\bautomatic[oa]\b|\bat\b|\baut(?:\.|o)?\b", "aut", s0)
-        s0 = re.sub(r"\bman(?:ual)?\b|\bmecanico\b", "mec", s0)
-        s0 = re.sub(r"\bt\s?si\b", "tsi", s0)
-        s0 = re.sub(r"\b(\d{2,4}(?:i|d))\s*a\b", r"\1 aut", s0)
-        s0 = re.sub(r'(?<=[A-Za-z])\.(?=[A-Za-z])', '. ', s0)
-        s0 = re.sub(r'(?<=[A-Za-z])\.', '', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:perf|perfor|performa|performance|p)(?!\w)', 'performance', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:long)(?!\w)', 'longitude', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:sportb|SPB|SB)(?!\w)', 'sportback', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:prest)(?!\w)', 'prestige', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:ultim)(?!\w)', 'ultimate', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:insc)(?!\w)', 'inscription', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:xdrive30e)(?!\w)', 'xdrive 30e', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:cp)(?!\w)', 'cs plus', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:cs)(?!\w)', 'cabine simples', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:cd)(?!\w)', 'cabine dupla', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:7l)(?!\w)', '', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:hurric|hurr)(?!\w)', 'hurricane', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:overl)(?!\w)', 'overland', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:dies|die)(?!\w)', 'diesel', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:tb)(?!\w)', 'turbo', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:sed)(?!\w)', 'sedan', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:step)(?!\w)', 'stepway', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:hig)(?!\w)', 'highline', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:limit)(?!\w)', 'limited', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:plat)(?!\w)', 'platinum', s0)
-        s0 = re.sub(r'(?i)\b\d+[pv]\b', '', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:exclu)(?!\w)', 'exclusive', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:t270)(?!\w)', 'turbo 270', s0)
-        s0 = re.sub(r'(?i)(?<!\w)(?:comfort|comfor)(?!\w)', 'comfortline', s0)
-        s0 = re.sub(r'(?i)\bONIX\s+HATCH\s+PREM\.\b', 'onix hatch premier', s0)
-        s0 = re.sub(r'(?i)\bONIX\s+SEDAN\s+PREM\.\b', 'onix sedan premier', s0)
-        s0 = re.sub(r'(?i)\bONIX\s+SEDAN\s+Plus+\s+PREM\.\b', 'onix sedan plus premier', s0)
-        s0 = re.sub(r'(?i)\bONIX\s+SD\. +\s+P\. +\s+PR\.\b', 'onix sedan plus premier', s0)
-        s0 = re.sub(r'(?i)\bFastback\s+Limited+\s+Ed\.\b', 'fastback limited edition', s0)
-        s0 = re.sub(r'(?i)\bAIRCROSS\s+F\.\b', 'aircross feel', s0)
-        s0 = re.sub(r'\bnew\b(?![\s-]*(?:range|beetle)\b)', '', s0, flags=re.IGNORECASE)
-        s0 = re.sub(r'(?i)(?<!\w)(?:mec)(?!\w)', '', s0)
-        s0 = re.sub(r"\s+", " ", s0).strip()
-        s0 = _remove_duplicate_words(s0)
-        return s0
-
-    def _first_token(s: str) -> str:
-        s0 = _norm_text(s)
-        return s0.split(" ")[0] if s0 else ""
-
-    def _remove_token_whole_word(s: str, tok: str) -> str:
-        if not tok: return s
-        return re.sub(rf"\b{re.escape(tok)}\b", " ", s).replace("  ", " ").strip()
-
-    def _tokset(s: str) -> set:
-        return set(_norm_text(s).split())
-
-    def _extract_engine(s: str):
-        m = re.search(r"\b(\d\.\d)\b", s)
-        return m.group(1) if m else None
-
-    # ---- Normalize Localiza columns ----
-    loc["_brand_norm"]   = loc["brand"].map(norm_brand)
-    loc["_model_norm"]   = loc["model"].map(_norm_text)
-    # _model_token deprecated as key – keep for potential diagnostics but not used for matching
-    loc["_version_norm"] = loc["version"].map(_norm_text)
-
-    # ---- Normalize FIPE ----
-    fipe["_brand_norm"] = fipe["Marca"].map(norm_brand)
-    fipe["_model_norm"] = fipe["Modelo"].map(_norm_text)
-
-    # ---- Build brand/year indices ----
-    from collections import defaultdict
-    index_brand_year = defaultdict(list)      # (brand_norm, year) -> row indices
-    index_brand = defaultdict(list)           # brand_norm -> row indices (fallback)
-    index_brand_year_32000 = defaultdict(list)  # (brand_norm, 32000) sentinel rows
-    for idx, row in fipe.iterrows():
-        brand_key = row["_brand_norm"]
-        year_val = row["AnoModelo"]
-        if pd.notna(year_val):
-            index_brand_year[(brand_key, int(year_val))].append(idx)
-            if int(year_val) == 32000:
-                index_brand_year_32000[(brand_key, 32000)].append(idx)
-        index_brand[brand_key].append(idx)
-
-    # ---- Load / merge existing version match cache ----
+    # ---- Merge existing cache ----
     cache_df = load_version_match_table()
-    today_iso = date.today().isoformat()
     key_cols = ["_brand_norm","_model_norm","_version_norm","model_year"]
-    cache_key_cols = ["brand_norm","model_norm","version_norm","model_year"]
-    loc = loc.merge(
-        cache_df.rename(columns={"brand_norm":"_brand_norm","model_norm":"_model_norm","version_norm":"_version_norm"})[
-            ["_brand_norm","_model_norm","_version_norm","model_year","fipe_brand","fipe_model","fipe_code","score","match_source"]
-        ],
-        on=["_brand_norm","_model_norm","_version_norm","model_year"],
-        how="left",
-        suffixes=("","_cache")
-    )
-
-    # Identify new keys not in cache
-    loc["_is_new_key"] = loc["fipe_code"].isna()
-    new_keys = (loc[loc["_is_new_key"]][key_cols]
-                .drop_duplicates()
-                .rename(columns={"_brand_norm":"brand_norm","_model_norm":"model_norm","_version_norm":"version_norm"}))
-
-    if not new_keys.empty:
-        log.info("Detected %d new Localiza version(s) to match.", len(new_keys))
-        # Perform matching only for new keys
-        new_rows = []
-        # Cache for version tokenization to avoid recomputing sets repeatedly
-        _version_token_cache: dict[str, set] = {}
-        _version_engine_cache: dict[str, Optional[str]] = {}
-        for _, nk in new_keys.iterrows():
-            brand = nk["brand_norm"]; v_norm = nk["version_norm"]; myear = nk.get("model_year", pd.NA)
-            if not v_norm:
-                new_rows.append({**nk, "model_year": myear, "fipe_model": None, "fipe_code": None, "score": 0.0, "match_source":"empty_version", "first_seen": today_iso, "last_seen": today_iso}); continue
-            # ---- Primary candidate pool: same brand & same year ----
-            cand_idx: List[int] = []
-            match_source_tag = "brand_year"
-            if pd.notna(myear):
-                cand_idx = index_brand_year.get((brand, int(myear)), [])
-                if not cand_idx and (brand, 32000) in index_brand_year_32000:
-                    cand_idx = index_brand_year_32000[(brand, 32000)]
-                    match_source_tag = "brand_year_32000"
-            if not cand_idx:
-                cand_idx = index_brand.get(brand, [])
-                match_source_tag = "brand_only"
-            cand = fipe.loc[cand_idx]
-            # Precompute candidate token sets once (store on DataFrame if missing)
-            if "_cand_toks" not in cand.columns:
-                # Assign on underlying fipe slice via loc to persist for future keys
-                fipe.loc[cand.index, "_cand_toks"] = cand["_model_norm"].str.split().map(set)
-            # Version token/engine caches
-            if v_norm not in _version_token_cache:
-                _version_token_cache[v_norm] = _tokset(v_norm)
-                _version_engine_cache[v_norm] = _extract_engine(v_norm)
-            v_toks = _version_token_cache[v_norm]
-            v_engine = _version_engine_cache[v_norm]
-            if not len(cand_idx):
-                logging.getLogger("match.simple").debug(
-                    "No FIPE candidates after brand/year (brand=%s year=%s) -> unmatched", brand, myear)
-                new_rows.append({**nk, "model_year": myear, "fipe_model": None, "fipe_code": None, "score": 0.0, "match_source": match_source_tag, "first_seen": today_iso, "last_seen": today_iso}); continue
-            # Stage 1: fast token-based preliminary score (no SequenceMatcher yet)
-            prelim_scores = []  # (score_prelim, idx)
-            v_toks_len = len(v_toks) if v_toks else 0
-            for c_idx in cand_idx:
-                c_toks = fipe.at[c_idx, "_cand_toks"] if pd.notna(fipe.at[c_idx, "_cand_toks"]) else set()
-                if v_toks_len:
-                    inter = len(v_toks & c_toks)
-                    coverage = inter / v_toks_len
-                    precision = inter / len(c_toks) if c_toks else 0.0
-                    f1 = (2*precision*coverage/(precision+coverage)) if (precision+coverage) else 0.0
-                else:
-                    coverage = precision = f1 = 0.0
-                jacc = (len(v_toks & c_toks)/len(v_toks | c_toks)) if (v_toks or c_toks) else 0.0
-                prelim = 0.55*f1 + 0.20*jacc  # omit SequenceMatcher for now
-                prelim_scores.append((prelim, c_idx, f1, jacc))
-            # Keep top K for expensive SequenceMatcher refinement
-            K = 15 if len(prelim_scores) > 15 else len(prelim_scores)
-            prelim_scores.sort(reverse=True, key=lambda x: x[0])
-            top_candidates = prelim_scores[:K]
-            s_best = -1.0; m_best = c_best = None
-            for prelim, c_idx, f1, jacc in top_candidates:
-                c_model_norm = fipe.at[c_idx, "_model_norm"]
-                base = SequenceMatcher(None, v_norm, c_model_norm).ratio()
-                score = prelim + 0.25*base  # add base component
-                if v_engine:
-                    c_engine = _extract_engine(c_model_norm)
-                    if c_engine == v_engine: score += 0.05
-                    elif c_engine is not None: score -= 0.10
-                if score > s_best:
-                    s_best = score; m_best = fipe.at[c_idx, "Modelo"]; c_best = fipe.at[c_idx, "CodigoFipe"]
-            # determine fipe_brand for selected code
-            fipe_brand = None
-            if c_best is not None:
-                # Slice candidate pool to find matching code
-                pool = fipe.loc[cand_idx]
-                hit = pool[pool["CodigoFipe"] == c_best]
-                if not hit.empty:
-                    fipe_brand = hit.iloc[0]["Marca"]
-            new_rows.append({**nk,
-                             "model_year": myear,
-                             "fipe_brand": fipe_brand,
-                             "fipe_model": m_best,
-                             "fipe_code": c_best,
-                             "score": round(float(max(s_best,0.0)),4),
-                             "match_source": match_source_tag,
-                             "first_seen": today_iso,
-                             "last_seen": today_iso})
-
-        # Append new rows to cache and save
-        if new_rows:
-            add_df = pd.DataFrame(new_rows)
-            cache_df = load_version_match_table()
-            # Ensure column order & presence
-            add_df = add_df.reindex(columns=version_match_table_columns())
-            if cache_df.empty:
-                cache_df = add_df.copy()
-            else:
-                cache_df = pd.concat([cache_df, add_df], ignore_index=True, sort=False)
-            # Update last_seen for existing keys present today
-            seen_keys = set(tuple(x) for x in add_df[["brand_norm","model_norm","version_norm","model_year"]].itertuples(index=False, name=None))
-            mask = cache_df[["brand_norm","model_norm","version_norm","model_year"]].apply(tuple, axis=1).isin(seen_keys)
-            cache_df.loc[mask, "last_seen"] = today_iso
-            save_version_match_table(cache_df)
-            # Notify user about new versions (list a few examples)
-            sample = add_df.head(10)[["brand_norm","model_norm","version_norm","model_year","fipe_brand","fipe_code","score"]]
-            log.info("New version mappings added (%d). Sample:\n%s", len(add_df), sample.to_string(index=False))
-    else:
-        # Update last_seen for all present keys
-        if not cache_df.empty:
-            present_keys = set(tuple(x) for x in loc[key_cols].drop_duplicates().rename(columns={"_brand_norm":"brand_norm","_model_norm":"model_norm","_version_norm":"version_norm"}).itertuples(index=False, name=None))
-            mask = cache_df[["brand_norm","model_norm","version_norm","model_year"]].apply(tuple, axis=1).isin(present_keys)
-            if mask.any():
-                cache_df.loc[mask, "last_seen"] = today_iso
-                save_version_match_table(cache_df)
-
-    # After ensuring cache filled for current versions, re-merge to populate columns
-    cache_df = load_version_match_table()
-    # Drop any stale columns before fresh merge (keep fipe_brand if present)
-    loc = loc.drop(columns=[c for c in ["fipe_model","fipe_code","score","match_source","fipe_brand"] if c in loc.columns])
     loc = loc.merge(
         cache_df.rename(columns={"brand_norm":"_brand_norm","model_norm":"_model_norm","version_norm":"_version_norm"}),
         on=["_brand_norm","_model_norm","_version_norm","model_year"],
-        how="left"
+        how="left",
+    )
+
+    today_iso = date.today().isoformat()
+
+    # ---- Match new keys ----
+    new_keys = (loc[loc["fipe_code"].isna()][key_cols]
+                .drop_duplicates()
+                .rename(columns={"_brand_norm":"brand_norm",
+                                 "_model_norm":"model_norm",
+                                 "_version_norm":"version_norm"}))
+
+    vm_rows: List[Dict[str, Any]] = []
+    for _, nk in new_keys.iterrows():
+        brand_n = nk["brand_norm"]
+        model_n = nk["model_norm"]
+        version_n = nk["version_norm"]
+        year = nk["model_year"]
+        if pd.isna(year) or not model_n:
+            vm_rows.append({**nk, "fipe_brand": None, "fipe_model": None, "fipe_code": None,
+                            "score": 0.0, "match_source": "contains",
+                            "first_seen": today_iso, "last_seen": today_iso})
+            continue
+        cand = fipe_norm[(fipe_norm["_brand_norm"] == brand_n) & (fipe_norm["AnoModelo"] == int(year))]
+        if cand.empty:
+            vm_rows.append({**nk, "fipe_brand": None, "fipe_model": None, "fipe_code": None,
+                            "score": 0.0, "match_source": "contains",
+                            "first_seen": today_iso, "last_seen": today_iso})
+            continue
+        model_tok_set = set(model_n.split())
+        cand = cand[cand["_model_norm"].apply(lambda m: model_n in m or model_tok_set.issubset(set(m.split())))]
+        if cand.empty:
+            vm_rows.append({**nk, "fipe_brand": None, "fipe_model": None, "fipe_code": None,
+                            "score": 0.0, "match_source": "contains",
+                            "first_seen": today_iso, "last_seen": today_iso})
+            continue
+        v_toks = set(version_n.split()) if version_n else set()
+        best_score = -1.0; best_code = None; best_model = None; best_brand = None
+        for _, fr in cand.iterrows():
+            f_model_norm = fr["_model_norm"]
+            f_toks = set(f_model_norm.split())
+            inter = len(v_toks & f_toks)
+            coverage = inter / len(v_toks) if v_toks else 0.0
+            precision = inter / len(f_toks) if f_toks else 0.0
+            f1 = (2 * precision * coverage / (precision + coverage)) if (precision + coverage) else 0.0
+            jacc = (len(v_toks & f_toks) / len(v_toks | f_toks)) if (v_toks or f_toks) else 0.0
+            seq = SequenceMatcher(None, version_n, f_model_norm).ratio() if version_n else 0.0
+            score = 0.5 * seq + 0.3 * f1 + 0.2 * jacc
+            if score > best_score:
+                best_score = score; best_code = fr["CodigoFipe"]; best_model = fr["Modelo"]; best_brand = fr["Marca"]
+        vm_rows.append({**nk, "fipe_brand": best_brand, "fipe_model": best_model, "fipe_code": best_code,
+                        "score": round(float(best_score), 4) if best_code else 0.0,
+                        "match_source": "contains", "first_seen": today_iso, "last_seen": today_iso})
+
+    if vm_rows:
+        add_df = pd.DataFrame(vm_rows).reindex(columns=version_match_table_columns())
+        if cache_df.empty:
+            cache_df = add_df.copy()
+        else:
+            cache_df = pd.concat([cache_df, add_df], ignore_index=True, sort=False)
+
+    if not cache_df.empty:
+        present_keys = set(tuple(x) for x in loc[key_cols].drop_duplicates().rename(
+            columns={"_brand_norm":"brand_norm","_model_norm":"model_norm","_version_norm":"version_norm"}
+        ).itertuples(index=False, name=None))
+        mask = cache_df[["brand_norm","model_norm","version_norm","model_year"]].apply(tuple, axis=1).isin(present_keys)
+        cache_df.loc[mask, "last_seen"] = today_iso
+    save_version_match_table(cache_df)
+
+    loc = loc.drop(columns=[c for c in ["fipe_brand","fipe_model","fipe_code","score","match_source"] if c in loc.columns])
+    loc = loc.merge(
+        cache_df.rename(columns={"brand_norm":"_brand_norm","model_norm":"_model_norm","version_norm":"_version_norm"}),
+        on=["_brand_norm","_model_norm","_version_norm","model_year"],
+        how="left",
     )
     loc.rename(columns={"score":"match_score"}, inplace=True)
+    loc["match_score"] = pd.to_numeric(loc["match_score"], errors="coerce").fillna(0).astype(float)
+    loc["match_accepted"] = (loc["match_score"] >= threshold).astype(int)
 
     out_csv = Path(out_csv)
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     loc.to_csv(out_csv, index=False, sep=";")
-    log.info("wrote %s rows -> %s (simple matcher)", len(loc), out_csv)
+    log.info("wrote %s rows -> %s (contains strategy)", len(loc), out_csv)
 
 # -----------------------------------------------------------------------------
 # Collect tuples (fipe_code, model_year)
@@ -2212,7 +1918,6 @@ def main():
     mtc.add_argument("--fipe-models-csv", default=None, help="Path to fipe_models.csv (default: auto-discover)")
     mtc.add_argument("--out", default=str(DATA_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"))
     mtc.add_argument("--threshold", type=float, default=0.0)
-    mtc.add_argument("--strategy", choices=["contains","legacy"], default="contains", help="Matching strategy: contains (brand/year + model containment) or legacy (previous fuzzy matcher)")
 
     # fipe-list
     fls = sub.add_parser("fipe-list", help="List FIPE reference tables (months)")
@@ -2295,7 +2000,7 @@ def main():
         mv_fallback = Path(args.movida_fallback_csv) if args.movida_fallback_csv else latest("movida_seminovos_*.csv", RAW_MOVIDA)
         fm_path = Path(args.fipe_models_csv) if args.fipe_models_csv else find_fipe_models_csv()
         out_path = Path(args.out) if args.out else MATCH_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"
-        match_localiza(lcz_path, fipe_path, out_path, args.threshold, movida_csv_fallback=mv_fallback, fipe_models_csv=fm_path, strategy=args.strategy)
+        match_localiza(lcz_path, fipe_path, out_path, args.threshold, movida_csv_fallback=mv_fallback, fipe_models_csv=fm_path)
     elif args.cmd == "fipe-list":
         asyncio.run(fipe_list(args))
     elif args.cmd == "fipe-dump":

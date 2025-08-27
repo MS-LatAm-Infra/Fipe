@@ -109,12 +109,11 @@ python fleet.py clean --folder raw --keep 3
 python fleet.py run-all --threshold 0.62 --since auto
 ```
 
-### Matching Strategies
-`match-localiza` supports:
-- `--strategy contains` (default): fast brand + year + model containment + token/sequence scoring.
-- `--strategy legacy`: previous multi‑stage fuzzy workflow with persistent cache updates.
-
-Both persist version‑level matches in `data/match/localiza_version_match.csv` for auditing (first_seen / last_seen / score / source).
+### Matching
+`match-localiza` applies a cached brand/year + model containment strategy. Versions
+seen in previous runs are loaded from `data/localiza_version_match.csv`, and only
+new combinations are scored and appended to the cache (tracking `first_seen` and
+`last_seen`).
 
 `match_score` >= `--threshold` sets `match_accepted=1`.
 
@@ -154,7 +153,6 @@ Final normalized datasets joining vendor offers with FIPE prices.
 4. Score candidates vs full Localiza version using weighted combination of SequenceMatcher ratio + token F1 + Jaccard.
 5. Keep best scoring candidate; accept if score >= threshold.
 
-Legacy strategy performs a more exhaustive multi‑stage search with caches and engine token heuristics.
 
 ---
 ## Rate Limiting & Caching

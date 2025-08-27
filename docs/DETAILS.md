@@ -17,18 +17,14 @@ This document complements the top-level `README.md`, focusing on internal archit
 - `generic_norm_text`: lighter form used for brand/model tokens (avoid over-normalizing core model identifiers).
 - `norm_brand`: brand alias mapping (e.g., `gm` -> `chevrolet`, `vw volkswagen` -> `volkswagen`). Extend here when brand variants appear.
 
-## 3. Matching Strategies
-### Contains (default)
-Simplified, fast approach:
+## 3. Matching Strategy
+Simplified, fast approach with caching:
 1. Normalize brand & model.
 2. Filter FIPE rows by identical brand + year.
 3. Keep FIPE models that "contain" the Localiza model (substring or token superset test).
 4. Score candidate using weighted blend: 0.5*SequenceMatcher + 0.3*token F1 + 0.2*Jaccard.
 5. Accept if score >= threshold.
 6. Persist to `localiza_version_match.csv` with provenance (`match_source=contains`).
-
-### Legacy
-Legacy multi-stage search (retained for parity / regression diffing). More complex token heuristics plus fallback brand-only matching and engine bias scoring.
 
 ## 4. Version Match Cache (`data/match/localiza_version_match.csv`)
 Columns:
