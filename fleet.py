@@ -74,6 +74,7 @@ except Exception:
 DATA_DIR     = Path("data")
 FIPE_DIR     = DATA_DIR / "fipe"
 TUPLES_DIR   = DATA_DIR / "tuples"
+TABLES_DIR   = DATA_DIR / "tables"
 RAW_DIR      = Path("raw")
 RAW_LOCALIZA = RAW_DIR / "localiza"
 RAW_MOVIDA   = RAW_DIR / "movida"
@@ -85,7 +86,7 @@ MATCH_TABLE = DATA_DIR / "localiza_match_table.csv"
 VERSION_MATCH_TABLE = DATA_DIR / "localiza_version_match.csv"  # simplified cache (brand_norm, model_norm, version_norm, model_year) → fipe_code (model_token deprecated)
 
 
-for d in (DATA_DIR, FIPE_DIR, TUPLES_DIR, RAW_LOCALIZA, RAW_MOVIDA):
+for d in (DATA_DIR, FIPE_DIR, TUPLES_DIR, TABLES_DIR, RAW_LOCALIZA, RAW_MOVIDA):
     d.mkdir(parents=True, exist_ok=True)
 
 def ensure_dir(p: Path):
@@ -445,45 +446,43 @@ def parse_movida(in_json: Path, out_dir: Path):
     except json.JSONDecodeError:
         raw = [json.loads(line) for line in txt.splitlines() if line.strip()]
 
-    rows = []
-    for o in raw:
-        if not (o.get("modelo") and o.get("versao") and o.get("ano_modelo")):
-            continue
-        rows.append({
-            "offer_id": o.get("id"),
-            "fipe_code": o.get("codigo_fipe"),
-            "type": o.get("categoria"),
-            "brand": o.get("marca"),
-            "model": o.get("modelo"),
-            "version_raw": o.get("versao"),
-            "manufacture_year": o.get("ano_fabricacao"),
-            "model_year": o.get("ano_modelo"),
-            "price": o.get("preco"),
-            "city": o.get("cidade"),
-            "state": o.get("uf") or o.get("estado"),
-            "store_code": o.get("codigo_filial") or o.get("filial_codigo"),
-            "store_name": o.get("filial") or o.get("loja"),
-            "source": "movida",
-        })
-
-    df = pd.DataFrame.from_records(rows)
+    df = pd.json_normalize(raw, sep="_")
     if df.empty:
         log_parse.warning("[movida] no rows to write")
         return
+
+    # Keep only rows with essential fields
+    if {"modelo","versao","ano_modelo"}.issubset(df.columns):
+        df = df[df["modelo"].notna() & df["versao"].notna() & df["ano_modelo"].notna()].copy()
+
+    # Convert nested structures to JSON strings to preserve data
+    for c in df.columns:
+        df[c] = df[c].apply(lambda x: json.dumps(x, ensure_ascii=False) if isinstance(x, (list, dict)) else x)
+
+    df["offer_id"] = df.get("id")
+    df["fipe_code"] = df.get("codigo_fipe")
+    df["type"] = df.get("categoria")
+    df["brand"] = df.get("marca")
+    df["model"] = df.get("modelo")
+    df["version_raw"] = df.get("versao")
+    df["manufacture_year"] = df.get("ano_fabricacao")
+    df["model_year"] = df.get("ano_modelo")
+    df["price"] = df.get("preco")
 
     df["price"] = df["price"].apply(clean_price_to_int).astype("Int64")
     df["manufacture_year"] = pd.to_numeric(df["manufacture_year"], errors="coerce").astype("Int64")
     df["model_year"] = pd.to_numeric(df["model_year"], errors="coerce").astype("Int64")
 
     for col in ["type","brand","model","version_raw"]:
-        df[col] = df[col].astype(str).str.strip().str.lower()
+        if col in df.columns:
+            df[col] = df[col].astype(str).str.strip().str.lower()
 
     df["version"] = (
-        df["model"].astype(str).str.strip() + " " + df["version_raw"].astype(str).str.strip()
+        df.get("model", "").astype(str).str.strip() + " " + df.get("version_raw", "").astype(str).str.strip()
     ).str.replace(r"\s+", " ", regex=True).str.strip()
 
-    if "offer_id" in df.columns:
-        df = df.drop_duplicates(subset=["offer_id"])
+    if "id" in df.columns:
+        df = df.drop_duplicates(subset=["id"])
 
     df.insert(0, "snapshot_date", snap)
 
@@ -492,69 +491,59 @@ def parse_movida(in_json: Path, out_dir: Path):
     df.to_csv(out, index=False, sep=";")
     log_parse.info("[movida] wrote %s rows -> %s", len(df), out)
 
+
+
 def parse_localiza(in_json: Path, out_dir: Path):
     meta = in_json.with_suffix(".meta.json")
     snap = snapshot_date_from_meta(meta)  # use meta date; do NOT overwrite with today
     raw = json.loads(in_json.read_text(encoding="utf-8"))
-    df = pd.DataFrame([{
-        "type": o.get("categoriaDescricao"),
-        "brand": o.get("marcaDescricao"),
-        "model": o.get("modeloFamiliaDescricao"),
-        "version_raw": o.get("modeloDescricao"),
-        "manufacture_year": o.get("anoFabricacao"),
-        "model_year": o.get("anoModelo"),
-        "price": o.get("preco"),
-        "fuel": o.get("tipoCombustivelDescricao"),
-        "transmission": o.get("tipoTransmissaoDescricao"),
-    } for o in raw if o.get("modeloFamiliaDescricao") and o.get("modeloDescricao") and o.get("anoModelo")])
-
+    df = pd.json_normalize(raw, sep="_")
     if df.empty:
         log_parse.warning("[localiza] no rows to write")
         return
-    
+    if {"modeloFamiliaDescricao","modeloDescricao","anoModelo"}.issubset(df.columns):
+        df = df[df["modeloFamiliaDescricao"].notna() & df["modeloDescricao"].notna() & df["anoModelo"].notna()].copy()
+    for c in df.columns:
+        df[c] = df[c].apply(lambda x: json.dumps(x, ensure_ascii=False) if isinstance(x,(list,dict)) else x)
+    df["type"] = df.get("categoriaDescricao")
+    df["brand"] = df.get("marcaDescricao")
+    df["model"] = df.get("modeloFamiliaDescricao")
+    df["version_raw"] = df.get("modeloDescricao")
+    df["manufacture_year"] = df.get("anoFabricacao")
+    df["model_year"] = df.get("anoModelo")
+    df["price"] = df.get("preco")
+    df["fuel"] = df.get("tipoCombustivelDescricao")
+    df["transmission"] = df.get("tipoTransmissaoDescricao")
     df["version"] = df["version_raw"].copy()
-    
     df["type"] = np.where((df["version"] == "ONIX LT MT 1.0 4P"), "HATCH", df["type"])
     df["type"] = np.where((df["version"] == "ONIX PLUS TURBO LT AT 1.0 4P"), "SEDAN", df["type"])
     df["type"] = np.where((df["version"] == "HB20S PLATINUM TGDI AT 1.0 4P"), "SEDAN", df["type"])
     df["type"] = df["type"].replace(to_replace=["FURGAO", "PICAPE", "PICAPE CABINE DUPLA", "CABINE SIMPLES", "SPORTBACK", "PARTICULAR", "COUPE", "CARGA"],
-                                            value=["UTILITARIO", "PICK-UP", "PICK-UP", "PICK-UP", "PREMIUM", "OTHER", "PREMIUM", "VAN"])
+                                    value=["UTILITARIO", "PICK-UP", "PICK-UP", "PICK-UP", "PREMIUM", "OTHER", "PREMIUM", "VAN"])
     df["transmission"] = df["transmission"].replace(to_replace=["MANUAL", "AUTOMÁTICO", "AUTOMATICO", "AUTOMáTICO", "TIPTRONIC", "ELECTRICO"],
-                                            value=["mec.", "aut.", "aut.", "aut.", "tiptr.", "(eletrico)"])
+                                    value=["mec.", "aut.", "aut.", "aut.", "tiptr.", "(eletrico)"])
     df["fuel"] = df["fuel"].replace(to_replace=["GASOLINA/ETANOL", "ÁLC/GASOL", "FLEX/GNV", "ETANOL/GNV", "ELÉT/GASOLINA/ETANOL", "ELÉTRICO/GASOLINA", "ELÉTRICO", "GASOLINA"],
-                                            value=["flex", "flex", "flex", "flex", "(hibrido)", "(hib.)", "(elétrico)", ""])
-    df["version"] = (df["version"].astype("string").str.replace(r"\bonix[\s-]+plus\b", "onix sedan plus", regex=True, flags=re.IGNORECASE))
+                                    value=["flex", "flex", "flex", "flex", "(hibrido)", "(hib.)", "(elétrico)", ""])
+    df["version"] = df["version"].astype("string").str.replace(r"\bonix[\s-]+plus\b", "onix sedan plus", regex=True, flags=re.IGNORECASE)
     df["version"] = df["version"].str.replace(r"\bonix\b(?![\s-]*(?:sedan|hatch))","onix hatch",regex=True,flags=re.IGNORECASE)
-    df["version"] = (df["version"].astype("string").str.replace(" mt ", " mec ", regex=False, flags=re.IGNORECASE))
-
+    df["version"] = df["version"].astype("string").str.replace(" mt ", " mec ", regex=False, flags=re.IGNORECASE)
     df["price"] = df["price"].apply(clean_price_to_int).astype("Int64")
     df["manufacture_year"] = pd.to_numeric(df["manufacture_year"], errors="coerce").astype("Int64")
     df["model_year"] = pd.to_numeric(df["model_year"], errors="coerce").astype("Int64")
-
-
-    df["version"] = (
-        df["version_raw"].str.replace(r"\bonix[\s-]+plus\b","onix sedan plus", regex=True, flags=re.IGNORECASE)
-                          .str.replace(r"\bonix\b(?![\s-]*(?:sedan|hatch))","onix hatch", regex=True, flags=re.IGNORECASE)
-                          .str.replace(" mt "," mec ", regex=False)
-    )
-
+    df["version"] = (df["version_raw"].str.replace(r"\bonix[\s-]+plus\b","onix sedan plus", regex=True, flags=re.IGNORECASE)
+                                  .str.replace(r"\bonix\b(?![\s-]*(?:sedan|hatch))","onix hatch", regex=True, flags=re.IGNORECASE)
+                                  .str.replace(" mt "," mec ", regex=False))
     for c in ["type","brand","model","version_raw","fuel","transmission"]:
-        df[c] = df[c].astype(str).str.strip().str.lower()
-
+        if c in df.columns:
+            df[c] = df[c].astype(str).str.strip().str.lower()
     df["version"] = (df["version"].astype(str).str.strip()
                      + " " + df["fuel"].astype(str).str.strip()
-                     + " " + df["transmission"].astype(str).str.strip()) \
-                     .str.replace(r"\s+"," ", regex=True).str.strip()
-
-    df = df.drop(columns=["fuel","transmission"])
-
+                     + " " + df["transmission"].astype(str).str.strip()).str.replace(r"\\s+", " ", regex=True).str.strip()
     df.insert(0, "snapshot_date", snap)
-
     ensure_dir(out_dir)
     out = out_dir / f"localiza_seminovos_{snap.replace('-', '')}.csv"
     df.to_csv(out, index=False, sep=";")
     log_parse.info("[localiza] wrote %s rows -> %s", len(df), out)
-
 # -----------------------------------------------------------------------------
 # Normalization helpers for matching
 # -----------------------------------------------------------------------------
@@ -1565,6 +1554,91 @@ def tuples_audit(localiza_match_csv: Optional[Path],
     return out_path
 
 # -----------------------------------------------------------------------------
+# Final output table builders
+# -----------------------------------------------------------------------------
+
+def normalize_type(s: Any) -> str:
+    mapping = {
+        "FURGAO": "UTILITARIO", "PICAPE": "PICK-UP", "PICAPE CABINE DUPLA": "PICK-UP",
+        "CABINE SIMPLES": "PICK-UP", "SPORTBACK": "PREMIUM", "PARTICULAR": "OTHER",
+        "COUPE": "PREMIUM", "CARGA": "VAN", "MINIVAN": "VAN"
+    }
+    if s is None or (isinstance(s, float) and pd.isna(s)):
+        return ""
+    s0 = strip_accents(str(s)).upper().strip()
+    return mapping.get(s0, s0)
+
+def build_vendor_table(vendor: str, src_csv: Path, fipe_csv: Path, out_csv: Path) -> Path:
+    log = logging.getLogger(f"table.{vendor}")
+    df = pd.read_csv(src_csv, sep=";")
+    fipe = pd.read_csv(fipe_csv)
+    fipe = fipe.rename(columns={"CodigoFipe":"fipe_code","AnoModelo":"model_year",
+                                 "Modelo":"fipe_version","ValorNum":"fipe_price"})
+    fipe = fipe[["fipe_code","model_year","fipe_version","fipe_price"]]
+    df = df.merge(fipe, on=["fipe_code","model_year"], how="left")
+    df["offer_price"] = df.get("price")
+    df["premium_vs_fipe_price"] = np.where(df["fipe_price"].gt(0),
+                                            (df["offer_price"] - df["fipe_price"]) / df["fipe_price"], pd.NA)
+    df["snapshot_date"] = pd.to_datetime(df["snapshot_date"], errors="coerce")
+    df["snapshot_year"] = df["snapshot_date"].dt.year
+    df["snapshot_month"] = df["snapshot_date"].dt.month
+    df["snapshot_date"] = df["snapshot_date"].dt.date.astype(str)
+    df["type"] = df["type"].map(normalize_type)
+    df["fipe_code_model_year"] = df["fipe_code"].astype(str) + "_" + df["model_year"].astype(str)
+    df["model_model_year"] = df["model"].astype(str) + "_" + df["model_year"].astype(str)
+    out_cols = ["snapshot_date","snapshot_year","snapshot_month","type","brand","model",
+                "fipe_version","fipe_code","manufacture_year","model_year",
+                "offer_price","fipe_price","premium_vs_fipe_price",
+                "fipe_code_model_year","model_model_year"]
+    df_out = df[out_cols]
+    ensure_dir(out_csv.parent)
+    df_out.to_csv(out_csv, index=False, sep=";")
+    log.info("wrote %s rows -> %s", len(df_out), out_csv)
+    return out_csv
+
+def build_fipe_table(fipe_csv: Path, loc_table: Path, mov_table: Path, out_csv: Path) -> Path:
+    log = logging.getLogger("table.fipe")
+    fipe = pd.read_csv(fipe_csv)
+    fipe["reference_year"], fipe["reference_month"] = zip(*fipe["MesReferencia"].map(parse_mes_label))
+    fipe = fipe.rename(columns={"Marca":"brand","Modelo":"fipe_version",
+                                "CodigoFipe":"fipe_code","AnoModelo":"model_year",
+                                "ValorNum":"fipe_price"})
+    model_map = pd.concat([
+        pd.read_csv(loc_table, sep=";")[ ["fipe_code","model_year","model"] ],
+        pd.read_csv(mov_table, sep=";")[ ["fipe_code","model_year","model"] ]
+    ], ignore_index=True)
+    model_map = model_map.dropna().drop_duplicates(subset=["fipe_code","model_year"])
+    fipe = fipe.merge(model_map, on=["fipe_code","model_year"], how="left")
+    fipe = fipe.sort_values(["fipe_code","model_year","reference_year","reference_month"])
+    fipe["m_m_price_change"] = fipe.groupby(["fipe_code","model_year"])["fipe_price"].pct_change()
+    out_cols = ["reference_year","reference_month","brand","model","fipe_version",
+                "fipe_code","model_year","fipe_price","m_m_price_change"]
+    df_out = fipe[out_cols]
+    ensure_dir(out_csv.parent)
+    df_out.to_csv(out_csv, index=False, sep=";")
+    log.info("wrote %s rows -> %s", len(df_out), out_csv)
+    return out_csv
+
+def export_tables(args):
+    loc_csv = Path(args.localiza_csv) if args.localiza_csv else latest("localiza_with_fipe_match_*.csv", MATCH_DIR)
+    mov_csv = Path(args.movida_csv) if args.movida_csv else latest("movida_seminovos_*.csv", RAW_MOVIDA)
+    fipe_csv = Path(args.fipe_csv) if args.fipe_csv else latest("fipe_dump_*.csv", FIPE_DIR)
+    if not (loc_csv and mov_csv and fipe_csv and loc_csv.exists() and mov_csv.exists() and fipe_csv.exists()):
+        raise SystemExit("build-tables: required CSVs not found")
+    out_dir = Path(args.out_dir)
+    ensure_dir(out_dir)
+    stamp = ymd_compact()
+    loc_out = out_dir / f"localiza_table_{stamp}.csv"
+    mov_out = out_dir / f"movida_table_{stamp}.csv"
+    fipe_out = out_dir / f"fipe_table_{stamp}.csv"
+    build_vendor_table("localiza", loc_csv, fipe_csv, loc_out)
+    build_vendor_table("movida", mov_csv, fipe_csv, mov_out)
+    build_fipe_table(fipe_csv, loc_out, mov_out, fipe_out)
+    log = logging.getLogger("table")
+    log.info("generated tables -> %s", out_dir)
+    return out_dir
+
+# -----------------------------------------------------------------------------
 # FIPE client & dump (supports tuples-only mode)
 # -----------------------------------------------------------------------------
 
@@ -2166,6 +2240,13 @@ def main():
     fdp.add_argument("--routeid")
     fdp.add_argument("--throttle-cap", type=float, default=8.0)
 
+    # build-tables
+    tbl = sub.add_parser("build-tables", help="Generate Localiza, Movida and FIPE output tables")
+    tbl.add_argument("--localiza-csv", default=None, help="Localiza matched CSV")
+    tbl.add_argument("--movida-csv", default=None, help="Movida CSV")
+    tbl.add_argument("--fipe-csv", default=None, help="FIPE dump CSV")
+    tbl.add_argument("--out-dir", default=str(TABLES_DIR))
+
     # clean
     cln = sub.add_parser("clean", help="Keep only last K dated CSVs per vendor")
     cln.add_argument("--folder", default="raw")
@@ -2219,6 +2300,8 @@ def main():
         asyncio.run(fipe_list(args))
     elif args.cmd == "fipe-dump":
         asyncio.run(fipe_dump(args))
+    elif args.cmd == "build-tables":
+        export_tables(args)
     elif args.cmd == "clean":
         base = Path(args.folder)
         clean_keep_last_k(base / "movida",   "movida_seminovos", args.keep)
