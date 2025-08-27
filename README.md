@@ -78,16 +78,35 @@ Re‑run the same day: existing raw CSVs & match file are reused unless you forc
 ---
 ## Individual Commands
 
-```
-python fleet.py scrape-localiza [--out localiza_offers.json --concurrency 10]
-python fleet.py scrape-movida   [--out movida_offers.json --delay 0.35]
-python fleet.py parse-localiza  [--in localiza_offers.json --out-dir raw/localiza]
-python fleet.py parse-movida    [--in movida_offers.json   --out-dir raw/movida]
-python fleet.py match-localiza  [--localiza-csv ... --fipe-models-csv data/fipe/fipe_models.csv --threshold 0.62]
-python fleet.py fipe-list       [--rps 2.0]
-python fleet.py fipe-dump       --out data/fipe/fipe_dump_YYYYMMDD.csv --since 2025-07 --tuples <INTERNAL>
-python fleet.py clean           [--folder raw --keep 3]
-python fleet.py run-all         [... see above]
+Each sub-command can be executed individually. Typical invocations and prerequisites:
+
+```bash
+# 1. Scrape raw offers (internet required)
+python fleet.py scrape-localiza --out localiza_offers.json --concurrency 10
+python fleet.py scrape-movida   --out movida_offers.json --delay 0.35
+
+# 2. Parse JSON into dated CSV snapshots
+python fleet.py parse-localiza --in localiza_offers.json --out-dir raw/localiza
+python fleet.py parse-movida   --in movida_offers.json   --out-dir raw/movida
+
+# 3. Match Localiza rows to FIPE codes (requires fipe_models.csv)
+python fleet.py match-localiza --localiza-csv raw/localiza/localiza_seminovos_YYYYMMDD.csv \
+    --fipe-models-csv data/fipe/fipe_models.csv --threshold 0.62
+
+# 4. Inspect FIPE reference months or dump prices
+python fleet.py fipe-list
+python fleet.py fipe-dump --out data/fipe/fipe_dump_YYYYMMDD.csv --since 2025-07
+
+# 5. Build normalized output tables (requires previous steps)
+python fleet.py build-tables --localiza-csv data/localiza/localiza_with_fipe_match_YYYYMMDD.csv \
+    --movida-csv raw/movida/movida_seminovos_YYYYMMDD.csv \
+    --fipe-csv data/fipe/fipe_dump_YYYYMMDD.csv --out-dir data/tables
+
+# 6. Housekeeping
+python fleet.py clean --folder raw --keep 3
+
+# 7. Full pipeline
+python fleet.py run-all --threshold 0.62 --since auto
 ```
 
 ### Matching Strategies
@@ -118,6 +137,14 @@ Raw rows returned directly from FIPE API with added numeric `ValorNum` (float) a
 
 ### Tuples audit (`data/fipe/fipe_tuples_YYYYMMDD.csv`)
 For each (fipe_code, model_year): counts of presence across Localiza / Movida snapshots.
+
+### Output tables (`data/tables/*.csv`)
+Final normalized datasets joining vendor offers with FIPE prices.
+
+- `localiza_table_YYYYMMDD.csv` and `movida_table_YYYYMMDD.csv` contain:
+  `snapshot_date,snapshot_year,snapshot_month,type,brand,model,fipe_version,fipe_code,manufacture_year,model_year,offer_price,fipe_price,premium_vs_fipe_price,fipe_code_model_year,model_model_year`.
+- `fipe_table_YYYYMMDD.csv` contains:
+  `reference_year,reference_month,brand,model,fipe_version,fipe_code,model_year,fipe_price,m_m_price_change`.
 
 ---
 ## Matching Heuristics (Contains Strategy)
