@@ -1450,6 +1450,13 @@ def build_fipe_table(fipe_csv: Path, loc_table: Path, mov_table: Path, out_csv: 
     log = logging.getLogger("table.fipe")
     fipe = pd.read_csv(fipe_csv)
     fipe["reference_year"], fipe["reference_month"] = zip(*fipe["MesReferencia"].map(parse_mes_label))
+    # Shift reference month back by one: prices published at start of month M actually refer to month M-1
+    def _shift_back(y: int, m: int) -> Tuple[int,int]:
+        if m == 1:
+            return (y - 1, 12)
+        return (y, m - 1)
+    shifted = fipe.apply(lambda r: _shift_back(int(r["reference_year"]), int(r["reference_month"])), axis=1)
+    fipe["reference_year"], fipe["reference_month"] = zip(*shifted)
     fipe = fipe.rename(columns={"Marca":"brand","Modelo":"fipe_version",
                                 "CodigoFipe":"fipe_code","AnoModelo":"model_year",
                                 "ValorNum":"fipe_price"})
