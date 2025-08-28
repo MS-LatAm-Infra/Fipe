@@ -6,5 +6,4 @@
 
 # Others
 *.txt
-*.md
-fleet.py
+*.mds
