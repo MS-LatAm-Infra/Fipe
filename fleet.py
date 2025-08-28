@@ -1466,6 +1466,12 @@ def build_fipe_table(fipe_csv: Path, loc_table: Path, mov_table: Path, out_csv: 
     ], ignore_index=True)
     model_map = model_map.dropna().drop_duplicates(subset=["fipe_code","model_year"])
     fipe = fipe.merge(model_map, on=["fipe_code","model_year"], how="left")
+    # Keep only models present in at least one vendor fleet
+    before_presence = len(fipe)
+    fipe = fipe[fipe["model"].notna()].copy()
+    removed_presence = before_presence - len(fipe)
+    if removed_presence > 0:
+        log.info("dropped %s FIPE rows without vendor presence", removed_presence)
     # Merge normalized type from vendor tables (prefer Localiza, then Movida; fallback first available)
     try:
         loc_types = pd.read_csv(loc_table, sep=";")[ ["fipe_code","model_year","type"] ]
