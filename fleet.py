@@ -1358,25 +1358,68 @@ def tuples_audit(localiza_match_csv: Optional[Path],
 # Final output table builders
 # -----------------------------------------------------------------------------
 
-def normalize_type(s: Any) -> str:
-    mapping = {
-        "FURGAO": "UTILITARIO", "PICAPE": "PICK-UP", "PICAPE CABINE DUPLA": "PICK-UP",
-        "CABINE SIMPLES": "PICK-UP", "SPORTBACK": "PREMIUM", "PARTICULAR": "OTHER",
-        "COUPE": "PREMIUM", "CARGA": "VAN", "MINIVAN": "VAN"
-    }
-    if s is None or (isinstance(s, float) and pd.isna(s)):
+def normalize_type(raw_type: Any, fuel_sigla: Optional[str]) -> str:
+    """Normalize heterogeneous vendor body/segment types and separate electric / hybrid.
+
+    Precedence:
+      1. If fuel_sigla indicates Electric (E) or Hybrid (H), return EV.
+      2. Otherwise map raw_type (after accent stripping & upper) to a canonical set.
+
+    Canonical types (non-fuel-specific):
+      SEDAN, HATCH, SUV, PICKUP/VAN, PREMIUM, OTHER
+    EV override: ELETRICO, HIBRIDO
+    """
+    if fuel_sigla:
+        fs = str(fuel_sigla).upper().strip()
+        if fs in {'E','H'}:
+            return 'ev'
+    if raw_type is None or (isinstance(raw_type, float) and pd.isna(raw_type)):
         return ""
-    s0 = strip_accents(str(s)).upper().strip()
-    return mapping.get(s0, s0)
+    s0 = strip_accents(str(raw_type)).upper().strip()
+    mapping = {
+        # Sedan
+        'SEDAN': 'SEDAN', 'SEDÃ': 'SEDAN', 'SEDA': 'SEDAN',
+        # Hatch
+        'HATCH': 'HATCH', 'HATCHBACK': 'HATCH',
+        # SUV
+        'SUV': 'SUV',
+        # Pickup / Vans / minivans 
+        'PICAPE': 'PICKUP/VANS', 'PICAPE CABINE DUPLA': 'PICKUP/VANS', 'PICK-UP': 'PICKUP/VANS', 'PICKUP': 'PICKUP/VANS', 'CAMINHONETE': 'PICKUP/VANS', 'CABINE SIMPLES': 'PICKUP/VANS',
+        # Utilities / cargo boxes
+        'UTILITÁRIO': 'PICKUP/VANS', 'FURGAO': 'PICKUP/VANS', 'MINIVAN': 'PICKUP/VANS', 'VAN': 'PICKUP/VANS', 'CARGA': 'PICKUP/VANS',
+        # EV
+        'ELETRICO': 'EV', 'HIBRIDO': 'EV',
+        # Body style specials
+        'COUPE': 'PREMIUM', 'SPORTBACK': 'PREMIUM', 'GRAN COUPE': 'PREMIUM', 'FASTBACK': 'PREMIUM',
+        # Misc
+        'PARTICULAR': 'OTHER', 'OUTROS': 'OTHER', 'OUTRO': 'OTHER'
+    }
+    return mapping.get(s0, s0).lower()
 
 def build_vendor_table(vendor: str, src_csv: Path, fipe_csv: Path, out_csv: Path) -> Path:
     log = logging.getLogger(f"table.{vendor}")
     df = pd.read_csv(src_csv, sep=";")
+    orig_len = len(df)
+    df['_orig_row_id'] = range(orig_len)
     fipe = pd.read_csv(fipe_csv)
     fipe = fipe.rename(columns={"CodigoFipe":"fipe_code","AnoModelo":"model_year",
-                                 "Modelo":"fipe_version","ValorNum":"fipe_price"})
-    fipe = fipe[["fipe_code","model_year","fipe_version","fipe_price"]]
+                                 "Modelo":"fipe_version","ValorNum":"fipe_price",
+                                 "SiglaCombustivel":"fuel_sigla","Combustivel":"fuel_name"})
+    keep_cols = [c for c in ["fipe_code","model_year","fipe_version","fipe_price","fuel_sigla","fuel_name"] if c in fipe.columns]
+    fipe = fipe[keep_cols]
+    # Retain only essential FIPE columns for vendor table
+    fipe = fipe[[c for c in ["fipe_code","model_year","fipe_version","fipe_price"] if c in fipe.columns]]
     df = df.merge(fipe, on=["fipe_code","model_year"], how="left")
+    # Collapse duplicate expansions caused by multiple FIPE matches per code/year
+    if len(df) != orig_len:
+        expanded = len(df) - orig_len
+        if expanded > 0:
+            log.warning("%s: collapsing %s expanded rows after FIPE merge", vendor, expanded)
+        df = (df.sort_values(['_orig_row_id'])
+                .groupby('_orig_row_id', as_index=False)
+                .first())
+    if len(df) != orig_len:
+        log.warning("%s: row count mismatch (orig=%s new=%s) after collapse", vendor, orig_len, len(df))
     df["offer_price"] = df.get("price")
     df["premium_vs_fipe_price"] = np.where(df["fipe_price"].gt(0),
                                             (df["offer_price"] - df["fipe_price"]) / df["fipe_price"], pd.NA)
@@ -1384,7 +1427,9 @@ def build_vendor_table(vendor: str, src_csv: Path, fipe_csv: Path, out_csv: Path
     df["snapshot_year"] = df["snapshot_date"].dt.year
     df["snapshot_month"] = df["snapshot_date"].dt.month
     df["snapshot_date"] = df["snapshot_date"].dt.date.astype(str)
-    df["type"] = df["type"].map(normalize_type)
+    # Unified type taxonomy with electric/hybrid separation
+    fuel_sigla_col = df.get("fuel_sigla") if "fuel_sigla" in df.columns else None
+    df["type"] = df.apply(lambda r: normalize_type(r.get("type"), r.get("fuel_sigla")), axis=1)
     df["fipe_code_model_year"] = df["fipe_code"].astype(str) + "_" + df["model_year"].astype(str)
     df["model_model_year"] = df["model"].astype(str) + "_" + df["model_year"].astype(str)
     out_cols = ["snapshot_date","snapshot_year","snapshot_month","type","brand","model",
@@ -1392,6 +1437,10 @@ def build_vendor_table(vendor: str, src_csv: Path, fipe_csv: Path, out_csv: Path
                 "offer_price","fipe_price","premium_vs_fipe_price",
                 "fipe_code_model_year","model_model_year"]
     df_out = df[out_cols]
+    if len(df_out) != orig_len:
+        log.warning("%s: output rows %s != source %s", vendor, len(df_out), orig_len)
+    else:
+        log.info("%s: preserved row count (%s rows)", vendor, orig_len)
     ensure_dir(out_csv.parent)
     df_out.to_csv(out_csv, index=False, sep=";")
     log.info("wrote %s rows -> %s", len(df_out), out_csv)
@@ -1410,9 +1459,27 @@ def build_fipe_table(fipe_csv: Path, loc_table: Path, mov_table: Path, out_csv: 
     ], ignore_index=True)
     model_map = model_map.dropna().drop_duplicates(subset=["fipe_code","model_year"])
     fipe = fipe.merge(model_map, on=["fipe_code","model_year"], how="left")
-    fipe = fipe.sort_values(["fipe_code","model_year","reference_year","reference_month"])
+    # Merge normalized type from vendor tables (prefer Localiza, then Movida; fallback first available)
+    try:
+        loc_types = pd.read_csv(loc_table, sep=";")[ ["fipe_code","model_year","type"] ]
+        mov_types = pd.read_csv(mov_table, sep=";")[ ["fipe_code","model_year","type"] ]
+        all_types = pd.concat([loc_types.assign(_src='loc'), mov_types.assign(_src='mov')], ignore_index=True)
+        all_types = all_types.dropna(subset=["type"])
+        # Preference order loc > mov: sort accordingly before dropping duplicates
+        all_types['_pref'] = all_types['_src'].map({'loc':0,'mov':1}).fillna(2)
+        all_types = all_types.sort_values(['fipe_code','model_year','_pref'])
+        type_map = all_types.drop_duplicates(subset=["fipe_code","model_year"])[["fipe_code","model_year","type"]]
+        fipe = fipe.merge(type_map, on=["fipe_code","model_year"], how="left")
+    except Exception as e:
+        log.warning("type merge skipped: %s", e)
+    fipe = fipe.sort_values(["fipe_code","model_year","reference_year","reference_month"]).reset_index(drop=True)
+    before = len(fipe)
+    fipe = fipe.drop_duplicates(subset=["fipe_code","model_year","reference_year","reference_month"], keep="last")
+    removed = before - len(fipe)
+    if removed > 0:
+        log.info("removed %s duplicate FIPE rows (same code/year/month)", removed)
     fipe["m_m_price_change"] = fipe.groupby(["fipe_code","model_year"])["fipe_price"].pct_change()
-    out_cols = ["reference_year","reference_month","brand","model","fipe_version",
+    out_cols = ["reference_year","reference_month","brand","model","type","fipe_version",
                 "fipe_code","model_year","fipe_price","m_m_price_change"]
     df_out = fipe[out_cols]
     ensure_dir(out_csv.parent)
