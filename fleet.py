@@ -519,7 +519,7 @@ def parse_localiza(in_json: Path, out_dir: Path):
     df["type"] = np.where((df["version"] == "ONIX PLUS TURBO LT AT 1.0 4P"), "SEDAN", df["type"])
     df["type"] = np.where((df["version"] == "HB20S PLATINUM TGDI AT 1.0 4P"), "SEDAN", df["type"])
     df["type"] = df["type"].replace(to_replace=["FURGAO", "PICAPE", "PICAPE CABINE DUPLA", "CABINE SIMPLES", "SPORTBACK", "PARTICULAR", "COUPE", "CARGA"],
-                                    value=["UTILITARIO", "PICK-UP", "PICK-UP", "PICK-UP", "PREMIUM", "OTHER", "PREMIUM", "VAN"])
+                                    value=["UTILITARIO", "PICK-UP", "PICK-UP", "PICK-UP", "PREMIUM", "VAN", "PREMIUM", "VAN"])
     df["transmission"] = df["transmission"].replace(to_replace=["MANUAL", "AUTOMÁTICO", "AUTOMATICO", "AUTOMáTICO", "TIPTRONIC", "ELECTRICO"],
                                     value=["mec.", "aut.", "aut.", "aut.", "tiptr.", "(eletrico)"])
     df["fuel"] = df["fuel"].replace(to_replace=["GASOLINA/ETANOL", "ÁLC/GASOL", "FLEX/GNV", "ETANOL/GNV", "ELÉT/GASOLINA/ETANOL", "ELÉTRICO/GASOLINA", "ELÉTRICO", "GASOLINA"],
