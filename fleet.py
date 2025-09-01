@@ -1948,6 +1948,7 @@ async def fipe_dump(args):
             log.warning("Nenhuma tabela >= %s; usando a mais recente disponível: %s  (cod %s).",
                         args.since, latest_tab.get("Mes"), latest_tab.get("Codigo"))
             target_tabs = [latest_tab]
+            target_tabs = [{"Codigo": 325, "Mes": "setembro/2025"}]
 
         tuples: Optional[Set[Tuple[str,int]]] = getattr(args, "tuples", None)
         if not tuples:
