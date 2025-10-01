@@ -1304,18 +1304,31 @@ def load_all_tuples_history(dir_path: Optional[Path] = None) -> Set[Tuple[str, i
     for f in loc_files:
         try:
             df = pd.read_csv(f, sep=";")
-            # Localiza files may have fipe_year (preferred) or model_year
-            year_col = "fipe_year" if "fipe_year" in df.columns else ("model_year" if "model_year" in df.columns else None)
-            if year_col is None or "fipe_code" not in df.columns:
+            if "fipe_code" not in df.columns:
                 continue
-            sub = df[["fipe_code", year_col]].dropna()
+            # Use fipe_year if present for the row; otherwise fall back to model_year (row-wise)
+            has_fipe = "fipe_year" in df.columns
+            has_model = "model_year" in df.columns
+            if not has_fipe and not has_model:
+                continue
+            cols = ["fipe_code"] + (["fipe_year"] if has_fipe else []) + (["model_year"] if has_model else [])
+            sub = df[cols].dropna(subset=["fipe_code"])  # keep row even if one of the year cols is NaN
             for _, r in sub.iterrows():
                 code = str(r["fipe_code"]).strip()
                 if not code:
                     continue
+                raw_year = None
+                if has_fipe:
+                    raw_year = r.get("fipe_year")
+                if (raw_year is None or (isinstance(raw_year, float) and pd.isna(raw_year)) or str(raw_year).strip()=="") and has_model:
+                    raw_year = r.get("model_year")
+                if raw_year is None or (isinstance(raw_year, float) and pd.isna(raw_year)):
+                    continue
                 try:
-                    yr = int(r[year_col])
+                    yr = int(float(str(raw_year).replace(",", ".")))
                 except Exception:
+                    continue
+                if yr <= 1900:
                     continue
                 before = len(tuples)
                 tuples.add((code, yr))
@@ -1994,17 +2007,18 @@ async def fipe_dump(args):
             args.tuples = load_tuples_csv(Path(tuples_csv_path))
         else:
             tuples_set: Set[Tuple[str,int]] = set()
+            # 1) History from Localiza/Movida
             hist = load_all_tuples_history(TUPLES_DIR)
             if hist:
                 tuples_set |= hist
-            # Fallback to latest only if union yields nothing (fresh repo)
-            if not tuples_set:
-                try:
-                    latest_audit = latest("fipe_tuples_*.csv", TUPLES_DIR)
-                except Exception:
-                    latest_audit = None
-                if latest_audit:
-                    tuples_set = load_tuples_csv(latest_audit)
+            # 2) Auto-include 0km tuples if present
+            zero_km_csv = DATA_DIR / "0km_tuples.csv"
+            if zero_km_csv.exists():
+                z = load_tuples_csv(zero_km_csv)
+                if z:
+                    before = len(tuples_set)
+                    tuples_set |= z
+                    logging.getLogger("fipe.dump").info("Added 0km tuples: +%d (now %d)", len(tuples_set)-before, len(tuples_set))
             args.tuples = tuples_set
     cache_dir = Path(args.cache_dir)
     cache = DiskCache(cache_dir)
@@ -2149,6 +2163,15 @@ def run_all(args):
     # Tuples & audit
     tuples = collect_fipe_tuples(match_out, mvd_csv)
     audit_csv = tuples_audit(match_out, mvd_csv)
+    # Expand with historical tuples so we cover previously seen pairs as well
+    try:
+        hist_union = load_all_tuples_history(TUPLES_DIR)
+        if hist_union:
+            before = len(tuples)
+            tuples |= hist_union
+            logging.getLogger("run-all").info("Expanded tuples with history: %d -> %d distinct tuples", before, len(tuples))
+    except Exception as e:
+        logging.getLogger("run-all").warning("Could not load historical tuples; proceeding with today's only: %s", e)
     if not tuples:
         raise SystemExit("run-all: no (fipe_code, model_year) tuples found to fetch from FIPE.")
     fipe_out = FIPE_DIR / f"fipe_dump_{ymd_compact()}.csv"
@@ -2250,7 +2273,7 @@ def main():
     fdp.add_argument("--discover-max-concurrency", type=int, default=2)
     fdp.add_argument("--routeid")
     fdp.add_argument("--throttle-cap", type=float, default=8.0)
-    fdp.add_argument("--tuples-csv", help="Independent CSV with fipe_code,model_year (or audit fipe_tuples_*.csv)")
+    fdp.add_argument("--tuples-csv", help="Independent CSV with fipe_code,model_year (optionally with fuel_code)")
 
     # build-tables
     tbl = sub.add_parser("build-tables", help="Generate Localiza, Movida and FIPE output tables")
@@ -2317,17 +2340,18 @@ def main():
             tuple_set = load_tuples_csv(Path(args.tuples_csv))
         else:
             tuple_set: Set[Tuple[str,int]] = set()
+            # 1) History union from Localiza/Movida
             hist_union = load_all_tuples_history(TUPLES_DIR)
             if hist_union:
                 tuple_set |= hist_union
-            # Fallback to latest only if union is empty (fresh repo with no history)
-            if not tuple_set:
-                try:
-                    latest_audit = latest("fipe_tuples_*.csv", TUPLES_DIR)
-                except Exception:
-                    latest_audit = None
-                if latest_audit:
-                    tuple_set = load_tuples_csv(latest_audit)
+            # 2) Auto-include 0km tuples if present
+            zero_km_csv = DATA_DIR / "0km_tuples.csv"
+            if zero_km_csv.exists():
+                z = load_tuples_csv(zero_km_csv)
+                if z:
+                    before = len(tuple_set)
+                    tuple_set |= z
+                    logging.getLogger("fipe.dump").info("Added 0km tuples: +%d (now %d)", len(tuple_set)-before, len(tuple_set))
         if not tuple_set:
             raise SystemExit("fipe-dump CLI: no tuples found. Provide --tuples-csv or run run-all to generate tuples first.")
         args.tuples = tuple_set
