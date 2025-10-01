@@ -7,8 +7,6 @@ import argparse
 import asyncio
 import aiohttp
 import json
-import os
-import sys
 import time
 import random
 import math
@@ -571,6 +569,7 @@ def norm_text(s: str) -> str:
     s0 = s0.replace(",", ".")
     s0 = s0.replace("c/ar", "")
     s0 = s0.replace("c/ ar", "")
+    s0 = re.sub(r"\bhb\s*20\s*x\b", "hb20x", s0)
     s0 = re.sub(r'/', ' ', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:T\.)(?!\w)', 'turbo', s0)
     s0 = re.sub(r"[^a-z0-9\.\s]", " ", s0)
@@ -1274,26 +1273,80 @@ def load_tuples_csv(path: Optional[Path]) -> Set[Tuple[str, int]]:
     return out
 
 def load_all_tuples_history(dir_path: Optional[Path] = None) -> Set[Tuple[str, int]]:
-    """Union of tuples from all historical audits in TUPLES_DIR.
+    """Union of tuples observed historically in parsed vendor CSVs.
 
-    Reads every fipe_tuples_*.csv under the given directory (defaults to TUPLES_DIR)
-    and returns a set with all distinct tuples. Supports 2-tuple (code,year) and
-    3-tuple (code,year,fuel_code) as produced by load_tuples_csv.
+    Scans, similar to collect_fipe_tuples, across history:
+      - Localiza match CSVs under MATCH_DIR: localiza_with_fipe_match_*.csv (and case variant)
+      - Movida parsed CSVs under RAW_MOVIDA: movida_seminovos_*.csv
+
+    Returns distinct (fipe_code, model_year) pairs. The dir_path parameter is ignored.
     """
-    base = dir_path or TUPLES_DIR
-    out: Set[Tuple[str,int]] = set()
-    files = sorted(base.glob("fipe_tuples_*.csv"))
-    total_files = 0
-    for f in files:
+    log = logging.getLogger("tuples.load")
+    tuples: Set[Tuple[str, int]] = set()
+
+    # Localiza history (both common case variants)
+    try:
+        loc_files = (
+            sorted(MATCH_DIR.glob("localiza_with_fipe_match_*.csv"))
+            + sorted(MATCH_DIR.glob("Localiza_with_fipe_match_*.csv"))
+        )
+    except Exception:
+        loc_files = []
+
+    loc_added = 0
+    for f in loc_files:
         try:
-            s = load_tuples_csv(f)
-            if s:
-                out |= s
-                total_files += 1
+            df = pd.read_csv(f, sep=";")
+            # Localiza files may have fipe_year (preferred) or model_year
+            year_col = "fipe_year" if "fipe_year" in df.columns else ("model_year" if "model_year" in df.columns else None)
+            if year_col is None or "fipe_code" not in df.columns:
+                continue
+            sub = df[["fipe_code", year_col]].dropna()
+            for _, r in sub.iterrows():
+                code = str(r["fipe_code"]).strip()
+                if not code:
+                    continue
+                try:
+                    yr = int(r[year_col])
+                except Exception:
+                    continue
+                before = len(tuples)
+                tuples.add((code, yr))
+                if len(tuples) > before:
+                    loc_added += 1
         except Exception:
             continue
-    logging.getLogger("tuples.load").info("Loaded %s tuples from %s files in history (%s)", len(out), total_files, base)
-    return out
+
+    # Movida history
+    try:
+        mov_files = sorted(RAW_MOVIDA.glob("movida_seminovos_*.csv"))
+    except Exception:
+        mov_files = []
+
+    mov_added = 0
+    for f in mov_files:
+        try:
+            df = pd.read_csv(f, sep=";")
+            if not {"fipe_code", "model_year"}.issubset(df.columns):
+                continue
+            sub = df[["fipe_code", "model_year"]].dropna()
+            for _, r in sub.iterrows():
+                code = str(r["fipe_code"]).strip()
+                if not code:
+                    continue
+                try:
+                    yr = int(r["model_year"])
+                except Exception:
+                    continue
+                before = len(tuples)
+                tuples.add((code, yr))
+                if len(tuples) > before:
+                    mov_added += 1
+        except Exception:
+            continue
+
+    log.info("Loaded %s tuples from history (Localiza add=%s, Movida add=%s)", len(tuples), loc_added, mov_added)
+    return tuples
 
 def tuples_audit(localiza_match_csv: Optional[Path],
                  movida_csv: Optional[Path],
