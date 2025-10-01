@@ -1251,8 +1251,15 @@ def load_tuples_csv(path: Optional[Path]) -> Set[Tuple[str, int]]:
     df = df[cols].dropna(subset=[lower_map['fipe_code'], lower_map['model_year']])
     for _, r in df.iterrows():
         code = str(r[lower_map['fipe_code']]).strip()
+        # Robust year parsing: accept strings like '32000' or '32000.0'
+        raw_year = r[lower_map['model_year']]
         try:
-            yr = int(r[lower_map['model_year']])
+            if pd.isna(raw_year):
+                continue
+        except Exception:
+            pass
+        try:
+            yr = int(float(str(raw_year).replace(',', '.')))
         except Exception:
             continue
         if not code or yr <= 1900:
@@ -1979,26 +1986,26 @@ async def fipe_dump(args):
     if not args.out:
         args.out = str(FIPE_DIR / f"fipe_dump_{ymd_compact()}.csv")
     # Auto-load tuples if not already present (standalone mode)
-    # New behavior: default to ALL historical tuples ever observed (union of data/tuples/fipe_tuples_*.csv)
+    # Behavior: if --tuples-csv is provided, use ONLY that file; else use union of historical tuples
     if not getattr(args, 'tuples', None):
-        tuples_set: Set[Tuple[str,int]] = set()
         tuples_csv_path = getattr(args, 'tuples_csv', None)
-        # If a tuples CSV is provided, include it
         if tuples_csv_path:
-            tuples_set |= load_tuples_csv(Path(tuples_csv_path))
-        # Always include ALL historical tuples observed (union)
-        hist = load_all_tuples_history(TUPLES_DIR)
-        if hist:
-            tuples_set |= hist
-        # Fallback to latest only if union yields nothing (fresh repo)
-        if not tuples_set:
-            try:
-                latest_audit = latest("fipe_tuples_*.csv", TUPLES_DIR)
-            except Exception:
-                latest_audit = None
-            if latest_audit:
-                tuples_set = load_tuples_csv(latest_audit)
-        args.tuples = tuples_set
+            logging.getLogger("fipe.dump").info("Using exclusive tuples from --tuples-csv: %s", tuples_csv_path)
+            args.tuples = load_tuples_csv(Path(tuples_csv_path))
+        else:
+            tuples_set: Set[Tuple[str,int]] = set()
+            hist = load_all_tuples_history(TUPLES_DIR)
+            if hist:
+                tuples_set |= hist
+            # Fallback to latest only if union yields nothing (fresh repo)
+            if not tuples_set:
+                try:
+                    latest_audit = latest("fipe_tuples_*.csv", TUPLES_DIR)
+                except Exception:
+                    latest_audit = None
+                if latest_audit:
+                    tuples_set = load_tuples_csv(latest_audit)
+            args.tuples = tuples_set
     cache_dir = Path(args.cache_dir)
     cache = DiskCache(cache_dir)
     limiter = RateLimiter(args.rps)
@@ -2304,24 +2311,26 @@ def main():
     elif args.cmd == "fipe-list":
         asyncio.run(fipe_list(args))
     elif args.cmd == "fipe-dump":
-        # Build tuple set for dump: union of --tuples-csv (if provided) + ALL history under data/tuples.
-        tuple_union: Set[Tuple[str,int]] = set()
+        # Build tuple set for dump.
         if getattr(args, 'tuples_csv', None):
-            tuple_union |= load_tuples_csv(Path(args.tuples_csv))
-        hist_union = load_all_tuples_history(TUPLES_DIR)
-        if hist_union:
-            tuple_union |= hist_union
-        # Fallback to latest only if union is empty (fresh repo with no history)
-        if not tuple_union:
-            try:
-                latest_audit = latest("fipe_tuples_*.csv", TUPLES_DIR)
-            except Exception:
-                latest_audit = None
-            if latest_audit:
-                tuple_union = load_tuples_csv(latest_audit)
-        if not tuple_union:
+            logging.getLogger("fipe.dump").info("Using exclusive tuples from --tuples-csv: %s", args.tuples_csv)
+            tuple_set = load_tuples_csv(Path(args.tuples_csv))
+        else:
+            tuple_set: Set[Tuple[str,int]] = set()
+            hist_union = load_all_tuples_history(TUPLES_DIR)
+            if hist_union:
+                tuple_set |= hist_union
+            # Fallback to latest only if union is empty (fresh repo with no history)
+            if not tuple_set:
+                try:
+                    latest_audit = latest("fipe_tuples_*.csv", TUPLES_DIR)
+                except Exception:
+                    latest_audit = None
+                if latest_audit:
+                    tuple_set = load_tuples_csv(latest_audit)
+        if not tuple_set:
             raise SystemExit("fipe-dump CLI: no tuples found. Provide --tuples-csv or run run-all to generate tuples first.")
-        args.tuples = tuple_union
+        args.tuples = tuple_set
         logging.getLogger("fipe.dump").info("CLI tuples selected: %s distinct tuples", len(args.tuples))
         asyncio.run(fipe_dump(args))
     elif args.cmd == "build-tables":
