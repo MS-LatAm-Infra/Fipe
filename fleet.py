@@ -210,16 +210,56 @@ LOCALIZA_HEADERS = {
 log_loc = logging.getLogger("scrape.localiza")
 
 async def _loc_fetch_page(session: aiohttp.ClientSession, page: int) -> Dict[str, Any]:
+    """Fetch and parse Localiza listing page with polite retries and jitter.
+
+    Uses exponential backoff, respects Retry-After on 429, and adds a small
+    jittered delay between attempts to avoid hammering.
+    """
     url = f"https://seminovos.localiza.com/carros?page={page}"
-    async with session.get(url, headers=LOCALIZA_HEADERS, timeout=aiohttp.ClientTimeout(total=30)) as resp:
-        resp.raise_for_status()
-        html = await resp.text()
-    soup = BeautifulSoup(html, "html.parser")
-    tag = soup.find("script", {"id": "__NEXT_DATA__"})
-    if not tag or not tag.string:
-        raise RuntimeError("Could not find __NEXT_DATA__ on page")
-    data = json.loads(tag.string)
-    return data
+    max_retries = 3
+    base_delay = 1.0
+    # Allow caller to stash a RateLimiter on the session for global pacing
+    limiter: Optional[RateLimiter] = getattr(session, "_rate_limiter", None)
+
+    for attempt in range(max_retries):
+        try:
+            if limiter:
+                await limiter.wait()
+            async with session.get(url, headers=LOCALIZA_HEADERS, timeout=aiohttp.ClientTimeout(total=30)) as resp:
+                if resp.status == 200:
+                    html = await resp.text()
+                    soup = BeautifulSoup(html, "html.parser")
+                    tag = soup.find("script", {"id": "__NEXT_DATA__"})
+                    if not tag or not tag.string:
+                        raise RuntimeError("Could not find __NEXT_DATA__ on page")
+                    data = json.loads(tag.string)
+                    return data
+                # Too many requests – honor Retry-After when provided
+                if resp.status == 429:
+                    retry_after = resp.headers.get("Retry-After")
+                    ra = 0.0
+                    try:
+                        ra = float(retry_after) if retry_after else 0.0
+                    except Exception:
+                        ra = 0.0
+                    await asyncio.sleep(max(ra, base_delay) * (0.8 + 0.6 * random.random()))
+                    continue
+                # Transient server errors – backoff and retry
+                if resp.status in (500, 502, 503, 504):
+                    await asyncio.sleep(min(30.0, (base_delay * (2 ** attempt))) * (0.8 + 0.6 * random.random()))
+                    continue
+                # Other HTTP errors are treated as fatal
+                txt = await resp.text()
+                raise RuntimeError(f"HTTP {resp.status} for Localiza page={page}: {txt[:200]}")
+        except asyncio.CancelledError:
+            raise
+        except Exception as e:
+            if attempt >= max_retries - 1:
+                raise
+            # Network or parse error – small jittered backoff
+            await asyncio.sleep(min(30.0, (base_delay * (2 ** attempt))) * (0.8 + 0.6 * random.random()))
+    # Should not reach here
+    raise RuntimeError("Exceeded retries fetching Localiza page")
 
 def _loc_pull_products(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     p = data.get("props", {}).get("pageProps", {})
@@ -237,8 +277,17 @@ def _loc_total_pages(data: Dict[str, Any]) -> int:
 
 async def scrape_localiza(args):
     out = Path(args.out)
-    connector = aiohttp.TCPConnector(limit=args.concurrency, limit_per_host=args.concurrency, ttl_dns_cache=300)
+    # Configurable pacing knobs with conservative defaults
+    concurrency = max(1, int(getattr(args, "concurrency", 3)))
+    rps = float(getattr(args, "rps", 0.8))  # requests per second (shared)
+    jitter_sleep = float(getattr(args, "delay", 1.0))
+
+    connector = aiohttp.TCPConnector(limit=concurrency, limit_per_host=concurrency, ttl_dns_cache=300)
     async with aiohttp.ClientSession(connector=connector) as session:
+        # Attach a RateLimiter to the session to be used inside fetches
+        setattr(session, "_rate_limiter", RateLimiter(rps))
+
+        # Initial fetch (page 1) with throttling
         first = await _loc_fetch_page(session, 1)
         total_pages = _loc_total_pages(first)
         products = _loc_pull_products(first)
@@ -277,9 +326,10 @@ async def scrape_localiza(args):
                     finally:
                         bar.update(1)
                         q.task_done()
-                    await asyncio.sleep(0.05 + random.random() * 0.1)
+                    # Gentle jitter between page fetches to avoid bursts
+                    await asyncio.sleep(max(0.2, jitter_sleep * (0.6 + 0.6 * random.random())))
 
-            workers = [asyncio.create_task(worker()) for _ in range(args.concurrency)]
+            workers = [asyncio.create_task(worker()) for _ in range(concurrency)]
             await q.join()
             for w in workers:
                 w.cancel()
@@ -342,21 +392,38 @@ def _movida_session(max_retries=5, backoff_factor=1.0):
 
 def scrape_movida(args):
     out = Path(args.out)
-    sess = _movida_session()
+    # More conservative retry/backoff for public API
+    sess = _movida_session(max_retries=6, backoff_factor=1.5)
     offset = None
     all_offers = []
     seen = set()
     pages = 0
     first_page_size = None
     total_from_api = None
+    # Jittered delay helper
+    def _jittered_delay(base: float) -> float:
+        return max(0.2, float(base) * (0.7 + 0.6 * random.random()))
 
     bar = None
     try:
+        consecutive_429 = 0
         while True:
             payload = _movida_payload(offset, args.gad_source, args.gad_campaignid, args.gbraid, args.gclid)
             log_mov.debug("requesting offset=%r", payload["from"])
             resp = sess.post(MOVIDA_URL, headers=MOVIDA_HEADERS, json=payload, timeout=30)
             if resp.status_code != 200:
+                if resp.status_code == 429:
+                    consecutive_429 += 1
+                    retry_after = resp.headers.get("Retry-After")
+                    try:
+                        ra = float(retry_after) if retry_after else 0.0
+                    except Exception:
+                        ra = 0.0
+                    sleep_s = max(ra, _jittered_delay(getattr(args, "delay", 1.2)) * (2 ** min(consecutive_429, 4)))
+                    log_mov.warning("HTTP 429 Too Many Requests — sleeping %.1fs (attempt %d)", sleep_s, consecutive_429)
+                    time.sleep(min(60.0, sleep_s))
+                    # retry same offset
+                    continue
                 log_mov.warning("HTTP %s — stopping", resp.status_code)
                 break
 
@@ -389,6 +456,7 @@ def scrape_movida(args):
             pages += 1
             if bar: bar.update(1)
             log_mov.debug("page %s: got=%s new=%s acc=%s", pages, len(offers), new_count, len(all_offers))
+            consecutive_429 = 0  # reset on successful page
 
             links = data.get("links") or {}
             next_page = links.get("next_page")
@@ -414,7 +482,7 @@ def scrape_movida(args):
                 break
 
             offset = next_offset
-            time.sleep(max(0.0, args.delay))
+            time.sleep(_jittered_delay(getattr(args, "delay", 1.2)))
     finally:
         if bar: bar.close()
 
@@ -2117,6 +2185,8 @@ def run_all(args):
         asyncio.run(scrape_localiza(SimpleNamespace(
             out="localiza_offers.json",
             concurrency=args.concurrency,
+            rps=getattr(args, "localiza_rps", 0.8),
+            delay=getattr(args, "localiza_delay", 1.0),
             no_progress=args.no_progress
         )))
         parse_localiza(Path("localiza_offers.json"), RAW_LOCALIZA)
@@ -2217,12 +2287,14 @@ def main():
     # scrape-localiza
     sl = sub.add_parser("scrape-localiza", help="Scrape Localiza seminovos listings to JSON (+meta)")
     sl.add_argument("--out", default="localiza_offers.json")
-    sl.add_argument("--concurrency", type=int, default=10)
+    sl.add_argument("--concurrency", type=int, default=3, help="Concurrent page fetches (default 3)")
+    sl.add_argument("--rps", type=float, default=0.8, help="Shared requests per second cap (default 0.8)")
+    sl.add_argument("--delay", type=float, default=1.0, help="Base jittered delay between page fetches (s)")
 
     # scrape-movida
     sm = sub.add_parser("scrape-movida", help="Scrape Movida seminovos API to JSON (+meta)")
     sm.add_argument("--out", default="movida_offers.json")
-    sm.add_argument("--delay", type=float, default=0.35)
+    sm.add_argument("--delay", type=float, default=1.2, help="Base delay between Movida API page requests (s)")
     sm.add_argument("--max-pages", type=int, default=None)
     sm.add_argument("--gad_source", default=None)
     sm.add_argument("--gad_campaignid", default=None)
@@ -2289,9 +2361,11 @@ def main():
 
     # run-all
     allp = sub.add_parser("run-all", help="Scrape → Parse → Match → FIPE (tuples-only)")
-    allp.add_argument("--concurrency", type=int, default=10, help="Localiza scraper concurrency")
+    allp.add_argument("--concurrency", type=int, default=3, help="Localiza scraper concurrency")
+    allp.add_argument("--localiza-rps", type=float, default=0.8, help="Localiza shared requests per second cap")
+    allp.add_argument("--localiza-delay", type=float, default=1.0, help="Localiza base jittered delay (s)")
     allp.add_argument("--verbose", action="store_true", help="Alias for --log-level DEBUG")
-    allp.add_argument("--movida-delay", type=float, default=0.35, help="Movida delay between page requests (s)")
+    allp.add_argument("--movida-delay", type=float, default=1.2, help="Movida delay between page requests (s)")
     allp.add_argument("--movida-max-pages", type=int, default=None, help="Movida max pages (debug)")
     # FIPE controls
     allp.add_argument("--since", default="auto", help="FIPE since: YYYY-MM or 'auto' (use latest available)")
