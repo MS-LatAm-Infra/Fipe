@@ -1,0 +1,57 @@
+name: Monthly 0km FIPE Dump
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    # Run at 07:00 UTC (4 AM São Paulo time) on the 1st of every month
+    - cron: '0 7 1 * *'
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  run-0km-fipe-dump:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Create output directory
+      run: mkdir -p data/0km
+    
+    - name: Run 0km FIPE dump
+      run: |
+        DATESTAMP=$(date +'%Y%m%d')
+        python fleet.py fipe-dump --since 2023-11 --tuples-csv data/0km_tuples.csv --out data/0km/fipe_0km_${DATESTAMP}.csv --rps 2 --max-concurrency 1
+      
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: fipe-0km-data-${{ github.run_number }}
+        path: |
+          data/0km/*.csv
+        retention-days: 90
+    
+    - name: Commit and push changes
+      if: success()
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add data/0km/*.csv
+        git diff --staged --quiet || git commit -m "Automated 0km FIPE dump - $(date +'%Y-%m-%d')"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

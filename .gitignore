@@ -1,9 +1,2 @@
-# Data
-.fipe_cache/
-
-# Jupyter
-*.ipynb_checkpoints/
-
 # Others
-*.txt
 *.mds
