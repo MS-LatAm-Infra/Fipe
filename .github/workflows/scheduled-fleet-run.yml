@@ -55,9 +55,9 @@ jobs:
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git pull origin main --rebase
         git add -A
         git diff --staged --quiet || git commit -m "Automated data collection - $(date +'%Y-%m-%d')"
+        git pull origin main --rebase
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
