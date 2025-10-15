@@ -57,6 +57,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add -A
         git diff --staged --quiet || git commit -m "Automated data collection - $(date +'%Y-%m-%d')"
-        git push
+        git pull origin main --rebase
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

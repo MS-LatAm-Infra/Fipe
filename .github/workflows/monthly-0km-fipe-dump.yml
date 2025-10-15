@@ -52,6 +52,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add data/0km/*.csv
         git diff --staged --quiet || git commit -m "Automated 0km FIPE dump - $(date +'%Y-%m-%d')"
-        git push
+        git pull origin main --rebase
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
