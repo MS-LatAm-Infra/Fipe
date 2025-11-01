@@ -1,0 +1,945 @@
+TabelaReferenciaCodigo,CodigoTipoVeiculo,CodigoMarca,CodigoModelo,AnoModeloParam,CodigoTipoCombustivelParam,Valor,Marca,Modelo,AnoModelo,CodigoFipe,Combustivel,TipoVeiculo,SiglaCombustivel,MesReferencia,Autenticacao,DataConsulta,ValorNum
+327,1,,,32000,5,"R$ 70.195,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,novembro de 2025 ,5wb590qg66cz,"sábado, 1 de novembro de 2025 04:28",70195.0
+327,1,,,32000,5,"R$ 89.396,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,novembro de 2025 ,cd4g5qc2wgtcz,"sábado, 1 de novembro de 2025 04:28",89396.0
+327,1,,,32000,5,"R$ 161.806,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,novembro de 2025 ,jf1hkj9hv1cz,"sábado, 1 de novembro de 2025 04:28",161806.0
+327,1,,,32000,5,"R$ 115.952,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,novembro de 2025 ,gp8t9b20hgcz,"sábado, 1 de novembro de 2025 04:28",115952.0
+327,1,,,32000,5,"R$ 118.543,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,novembro de 2025 ,gs90qg2pq1j1hl,"sábado, 1 de novembro de 2025 04:28",118543.0
+327,1,,,32000,5,"R$ 112.155,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,novembro de 2025 ,gkttz8dtnjj1hl,"sábado, 1 de novembro de 2025 04:28",112155.0
+327,1,,,32000,5,"R$ 119.731,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,novembro de 2025 ,gvp59m7b2vj1hl,"sábado, 1 de novembro de 2025 04:28",119731.0
+327,1,,,32000,5,"R$ 115.919,00",Fiat,PULSE 1.0 Turbo 200  Flex Aut.,32000,001592-0,Flex,1,F,novembro de 2025 ,gp7m3m97p8j1hl,"sábado, 1 de novembro de 2025 04:28",115919.0
+327,1,,,32000,5,"R$ 172.726,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,novembro de 2025 ,jvvdqyb6w6cz,"sábado, 1 de novembro de 2025 04:28",172726.0
+327,1,,,32000,3,"R$ 298.537,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,novembro de 2025 ,pmb70srgv5cb,"sábado, 1 de novembro de 2025 04:28",298537.0
+327,1,,,32000,5,"R$ 192.917,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,novembro de 2025 ,kmh8135r4dcz,"sábado, 1 de novembro de 2025 04:28",192917.0
+327,1,,,32000,5,"R$ 114.295,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,novembro de 2025 ,gnbl78w1hmcz,"sábado, 1 de novembro de 2025 04:28",114295.0
+327,1,,,32000,3,"R$ 245.985,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,novembro de 2025 ,mmq4q68t1fj1gy,"sábado, 1 de novembro de 2025 04:28",245985.0
+327,1,,,32000,5,"R$ 156.856,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,novembro de 2025 ,h77k3vsfzwcz,"sábado, 1 de novembro de 2025 04:28",156856.0
+327,1,,,32000,5,"R$ 120.518,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,novembro de 2025 ,gwms14fjn1cz,"sábado, 1 de novembro de 2025 04:28",120518.0
+327,1,,,32000,5,"R$ 104.971,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,novembro de 2025 ,f9dqc7w3cscz,"sábado, 1 de novembro de 2025 04:28",104971.0
+327,1,,,32000,5,"R$ 176.532,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,novembro de 2025 ,jz9q5cs6bvcz,"sábado, 1 de novembro de 2025 04:29",176532.0
+327,1,,,32000,5,"R$ 161.546,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,novembro de 2025 ,jfq1lv429xj1hl,"sábado, 1 de novembro de 2025 04:29",161546.0
+327,1,,,32000,3,"R$ 293.044,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,novembro de 2025 ,pdxlrdhnw6j1gy,"sábado, 1 de novembro de 2025 04:29",293044.0
+327,1,,,32000,5,"R$ 146.756,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,novembro de 2025 ,hwdgwlc2jycz,"sábado, 1 de novembro de 2025 04:29",146756.0
+327,1,,,32000,5,"R$ 165.801,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,novembro de 2025 ,jlqpyly2jpj1hl,"sábado, 1 de novembro de 2025 04:29",165801.0
+327,1,,,32000,5,"R$ 153.157,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,novembro de 2025 ,h3w37wqp5lcz,"sábado, 1 de novembro de 2025 04:29",153157.0
+327,1,,,32000,5,"R$ 124.520,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,novembro de 2025 ,g098bpvkmjj1hl,"sábado, 1 de novembro de 2025 04:29",124520.0
+327,1,,,32000,5,"R$ 88.890,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,novembro de 2025 ,cdyj796rzl7cz,"sábado, 1 de novembro de 2025 04:29",88890.0
+327,1,,,32000,5,"R$ 83.475,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,novembro de 2025 ,cbw12hfq3s0cz,"sábado, 1 de novembro de 2025 04:29",83475.0
+327,1,,,32000,5,"R$ 119.791,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,novembro de 2025 ,gvscxfc90gcz,"sábado, 1 de novembro de 2025 04:29",119791.0
+327,1,,,32000,5,"R$ 200.202,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,novembro de 2025 ,kw12g0pk72j1hl,"sábado, 1 de novembro de 2025 04:29",200202.0
+327,1,,,32000,5,"R$ 119.874,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,novembro de 2025 ,gvwdfkdmn2j1hl,"sábado, 1 de novembro de 2025 04:29",119874.0
+327,1,,,32000,5,"R$ 143.120,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,novembro de 2025 ,hq39z5l5vtcz,"sábado, 1 de novembro de 2025 04:29",143120.0
+327,1,,,32000,5,"R$ 95.597,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,novembro de 2025 ,chg51t76bcfcz,"sábado, 1 de novembro de 2025 04:29",95597.0
+327,1,,,32000,5,"R$ 89.575,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,novembro de 2025 ,cd6k7ltvl7dcz,"sábado, 1 de novembro de 2025 04:29",89575.0
+327,1,,,32000,5,"R$ 192.165,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,novembro de 2025 ,klmyq579kvcz,"sábado, 1 de novembro de 2025 04:29",192165.0
+327,1,,,32000,5,"R$ 144.224,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,novembro de 2025 ,hsffx8gv99cz,"sábado, 1 de novembro de 2025 04:29",144224.0
+327,1,,,32000,5,"R$ 113.295,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,novembro de 2025 ,gl48htj2k0j1hl,"sábado, 1 de novembro de 2025 04:29",113295.0
+327,1,,,32000,1,"R$ 173.713,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,novembro de 2025 ,jwz8t8rm8jj1f9,"sábado, 1 de novembro de 2025 04:29",173713.0
+327,1,,,32000,5,"R$ 93.584,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,novembro de 2025 ,cgqlc72wbnjcz,"sábado, 1 de novembro de 2025 04:29",93584.0
+327,1,,,32000,5,"R$ 66.647,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,novembro de 2025 ,4jrl0rxtrlcz,"sábado, 1 de novembro de 2025 04:29",66647.0
+327,1,,,32000,3,"R$ 227.761,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,novembro de 2025 ,lycrq7xnngj1gy,"sábado, 1 de novembro de 2025 04:29",227761.0
+327,1,,,32000,4,"R$ 257.658,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,novembro de 2025 ,m2ffchj2htj1g8,"sábado, 1 de novembro de 2025 04:29",257658.0
+327,1,,,32000,4,"R$ 120.153,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,novembro de 2025 ,gv6jsv15jvj1g8,"sábado, 1 de novembro de 2025 04:29",120153.0
+327,1,,,32000,6,"R$ 169.584,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,novembro de 2025 ,jq46gm93j9j1hx,"sábado, 1 de novembro de 2025 04:29",169584.0
+326,1,,,32000,5,"R$ 69.018,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,outubro de 2025 ,5fkdc7tnjqcz,"quarta-feira, 1 de outubro de 2025 00:55",69018.0
+326,1,,,32000,5,"R$ 88.993,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,outubro de 2025 ,cdzrpwd7sj5cz,"quarta-feira, 1 de outubro de 2025 00:55",88993.0
+326,1,,,32000,5,"R$ 163.389,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,outubro de 2025 ,jhw06s8b10cz,"quarta-feira, 1 de outubro de 2025 00:55",163389.0
+326,1,,,32000,5,"R$ 112.992,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,outubro de 2025 ,gls7258nzncz,"quarta-feira, 1 de outubro de 2025 00:55",112992.0
+326,1,,,32000,5,"R$ 117.432,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,outubro de 2025 ,gr0mwvdw6kj1hl,"quarta-feira, 1 de outubro de 2025 07:25",117432.0
+326,1,,,32000,5,"R$ 111.250,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,outubro de 2025 ,gjrx8222rcj1hl,"quarta-feira, 1 de outubro de 2025 00:55",111250.0
+326,1,,,32000,5,"R$ 116.950,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,outubro de 2025 ,grf3svt2lfj1hl,"quarta-feira, 1 de outubro de 2025 07:41",116950.0
+326,1,,,32000,5,"R$ 116.110,00",Fiat,PULSE 1.0 Turbo 200  Flex Aut.,32000,001592-0,Flex,1,F,outubro de 2025 ,gqgk94dyvsj1hl,"quarta-feira, 1 de outubro de 2025 07:25",116110.0
+326,1,,,32000,5,"R$ 171.598,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,outubro de 2025 ,jtjdrhv80ycz,"quarta-feira, 1 de outubro de 2025 00:55",171598.0
+326,1,,,32000,3,"R$ 290.037,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,outubro de 2025 ,n9c9lk5sh0cb,"quarta-feira, 1 de outubro de 2025 00:55",290037.0
+326,1,,,32000,5,"R$ 189.453,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,outubro de 2025 ,khgczjxbkgcz,"quarta-feira, 1 de outubro de 2025 00:55",189453.0
+326,1,,,32000,5,"R$ 113.194,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,outubro de 2025 ,gl1lpyb269cz,"quarta-feira, 1 de outubro de 2025 00:55",113194.0
+326,1,,,32000,3,"R$ 255.935,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,outubro de 2025 ,m0dsy1n7dvj1gy,"quarta-feira, 1 de outubro de 2025 00:55",255935.0
+326,1,,,32000,5,"R$ 156.829,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,outubro de 2025 ,h76lpqrwswcz,"quarta-feira, 1 de outubro de 2025 00:55",156829.0
+326,1,,,32000,5,"R$ 120.869,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,outubro de 2025 ,gw1kkbhs04cz,"quarta-feira, 1 de outubro de 2025 00:55",120869.0
+326,1,,,32000,5,"R$ 105.757,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,outubro de 2025 ,f9980rcqpdcz,"quarta-feira, 1 de outubro de 2025 00:55",105757.0
+326,1,,,32000,5,"R$ 184.521,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,outubro de 2025 ,j9n3tk2cc4cz,"quarta-feira, 1 de outubro de 2025 00:55",184521.0
+326,1,,,32000,5,"R$ 158.606,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,outubro de 2025 ,h985x9lgbfj1hl,"quarta-feira, 1 de outubro de 2025 00:55",158606.0
+326,1,,,32000,3,"R$ 282.897,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,outubro de 2025 ,n00skdwq8zj1gy,"quarta-feira, 1 de outubro de 2025 07:25",282897.0
+326,1,,,32000,5,"R$ 142.632,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,outubro de 2025 ,hqkk4kxqlccz,"quarta-feira, 1 de outubro de 2025 00:55",142632.0
+326,1,,,32000,5,"R$ 163.646,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,outubro de 2025 ,jh6csm4fqcj1hl,"quarta-feira, 1 de outubro de 2025 00:55",163646.0
+326,1,,,32000,5,"R$ 147.733,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,outubro de 2025 ,hxjzql36z1cz,"quarta-feira, 1 de outubro de 2025 00:55",147733.0
+326,1,,,32000,5,"R$ 120.521,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,outubro de 2025 ,gwmxfvx9ggj1hl,"quarta-feira, 1 de outubro de 2025 00:55",120521.0
+326,1,,,32000,5,"R$ 86.668,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,outubro de 2025 ,cc3hmsv5ts6cz,"quarta-feira, 1 de outubro de 2025 00:55",86668.0
+326,1,,,32000,5,"R$ 82.742,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,outubro de 2025 ,cbmgncbyfz4cz,"quarta-feira, 1 de outubro de 2025 00:55",82742.0
+326,1,,,32000,5,"R$ 117.490,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,outubro de 2025 ,gr2q7ryp4scz,"quarta-feira, 1 de outubro de 2025 00:55",117490.0
+326,1,,,32000,5,"R$ 202.365,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,outubro de 2025 ,kzlpnbvkqdj1hl,"quarta-feira, 1 de outubro de 2025 00:55",202365.0
+326,1,,,32000,5,"R$ 117.210,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,outubro de 2025 ,grrkrh1y41j1hl,"quarta-feira, 1 de outubro de 2025 00:55",117210.0
+326,1,,,32000,5,"R$ 145.020,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,outubro de 2025 ,htcct13k9dcz,"quarta-feira, 1 de outubro de 2025 07:25",145020.0
+326,1,,,32000,5,"R$ 95.348,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,outubro de 2025 ,chc8j6mgpzmcz,"quarta-feira, 1 de outubro de 2025 07:25",95348.0
+326,1,,,32000,5,"R$ 89.693,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,outubro de 2025 ,cd7y346nxgscz,"quarta-feira, 1 de outubro de 2025 00:55",89693.0
+326,1,,,32000,5,"R$ 196.616,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,outubro de 2025 ,krvqx16xv2cz,"quarta-feira, 1 de outubro de 2025 00:55",196616.0
+326,1,,,32000,5,"R$ 140.637,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,outubro de 2025 ,hm618b8qdwcz,"quarta-feira, 1 de outubro de 2025 00:55",140637.0
+326,1,,,32000,5,"R$ 114.318,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,outubro de 2025 ,gncf5lkg0yj1hl,"quarta-feira, 1 de outubro de 2025 00:55",114318.0
+326,1,,,32000,1,"R$ 166.207,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,outubro de 2025 ,jl6gdxqkwdj1f9,"quarta-feira, 1 de outubro de 2025 00:56",166207.0
+326,1,,,32000,5,"R$ 94.038,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,outubro de 2025 ,cgwxdqcc9b3cz,"quarta-feira, 1 de outubro de 2025 07:25",94038.0
+326,1,,,32000,5,"R$ 66.390,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,outubro de 2025 ,4fq57r6d8hcz,"quarta-feira, 1 de outubro de 2025 00:56",66390.0
+326,1,,,32000,3,"R$ 226.520,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,outubro de 2025 ,lwxnfsmvpwj1gy,"quarta-feira, 1 de outubro de 2025 00:56",226520.0
+326,1,,,32000,4,"R$ 249.900,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,outubro de 2025 ,msbfzxsf2mj1g8,"quarta-feira, 1 de outubro de 2025 00:56",249900.0
+326,1,,,32000,4,"R$ 120.023,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,outubro de 2025 ,gv1s90cljpj1g8,"quarta-feira, 1 de outubro de 2025 00:56",120023.0
+326,1,,,32000,6,"R$ 166.826,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,outubro de 2025 ,jmxyv7l2rrj1hx,"quarta-feira, 1 de outubro de 2025 00:56",166826.0
+325,1,,,32000,5,"R$ 72.198,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,setembro de 2025 ,6mt66vm2wzcz,"segunda-feira, 1 de setembro de 2025 05:57",72198.0
+325,1,,,32000,5,"R$ 89.725,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,setembro de 2025 ,cd8brqh78flcz,"segunda-feira, 1 de setembro de 2025 05:57",89725.0
+325,1,,,32000,5,"R$ 166.796,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,setembro de 2025 ,jmwv2b132dcz,"segunda-feira, 1 de setembro de 2025 05:57",166796.0
+325,1,,,32000,5,"R$ 113.756,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,setembro de 2025 ,gmp0x7v69xcz,"segunda-feira, 1 de setembro de 2025 05:57",113756.0
+325,1,,,32000,5,"R$ 118.610,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,setembro de 2025 ,gtdf6pbx7hj1hl,"quarta-feira, 1 de outubro de 2025 07:25",118610.0
+325,1,,,32000,5,"R$ 111.353,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,setembro de 2025 ,gjwpbspjzgj1hl,"segunda-feira, 1 de setembro de 2025 05:57",111353.0
+325,1,,,32000,5,"R$ 120.211,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,setembro de 2025 ,gv8m4p0wkgj1hl,"quarta-feira, 1 de outubro de 2025 07:41",120211.0
+325,1,,,32000,5,"R$ 117.117,00",Fiat,PULSE 1.0 Turbo 200  Flex Aut.,32000,001592-0,Flex,1,F,setembro de 2025 ,grm5y1fdpgj1hl,"quarta-feira, 1 de outubro de 2025 07:25",117117.0
+325,1,,,32000,5,"R$ 166.023,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,setembro de 2025 ,jlzr2wlw5gcz,"segunda-feira, 1 de setembro de 2025 05:57",166023.0
+325,1,,,32000,3,"R$ 294.273,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,setembro de 2025 ,pgb8jmgpm8cb,"segunda-feira, 1 de setembro de 2025 05:57",294273.0
+325,1,,,32000,5,"R$ 187.599,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,setembro de 2025 ,kd8zzbl9chcz,"segunda-feira, 1 de setembro de 2025 05:57",187599.0
+325,1,,,32000,5,"R$ 112.301,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,setembro de 2025 ,gkz4hxsk1bcz,"segunda-feira, 1 de setembro de 2025 05:57",112301.0
+325,1,,,32000,3,"R$ 248.737,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,setembro de 2025 ,mqy5kyv1qpj1gy,"segunda-feira, 1 de setembro de 2025 05:57",248737.0
+325,1,,,32000,5,"R$ 159.431,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,setembro de 2025 ,jb75h2ky3scz,"segunda-feira, 1 de setembro de 2025 05:57",159431.0
+325,1,,,32000,5,"R$ 116.517,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,setembro de 2025 ,gqycxdtbgwcz,"segunda-feira, 1 de setembro de 2025 05:57",116517.0
+325,1,,,32000,5,"R$ 101.521,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,setembro de 2025 ,f5b92mxpc0cz,"segunda-feira, 1 de setembro de 2025 05:57",101521.0
+325,1,,,32000,5,"R$ 181.592,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,setembro de 2025 ,j57nj7frdbcz,"segunda-feira, 1 de setembro de 2025 05:57",181592.0
+325,1,,,32000,5,"R$ 162.731,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,setembro de 2025 ,jg33s5pvvdj1hl,"segunda-feira, 1 de setembro de 2025 05:57",162731.0
+325,1,,,32000,3,"R$ 294.404,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,setembro de 2025 ,pgh04b6rj0j1gy,"quarta-feira, 1 de outubro de 2025 07:25",294404.0
+325,1,,,32000,5,"R$ 140.100,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,setembro de 2025 ,hmlj56tfygcz,"segunda-feira, 1 de setembro de 2025 05:57",140100.0
+325,1,,,32000,5,"R$ 163.031,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,setembro de 2025 ,jhg0t0d8fwj1hl,"segunda-feira, 1 de setembro de 2025 05:57",163031.0
+325,1,,,32000,5,"R$ 151.080,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,setembro de 2025 ,h1gmzc5xfgcz,"segunda-feira, 1 de setembro de 2025 05:57",151080.0
+325,1,,,32000,5,"R$ 124.870,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,setembro de 2025 ,g1qzpx02n1j1hl,"segunda-feira, 1 de setembro de 2025 05:57",124870.0
+325,1,,,32000,5,"R$ 85.832,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,setembro de 2025 ,ccspr3glwwqcz,"segunda-feira, 1 de setembro de 2025 05:57",85832.0
+325,1,,,32000,5,"R$ 81.783,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,setembro de 2025 ,9762rq29ptcz,"segunda-feira, 1 de setembro de 2025 06:47",81783.0
+325,1,,,32000,5,"R$ 118.606,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,setembro de 2025 ,gtc9pzh84qcz,"segunda-feira, 1 de setembro de 2025 05:57",118606.0
+325,1,,,32000,5,"R$ 202.083,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,setembro de 2025 ,ky8fw6nw9sj1hl,"segunda-feira, 1 de setembro de 2025 05:57",202083.0
+325,1,,,32000,5,"R$ 118.767,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,setembro de 2025 ,gtk43lw0glj1hl,"segunda-feira, 1 de setembro de 2025 05:57",118767.0
+325,1,,,32000,5,"R$ 145.494,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,setembro de 2025 ,htxlxk3kzzcz,"quarta-feira, 1 de outubro de 2025 07:25",145494.0
+325,1,,,32000,5,"R$ 95.432,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,setembro de 2025 ,chd72nz158jcz,"quarta-feira, 1 de outubro de 2025 07:25",95432.0
+325,1,,,32000,5,"R$ 89.590,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,setembro de 2025 ,cd6rplj1zjjcz,"segunda-feira, 1 de setembro de 2025 05:57",89590.0
+325,1,,,32000,5,"R$ 196.616,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,setembro de 2025 ,krvqx04b80cz,"segunda-feira, 1 de setembro de 2025 05:57",196616.0
+325,1,,,32000,5,"R$ 142.612,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,setembro de 2025 ,hqjvlypy95cz,"segunda-feira, 1 de setembro de 2025 05:57",142612.0
+325,1,,,32000,5,"R$ 115.921,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,setembro de 2025 ,gp7qcfr0q7j1hl,"segunda-feira, 1 de setembro de 2025 05:57",115921.0
+325,1,,,32000,1,"R$ 171.960,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,setembro de 2025 ,jtykmxfpvmj1f9,"segunda-feira, 1 de setembro de 2025 05:57",171960.0
+325,1,,,32000,5,"R$ 93.750,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,setembro de 2025 ,cgsjqm7tmp0cz,"quarta-feira, 1 de outubro de 2025 07:25",93750.0
+325,1,,,32000,5,"R$ 68.408,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,setembro de 2025 ,46dn5ctdqbcz,"segunda-feira, 1 de setembro de 2025 05:57",68408.0
+325,1,,,32000,3,"R$ 228.657,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,setembro de 2025 ,lzd99yn08sj1gy,"segunda-feira, 1 de setembro de 2025 05:57",228657.0
+325,1,,,32000,4,"R$ 245.990,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,setembro de 2025 ,mmrbcs5mkhj1g8,"segunda-feira, 1 de setembro de 2025 05:57",245990.0
+325,1,,,32000,4,"R$ 119.993,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,setembro de 2025 ,gv0qh2xg44j1g8,"segunda-feira, 1 de setembro de 2025 05:57",119993.0
+325,1,,,32000,6,"R$ 169.998,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,setembro de 2025 ,jrm7ychf2vj1hx,"segunda-feira, 1 de setembro de 2025 05:57",169998.0
+324,1,,,32000,5,"R$ 69.200,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,agosto de 2025 ,5hpj13rhsscz,"quinta-feira, 28 de agosto de 2025 08:47",69200.0
+324,1,,,32000,5,"R$ 87.050,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,agosto de 2025 ,cc7zgzvgbchcz,"quinta-feira, 28 de agosto de 2025 08:47",87050.0
+324,1,,,32000,5,"R$ 159.138,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,agosto de 2025 ,jbxjcqjy8tcz,"quinta-feira, 28 de agosto de 2025 08:47",159138.0
+324,1,,,32000,5,"R$ 110.050,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,agosto de 2025 ,ghb95qz2y2cz,"quinta-feira, 28 de agosto de 2025 08:47",110050.0
+324,1,,,32000,5,"R$ 118.793,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,agosto de 2025 ,gtl3dqx5kwj1hl,"quarta-feira, 1 de outubro de 2025 07:25",118793.0
+324,1,,,32000,5,"R$ 112.433,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,agosto de 2025 ,gk4x7j0gttj1hl,"quinta-feira, 28 de agosto de 2025 08:47",112433.0
+324,1,,,32000,5,"R$ 122.833,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,agosto de 2025 ,gzbyhm2ndpj1hl,"quarta-feira, 1 de outubro de 2025 07:41",122833.0
+324,1,,,32000,5,"R$ 116.100,00",Fiat,PULSE 1.0 Turbo 200  Flex Aut.,32000,001592-0,Flex,1,F,agosto de 2025 ,gqf61r3zfhj1hl,"quarta-feira, 1 de outubro de 2025 07:25",116100.0
+324,1,,,32000,5,"R$ 166.497,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,agosto de 2025 ,jmjz5dlwv1cz,"quinta-feira, 28 de agosto de 2025 08:47",166497.0
+324,1,,,32000,3,"R$ 296.788,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,agosto de 2025 ,pj9n93lpr8cb,"quinta-feira, 28 de agosto de 2025 09:46",296788.0
+324,1,,,32000,5,"R$ 188.273,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,agosto de 2025 ,kf2hdq2699cz,"quinta-feira, 28 de agosto de 2025 08:47",188273.0
+324,1,,,32000,5,"R$ 112.576,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,agosto de 2025 ,gk94cg3s56cz,"quinta-feira, 28 de agosto de 2025 08:47",112576.0
+324,1,,,32000,3,"R$ 253.021,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,agosto de 2025 ,mwzwll4tqqj1gy,"quinta-feira, 28 de agosto de 2025 09:46",253021.0
+324,1,,,32000,5,"R$ 159.433,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,agosto de 2025 ,jb77rw3rzrcz,"quinta-feira, 28 de agosto de 2025 08:47",159433.0
+324,1,,,32000,5,"R$ 114.990,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,agosto de 2025 ,gn4wb35pspcz,"quinta-feira, 28 de agosto de 2025 08:47",114990.0
+324,1,,,32000,5,"R$ 89.980,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,agosto de 2025 ,cfcbfx74nn0cz,"quinta-feira, 28 de agosto de 2025 08:47",89980.0
+324,1,,,32000,5,"R$ 176.042,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,agosto de 2025 ,jzqx1vgzprcz,"quinta-feira, 28 de agosto de 2025 08:47",176042.0
+324,1,,,32000,5,"R$ 154.227,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,agosto de 2025 ,h440v7wfk5j1hl,"quinta-feira, 28 de agosto de 2025 08:47",154227.0
+324,1,,,32000,3,"R$ 291.476,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,agosto de 2025 ,pb2lzyc98qj1gy,"quarta-feira, 1 de outubro de 2025 07:25",291476.0
+324,1,,,32000,5,"R$ 144.080,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,agosto de 2025 ,hr76n9314lcz,"quinta-feira, 28 de agosto de 2025 08:47",144080.0
+324,1,,,32000,5,"R$ 164.781,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,agosto de 2025 ,jkjmng1yx1j1hl,"quinta-feira, 28 de agosto de 2025 08:47",164781.0
+324,1,,,32000,5,"R$ 147.450,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,agosto de 2025 ,hw6pvh1s8vcz,"quinta-feira, 28 de agosto de 2025 08:47",147450.0
+324,1,,,32000,5,"R$ 123.530,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,agosto de 2025 ,gz48vf9ztcj1hl,"quinta-feira, 28 de agosto de 2025 08:47",123530.0
+324,1,,,32000,5,"R$ 91.020,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,agosto de 2025 ,cfrjf52mhwvcz,"quinta-feira, 28 de agosto de 2025 08:47",91020.0
+324,1,,,32000,5,"R$ 80.525,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,agosto de 2025 ,9sgt434vn8cz,"quinta-feira, 28 de agosto de 2025 08:47",80525.0
+324,1,,,32000,5,"R$ 118.935,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,agosto de 2025 ,gtr8dqqhjgcz,"quinta-feira, 28 de agosto de 2025 08:47",118935.0
+324,1,,,32000,5,"R$ 202.083,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,agosto de 2025 ,ky8fw5lbqqj1hl,"quinta-feira, 28 de agosto de 2025 08:47",202083.0
+324,1,,,32000,5,"R$ 118.958,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,agosto de 2025 ,gts292zql3j1hl,"quinta-feira, 28 de agosto de 2025 09:09",118958.0
+324,1,,,32000,5,"R$ 143.990,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,agosto de 2025 ,hr4x8n450ncz,"quarta-feira, 1 de outubro de 2025 07:25",143990.0
+324,1,,,32000,5,"R$ 95.320,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,agosto de 2025 ,chcycppbmytcz,"quarta-feira, 1 de outubro de 2025 07:25",95320.0
+324,1,,,32000,5,"R$ 89.520,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,agosto de 2025 ,cd5x7vljz8lcz,"quinta-feira, 28 de agosto de 2025 08:47",89520.0
+324,1,,,32000,5,"R$ 206.248,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,agosto de 2025 ,k34tt850n9cz,"quinta-feira, 28 de agosto de 2025 08:47",206248.0
+324,1,,,32000,5,"R$ 143.304,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,agosto de 2025 ,hrbz92s7b8cz,"quinta-feira, 28 de agosto de 2025 08:47",143304.0
+324,1,,,32000,5,"R$ 117.111,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,agosto de 2025 ,grmy6ff8hcj1hl,"quinta-feira, 28 de agosto de 2025 08:47",117111.0
+324,1,,,32000,1,"R$ 171.046,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,agosto de 2025 ,jswbscs9dtj1f9,"quinta-feira, 28 de agosto de 2025 08:47",171046.0
+324,1,,,32000,5,"R$ 92.485,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,agosto de 2025 ,cf9px5kz7vbcz,"quarta-feira, 1 de outubro de 2025 07:25",92485.0
+324,1,,,32000,5,"R$ 66.910,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,agosto de 2025 ,4mt6b32mh2cz,"quinta-feira, 28 de agosto de 2025 08:48",66910.0
+324,1,,,32000,3,"R$ 242.009,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,agosto de 2025 ,mg2mrpwvl2j1gy,"quinta-feira, 28 de agosto de 2025 09:46",242009.0
+324,1,,,32000,4,"R$ 250.350,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,agosto de 2025 ,msvs026frrj1g8,"quinta-feira, 28 de agosto de 2025 09:09",250350.0
+324,1,,,32000,4,"R$ 119.993,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,agosto de 2025 ,gv0qh1txk2j1g8,"quinta-feira, 28 de agosto de 2025 09:09",119993.0
+324,1,,,32000,6,"R$ 165.445,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,agosto de 2025 ,jk9rtmhvjvj1hx,"quinta-feira, 28 de agosto de 2025 08:48",165445.0
+323,1,,,32000,5,"R$ 76.514,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,julho de 2025 ,78fyzgl8htp,"quinta-feira, 28 de agosto de 2025 08:48",76514.0
+323,1,,,32000,5,"R$ 91.449,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,julho de 2025 ,cfxkcy7khncp,"quinta-feira, 28 de agosto de 2025 08:48",91449.0
+323,1,,,32000,5,"R$ 162.502,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,julho de 2025 ,jgvsr9ds10p,"quinta-feira, 28 de agosto de 2025 08:48",162502.0
+323,1,,,32000,5,"R$ 107.257,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,julho de 2025 ,gc2s4svlrgp,"quinta-feira, 28 de agosto de 2025 08:48",107257.0
+323,1,,,32000,5,"R$ 118.640,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,julho de 2025 ,gtfj0hkbvvj1f9,"quarta-feira, 1 de outubro de 2025 07:25",118640.0
+323,1,,,32000,5,"R$ 112.472,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,julho de 2025 ,gk6b5rl3kwj1f9,"quinta-feira, 28 de agosto de 2025 08:48",112472.0
+323,1,,,32000,5,"R$ 118.077,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,julho de 2025 ,gsr2m65kdxj1f9,"quarta-feira, 1 de outubro de 2025 07:41",118077.0
+323,1,,,32000,5,"R$ 118.318,00",Fiat,PULSE 1.0 Turbo 200  Flex Aut.,32000,001592-0,Flex,1,F,julho de 2025 ,gs1t56y3t6j1f9,"quarta-feira, 1 de outubro de 2025 07:25",118318.0
+323,1,,,32000,5,"R$ 165.120,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,julho de 2025 ,jkxymjty38p,"quinta-feira, 28 de agosto de 2025 08:48",165120.0
+323,1,,,32000,3,"R$ 296.492,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,julho de 2025 ,pjyxsy1f6fcb,"quinta-feira, 28 de agosto de 2025 09:46",296492.0
+323,1,,,32000,5,"R$ 187.388,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,julho de 2025 ,kd096405ygp,"quinta-feira, 28 de agosto de 2025 08:48",187388.0
+323,1,,,32000,5,"R$ 107.838,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,julho de 2025 ,gdrxsst08qp,"quinta-feira, 28 de agosto de 2025 08:48",107838.0
+323,1,,,32000,3,"R$ 252.950,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,julho de 2025 ,mww9llc4k0j1gy,"quinta-feira, 28 de agosto de 2025 09:46",252950.0
+323,1,,,32000,5,"R$ 155.915,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,julho de 2025 ,h64ct3zb5yp,"quinta-feira, 28 de agosto de 2025 08:48",155915.0
+323,1,,,32000,5,"R$ 117.854,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,julho de 2025 ,gshzczt5dtp,"quinta-feira, 28 de agosto de 2025 08:48",117854.0
+323,1,,,32000,5,"R$ 97.854,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,julho de 2025 ,cjbndpfhvtcp,"quinta-feira, 28 de agosto de 2025 08:48",97854.0
+323,1,,,32000,5,"R$ 183.399,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,julho de 2025 ,j8cblm9dpvp,"quinta-feira, 28 de agosto de 2025 08:48",183399.0
+323,1,,,32000,5,"R$ 155.578,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,julho de 2025 ,h6q33wcd8dj1f9,"quinta-feira, 28 de agosto de 2025 08:48",155578.0
+323,1,,,32000,3,"R$ 287.627,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,julho de 2025 ,n6kp3jbr12j1gy,"quarta-feira, 1 de outubro de 2025 07:25",287627.0
+323,1,,,32000,5,"R$ 147.356,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,julho de 2025 ,hw28x3hm0cp,"quinta-feira, 28 de agosto de 2025 08:48",147356.0
+323,1,,,32000,5,"R$ 169.910,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,julho de 2025 ,jrj1shttn6j1f9,"quinta-feira, 28 de agosto de 2025 08:48",169910.0
+323,1,,,32000,5,"R$ 158.360,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,julho de 2025 ,h9z7rlcjxrp,"quinta-feira, 28 de agosto de 2025 08:48",158360.0
+323,1,,,32000,5,"R$ 123.885,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,julho de 2025 ,g0k5vcmz2jj1f9,"quinta-feira, 28 de agosto de 2025 08:48",123885.0
+323,1,,,32000,5,"R$ 93.456,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,julho de 2025 ,cgn2vyp3mc3p,"quinta-feira, 28 de agosto de 2025 08:48",93456.0
+323,1,,,32000,5,"R$ 80.818,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,julho de 2025 ,9wxbj0pdzwp,"quinta-feira, 28 de agosto de 2025 08:48",80818.0
+323,1,,,32000,5,"R$ 118.375,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,julho de 2025 ,gs3xd6pg6cp,"quinta-feira, 28 de agosto de 2025 08:48",118375.0
+323,1,,,32000,5,"R$ 193.837,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,julho de 2025 ,knlqn1ckvnj1f9,"quinta-feira, 28 de agosto de 2025 08:48",193837.0
+323,1,,,32000,5,"R$ 118.397,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,julho de 2025 ,gs4p6m4jkhj1f9,"quinta-feira, 28 de agosto de 2025 09:09",118397.0
+323,1,,,32000,5,"R$ 145.046,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,julho de 2025 ,htc933zpfmp,"quarta-feira, 1 de outubro de 2025 07:25",145046.0
+323,1,,,32000,5,"R$ 101.184,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,julho de 2025 ,f4y2b93wslj1f9,"quarta-feira, 1 de outubro de 2025 07:25",101184.0
+323,1,,,32000,5,"R$ 93.006,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,julho de 2025 ,cghs9j8bn56p,"quinta-feira, 28 de agosto de 2025 08:48",93006.0
+323,1,,,32000,5,"R$ 207.949,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,julho de 2025 ,k54nf60nk5p,"quinta-feira, 28 de agosto de 2025 08:48",207949.0
+323,1,,,32000,5,"R$ 142.823,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,julho de 2025 ,hqsjbzytdyp,"quinta-feira, 28 de agosto de 2025 08:48",142823.0
+323,1,,,32000,5,"R$ 118.408,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,julho de 2025 ,gs43lv18yqj1f9,"quinta-feira, 28 de agosto de 2025 08:48",118408.0
+323,1,,,32000,1,"R$ 170.315,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,julho de 2025 ,jr0r3xvpwgj1f9,"quinta-feira, 28 de agosto de 2025 08:48",170315.0
+323,1,,,32000,5,"R$ 94.955,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,julho de 2025 ,cg7np06p482p,"quarta-feira, 1 de outubro de 2025 07:25",94955.0
+323,1,,,32000,5,"R$ 69.741,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,julho de 2025 ,5p05s0lcz1p,"quinta-feira, 28 de agosto de 2025 08:48",69741.0
+323,1,,,32000,3,"R$ 241.768,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,julho de 2025 ,mgsv6n0rzmj1gy,"quinta-feira, 28 de agosto de 2025 09:46",241768.0
+323,1,,,32000,4,"R$ 255.900,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,julho de 2025 ,m0cjjdz186j1f9,"quinta-feira, 28 de agosto de 2025 09:09",255900.0
+323,1,,,32000,4,"R$ 120.321,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,julho de 2025 ,gwdm2v6x69j1f9,"quinta-feira, 28 de agosto de 2025 09:09",120321.0
+323,1,,,32000,6,"R$ 164.450,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,julho de 2025 ,jj4lps2g77j1f9,"quinta-feira, 28 de agosto de 2025 08:48",164450.0
+322,1,,,32000,5,"R$ 76.409,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,junho de 2025 ,766sv6rm07p,"quinta-feira, 28 de agosto de 2025 08:48",76409.0
+322,1,,,32000,5,"R$ 91.825,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,junho de 2025 ,cf1y1kkdctcp,"quinta-feira, 28 de agosto de 2025 08:48",91825.0
+322,1,,,32000,5,"R$ 162.312,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,junho de 2025 ,jgmwpny4gwp,"quinta-feira, 28 de agosto de 2025 08:48",162312.0
+322,1,,,32000,5,"R$ 106.903,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,junho de 2025 ,gcnx8q5m1pp,"quinta-feira, 28 de agosto de 2025 08:49",106903.0
+322,1,,,32000,5,"R$ 118.650,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,junho de 2025 ,gtfw8rlmjyj1f9,"quarta-feira, 1 de outubro de 2025 07:25",118650.0
+322,1,,,32000,5,"R$ 111.367,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,junho de 2025 ,gjw53ptfdhj1f9,"quinta-feira, 28 de agosto de 2025 08:49",111367.0
+322,1,,,32000,5,"R$ 118.744,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,junho de 2025 ,gtj953y583j1f9,"quarta-feira, 1 de outubro de 2025 07:41",118744.0
+322,1,,,32000,5,"R$ 162.172,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,junho de 2025 ,jggsyjrvbnp,"quinta-feira, 28 de agosto de 2025 08:49",162172.0
+322,1,,,32000,3,"R$ 297.328,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,junho de 2025 ,pkx9rx39tvcb,"quinta-feira, 28 de agosto de 2025 09:46",297328.0
+322,1,,,32000,5,"R$ 184.671,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,junho de 2025 ,j9vktvmqx2p,"quinta-feira, 28 de agosto de 2025 08:49",184671.0
+322,1,,,32000,5,"R$ 108.653,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,junho de 2025 ,gfqj27v0m9p,"quinta-feira, 28 de agosto de 2025 08:49",108653.0
+322,1,,,32000,3,"R$ 255.020,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,junho de 2025 ,mzbjzgzyhbj1gy,"quinta-feira, 28 de agosto de 2025 09:46",255020.0
+322,1,,,32000,5,"R$ 151.875,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,junho de 2025 ,h2djq5rh7qp,"quinta-feira, 28 de agosto de 2025 08:49",151875.0
+322,1,,,32000,5,"R$ 120.767,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,junho de 2025 ,gwxvmc9pl7p,"quinta-feira, 28 de agosto de 2025 08:49",120767.0
+322,1,,,32000,5,"R$ 100.033,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,junho de 2025 ,f3l7gjs3vtp,"quinta-feira, 28 de agosto de 2025 08:49",100033.0
+322,1,,,32000,5,"R$ 183.840,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,junho de 2025 ,j8wchhg9fdp,"quinta-feira, 28 de agosto de 2025 08:49",183840.0
+322,1,,,32000,5,"R$ 156.347,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,junho de 2025 ,h7m2lk0w67j1f9,"quinta-feira, 28 de agosto de 2025 08:49",156347.0
+322,1,,,32000,3,"R$ 282.125,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,junho de 2025 ,nz3qprcv68j1gy,"quarta-feira, 1 de outubro de 2025 07:25",282125.0
+322,1,,,32000,5,"R$ 151.858,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,junho de 2025 ,h2cxlcwpbxp,"quinta-feira, 28 de agosto de 2025 08:49",151858.0
+322,1,,,32000,5,"R$ 169.555,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,junho de 2025 ,jq34sjbn7xj1f9,"quinta-feira, 28 de agosto de 2025 08:49",169555.0
+322,1,,,32000,5,"R$ 158.138,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,junho de 2025 ,h9q5l6xy23p,"quinta-feira, 28 de agosto de 2025 08:49",158138.0
+322,1,,,32000,5,"R$ 123.001,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,junho de 2025 ,gzj1sqc4d6j1f9,"quinta-feira, 28 de agosto de 2025 08:49",123001.0
+322,1,,,32000,5,"R$ 95.018,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,junho de 2025 ,cg8dlv238sdp,"quinta-feira, 28 de agosto de 2025 08:49",95018.0
+322,1,,,32000,5,"R$ 79.833,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,junho de 2025 ,9jb9zrl7vcp,"quinta-feira, 28 de agosto de 2025 08:49",79833.0
+322,1,,,32000,5,"R$ 118.376,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,junho de 2025 ,gs3yj3d3btp,"quinta-feira, 28 de agosto de 2025 08:49",118376.0
+322,1,,,32000,5,"R$ 193.593,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,junho de 2025 ,km9vq61x1nj1f9,"quinta-feira, 28 de agosto de 2025 08:49",193593.0
+322,1,,,32000,5,"R$ 118.403,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,junho de 2025 ,gs4xy5x2bjj1f9,"quinta-feira, 28 de agosto de 2025 09:09",118403.0
+322,1,,,32000,5,"R$ 152.429,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,junho de 2025 ,h21ny2xw94p,"quarta-feira, 1 de outubro de 2025 07:25",152429.0
+322,1,,,32000,5,"R$ 100.686,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,junho de 2025 ,f4cy7fgbhhj1f9,"quarta-feira, 1 de outubro de 2025 07:25",100686.0
+322,1,,,32000,5,"R$ 91.929,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,junho de 2025 ,cf25vcxvktvp,"quinta-feira, 28 de agosto de 2025 08:49",91929.0
+322,1,,,32000,5,"R$ 208.238,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,junho de 2025 ,k6g42sqgw8p,"quinta-feira, 28 de agosto de 2025 08:49",208238.0
+322,1,,,32000,5,"R$ 141.726,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,junho de 2025 ,hphm9cnl1pp,"quinta-feira, 28 de agosto de 2025 08:49",141726.0
+322,1,,,32000,5,"R$ 118.810,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,junho de 2025 ,gtmqkgkzb4j1f9,"quinta-feira, 28 de agosto de 2025 08:49",118810.0
+322,1,,,32000,1,"R$ 171.897,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,junho de 2025 ,jtv8m70cbxj1f9,"quinta-feira, 28 de agosto de 2025 08:49",171897.0
+322,1,,,32000,5,"R$ 94.156,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,junho de 2025 ,cgx887pqk3kp,"quarta-feira, 1 de outubro de 2025 07:25",94156.0
+322,1,,,32000,5,"R$ 72.100,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,junho de 2025 ,6lplyzh76wp,"quinta-feira, 28 de agosto de 2025 08:49",72100.0
+322,1,,,32000,3,"R$ 239.000,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,junho de 2025 ,mcj8by5wxxj1gy,"quinta-feira, 28 de agosto de 2025 09:46",239000.0
+322,1,,,32000,4,"R$ 274.941,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,junho de 2025 ,nqpl2p0rprj1f9,"quinta-feira, 28 de agosto de 2025 09:09",274941.0
+322,1,,,32000,4,"R$ 118.868,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,junho de 2025 ,gtptxcpy89j1f9,"quinta-feira, 28 de agosto de 2025 09:09",118868.0
+322,1,,,32000,6,"R$ 165.510,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,junho de 2025 ,jlc31y4qk8j1f9,"quinta-feira, 28 de agosto de 2025 08:49",165510.0
+321,1,,,32000,5,"R$ 74.735,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,maio de 2025 ,7llby45rhlp,"quinta-feira, 28 de agosto de 2025 08:49",74735.0
+321,1,,,32000,5,"R$ 90.662,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,maio de 2025 ,cfmbbcw7ds4p,"quinta-feira, 28 de agosto de 2025 08:49",90662.0
+321,1,,,32000,5,"R$ 162.135,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,maio de 2025 ,jgff732wbgp,"quinta-feira, 28 de agosto de 2025 08:49",162135.0
+321,1,,,32000,5,"R$ 103.990,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,maio de 2025 ,f77108jzn4p,"quinta-feira, 28 de agosto de 2025 08:49",103990.0
+321,1,,,32000,5,"R$ 118.679,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,maio de 2025 ,gtgyyn2d0vj1f9,"quarta-feira, 1 de outubro de 2025 07:25",118679.0
+321,1,,,32000,5,"R$ 109.847,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,maio de 2025 ,gg3yfxv2sxj1f9,"quinta-feira, 28 de agosto de 2025 08:49",109847.0
+321,1,,,32000,5,"R$ 120.353,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,maio de 2025 ,gwfs4j1vchj1f9,"quarta-feira, 1 de outubro de 2025 07:41",120353.0
+321,1,,,32000,5,"R$ 165.821,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,maio de 2025 ,jlrfgz493yp,"quinta-feira, 28 de agosto de 2025 08:49",165821.0
+321,1,,,32000,3,"R$ 299.387,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,maio de 2025 ,pnb4rls2rhcb,"quinta-feira, 28 de agosto de 2025 09:46",299387.0
+321,1,,,32000,5,"R$ 185.901,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,maio de 2025 ,kb88q0tcqvp,"quinta-feira, 28 de agosto de 2025 08:50",185901.0
+321,1,,,32000,5,"R$ 109.579,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,maio de 2025 ,ggs6gv2hm5p,"quinta-feira, 28 de agosto de 2025 08:50",109579.0
+321,1,,,32000,3,"R$ 256.890,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,maio de 2025 ,m1jh0g3s4fj1gy,"quinta-feira, 28 de agosto de 2025 09:46",256890.0
+321,1,,,32000,5,"R$ 151.121,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,maio de 2025 ,h1h35b3n0hp,"quinta-feira, 28 de agosto de 2025 08:50",151121.0
+321,1,,,32000,5,"R$ 120.277,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,maio de 2025 ,gwb1hx4l38p,"quinta-feira, 28 de agosto de 2025 08:50",120277.0
+321,1,,,32000,5,"R$ 99.907,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,maio de 2025 ,cj3qlyzmtm6p,"quinta-feira, 28 de agosto de 2025 08:50",99907.0
+321,1,,,32000,5,"R$ 182.230,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,maio de 2025 ,j6zvd2fbgcp,"quinta-feira, 28 de agosto de 2025 08:50",182230.0
+321,1,,,32000,5,"R$ 155.347,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,maio de 2025 ,h6gqt3jl91j1f9,"quinta-feira, 28 de agosto de 2025 08:50",155347.0
+321,1,,,32000,3,"R$ 272.561,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,maio de 2025 ,nmw3dmdm1yj1gy,"quarta-feira, 1 de outubro de 2025 07:25",272561.0
+321,1,,,32000,5,"R$ 144.157,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,maio de 2025 ,hsb0fsfk94p,"quinta-feira, 28 de agosto de 2025 08:50",144157.0
+321,1,,,32000,5,"R$ 169.555,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,maio de 2025 ,jq34sg73nvj1f9,"quinta-feira, 28 de agosto de 2025 08:50",169555.0
+321,1,,,32000,5,"R$ 158.138,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,maio de 2025 ,h9q5l5vdh1p,"quinta-feira, 28 de agosto de 2025 08:50",158138.0
+321,1,,,32000,5,"R$ 123.001,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,maio de 2025 ,gzj1sn9kt4j1f9,"quinta-feira, 28 de agosto de 2025 08:50",123001.0
+321,1,,,32000,5,"R$ 95.018,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,maio de 2025 ,cg8dlvq9lyrp,"quinta-feira, 28 de agosto de 2025 08:50",95018.0
+321,1,,,32000,5,"R$ 80.005,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,maio de 2025 ,9lctz0389gp,"quinta-feira, 28 de agosto de 2025 08:50",80005.0
+321,1,,,32000,5,"R$ 117.939,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,maio de 2025 ,gsl14w9tb6p,"quinta-feira, 28 de agosto de 2025 08:50",117939.0
+321,1,,,32000,5,"R$ 193.429,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,maio de 2025 ,km3wyrq2byj1f9,"quinta-feira, 28 de agosto de 2025 08:50",193429.0
+321,1,,,32000,5,"R$ 117.980,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,maio de 2025 ,gsnkbz6ch4j1f9,"quinta-feira, 28 de agosto de 2025 09:09",117980.0
+321,1,,,32000,5,"R$ 145.950,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,maio de 2025 ,hvf5p77jv2p,"quarta-feira, 1 de outubro de 2025 07:26",145950.0
+321,1,,,32000,5,"R$ 101.578,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,maio de 2025 ,f5fc9f1jstj1f9,"quarta-feira, 1 de outubro de 2025 07:26",101578.0
+321,1,,,32000,5,"R$ 92.492,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,maio de 2025 ,cf9sgz8wv60p,"quinta-feira, 28 de agosto de 2025 08:50",92492.0
+321,1,,,32000,5,"R$ 208.192,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,maio de 2025 ,k6fg7z8dxgp,"quinta-feira, 28 de agosto de 2025 08:50",208192.0
+321,1,,,32000,5,"R$ 141.457,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,maio de 2025 ,hn5v591b2sp,"quinta-feira, 28 de agosto de 2025 08:50",141457.0
+321,1,,,32000,5,"R$ 118.810,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,maio de 2025 ,gtmqkfhdr2j1f9,"quinta-feira, 28 de agosto de 2025 08:50",118810.0
+321,1,,,32000,1,"R$ 166.741,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,maio de 2025 ,jmtv214ctpj1f9,"quinta-feira, 28 de agosto de 2025 08:50",166741.0
+321,1,,,32000,5,"R$ 94.154,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,maio de 2025 ,cgx8kprm6rlp,"quarta-feira, 1 de outubro de 2025 07:26",94154.0
+321,1,,,32000,5,"R$ 73.647,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,maio de 2025 ,65twvyn6nrp,"quinta-feira, 28 de agosto de 2025 08:50",73647.0
+321,1,,,32000,3,"R$ 238.077,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,maio de 2025 ,mbgqb17tygj1gy,"quinta-feira, 28 de agosto de 2025 09:46",238077.0
+321,1,,,32000,4,"R$ 288.784,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,maio de 2025 ,n7xrrs38ngj1f9,"quinta-feira, 28 de agosto de 2025 09:09",288784.0
+321,1,,,32000,4,"R$ 120.336,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,maio de 2025 ,gwd5zq7kyxj1f9,"quinta-feira, 28 de agosto de 2025 09:09",120336.0
+321,1,,,32000,6,"R$ 159.974,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,maio de 2025 ,jcwxblkj1xj1f9,"quinta-feira, 28 de agosto de 2025 08:50",159974.0
+320,1,,,32000,5,"R$ 75.802,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,abril de 2025 ,7z25fvr1k1p,"quinta-feira, 28 de agosto de 2025 08:50",75802.0
+320,1,,,32000,5,"R$ 89.068,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,abril de 2025 ,cd0mywdk9bdp,"quinta-feira, 28 de agosto de 2025 08:50",89068.0
+320,1,,,32000,5,"R$ 162.431,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,abril de 2025 ,jgr6r6gzq5p,"quinta-feira, 28 de agosto de 2025 08:50",162431.0
+320,1,,,32000,5,"R$ 107.274,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,abril de 2025 ,gc3d9hd1b1p,"quinta-feira, 28 de agosto de 2025 08:50",107274.0
+320,1,,,32000,5,"R$ 119.978,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,abril de 2025 ,gvz5ly9sx7j1f9,"quarta-feira, 1 de outubro de 2025 07:26",119978.0
+320,1,,,32000,5,"R$ 108.560,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,abril de 2025 ,gfl49p6sflj1f9,"quinta-feira, 28 de agosto de 2025 08:50",108560.0
+320,1,,,32000,5,"R$ 120.500,00",Fiat,Fiorino Endurance 1.3 Flex 8V 2p,32000,001589-0,Flex,1,F,abril de 2025 ,gwl4r4dfj9j1f9,"quarta-feira, 1 de outubro de 2025 07:41",120500.0
+320,1,,,32000,5,"R$ 163.178,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,abril de 2025 ,jhncggwjvrp,"quinta-feira, 28 de agosto de 2025 08:50",163178.0
+320,1,,,32000,3,"R$ 298.203,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,abril de 2025 ,ply3n3ts6bcb,"quinta-feira, 28 de agosto de 2025 09:46",298203.0
+320,1,,,32000,5,"R$ 185.960,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,abril de 2025 ,kccd6tnpz7p,"quinta-feira, 28 de agosto de 2025 08:50",185960.0
+320,1,,,32000,5,"R$ 109.927,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,abril de 2025 ,gg6vk8p6tqp,"quinta-feira, 28 de agosto de 2025 08:50",109927.0
+320,1,,,32000,3,"R$ 251.633,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,abril de 2025 ,mvcfnd5472j1gy,"quinta-feira, 28 de agosto de 2025 09:46",251633.0
+320,1,,,32000,5,"R$ 152.366,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,abril de 2025 ,h2zczgg2p0p,"quinta-feira, 28 de agosto de 2025 08:50",152366.0
+320,1,,,32000,5,"R$ 119.453,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,abril de 2025 ,gvc211mt1xp,"quinta-feira, 28 de agosto de 2025 08:50",119453.0
+320,1,,,32000,5,"R$ 99.360,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,abril de 2025 ,cjw9slmxqtbp,"quinta-feira, 28 de agosto de 2025 08:50",99360.0
+320,1,,,32000,5,"R$ 182.814,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,abril de 2025 ,j7n2ftsm1qp,"quinta-feira, 28 de agosto de 2025 08:50",182814.0
+320,1,,,32000,5,"R$ 155.588,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,abril de 2025 ,h6rhc17kscj1f9,"quinta-feira, 28 de agosto de 2025 08:50",155588.0
+320,1,,,32000,3,"R$ 275.968,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,abril de 2025 ,nrwx746d2bj1gy,"quarta-feira, 1 de outubro de 2025 07:26",275968.0
+320,1,,,32000,5,"R$ 144.488,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,abril de 2025 ,hsq1dc744xp,"quinta-feira, 28 de agosto de 2025 08:51",144488.0
+320,1,,,32000,5,"R$ 164.535,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,abril de 2025 ,jj7pgpv7xtj1f9,"quinta-feira, 28 de agosto de 2025 08:51",164535.0
+320,1,,,32000,5,"R$ 156.331,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,abril de 2025 ,h7mhknq1gbp,"quinta-feira, 28 de agosto de 2025 08:51",156331.0
+320,1,,,32000,5,"R$ 123.928,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,abril de 2025 ,g0mq8697kjj1f9,"quinta-feira, 28 de agosto de 2025 08:51",123928.0
+320,1,,,32000,5,"R$ 91.430,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,abril de 2025 ,cfxbgvb55jdp,"quinta-feira, 28 de agosto de 2025 08:51",91430.0
+320,1,,,32000,5,"R$ 81.320,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,abril de 2025 ,92sstqhpnxp,"quinta-feira, 28 de agosto de 2025 08:51",81320.0
+320,1,,,32000,5,"R$ 118.140,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,abril de 2025 ,gsvcmpjcrwp,"quinta-feira, 28 de agosto de 2025 08:51",118140.0
+320,1,,,32000,5,"R$ 193.433,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,abril de 2025 ,km31gfw7nyj1f9,"quinta-feira, 28 de agosto de 2025 08:51",193433.0
+320,1,,,32000,5,"R$ 118.062,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,abril de 2025 ,gsrjq5qyhdj1f9,"quinta-feira, 28 de agosto de 2025 09:09",118062.0
+320,1,,,32000,5,"R$ 144.513,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,abril de 2025 ,hsrykmqjkbp,"quarta-feira, 1 de outubro de 2025 07:26",144513.0
+320,1,,,32000,5,"R$ 101.113,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,abril de 2025 ,f4whb652grj1f9,"quarta-feira, 1 de outubro de 2025 07:26",101113.0
+320,1,,,32000,5,"R$ 94.378,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,abril de 2025 ,cg0wzl030xkp,"quinta-feira, 28 de agosto de 2025 08:51",94378.0
+320,1,,,32000,5,"R$ 208.226,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,abril de 2025 ,k6gqkks30yp,"quinta-feira, 28 de agosto de 2025 08:51",208226.0
+320,1,,,32000,5,"R$ 141.721,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,abril de 2025 ,hphgnnfj7zp,"quinta-feira, 28 de agosto de 2025 08:51",141721.0
+320,1,,,32000,5,"R$ 118.816,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,abril de 2025 ,gtmx9y8yj3j1f9,"quinta-feira, 28 de agosto de 2025 08:51",118816.0
+320,1,,,32000,1,"R$ 166.767,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,abril de 2025 ,jmvtc55l31j1f9,"quinta-feira, 28 de agosto de 2025 08:51",166767.0
+320,1,,,32000,5,"R$ 93.811,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,abril de 2025 ,cgs7wxf7ymmp,"quarta-feira, 1 de outubro de 2025 07:26",93811.0
+320,1,,,32000,5,"R$ 66.652,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,abril de 2025 ,4jtd8srb8wp,"quinta-feira, 28 de agosto de 2025 08:51",66652.0
+320,1,,,32000,3,"R$ 238.153,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,abril de 2025 ,mbkgznw9kmj1gy,"quinta-feira, 28 de agosto de 2025 09:46",238153.0
+320,1,,,32000,4,"R$ 290.100,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,abril de 2025 ,n9glkw5sxmj1f9,"quinta-feira, 28 de agosto de 2025 09:10",290100.0
+320,1,,,32000,4,"R$ 120.750,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,abril de 2025 ,gww7ghhg2jj1f9,"quinta-feira, 28 de agosto de 2025 09:10",120750.0
+320,1,,,32000,6,"R$ 160.325,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,abril de 2025 ,jc9ntsmtd0j1f9,"quinta-feira, 28 de agosto de 2025 08:51",160325.0
+319,1,,,32000,5,"R$ 73.114,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,março de 2025 ,6zk47cb22vp,"quinta-feira, 28 de agosto de 2025 08:51",73114.0
+319,1,,,32000,5,"R$ 88.751,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,março de 2025 ,cdwxq1rd11mp,"quinta-feira, 28 de agosto de 2025 08:51",88751.0
+319,1,,,32000,5,"R$ 159.749,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,março de 2025 ,jcmqtfhz4vp,"quinta-feira, 28 de agosto de 2025 08:51",159749.0
+319,1,,,32000,5,"R$ 106.334,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,março de 2025 ,gbz74snt0tp,"quinta-feira, 28 de agosto de 2025 08:51",106334.0
+319,1,,,32000,5,"R$ 119.700,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,março de 2025 ,gvn2ckcwfpj1f9,"quarta-feira, 1 de outubro de 2025 07:26",119700.0
+319,1,,,32000,5,"R$ 105.089,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,março de 2025 ,f9j0bl71r1j1f9,"quinta-feira, 28 de agosto de 2025 08:51",105089.0
+319,1,,,32000,5,"R$ 160.302,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,março de 2025 ,jc8txc9qb9p,"quinta-feira, 28 de agosto de 2025 08:51",160302.0
+319,1,,,32000,3,"R$ 286.975,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,março de 2025 ,n5s0gdz6d5cb,"quinta-feira, 28 de agosto de 2025 09:46",286975.0
+319,1,,,32000,5,"R$ 186.486,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,março de 2025 ,kczjwnw9gnp,"quinta-feira, 28 de agosto de 2025 08:51",186486.0
+319,1,,,32000,5,"R$ 109.265,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,março de 2025 ,ggfsnytcdzp,"quinta-feira, 28 de agosto de 2025 08:51",109265.0
+319,1,,,32000,3,"R$ 209.100,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,março de 2025 ,k7hhbtvwthj1gy,"quinta-feira, 28 de agosto de 2025 09:46",209100.0
+319,1,,,32000,5,"R$ 152.306,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,março de 2025 ,h2w6cnnfjzp,"quinta-feira, 28 de agosto de 2025 08:51",152306.0
+319,1,,,32000,5,"R$ 119.470,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,março de 2025 ,gvdp6tcdtmp,"quinta-feira, 28 de agosto de 2025 08:51",119470.0
+319,1,,,32000,5,"R$ 99.682,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,março de 2025 ,cj02tq11vrmp,"quinta-feira, 28 de agosto de 2025 08:51",99682.0
+319,1,,,32000,5,"R$ 182.361,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,março de 2025 ,j64l0rpdfvp,"quinta-feira, 28 de agosto de 2025 08:51",182361.0
+319,1,,,32000,5,"R$ 155.256,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,março de 2025 ,h6cd9gfn1yj1f9,"quinta-feira, 28 de agosto de 2025 08:51",155256.0
+319,1,,,32000,3,"R$ 275.691,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,março de 2025 ,nrkv4n2n89j1gy,"quarta-feira, 1 de outubro de 2025 07:26",275691.0
+319,1,,,32000,5,"R$ 142.813,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,março de 2025 ,hqr42kc5zbp,"quinta-feira, 28 de agosto de 2025 08:51",142813.0
+319,1,,,32000,5,"R$ 164.807,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,março de 2025 ,jkkkygrxw4j1f9,"quinta-feira, 28 de agosto de 2025 08:51",164807.0
+319,1,,,32000,5,"R$ 157.179,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,março de 2025 ,h8l91sk3syp,"quinta-feira, 28 de agosto de 2025 08:51",157179.0
+319,1,,,32000,5,"R$ 120.345,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,março de 2025 ,gwfh31ctj5j1f9,"quinta-feira, 28 de agosto de 2025 08:51",120345.0
+319,1,,,32000,5,"R$ 89.594,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,março de 2025 ,cd6s4lmh1bmp,"quinta-feira, 28 de agosto de 2025 08:51",89594.0
+319,1,,,32000,5,"R$ 80.277,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,março de 2025 ,9pkprc7c71p,"quinta-feira, 28 de agosto de 2025 08:51",80277.0
+319,1,,,32000,5,"R$ 118.000,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,março de 2025 ,gsn8wjpyhkp,"quinta-feira, 28 de agosto de 2025 08:51",118000.0
+319,1,,,32000,5,"R$ 192.547,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,março de 2025 ,kl2t4x00klj1f9,"quinta-feira, 28 de agosto de 2025 08:52",192547.0
+319,1,,,32000,5,"R$ 118.015,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,março de 2025 ,gsptsggpr2j1f9,"quinta-feira, 28 de agosto de 2025 09:10",118015.0
+319,1,,,32000,5,"R$ 144.281,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,março de 2025 ,hshh4y43gjp,"quarta-feira, 1 de outubro de 2025 07:26",144281.0
+319,1,,,32000,5,"R$ 97.325,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,março de 2025 ,ch4f3210xnzp,"quarta-feira, 1 de outubro de 2025 07:26",97325.0
+319,1,,,32000,5,"R$ 91.055,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,março de 2025 ,cfrx5hmw27yp,"quinta-feira, 28 de agosto de 2025 08:52",91055.0
+319,1,,,32000,5,"R$ 207.637,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,março de 2025 ,k5r9w26rmwp,"quinta-feira, 28 de agosto de 2025 08:52",207637.0
+319,1,,,32000,5,"R$ 141.622,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,março de 2025 ,hpcv3lxprtp,"quinta-feira, 28 de agosto de 2025 08:52",141622.0
+319,1,,,32000,5,"R$ 117.149,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,março de 2025 ,grpb0kxf5nj1f9,"quinta-feira, 28 de agosto de 2025 08:52",117149.0
+319,1,,,32000,1,"R$ 166.908,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,março de 2025 ,jm0x76m2yrj1f9,"quinta-feira, 28 de agosto de 2025 08:52",166908.0
+319,1,,,32000,5,"R$ 93.248,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,março de 2025 ,cglm78dj9k5p,"quarta-feira, 1 de outubro de 2025 07:26",93248.0
+319,1,,,32000,5,"R$ 66.330,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,março de 2025 ,4d1c3nywn9p,"quinta-feira, 28 de agosto de 2025 08:52",66330.0
+319,1,,,32000,3,"R$ 238.568,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,março de 2025 ,mb1klbzddrj1gy,"quinta-feira, 28 de agosto de 2025 09:46",238568.0
+319,1,,,32000,4,"R$ 290.100,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,março de 2025 ,n9glkv27bkj1f9,"quinta-feira, 28 de agosto de 2025 09:10",290100.0
+319,1,,,32000,4,"R$ 120.800,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,março de 2025 ,gwy1sx04s8j1f9,"quinta-feira, 28 de agosto de 2025 09:10",120800.0
+319,1,,,32000,6,"R$ 164.580,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,março de 2025 ,jj895hb7b2j1f9,"quinta-feira, 28 de agosto de 2025 08:52",164580.0
+318,1,,,32000,5,"R$ 71.921,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,fevereiro de 2025 ,6jlj0wgp5sp,"quinta-feira, 28 de agosto de 2025 08:52",71921.0
+318,1,,,32000,5,"R$ 88.643,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,fevereiro de 2025 ,cdvng4l5wskp,"quinta-feira, 28 de agosto de 2025 08:52",88643.0
+318,1,,,32000,5,"R$ 161.150,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,fevereiro de 2025 ,jd8ndjl64wp,"quinta-feira, 28 de agosto de 2025 08:52",161150.0
+318,1,,,32000,5,"R$ 106.222,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,fevereiro de 2025 ,gbv5ynlk2yp,"quinta-feira, 28 de agosto de 2025 08:52",106222.0
+318,1,,,32000,5,"R$ 119.440,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,fevereiro de 2025 ,gvcmdv180fj1f9,"quarta-feira, 1 de outubro de 2025 07:26",119440.0
+318,1,,,32000,5,"R$ 106.143,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,fevereiro de 2025 ,gbr9x6f5qzj1f9,"quinta-feira, 28 de agosto de 2025 08:52",106143.0
+318,1,,,32000,5,"R$ 159.689,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,fevereiro de 2025 ,jckj6l6xjvp,"quinta-feira, 28 de agosto de 2025 08:52",159689.0
+318,1,,,32000,3,"R$ 277.826,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,fevereiro de 2025 ,nt2grz5mn1cb,"quinta-feira, 28 de agosto de 2025 09:46",277826.0
+318,1,,,32000,5,"R$ 181.760,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,fevereiro de 2025 ,j6frt4cq8cp,"quinta-feira, 28 de agosto de 2025 08:52",181760.0
+318,1,,,32000,5,"R$ 106.712,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,fevereiro de 2025 ,gcfz12m6h7p,"quinta-feira, 28 de agosto de 2025 08:52",106712.0
+318,1,,,32000,3,"R$ 228.130,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,fevereiro de 2025 ,lys5hwyj7cj1gy,"quinta-feira, 28 de agosto de 2025 09:46",228130.0
+318,1,,,32000,5,"R$ 150.022,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,fevereiro de 2025 ,hz65vs0y02p,"quinta-feira, 28 de agosto de 2025 08:52",150022.0
+318,1,,,32000,5,"R$ 118.304,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,fevereiro de 2025 ,gs1bd10gbrp,"quinta-feira, 28 de agosto de 2025 08:52",118304.0
+318,1,,,32000,5,"R$ 97.919,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,fevereiro de 2025 ,cjcd00tfksmp,"quinta-feira, 28 de agosto de 2025 08:52",97919.0
+318,1,,,32000,5,"R$ 180.818,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,fevereiro de 2025 ,j5bjfl1s4dp,"quinta-feira, 28 de agosto de 2025 08:52",180818.0
+318,1,,,32000,5,"R$ 153.116,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,fevereiro de 2025 ,h3vm1fss4cj1f9,"quinta-feira, 28 de agosto de 2025 08:52",153116.0
+318,1,,,32000,3,"R$ 272.218,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,fevereiro de 2025 ,nmhmxqhk5qj1gy,"quarta-feira, 1 de outubro de 2025 07:26",272218.0
+318,1,,,32000,5,"R$ 142.660,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,fevereiro de 2025 ,hqlln90b79p,"quinta-feira, 28 de agosto de 2025 08:52",142660.0
+318,1,,,32000,5,"R$ 163.911,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,fevereiro de 2025 ,jjh0cnrvjmj1f9,"quinta-feira, 28 de agosto de 2025 08:52",163911.0
+318,1,,,32000,5,"R$ 156.620,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,fevereiro de 2025 ,h7yz56b86cp,"quinta-feira, 28 de agosto de 2025 08:52",156620.0
+318,1,,,32000,5,"R$ 120.530,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,fevereiro de 2025 ,gwm7kylfblj1f9,"quinta-feira, 28 de agosto de 2025 08:52",120530.0
+318,1,,,32000,5,"R$ 89.150,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,fevereiro de 2025 ,cd1lrslk6mcp,"quinta-feira, 28 de agosto de 2025 08:52",89150.0
+318,1,,,32000,5,"R$ 79.497,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,fevereiro de 2025 ,9dd51glw2lp,"quinta-feira, 28 de agosto de 2025 08:52",79497.0
+318,1,,,32000,5,"R$ 117.977,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,fevereiro de 2025 ,gsnfy3x36mp,"quinta-feira, 28 de agosto de 2025 08:52",117977.0
+318,1,,,32000,5,"R$ 192.951,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,fevereiro de 2025 ,kmkjcc42d1j1f9,"quinta-feira, 28 de agosto de 2025 08:52",192951.0
+318,1,,,32000,5,"R$ 117.882,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,fevereiro de 2025 ,gsjzxtbklcj1f9,"quinta-feira, 28 de agosto de 2025 09:10",117882.0
+318,1,,,32000,5,"R$ 141.447,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,fevereiro de 2025 ,hn5hxxp1grp,"quarta-feira, 1 de outubro de 2025 07:26",141447.0
+318,1,,,32000,5,"R$ 94.987,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,fevereiro de 2025 ,cg71bjk1g97p,"quarta-feira, 1 de outubro de 2025 07:26",94987.0
+318,1,,,32000,5,"R$ 90.718,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,fevereiro de 2025 ,cfmzn927xpyp,"quinta-feira, 28 de agosto de 2025 08:52",90718.0
+318,1,,,32000,5,"R$ 208.025,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,fevereiro de 2025 ,k57d2pbvv2p,"quinta-feira, 28 de agosto de 2025 08:52",208025.0
+318,1,,,32000,5,"R$ 140.423,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,fevereiro de 2025 ,hmy835rm9xp,"quinta-feira, 28 de agosto de 2025 08:52",140423.0
+318,1,,,32000,5,"R$ 115.443,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,fevereiro de 2025 ,gppbrxvrg2j1f9,"quinta-feira, 28 de agosto de 2025 08:53",115443.0
+318,1,,,32000,1,"R$ 164.246,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,fevereiro de 2025 ,jjw5t0xswrj1f9,"quinta-feira, 28 de agosto de 2025 08:53",164246.0
+318,1,,,32000,5,"R$ 91.832,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,fevereiro de 2025 ,cf11lc8zzy4p,"quarta-feira, 1 de outubro de 2025 07:26",91832.0
+318,1,,,32000,5,"R$ 65.553,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,fevereiro de 2025 ,33xy6mpx9bp,"quinta-feira, 28 de agosto de 2025 08:53",65553.0
+318,1,,,32000,3,"R$ 242.576,00",RAM,RAMPAGE BIG HORN 2.2 TB CD 4X4 Die Aut.,32000,083026-7,Diesel,1,D,fevereiro de 2025 ,mhq7mg05ybj1gy,"quinta-feira, 28 de agosto de 2025 09:47",242576.0
+318,1,,,32000,4,"R$ 293.855,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,fevereiro de 2025 ,pfv2jvl83kj1f9,"quinta-feira, 28 de agosto de 2025 09:10",293855.0
+318,1,,,32000,4,"R$ 119.588,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,fevereiro de 2025 ,gvjz5d9pxnj1f9,"quinta-feira, 28 de agosto de 2025 09:10",119588.0
+318,1,,,32000,6,"R$ 173.836,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,fevereiro de 2025 ,jw4rd8yfm9j1f9,"quinta-feira, 28 de agosto de 2025 08:53",173836.0
+317,1,,,32000,5,"R$ 72.033,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,janeiro de 2025 ,6kw7zhjxt6p,"quinta-feira, 28 de agosto de 2025 08:53",72033.0
+317,1,,,32000,5,"R$ 86.700,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,janeiro de 2025 ,cc3v78c63fjp,"quinta-feira, 28 de agosto de 2025 08:53",86700.0
+317,1,,,32000,5,"R$ 158.494,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,janeiro de 2025 ,h943qxr1fzp,"quinta-feira, 28 de agosto de 2025 08:53",158494.0
+317,1,,,32000,5,"R$ 103.712,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,janeiro de 2025 ,f7xysrccfdp,"quinta-feira, 28 de agosto de 2025 08:53",103712.0
+317,1,,,32000,5,"R$ 119.175,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,janeiro de 2025 ,gt1ztjprylj1f9,"quarta-feira, 1 de outubro de 2025 07:26",119175.0
+317,1,,,32000,5,"R$ 103.786,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,janeiro de 2025 ,f70m5hh66dj1f9,"quinta-feira, 28 de agosto de 2025 08:53",103786.0
+317,1,,,32000,5,"R$ 155.062,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,janeiro de 2025 ,h54cp23m7np,"quinta-feira, 28 de agosto de 2025 08:53",155062.0
+317,1,,,32000,3,"R$ 284.390,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,janeiro de 2025 ,n2r1srrkpvcb,"quinta-feira, 28 de agosto de 2025 09:47",284390.0
+317,1,,,32000,5,"R$ 180.323,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,janeiro de 2025 ,j4rjphvqymp,"quinta-feira, 28 de agosto de 2025 08:53",180323.0
+317,1,,,32000,5,"R$ 101.805,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,janeiro de 2025 ,f5pm1916vjp,"quinta-feira, 28 de agosto de 2025 08:53",101805.0
+317,1,,,32000,3,"R$ 220.155,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,janeiro de 2025 ,lnf9mmwt55j1gy,"quinta-feira, 28 de agosto de 2025 09:47",220155.0
+317,1,,,32000,5,"R$ 144.958,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,janeiro de 2025 ,hs83y3wzbbp,"quinta-feira, 28 de agosto de 2025 08:53",144958.0
+317,1,,,32000,5,"R$ 115.927,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,janeiro de 2025 ,gp7x3rts8vp,"quinta-feira, 28 de agosto de 2025 08:53",115927.0
+317,1,,,32000,5,"R$ 95.569,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,janeiro de 2025 ,chgvv7syy8yp,"quinta-feira, 28 de agosto de 2025 08:53",95569.0
+317,1,,,32000,5,"R$ 172.863,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,janeiro de 2025 ,jv0c2x7smjp,"quinta-feira, 28 de agosto de 2025 08:53",172863.0
+317,1,,,32000,5,"R$ 147.088,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,janeiro de 2025 ,hwsjyshq72j1f9,"quinta-feira, 28 de agosto de 2025 08:53",147088.0
+317,1,,,32000,3,"R$ 264.117,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,janeiro de 2025 ,m9z52b2lmhj1gy,"quarta-feira, 1 de outubro de 2025 07:26",264117.0
+317,1,,,32000,5,"R$ 139.797,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,janeiro de 2025 ,hl7jr9zx6kp,"quinta-feira, 28 de agosto de 2025 08:53",139797.0
+317,1,,,32000,5,"R$ 163.331,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,janeiro de 2025 ,jhtxvkg4n6j1f9,"quinta-feira, 28 de agosto de 2025 08:53",163331.0
+317,1,,,32000,5,"R$ 157.511,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,janeiro de 2025 ,h80c3839r5p,"quinta-feira, 28 de agosto de 2025 08:53",157511.0
+317,1,,,32000,5,"R$ 118.784,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,janeiro de 2025 ,gtlr731blcj1f9,"quinta-feira, 28 de agosto de 2025 08:53",118784.0
+317,1,,,32000,5,"R$ 89.373,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,janeiro de 2025 ,cd36tfwfghpp,"quinta-feira, 28 de agosto de 2025 08:53",89373.0
+317,1,,,32000,5,"R$ 78.662,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,janeiro de 2025 ,82mpmb4td8p,"quinta-feira, 28 de agosto de 2025 08:53",78662.0
+317,1,,,32000,5,"R$ 118.508,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,janeiro de 2025 ,gs8q8l7m9mp,"quinta-feira, 28 de agosto de 2025 08:53",118508.0
+317,1,,,32000,5,"R$ 190.810,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,janeiro de 2025 ,kj1pzfp0ryj1f9,"quinta-feira, 28 de agosto de 2025 08:53",190810.0
+317,1,,,32000,5,"R$ 118.411,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,janeiro de 2025 ,gs46zf0p7bj1f9,"quinta-feira, 28 de agosto de 2025 09:10",118411.0
+317,1,,,32000,5,"R$ 140.572,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,janeiro de 2025 ,hm4p0mrvb2p,"quarta-feira, 1 de outubro de 2025 07:26",140572.0
+317,1,,,32000,5,"R$ 95.001,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,janeiro de 2025 ,cg76d8byn5vp,"quarta-feira, 1 de outubro de 2025 07:26",95001.0
+317,1,,,32000,5,"R$ 91.805,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,janeiro de 2025 ,cf1qr4n941mp,"quinta-feira, 28 de agosto de 2025 08:53",91805.0
+317,1,,,32000,5,"R$ 204.088,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,janeiro de 2025 ,k1l91gs1q0p,"quinta-feira, 28 de agosto de 2025 08:53",204088.0
+317,1,,,32000,5,"R$ 138.645,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,janeiro de 2025 ,hkwnrl6m95p,"quinta-feira, 28 de agosto de 2025 08:53",138645.0
+317,1,,,32000,5,"R$ 115.689,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,janeiro de 2025 ,gpy8yjmmkzj1f9,"quinta-feira, 28 de agosto de 2025 08:53",115689.0
+317,1,,,32000,1,"R$ 161.249,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,janeiro de 2025 ,jfc7yg1mhvj1f9,"quinta-feira, 28 de agosto de 2025 08:53",161249.0
+317,1,,,32000,5,"R$ 90.768,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,janeiro de 2025 ,cfnkvpr3w0wp,"quarta-feira, 1 de outubro de 2025 07:26",90768.0
+317,1,,,32000,5,"R$ 63.868,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,janeiro de 2025 ,3g5jcbrqvxp,"quinta-feira, 28 de agosto de 2025 08:53",63868.0
+317,1,,,32000,4,"R$ 299.753,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,janeiro de 2025 ,pnsf4l36dmj1f9,"quinta-feira, 28 de agosto de 2025 09:10",299753.0
+317,1,,,32000,4,"R$ 117.316,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,janeiro de 2025 ,grwd5qff3yj1f9,"quinta-feira, 28 de agosto de 2025 09:10",117316.0
+317,1,,,32000,6,"R$ 166.985,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,janeiro de 2025 ,jm3q0p1bz7j1f9,"quinta-feira, 28 de agosto de 2025 08:53",166985.0
+316,1,,,32000,5,"R$ 72.581,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,dezembro de 2024 ,6sbflfqh8yp,"quinta-feira, 28 de agosto de 2025 08:53",72581.0
+316,1,,,32000,5,"R$ 87.769,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,dezembro de 2024 ,cdjds8n1209p,"quinta-feira, 28 de agosto de 2025 08:53",87769.0
+316,1,,,32000,5,"R$ 160.385,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,dezembro de 2024 ,jdcvffysbxp,"quinta-feira, 28 de agosto de 2025 08:54",160385.0
+316,1,,,32000,5,"R$ 104.391,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,dezembro de 2024 ,f8qmvsw60sp,"quinta-feira, 28 de agosto de 2025 08:54",104391.0
+316,1,,,32000,5,"R$ 119.199,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,dezembro de 2024 ,gt2vvs3msxj1f9,"quarta-feira, 1 de outubro de 2025 07:26",119199.0
+316,1,,,32000,5,"R$ 104.186,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,dezembro de 2024 ,f8g5v7dj4sj1f9,"quinta-feira, 28 de agosto de 2025 08:54",104186.0
+316,1,,,32000,5,"R$ 157.328,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,dezembro de 2024 ,h8sqx4ynh4p,"quinta-feira, 28 de agosto de 2025 08:54",157328.0
+316,1,,,32000,3,"R$ 270.510,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,dezembro de 2024 ,nkhkd6d2pxcb,"quinta-feira, 28 de agosto de 2025 09:47",270510.0
+316,1,,,32000,5,"R$ 179.772,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,dezembro de 2024 ,j33hvb4c45p,"quinta-feira, 28 de agosto de 2025 08:54",179772.0
+316,1,,,32000,5,"R$ 100.373,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,dezembro de 2024 ,f30lkbl35cp,"quinta-feira, 28 de agosto de 2025 08:54",100373.0
+316,1,,,32000,3,"R$ 230.100,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,dezembro de 2024 ,l03r6s69x0j1gy,"quinta-feira, 28 de agosto de 2025 09:47",230100.0
+316,1,,,32000,5,"R$ 145.979,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,dezembro de 2024 ,hvg7c08z97p,"quinta-feira, 28 de agosto de 2025 08:54",145979.0
+316,1,,,32000,5,"R$ 115.383,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,dezembro de 2024 ,gpl443srk0p,"quinta-feira, 28 de agosto de 2025 08:54",115383.0
+316,1,,,32000,5,"R$ 95.715,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,dezembro de 2024 ,chjkx9d7zwvp,"quinta-feira, 28 de agosto de 2025 08:54",95715.0
+316,1,,,32000,5,"R$ 174.190,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,dezembro de 2024 ,jxkl877bwcp,"quinta-feira, 28 de agosto de 2025 08:54",174190.0
+316,1,,,32000,5,"R$ 147.356,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,dezembro de 2024 ,hw28xt4pbbj1f9,"quinta-feira, 28 de agosto de 2025 08:54",147356.0
+316,1,,,32000,3,"R$ 264.818,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,dezembro de 2024 ,nbtnxvhh57j1gy,"quarta-feira, 1 de outubro de 2025 07:26",264818.0
+316,1,,,32000,5,"R$ 138.135,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,dezembro de 2024 ,hj833kpcgpp,"quinta-feira, 28 de agosto de 2025 08:54",138135.0
+316,1,,,32000,5,"R$ 161.708,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,dezembro de 2024 ,jfxx31vr8gj1f9,"quinta-feira, 28 de agosto de 2025 08:54",161708.0
+316,1,,,32000,5,"R$ 158.180,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,dezembro de 2024 ,h9spx1j93dp,"quinta-feira, 28 de agosto de 2025 08:54",158180.0
+316,1,,,32000,5,"R$ 118.708,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,dezembro de 2024 ,gth0mf6qs2j1f9,"quinta-feira, 28 de agosto de 2025 08:54",118708.0
+316,1,,,32000,5,"R$ 85.194,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,dezembro de 2024 ,ccj6v9jzbg0p,"quinta-feira, 28 de agosto de 2025 08:54",85194.0
+316,1,,,32000,5,"R$ 79.449,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,dezembro de 2024 ,9cvq5mzwskp,"quinta-feira, 28 de agosto de 2025 08:54",79449.0
+316,1,,,32000,5,"R$ 115.658,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,dezembro de 2024 ,gpx40psmplp,"quinta-feira, 28 de agosto de 2025 08:54",115658.0
+316,1,,,32000,5,"R$ 190.355,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,dezembro de 2024 ,kjh49hzdp1j1f9,"quinta-feira, 28 de agosto de 2025 08:54",190355.0
+316,1,,,32000,5,"R$ 117.825,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,dezembro de 2024 ,gsgxprvw0tj1f9,"quinta-feira, 28 de agosto de 2025 09:10",117825.0
+316,1,,,32000,5,"R$ 142.044,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,dezembro de 2024 ,hpv6lqj5xrp,"quarta-feira, 1 de outubro de 2025 07:26",142044.0
+316,1,,,32000,5,"R$ 95.805,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,dezembro de 2024 ,chkmncmw40wp,"quarta-feira, 1 de outubro de 2025 07:26",95805.0
+316,1,,,32000,5,"R$ 90.293,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,dezembro de 2024 ,cfgz6k9vh43p,"quinta-feira, 28 de agosto de 2025 08:54",90293.0
+316,1,,,32000,5,"R$ 200.434,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,dezembro de 2024 ,kxbhv85h40p,"quinta-feira, 28 de agosto de 2025 08:54",200434.0
+316,1,,,32000,5,"R$ 138.580,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,dezembro de 2024 ,hks9h492jkp,"quinta-feira, 28 de agosto de 2025 08:54",138580.0
+316,1,,,32000,5,"R$ 116.727,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,dezembro de 2024 ,gq50h7tsxnj1f9,"quinta-feira, 28 de agosto de 2025 08:54",116727.0
+316,1,,,32000,1,"R$ 162.107,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,dezembro de 2024 ,jgdfpw0j3mj1f9,"quinta-feira, 28 de agosto de 2025 08:54",162107.0
+316,1,,,32000,5,"R$ 89.361,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,dezembro de 2024 ,cd32f69n6r9p,"quarta-feira, 1 de outubro de 2025 07:26",89361.0
+316,1,,,32000,5,"R$ 67.524,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,dezembro de 2024 ,4v1cj1nfjyp,"quinta-feira, 28 de agosto de 2025 08:54",67524.0
+316,1,,,32000,4,"R$ 299.770,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,dezembro de 2024 ,pns19cvr5bj1f9,"quinta-feira, 28 de agosto de 2025 09:10",299770.0
+316,1,,,32000,4,"R$ 117.637,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,dezembro de 2024 ,gr72v035pkj1f9,"quinta-feira, 28 de agosto de 2025 09:10",117637.0
+316,1,,,32000,6,"R$ 175.640,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,dezembro de 2024 ,jy792xcjr8j1f9,"quinta-feira, 28 de agosto de 2025 08:54",175640.0
+315,1,,,32000,5,"R$ 71.783,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,novembro de 2024 ,6gzc16vsclp,"quinta-feira, 28 de agosto de 2025 08:54",71783.0
+315,1,,,32000,5,"R$ 86.404,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,novembro de 2024 ,cc0dn1ktzvhp,"quinta-feira, 28 de agosto de 2025 08:54",86404.0
+315,1,,,32000,5,"R$ 157.151,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,novembro de 2024 ,h8k9hmjttpp,"quinta-feira, 28 de agosto de 2025 08:54",157151.0
+315,1,,,32000,5,"R$ 102.169,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,novembro de 2024 ,f53v6km6jwp,"quinta-feira, 28 de agosto de 2025 08:54",102169.0
+315,1,,,32000,5,"R$ 119.206,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,novembro de 2024 ,gt23q8qb9gj1f9,"quarta-feira, 1 de outubro de 2025 07:26",119206.0
+315,1,,,32000,5,"R$ 104.953,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,novembro de 2024 ,f9c122fnnlj1f9,"quinta-feira, 28 de agosto de 2025 08:54",104953.0
+315,1,,,32000,5,"R$ 155.410,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,novembro de 2024 ,h6j0tgnst4p,"quinta-feira, 28 de agosto de 2025 08:54",155410.0
+315,1,,,32000,3,"R$ 273.515,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,novembro de 2024 ,nn0r93mlqtcb,"quinta-feira, 28 de agosto de 2025 09:47",273515.0
+315,1,,,32000,5,"R$ 175.811,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,novembro de 2024 ,jzgjrt24lqp,"quinta-feira, 28 de agosto de 2025 08:55",175811.0
+315,1,,,32000,5,"R$ 97.853,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,novembro de 2024 ,cjbm1bclqgkp,"quinta-feira, 28 de agosto de 2025 08:55",97853.0
+315,1,,,32000,3,"R$ 220.120,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,novembro de 2024 ,lnd05087lzj1gy,"quinta-feira, 28 de agosto de 2025 09:47",220120.0
+315,1,,,32000,5,"R$ 146.636,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,novembro de 2024 ,hv73nmysx8p,"quinta-feira, 28 de agosto de 2025 08:55",146636.0
+315,1,,,32000,5,"R$ 116.163,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,novembro de 2024 ,gqjh01c8jjp,"quinta-feira, 28 de agosto de 2025 08:55",116163.0
+315,1,,,32000,5,"R$ 96.137,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,novembro de 2024 ,chph958st48p,"quinta-feira, 28 de agosto de 2025 08:55",96137.0
+315,1,,,32000,5,"R$ 174.966,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,novembro de 2024 ,jygtngk3xtp,"quinta-feira, 28 de agosto de 2025 08:55",174966.0
+315,1,,,32000,5,"R$ 147.249,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,novembro de 2024 ,hwzdcb4b01j1f9,"quinta-feira, 28 de agosto de 2025 08:55",147249.0
+315,1,,,32000,3,"R$ 266.481,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,novembro de 2024 ,ndr3qgf4hhj1gy,"quarta-feira, 1 de outubro de 2025 07:26",266481.0
+315,1,,,32000,5,"R$ 138.918,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,novembro de 2024 ,hk6lb8qflrp,"quinta-feira, 28 de agosto de 2025 08:55",138918.0
+315,1,,,32000,5,"R$ 163.521,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,novembro de 2024 ,jh1tx2n3h4j1f9,"quinta-feira, 28 de agosto de 2025 08:55",163521.0
+315,1,,,32000,5,"R$ 142.341,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,novembro de 2024 ,hp6z7qpy7cp,"quinta-feira, 28 de agosto de 2025 08:55",142341.0
+315,1,,,32000,5,"R$ 118.747,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,novembro de 2024 ,gtkfkntcj4j1f9,"quinta-feira, 28 de agosto de 2025 08:55",118747.0
+315,1,,,32000,5,"R$ 86.805,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,novembro de 2024 ,cc43fbb2hr6p,"quinta-feira, 28 de agosto de 2025 08:55",86805.0
+315,1,,,32000,5,"R$ 80.082,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,novembro de 2024 ,9l8tjlqhl0p,"quinta-feira, 28 de agosto de 2025 08:55",80082.0
+315,1,,,32000,5,"R$ 115.707,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,novembro de 2024 ,gpzx66h3ptp,"quinta-feira, 28 de agosto de 2025 08:55",115707.0
+315,1,,,32000,5,"R$ 189.987,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,novembro de 2024 ,kh2snfxvt1j1f9,"quinta-feira, 28 de agosto de 2025 08:55",189987.0
+315,1,,,32000,5,"R$ 113.984,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,novembro de 2024 ,gmy9tr9tl9j1f9,"quinta-feira, 28 de agosto de 2025 09:10",113984.0
+315,1,,,32000,5,"R$ 144.923,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,novembro de 2024 ,hs7vjjdffmp,"quarta-feira, 1 de outubro de 2025 07:26",144923.0
+315,1,,,32000,5,"R$ 96.148,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,novembro de 2024 ,chpm937m2hkp,"quarta-feira, 1 de outubro de 2025 07:26",96148.0
+315,1,,,32000,5,"R$ 92.510,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,novembro de 2024 ,cf9z0rg42z1p,"quinta-feira, 28 de agosto de 2025 08:55",92510.0
+315,1,,,32000,5,"R$ 199.450,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,novembro de 2024 ,kv5q4pn5v2p,"quinta-feira, 28 de agosto de 2025 08:55",199450.0
+315,1,,,32000,5,"R$ 137.721,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,novembro de 2024 ,hjs2mrct04p,"quinta-feira, 28 de agosto de 2025 08:55",137721.0
+315,1,,,32000,5,"R$ 115.861,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,novembro de 2024 ,gp5jq958bmj1f9,"quinta-feira, 28 de agosto de 2025 08:55",115861.0
+315,1,,,32000,1,"R$ 160.967,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,novembro de 2024 ,jd1z59sdh5j1f9,"quinta-feira, 28 de agosto de 2025 08:55",160967.0
+315,1,,,32000,5,"R$ 88.990,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,novembro de 2024 ,cdzqlyrs68tp,"quarta-feira, 1 de outubro de 2025 07:26",88990.0
+315,1,,,32000,5,"R$ 67.794,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,novembro de 2024 ,4y6hr5bhsvp,"quinta-feira, 28 de agosto de 2025 08:55",67794.0
+315,1,,,32000,4,"R$ 299.778,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,novembro de 2024 ,pntb9r8pddj1f9,"quinta-feira, 28 de agosto de 2025 09:10",299778.0
+315,1,,,32000,4,"R$ 117.666,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,novembro de 2024 ,gr84jyly5gj1f9,"quinta-feira, 28 de agosto de 2025 09:10",117666.0
+315,1,,,32000,6,"R$ 175.766,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,novembro de 2024 ,jzdw1zm7p7j1f9,"quinta-feira, 28 de agosto de 2025 08:55",175766.0
+314,1,,,32000,5,"R$ 71.666,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,outubro de 2024 ,6flvrfhzq2p,"quinta-feira, 28 de agosto de 2025 08:55",71666.0
+314,1,,,32000,5,"R$ 86.684,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,outubro de 2024 ,cc3pfymrjq0p,"quinta-feira, 28 de agosto de 2025 08:55",86684.0
+314,1,,,32000,5,"R$ 158.112,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,outubro de 2024 ,h9p69r5r7mp,"quinta-feira, 28 de agosto de 2025 08:55",158112.0
+314,1,,,32000,5,"R$ 103.596,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,outubro de 2024 ,f7sq2tv7fbp,"quinta-feira, 28 de agosto de 2025 08:55",103596.0
+314,1,,,32000,5,"R$ 119.286,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,outubro de 2024 ,gt50wlmktpj1f9,"quarta-feira, 1 de outubro de 2025 07:26",119286.0
+314,1,,,32000,5,"R$ 103.333,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,outubro de 2024 ,f7g5rb7vfdj1f9,"quinta-feira, 28 de agosto de 2025 08:55",103333.0
+314,1,,,32000,5,"R$ 157.400,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,outubro de 2024 ,h8wb1z8tm5p,"quinta-feira, 28 de agosto de 2025 08:55",157400.0
+314,1,,,32000,3,"R$ 274.779,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,outubro de 2024 ,nqhqjwfh64cb,"quinta-feira, 28 de agosto de 2025 09:47",274779.0
+314,1,,,32000,5,"R$ 177.483,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,outubro de 2024 ,j1d9ptcffmp,"quinta-feira, 28 de agosto de 2025 08:55",177483.0
+314,1,,,32000,5,"R$ 98.559,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,outubro de 2024 ,cjlxm6tc5hsp,"quinta-feira, 28 de agosto de 2025 08:55",98559.0
+314,1,,,32000,3,"R$ 242.821,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,outubro de 2024 ,mh04n1q0ckj1gy,"quinta-feira, 28 de agosto de 2025 09:47",242821.0
+314,1,,,32000,5,"R$ 145.647,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,outubro de 2024 ,ht249ddj0rp,"quinta-feira, 28 de agosto de 2025 08:55",145647.0
+314,1,,,32000,5,"R$ 113.952,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,outubro de 2024 ,gmx4r01809p,"quinta-feira, 28 de agosto de 2025 08:55",113952.0
+314,1,,,32000,5,"R$ 95.593,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,outubro de 2024 ,chg4lmtf83wp,"quinta-feira, 28 de agosto de 2025 08:55",95593.0
+314,1,,,32000,5,"R$ 174.482,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,outubro de 2024 ,jxw69k84syp,"quinta-feira, 28 de agosto de 2025 08:55",174482.0
+314,1,,,32000,5,"R$ 148.087,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,outubro de 2024 ,hxyvk5vk3hj1f9,"quinta-feira, 28 de agosto de 2025 08:55",148087.0
+314,1,,,32000,3,"R$ 268.697,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,outubro de 2024 ,nhcnl1nxf5j1gy,"quarta-feira, 1 de outubro de 2025 07:26",268697.0
+314,1,,,32000,5,"R$ 138.236,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,outubro de 2024 ,hkdsxckwnpp,"quinta-feira, 28 de agosto de 2025 08:56",138236.0
+314,1,,,32000,5,"R$ 161.492,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,outubro de 2024 ,jfn2q66q6vj1f9,"quinta-feira, 28 de agosto de 2025 08:56",161492.0
+314,1,,,32000,5,"R$ 141.240,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,outubro de 2024 ,hnxzpc40y1p,"quinta-feira, 28 de agosto de 2025 08:56",141240.0
+314,1,,,32000,5,"R$ 115.722,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,outubro de 2024 ,gp0g3250tsj1f9,"quinta-feira, 28 de agosto de 2025 08:56",115722.0
+314,1,,,32000,5,"R$ 86.759,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,outubro de 2024 ,cc4kp0gjvt4p,"quinta-feira, 28 de agosto de 2025 08:56",86759.0
+314,1,,,32000,5,"R$ 80.816,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,outubro de 2024 ,9wwlw8zn0rp,"quinta-feira, 28 de agosto de 2025 08:56",80816.0
+314,1,,,32000,5,"R$ 115.162,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,outubro de 2024 ,gpb34mnv8gp,"quinta-feira, 28 de agosto de 2025 08:56",115162.0
+314,1,,,32000,5,"R$ 190.267,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,outubro de 2024 ,kjdy4m90mhj1f9,"quinta-feira, 28 de agosto de 2025 08:56",190267.0
+314,1,,,32000,5,"R$ 113.731,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,outubro de 2024 ,gmn3rlph8nj1f9,"quinta-feira, 28 de agosto de 2025 09:10",113731.0
+314,1,,,32000,5,"R$ 132.516,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,outubro de 2024 ,hbpwv0q09yp,"quarta-feira, 1 de outubro de 2025 07:26",132516.0
+314,1,,,32000,5,"R$ 97.017,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,outubro de 2024 ,ch0t5mnnmf2p,"quarta-feira, 1 de outubro de 2025 07:26",97017.0
+314,1,,,32000,5,"R$ 89.817,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,outubro de 2024 ,cd9d56h3w51p,"quinta-feira, 28 de agosto de 2025 08:56",89817.0
+314,1,,,32000,5,"R$ 200.242,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,outubro de 2024 ,kw3jjr0xjsp,"quinta-feira, 28 de agosto de 2025 08:56",200242.0
+314,1,,,32000,5,"R$ 135.438,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,outubro de 2024 ,hf327tkj7rp,"quinta-feira, 28 de agosto de 2025 08:56",135438.0
+314,1,,,32000,5,"R$ 113.575,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,outubro de 2024 ,gmhfzlyfcpj1f9,"quinta-feira, 28 de agosto de 2025 08:56",113575.0
+314,1,,,32000,1,"R$ 159.567,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,outubro de 2024 ,jcd3q1962jj1f9,"quinta-feira, 28 de agosto de 2025 08:56",159567.0
+314,1,,,32000,5,"R$ 86.072,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,outubro de 2024 ,ccwhz6kvd7jp,"quarta-feira, 1 de outubro de 2025 07:26",86072.0
+314,1,,,32000,5,"R$ 66.509,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,outubro de 2024 ,4g4fyl05nyp,"quinta-feira, 28 de agosto de 2025 08:56",66509.0
+314,1,,,32000,4,"R$ 299.774,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,outubro de 2024 ,pns6s0ycw8j1f9,"quinta-feira, 28 de agosto de 2025 09:10",299774.0
+314,1,,,32000,4,"R$ 117.280,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,outubro de 2024 ,grt3l4x265j1f9,"quinta-feira, 28 de agosto de 2025 09:10",117280.0
+314,1,,,32000,6,"R$ 175.940,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,outubro de 2024 ,jzl63nxthzj1f9,"quinta-feira, 28 de agosto de 2025 08:56",175940.0
+313,1,,,32000,5,"R$ 70.782,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,setembro de 2024 ,527j6wzc5vp,"quinta-feira, 28 de agosto de 2025 08:56",70782.0
+313,1,,,32000,5,"R$ 86.937,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,setembro de 2024 ,cc6ndmq96h5p,"quinta-feira, 28 de agosto de 2025 08:56",86937.0
+313,1,,,32000,5,"R$ 157.371,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,setembro de 2024 ,h8t9c03bf3p,"quinta-feira, 28 de agosto de 2025 08:56",157371.0
+313,1,,,32000,5,"R$ 102.998,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,setembro de 2024 ,f62z8zy6hmp,"quinta-feira, 28 de agosto de 2025 08:56",102998.0
+313,1,,,32000,5,"R$ 117.733,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,setembro de 2024 ,gsck04v372j1f9,"quarta-feira, 1 de outubro de 2025 07:26",117733.0
+313,1,,,32000,5,"R$ 104.373,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,setembro de 2024 ,f8pzkx2c63j1f9,"quinta-feira, 28 de agosto de 2025 08:56",104373.0
+313,1,,,32000,5,"R$ 157.467,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,setembro de 2024 ,h8ysj7mmqpp,"quinta-feira, 28 de agosto de 2025 08:56",157467.0
+313,1,,,32000,3,"R$ 271.414,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,setembro de 2024 ,nlkdz9lcj9cb,"quinta-feira, 28 de agosto de 2025 09:47",271414.0
+313,1,,,32000,5,"R$ 177.432,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,setembro de 2024 ,j1cf7cvfs7p,"quinta-feira, 28 de agosto de 2025 08:56",177432.0
+313,1,,,32000,5,"R$ 98.537,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,setembro de 2024 ,cjlnm9ztvwlp,"quinta-feira, 28 de agosto de 2025 08:56",98537.0
+313,1,,,32000,3,"R$ 245.450,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,setembro de 2024 ,ml3pxhg19dj1gy,"quinta-feira, 28 de agosto de 2025 09:47",245450.0
+313,1,,,32000,5,"R$ 145.172,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,setembro de 2024 ,htjw2wd7fjp,"quinta-feira, 28 de agosto de 2025 08:56",145172.0
+313,1,,,32000,5,"R$ 115.105,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,setembro de 2024 ,gn81xmppxbp,"quinta-feira, 28 de agosto de 2025 08:56",115105.0
+313,1,,,32000,5,"R$ 94.936,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,setembro de 2024 ,cg7fst22z98p,"quinta-feira, 28 de agosto de 2025 08:56",94936.0
+313,1,,,32000,5,"R$ 173.100,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,setembro de 2024 ,jv8z32f9flp,"quinta-feira, 28 de agosto de 2025 08:56",173100.0
+313,1,,,32000,5,"R$ 144.020,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,setembro de 2024 ,hr5014prkbj1f9,"quinta-feira, 28 de agosto de 2025 08:56",144020.0
+313,1,,,32000,3,"R$ 271.050,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,setembro de 2024 ,nk35vy5zxkj1gy,"quarta-feira, 1 de outubro de 2025 07:26",271050.0
+313,1,,,32000,5,"R$ 138.385,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,setembro de 2024 ,hkk6stjt9jp,"quinta-feira, 28 de agosto de 2025 08:56",138385.0
+313,1,,,32000,5,"R$ 163.893,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,setembro de 2024 ,jjhb2rqpj0j1f9,"quinta-feira, 28 de agosto de 2025 08:56",163893.0
+313,1,,,32000,5,"R$ 142.509,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,setembro de 2024 ,hqd3js0v2yp,"quinta-feira, 28 de agosto de 2025 08:56",142509.0
+313,1,,,32000,5,"R$ 114.753,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,setembro de 2024 ,gnv79fwgflj1f9,"quinta-feira, 28 de agosto de 2025 08:56",114753.0
+313,1,,,32000,5,"R$ 86.853,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,setembro de 2024 ,cc5nv4sctrnp,"quinta-feira, 28 de agosto de 2025 08:56",86853.0
+313,1,,,32000,5,"R$ 79.690,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,setembro de 2024 ,9gpbmjd1rhp,"quinta-feira, 28 de agosto de 2025 08:56",79690.0
+313,1,,,32000,5,"R$ 115.975,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,setembro de 2024 ,gp9n562g50p,"quinta-feira, 28 de agosto de 2025 08:57",115975.0
+313,1,,,32000,5,"R$ 190.612,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,setembro de 2024 ,kjthv8h5mhj1f9,"quinta-feira, 28 de agosto de 2025 08:57",190612.0
+313,1,,,32000,5,"R$ 114.688,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,setembro de 2024 ,gnsw102qsjj1f9,"quinta-feira, 28 de agosto de 2025 09:10",114688.0
+313,1,,,32000,5,"R$ 133.232,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,setembro de 2024 ,hcjxmgbqsfp,"quarta-feira, 1 de outubro de 2025 07:27",133232.0
+313,1,,,32000,5,"R$ 97.551,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,setembro de 2024 ,ch628hg3b6kp,"quarta-feira, 1 de outubro de 2025 07:27",97551.0
+313,1,,,32000,5,"R$ 91.500,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,setembro de 2024 ,cfx4xhh42fvp,"quinta-feira, 28 de agosto de 2025 08:57",91500.0
+313,1,,,32000,5,"R$ 204.070,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,setembro de 2024 ,k1lnrlvgbgp,"quinta-feira, 28 de agosto de 2025 08:57",204070.0
+313,1,,,32000,5,"R$ 133.348,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,setembro de 2024 ,hcn398jxmzp,"quinta-feira, 28 de agosto de 2025 08:57",133348.0
+313,1,,,32000,5,"R$ 114.894,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,setembro de 2024 ,gn1c5hfhtdj1f9,"quinta-feira, 28 de agosto de 2025 08:57",114894.0
+313,1,,,32000,1,"R$ 158.525,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,setembro de 2024 ,h957nkp5nnj1f9,"quinta-feira, 28 de agosto de 2025 08:57",158525.0
+313,1,,,32000,5,"R$ 86.816,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,setembro de 2024 ,cc47d76b18wp,"quarta-feira, 1 de outubro de 2025 07:27",86816.0
+313,1,,,32000,5,"R$ 66.452,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,setembro de 2024 ,4ggqpg36t3p,"quinta-feira, 28 de agosto de 2025 08:57",66452.0
+313,1,,,32000,4,"R$ 299.785,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,setembro de 2024 ,pntl56st9wj1f9,"quinta-feira, 28 de agosto de 2025 09:10",299785.0
+313,1,,,32000,4,"R$ 117.421,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,setembro de 2024 ,grz7g5dk1wj1f9,"quinta-feira, 28 de agosto de 2025 09:10",117421.0
+313,1,,,32000,6,"R$ 175.966,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,setembro de 2024 ,jzm5dsy1tbj1f9,"quinta-feira, 28 de agosto de 2025 08:57",175966.0
+312,1,,,32000,5,"R$ 71.108,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,agosto de 2024 ,5611fhlw5sp,"quinta-feira, 28 de agosto de 2025 08:57",71108.0
+312,1,,,32000,5,"R$ 86.643,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,agosto de 2024 ,cc26jyv0f83p,"quinta-feira, 28 de agosto de 2025 08:57",86643.0
+312,1,,,32000,5,"R$ 155.452,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,agosto de 2024 ,h6lj4dz81lp,"quinta-feira, 28 de agosto de 2025 08:57",155452.0
+312,1,,,32000,5,"R$ 102.530,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,agosto de 2024 ,f6jzyzn5z0p,"quinta-feira, 28 de agosto de 2025 08:57",102530.0
+312,1,,,32000,5,"R$ 117.660,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,agosto de 2024 ,gr8xr8g2nbj1f9,"quarta-feira, 1 de outubro de 2025 07:27",117660.0
+312,1,,,32000,5,"R$ 103.916,00",Fiat,Strada Endurance 1.3 Flex 8V CS Plus,32000,001569-5,Flex,1,F,agosto de 2024 ,f75cm4qdp5j1f9,"quinta-feira, 28 de agosto de 2025 08:57",103916.0
+312,1,,,32000,5,"R$ 156.267,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,agosto de 2024 ,h7j5fwndj8p,"quinta-feira, 28 de agosto de 2025 08:57",156267.0
+312,1,,,32000,3,"R$ 266.592,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,agosto de 2024 ,ndw4sj12mgcb,"quinta-feira, 28 de agosto de 2025 09:47",266592.0
+312,1,,,32000,5,"R$ 178.612,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,agosto de 2024 ,j2rbs2dt86p,"quinta-feira, 28 de agosto de 2025 08:57",178612.0
+312,1,,,32000,5,"R$ 98.247,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,agosto de 2024 ,cjg77p80hp5p,"quinta-feira, 28 de agosto de 2025 08:57",98247.0
+312,1,,,32000,3,"R$ 245.920,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,agosto de 2024 ,mmnsg8692xj1gy,"quinta-feira, 28 de agosto de 2025 09:47",245920.0
+312,1,,,32000,5,"R$ 144.183,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,agosto de 2024 ,hscyqmvzh0p,"quinta-feira, 28 de agosto de 2025 08:57",144183.0
+312,1,,,32000,5,"R$ 115.808,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,agosto de 2024 ,gp3l0zqzx3p,"quinta-feira, 28 de agosto de 2025 08:57",115808.0
+312,1,,,32000,5,"R$ 94.954,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,agosto de 2024 ,cg7nbm1hk7jp,"quinta-feira, 28 de agosto de 2025 08:57",94954.0
+312,1,,,32000,5,"R$ 173.525,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,agosto de 2024 ,jwsfz1m7jwp,"quinta-feira, 28 de agosto de 2025 08:57",173525.0
+312,1,,,32000,5,"R$ 144.439,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,agosto de 2024 ,hsn75j0k9jj1f9,"quinta-feira, 28 de agosto de 2025 08:57",144439.0
+312,1,,,32000,3,"R$ 271.127,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,agosto de 2024 ,nk6zmhnm77j1gy,"quarta-feira, 1 de outubro de 2025 07:27",271127.0
+312,1,,,32000,5,"R$ 138.355,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,agosto de 2024 ,hkj3zw2qxzp,"quinta-feira, 28 de agosto de 2025 08:57",138355.0
+312,1,,,32000,5,"R$ 162.702,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,agosto de 2024 ,jg213r13w7j1f9,"quinta-feira, 28 de agosto de 2025 08:57",162702.0
+312,1,,,32000,5,"R$ 143.415,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,agosto de 2024 ,hrg1ctznkhp,"quinta-feira, 28 de agosto de 2025 08:57",143415.0
+312,1,,,32000,5,"R$ 113.859,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,agosto de 2024 ,gmtrzhhrh3j1f9,"quinta-feira, 28 de agosto de 2025 08:57",113859.0
+312,1,,,32000,5,"R$ 86.692,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,agosto de 2024 ,cc3sb11krj1p,"quinta-feira, 28 de agosto de 2025 08:57",86692.0
+312,1,,,32000,5,"R$ 81.472,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,agosto de 2024 ,94k1dnq218p,"quinta-feira, 28 de agosto de 2025 08:57",81472.0
+312,1,,,32000,5,"R$ 116.512,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,agosto de 2024 ,gqx57873m3p,"quinta-feira, 28 de agosto de 2025 08:57",116512.0
+312,1,,,32000,5,"R$ 191.184,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,agosto de 2024 ,kkg9cv38hnj1f9,"quinta-feira, 28 de agosto de 2025 08:57",191184.0
+312,1,,,32000,5,"R$ 114.812,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,agosto de 2024 ,gnydr7q18gj1f9,"quinta-feira, 28 de agosto de 2025 09:10",114812.0
+312,1,,,32000,5,"R$ 133.841,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,agosto de 2024 ,hc71tf0njpp,"quarta-feira, 1 de outubro de 2025 07:27",133841.0
+312,1,,,32000,5,"R$ 96.937,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,agosto de 2024 ,chzw26d2hqwp,"quarta-feira, 1 de outubro de 2025 07:27",96937.0
+312,1,,,32000,5,"R$ 91.158,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,agosto de 2024 ,cfs4lzhwnk1p,"quinta-feira, 28 de agosto de 2025 08:57",91158.0
+312,1,,,32000,5,"R$ 200.727,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,agosto de 2024 ,kxn40gwcmzp,"quinta-feira, 28 de agosto de 2025 08:57",200727.0
+312,1,,,32000,5,"R$ 133.138,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,agosto de 2024 ,hcfhp1vkjjp,"quinta-feira, 28 de agosto de 2025 08:58",133138.0
+312,1,,,32000,5,"R$ 114.716,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,agosto de 2024 ,gntxl0q1ygj1f9,"quinta-feira, 28 de agosto de 2025 08:58",114716.0
+312,1,,,32000,1,"R$ 155.547,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,agosto de 2024 ,h6pz5n8h2kj1f9,"quinta-feira, 28 de agosto de 2025 08:58",155547.0
+312,1,,,32000,5,"R$ 87.582,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,agosto de 2024 ,cdf6t59lb3sp,"quarta-feira, 1 de outubro de 2025 07:27",87582.0
+312,1,,,32000,5,"R$ 65.710,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,agosto de 2024 ,35r04q6xnsp,"quinta-feira, 28 de agosto de 2025 08:58",65710.0
+312,1,,,32000,4,"R$ 299.785,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,agosto de 2024 ,pntl55p8qtj1f9,"quinta-feira, 28 de agosto de 2025 09:10",299785.0
+312,1,,,32000,4,"R$ 115.822,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,agosto de 2024 ,gp33sy8m2jj1f9,"quinta-feira, 28 de agosto de 2025 09:10",115822.0
+312,1,,,32000,6,"R$ 175.800,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,agosto de 2024 ,jzf4cg0tnlj1f9,"quinta-feira, 28 de agosto de 2025 08:58",175800.0
+311,1,,,32000,5,"R$ 71.430,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,julho de 2024 ,6bt2kxq032p,"quinta-feira, 28 de agosto de 2025 08:58",71430.0
+311,1,,,32000,5,"R$ 86.573,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,julho de 2024 ,cc2c26xhg05p,"quinta-feira, 28 de agosto de 2025 08:58",86573.0
+311,1,,,32000,5,"R$ 154.218,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,julho de 2024 ,h44pqgdr5mp,"quinta-feira, 28 de agosto de 2025 08:58",154218.0
+311,1,,,32000,5,"R$ 101.953,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,julho de 2024 ,f5v0tnt094p,"quinta-feira, 28 de agosto de 2025 08:58",101953.0
+311,1,,,32000,5,"R$ 114.050,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,julho de 2024 ,gm1p5zln01j1f9,"quarta-feira, 1 de outubro de 2025 07:27",114050.0
+311,1,,,32000,5,"R$ 106.337,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,julho de 2024 ,gb0ch8gyp8j1f9,"quinta-feira, 28 de agosto de 2025 08:58",106337.0
+311,1,,,32000,5,"R$ 157.302,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,julho de 2024 ,h8rsmtd0qdp,"quinta-feira, 28 de agosto de 2025 08:58",157302.0
+311,1,,,32000,3,"R$ 269.785,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,julho de 2024 ,njm6h5z96dcb,"quinta-feira, 28 de agosto de 2025 09:47",269785.0
+311,1,,,32000,5,"R$ 178.275,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,julho de 2024 ,j2b22tj0x6p,"quinta-feira, 28 de agosto de 2025 08:58",178275.0
+311,1,,,32000,5,"R$ 97.487,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,julho de 2024 ,ch6b0b7vysyp,"quinta-feira, 28 de agosto de 2025 08:58",97487.0
+311,1,,,32000,3,"R$ 224.510,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,julho de 2024 ,ltklm3fwvjj1gy,"quinta-feira, 28 de agosto de 2025 09:47",224510.0
+311,1,,,32000,5,"R$ 143.142,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,julho de 2024 ,hq43r113tnp,"quinta-feira, 28 de agosto de 2025 08:58",143142.0
+311,1,,,32000,5,"R$ 114.823,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,julho de 2024 ,gnys5gfgxnp,"quinta-feira, 28 de agosto de 2025 08:58",114823.0
+311,1,,,32000,5,"R$ 94.070,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,julho de 2024 ,cgw803hyzn9p,"quinta-feira, 28 de agosto de 2025 08:58",94070.0
+311,1,,,32000,5,"R$ 170.587,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,julho de 2024 ,jsbnlbpy0fp,"quinta-feira, 28 de agosto de 2025 08:58",170587.0
+311,1,,,32000,5,"R$ 145.284,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,julho de 2024 ,htny8wd3glj1f9,"quinta-feira, 28 de agosto de 2025 08:58",145284.0
+311,1,,,32000,3,"R$ 261.364,00",GM - Chevrolet,S10 Pick-Up WT 2.8 TDI 4x4 CD Diesel Aut,32000,004550-0,Diesel,1,D,julho de 2024 ,m6r33d0nj6j1gy,"quarta-feira, 1 de outubro de 2025 07:27",261364.0
+311,1,,,32000,5,"R$ 138.617,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,julho de 2024 ,hkvm6cvkm4p,"quinta-feira, 28 de agosto de 2025 08:58",138617.0
+311,1,,,32000,5,"R$ 161.865,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,julho de 2024 ,jf3m0szyc5j1f9,"quinta-feira, 28 de agosto de 2025 08:58",161865.0
+311,1,,,32000,5,"R$ 141.807,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,julho de 2024 ,hpllj8j11hp,"quinta-feira, 28 de agosto de 2025 08:58",141807.0
+311,1,,,32000,5,"R$ 113.157,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,julho de 2024 ,glz7zz3h1qj1f9,"quinta-feira, 28 de agosto de 2025 08:58",113157.0
+311,1,,,32000,5,"R$ 86.777,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,julho de 2024 ,cc4r7sp8223p,"quinta-feira, 28 de agosto de 2025 08:58",86777.0
+311,1,,,32000,5,"R$ 81.401,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,julho de 2024 ,93q7dd28j5p,"quinta-feira, 28 de agosto de 2025 08:58",81401.0
+311,1,,,32000,5,"R$ 116.024,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,julho de 2024 ,gqcgdpqdl5p,"quinta-feira, 28 de agosto de 2025 08:58",116024.0
+311,1,,,32000,5,"R$ 190.650,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,julho de 2024 ,kjvwph611zj1f9,"quinta-feira, 28 de agosto de 2025 08:58",190650.0
+311,1,,,32000,5,"R$ 114.207,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,julho de 2024 ,gm7d2w4q74j1f9,"quinta-feira, 28 de agosto de 2025 09:10",114207.0
+311,1,,,32000,5,"R$ 134.512,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,julho de 2024 ,hd1fv1109yp,"quarta-feira, 1 de outubro de 2025 07:27",134512.0
+311,1,,,32000,5,"R$ 93.522,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,julho de 2024 ,cgpvvgyfmvfp,"quarta-feira, 1 de outubro de 2025 07:27",93522.0
+311,1,,,32000,5,"R$ 88.073,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,julho de 2024 ,cdmy9j46cktp,"quinta-feira, 28 de agosto de 2025 08:58",88073.0
+311,1,,,32000,5,"R$ 200.391,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,julho de 2024 ,kw8yd4tq0hp,"quinta-feira, 28 de agosto de 2025 08:58",200391.0
+311,1,,,32000,5,"R$ 132.190,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,julho de 2024 ,g991jxlwc5p,"quinta-feira, 28 de agosto de 2025 08:58",132190.0
+311,1,,,32000,5,"R$ 114.486,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,julho de 2024 ,gnkkf6sz9pj1f9,"quinta-feira, 28 de agosto de 2025 08:58",114486.0
+311,1,,,32000,1,"R$ 153.223,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,julho de 2024 ,h3zjlm4nh0j1f9,"quinta-feira, 28 de agosto de 2025 08:58",153223.0
+311,1,,,32000,5,"R$ 87.817,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,julho de 2024 ,cdjy713xr41p,"quarta-feira, 1 de outubro de 2025 07:27",87817.0
+311,1,,,32000,5,"R$ 65.200,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,julho de 2024 ,3zsnn825kwp,"quinta-feira, 28 de agosto de 2025 08:58",65200.0
+311,1,,,32000,4,"R$ 298.604,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,julho de 2024 ,pmfphg5kb6j1f9,"quinta-feira, 28 de agosto de 2025 09:10",298604.0
+311,1,,,32000,4,"R$ 115.811,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,julho de 2024 ,gp3qdp71hsj1f9,"quinta-feira, 28 de agosto de 2025 09:10",115811.0
+311,1,,,32000,6,"R$ 175.800,00",BYD,King GL 1.5 16V Aut. (Hibrido),32000,095012-2,Híbrido,1,H,julho de 2024 ,jzf4cfx72jj1f9,"quinta-feira, 28 de agosto de 2025 08:58",175800.0
+310,1,,,32000,5,"R$ 74.985,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,junho de 2024 ,7ph6qw246tp,"quinta-feira, 28 de agosto de 2025 08:59",74985.0
+310,1,,,32000,5,"R$ 89.300,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,junho de 2024 ,cd3b8t5234cp,"quinta-feira, 28 de agosto de 2025 08:59",89300.0
+310,1,,,32000,5,"R$ 152.630,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,junho de 2024 ,h28zfg6v5yp,"quinta-feira, 28 de agosto de 2025 08:59",152630.0
+310,1,,,32000,5,"R$ 102.091,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,junho de 2024 ,f5009wvyy9p,"quinta-feira, 28 de agosto de 2025 08:59",102091.0
+310,1,,,32000,5,"R$ 118.127,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,junho de 2024 ,gstwy7p6n7j1f9,"quarta-feira, 1 de outubro de 2025 07:27",118127.0
+310,1,,,32000,5,"R$ 103.353,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,junho de 2024 ,f7hw8s45r2j1f9,"quinta-feira, 28 de agosto de 2025 08:59",103353.0
+310,1,,,32000,5,"R$ 157.336,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,junho de 2024 ,h8s0ycyqtwp,"quinta-feira, 28 de agosto de 2025 08:59",157336.0
+310,1,,,32000,3,"R$ 269.085,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,junho de 2024 ,nhtrsj7f51cb,"quinta-feira, 28 de agosto de 2025 09:47",269085.0
+310,1,,,32000,5,"R$ 179.755,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,junho de 2024 ,j32wpbtt90p,"quinta-feira, 28 de agosto de 2025 08:59",179755.0
+310,1,,,32000,5,"R$ 97.363,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,junho de 2024 ,ch4wx5dm699p,"quinta-feira, 28 de agosto de 2025 08:59",97363.0
+310,1,,,32000,3,"R$ 235.987,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,junho de 2024 ,l70rd5db92j1gy,"quinta-feira, 28 de agosto de 2025 09:47",235987.0
+310,1,,,32000,5,"R$ 144.406,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,junho de 2024 ,hsm1ztv09zp,"quinta-feira, 28 de agosto de 2025 08:59",144406.0
+310,1,,,32000,5,"R$ 115.914,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,junho de 2024 ,gp7ggfpfrpp,"quinta-feira, 28 de agosto de 2025 08:59",115914.0
+310,1,,,32000,5,"R$ 95.268,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,junho de 2024 ,chcbgmrs77wp,"quinta-feira, 28 de agosto de 2025 08:59",95268.0
+310,1,,,32000,5,"R$ 171.434,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,junho de 2024 ,jtbfyjqvmjp,"quinta-feira, 28 de agosto de 2025 08:59",171434.0
+310,1,,,32000,5,"R$ 146.886,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,junho de 2024 ,hwj6bstggcj1f9,"quinta-feira, 28 de agosto de 2025 08:59",146886.0
+310,1,,,32000,5,"R$ 137.527,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,junho de 2024 ,hjk0077nchp,"quinta-feira, 28 de agosto de 2025 08:59",137527.0
+310,1,,,32000,5,"R$ 155.276,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,junho de 2024 ,h6c4tqx71bj1f9,"quinta-feira, 28 de agosto de 2025 08:59",155276.0
+310,1,,,32000,5,"R$ 142.966,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,junho de 2024 ,hqyqgf1k8mp,"quinta-feira, 28 de agosto de 2025 08:59",142966.0
+310,1,,,32000,5,"R$ 113.815,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,junho de 2024 ,gmr5djlhc8j1f9,"quinta-feira, 28 de agosto de 2025 08:59",113815.0
+310,1,,,32000,5,"R$ 87.675,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,junho de 2024 ,cdg9m1nw6n9p,"quinta-feira, 28 de agosto de 2025 08:59",87675.0
+310,1,,,32000,5,"R$ 81.737,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,junho de 2024 ,97pb8yy75qp,"quinta-feira, 28 de agosto de 2025 08:59",81737.0
+310,1,,,32000,5,"R$ 115.703,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,junho de 2024 ,gpzsp9vjwfp,"quinta-feira, 28 de agosto de 2025 08:59",115703.0
+310,1,,,32000,5,"R$ 190.439,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,junho de 2024 ,kjl6ycqh60j1f9,"quinta-feira, 28 de agosto de 2025 08:59",190439.0
+310,1,,,32000,5,"R$ 114.029,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,junho de 2024 ,gm0yjff9c6j1f9,"quinta-feira, 28 de agosto de 2025 09:10",114029.0
+310,1,,,32000,5,"R$ 135.159,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,junho de 2024 ,hfsywclzntp,"quarta-feira, 1 de outubro de 2025 07:27",135159.0
+310,1,,,32000,5,"R$ 93.347,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,junho de 2024 ,cgms7m2wpykp,"quarta-feira, 1 de outubro de 2025 07:27",93347.0
+310,1,,,32000,5,"R$ 89.004,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,junho de 2024 ,cdzwpmtxfvbp,"quinta-feira, 28 de agosto de 2025 08:59",89004.0
+310,1,,,32000,5,"R$ 200.196,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,junho de 2024 ,kw1vpv94ssp,"quinta-feira, 28 de agosto de 2025 08:59",200196.0
+310,1,,,32000,5,"R$ 129.288,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,junho de 2024 ,g6xkpnw7z9p,"quinta-feira, 28 de agosto de 2025 08:59",129288.0
+310,1,,,32000,5,"R$ 113.478,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,junho de 2024 ,gmcxn9s7lcj1f9,"quinta-feira, 28 de agosto de 2025 08:59",113478.0
+310,1,,,32000,1,"R$ 152.443,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,junho de 2024 ,h215qnc0dcj1f9,"quinta-feira, 28 de agosto de 2025 08:59",152443.0
+310,1,,,32000,5,"R$ 87.964,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,junho de 2024 ,cdlppc1bm03p,"quarta-feira, 1 de outubro de 2025 07:27",87964.0
+310,1,,,32000,5,"R$ 67.010,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,junho de 2024 ,4n0jynwx75p,"quinta-feira, 28 de agosto de 2025 08:59",67010.0
+310,1,,,32000,4,"R$ 299.800,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,junho de 2024 ,pnt421qxgfj1f9,"quinta-feira, 28 de agosto de 2025 09:10",299800.0
+310,1,,,32000,4,"R$ 115.857,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,junho de 2024 ,gp5c7fjzbgj1f9,"quinta-feira, 28 de agosto de 2025 09:10",115857.0
+309,1,,,32000,5,"R$ 69.829,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,maio de 2024 ,5q1450c9zkp,"quinta-feira, 28 de agosto de 2025 08:59",69829.0
+309,1,,,32000,5,"R$ 85.767,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,maio de 2024 ,ccrx4jzs85wp,"quinta-feira, 28 de agosto de 2025 08:59",85767.0
+309,1,,,32000,5,"R$ 154.546,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,maio de 2024 ,h5jl87p67sp,"quinta-feira, 28 de agosto de 2025 08:59",154546.0
+309,1,,,32000,5,"R$ 102.046,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,maio de 2024 ,f5zdl062p0p,"quinta-feira, 28 de agosto de 2025 08:59",102046.0
+309,1,,,32000,5,"R$ 118.272,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,maio de 2024 ,gsz5bzffd0j1f9,"quarta-feira, 1 de outubro de 2025 07:27",118272.0
+309,1,,,32000,5,"R$ 103.612,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,maio de 2024 ,f7s93hhf9pj1f9,"quinta-feira, 28 de agosto de 2025 08:59",103612.0
+309,1,,,32000,5,"R$ 156.628,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,maio de 2024 ,h7y859pc0dp,"quinta-feira, 28 de agosto de 2025 09:00",156628.0
+309,1,,,32000,3,"R$ 268.848,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,maio de 2024 ,nhj4q7l3gncb,"quinta-feira, 28 de agosto de 2025 09:47",268848.0
+309,1,,,32000,5,"R$ 174.050,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,maio de 2024 ,jxdjjwyf1fp,"quinta-feira, 28 de agosto de 2025 09:00",174050.0
+309,1,,,32000,5,"R$ 98.997,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,maio de 2024 ,cjr1vbzlwn6p,"quinta-feira, 28 de agosto de 2025 09:00",98997.0
+309,1,,,32000,3,"R$ 237.969,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,maio de 2024 ,mbbsm8hw9zj1gy,"quinta-feira, 28 de agosto de 2025 09:47",237969.0
+309,1,,,32000,5,"R$ 145.915,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,maio de 2024 ,hvdw79p6rrp,"quinta-feira, 28 de agosto de 2025 09:00",145915.0
+309,1,,,32000,5,"R$ 117.340,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,maio de 2024 ,grw86r28xmp,"quinta-feira, 28 de agosto de 2025 09:00",117340.0
+309,1,,,32000,5,"R$ 95.607,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,maio de 2024 ,chg9n951snxp,"quinta-feira, 28 de agosto de 2025 09:00",95607.0
+309,1,,,32000,5,"R$ 171.002,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,maio de 2024 ,jstq5zpg8hp,"quinta-feira, 28 de agosto de 2025 09:00",171002.0
+309,1,,,32000,5,"R$ 147.490,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,maio de 2024 ,hw74w4fgk1j1f9,"quinta-feira, 28 de agosto de 2025 09:00",147490.0
+309,1,,,32000,5,"R$ 134.939,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,maio de 2024 ,hfjyzvm01pp,"quinta-feira, 28 de agosto de 2025 09:00",134939.0
+309,1,,,32000,5,"R$ 155.236,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,maio de 2024 ,h6bprjb9dmj1f9,"quinta-feira, 28 de agosto de 2025 09:00",155236.0
+309,1,,,32000,5,"R$ 141.858,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,maio de 2024 ,hpnf0ltbxpp,"quinta-feira, 28 de agosto de 2025 09:00",141858.0
+309,1,,,32000,5,"R$ 108.520,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,maio de 2024 ,gfkp64stw9j1f9,"quinta-feira, 28 de agosto de 2025 09:00",108520.0
+309,1,,,32000,5,"R$ 84.758,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,maio de 2024 ,ccc3dkr17w5p,"quinta-feira, 28 de agosto de 2025 09:00",84758.0
+309,1,,,32000,5,"R$ 80.986,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,maio de 2024 ,9ywdbkybmyp,"quinta-feira, 28 de agosto de 2025 09:00",80986.0
+309,1,,,32000,5,"R$ 115.671,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,maio de 2024 ,gpymnjr11vp,"quinta-feira, 28 de agosto de 2025 09:00",115671.0
+309,1,,,32000,5,"R$ 190.647,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,maio de 2024 ,kjvr9nmcp9j1f9,"quinta-feira, 28 de agosto de 2025 09:00",190647.0
+309,1,,,32000,5,"R$ 114.015,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,maio de 2024 ,gm0frcz4mxj1f9,"quinta-feira, 28 de agosto de 2025 09:10",114015.0
+309,1,,,32000,5,"R$ 135.247,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,maio de 2024 ,hfw4030nz5p,"quarta-feira, 1 de outubro de 2025 07:27",135247.0
+309,1,,,32000,5,"R$ 94.690,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,maio de 2024 ,cg4kcy0qtpjp,"quarta-feira, 1 de outubro de 2025 07:27",94690.0
+309,1,,,32000,5,"R$ 90.290,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,maio de 2024 ,cfgy3pzn8k3p,"quinta-feira, 28 de agosto de 2025 09:00",90290.0
+309,1,,,32000,5,"R$ 203.240,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,maio de 2024 ,k0mhj06v4tp,"quinta-feira, 28 de agosto de 2025 09:00",203240.0
+309,1,,,32000,5,"R$ 127.005,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,maio de 2024 ,g37k9q2y6xp,"quinta-feira, 28 de agosto de 2025 09:00",127005.0
+309,1,,,32000,5,"R$ 111.845,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,maio de 2024 ,gkgkph10xgj1f9,"quinta-feira, 28 de agosto de 2025 09:00",111845.0
+309,1,,,32000,1,"R$ 152.206,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,maio de 2024 ,h2skpbrnnzj1f9,"quinta-feira, 28 de agosto de 2025 09:00",152206.0
+309,1,,,32000,5,"R$ 87.117,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,maio de 2024 ,cc8rtrddc6vp,"quarta-feira, 1 de outubro de 2025 07:27",87117.0
+309,1,,,32000,5,"R$ 64.990,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,maio de 2024 ,3xbbgscxmqp,"quinta-feira, 28 de agosto de 2025 09:00",64990.0
+309,1,,,32000,4,"R$ 296.803,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,maio de 2024 ,pj966hvq2jj1f9,"quinta-feira, 28 de agosto de 2025 09:10",296803.0
+309,1,,,32000,4,"R$ 115.800,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,maio de 2024 ,gp290d4wbzj1f9,"quinta-feira, 28 de agosto de 2025 09:10",115800.0
+308,1,,,32000,5,"R$ 69.459,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,abril de 2024 ,5lqn5rm5q7p,"quinta-feira, 28 de agosto de 2025 09:00",69459.0
+308,1,,,32000,5,"R$ 85.915,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,abril de 2024 ,cctnx36bz93p,"quinta-feira, 28 de agosto de 2025 09:00",85915.0
+308,1,,,32000,5,"R$ 161.994,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,abril de 2024 ,jf8bcmggbvp,"quinta-feira, 28 de agosto de 2025 09:00",161994.0
+308,1,,,32000,5,"R$ 100.232,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,abril de 2024 ,f3vgn0ffkpp,"quinta-feira, 28 de agosto de 2025 09:00",100232.0
+308,1,,,32000,5,"R$ 118.077,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,abril de 2024 ,gsr2mpxt59j1f9,"quarta-feira, 1 de outubro de 2025 07:27",118077.0
+308,1,,,32000,5,"R$ 102.059,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,abril de 2024 ,f5zv71q0q2j1f9,"quinta-feira, 28 de agosto de 2025 09:00",102059.0
+308,1,,,32000,5,"R$ 156.609,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,abril de 2024 ,h7ylsl49mjp,"quinta-feira, 28 de agosto de 2025 09:00",156609.0
+308,1,,,32000,3,"R$ 267.100,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,abril de 2024 ,nfhl5kfm8dcb,"quinta-feira, 28 de agosto de 2025 09:47",267100.0
+308,1,,,32000,5,"R$ 174.726,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,abril de 2024 ,jx52641rf8p,"quinta-feira, 28 de agosto de 2025 09:00",174726.0
+308,1,,,32000,5,"R$ 97.107,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,abril de 2024 ,ch1wwnb6z8qp,"quinta-feira, 28 de agosto de 2025 09:00",97107.0
+308,1,,,32000,3,"R$ 238.304,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,abril de 2024 ,mbqy3lk61tj1gy,"quinta-feira, 28 de agosto de 2025 09:47",238304.0
+308,1,,,32000,5,"R$ 132.858,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,abril de 2024 ,hb296nzrjlp,"quinta-feira, 28 de agosto de 2025 09:00",132858.0
+308,1,,,32000,5,"R$ 112.015,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,abril de 2024 ,gknq7hx2m5p,"quinta-feira, 28 de agosto de 2025 09:00",112015.0
+308,1,,,32000,5,"R$ 91.632,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,abril de 2024 ,cfzpwrwxhb4p,"quinta-feira, 28 de agosto de 2025 09:01",91632.0
+308,1,,,32000,5,"R$ 166.499,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,abril de 2024 ,jmj2dp9309p,"quinta-feira, 28 de agosto de 2025 09:01",166499.0
+308,1,,,32000,5,"R$ 142.613,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,abril de 2024 ,hqjwp760ptj1f9,"quinta-feira, 28 de agosto de 2025 09:01",142613.0
+308,1,,,32000,5,"R$ 133.957,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,abril de 2024 ,hdc8h3r16sp,"quinta-feira, 28 de agosto de 2025 09:01",133957.0
+308,1,,,32000,5,"R$ 154.975,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,abril de 2024 ,h506nw7h7vj1f9,"quinta-feira, 28 de agosto de 2025 09:01",154975.0
+308,1,,,32000,5,"R$ 143.095,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,abril de 2024 ,hq3ds8n8s2p,"quinta-feira, 28 de agosto de 2025 09:01",143095.0
+308,1,,,32000,5,"R$ 109.977,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,abril de 2024 ,gg8nw9ddk7j1f9,"quinta-feira, 28 de agosto de 2025 09:01",109977.0
+308,1,,,32000,5,"R$ 84.277,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,abril de 2024 ,cb6gkvvj2fyp,"quinta-feira, 28 de agosto de 2025 09:01",84277.0
+308,1,,,32000,5,"R$ 81.401,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,abril de 2024 ,93q7ccl717p,"quinta-feira, 28 de agosto de 2025 09:01",81401.0
+308,1,,,32000,5,"R$ 116.435,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,abril de 2024 ,gqvdhlcmc3p,"quinta-feira, 28 de agosto de 2025 09:01",116435.0
+308,1,,,32000,5,"R$ 189.717,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,abril de 2024 ,khrzd7z0m7j1f9,"quinta-feira, 28 de agosto de 2025 09:01",189717.0
+308,1,,,32000,5,"R$ 114.505,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,abril de 2024 ,gnk7vrz2yrj1f9,"quinta-feira, 28 de agosto de 2025 09:10",114505.0
+308,1,,,32000,5,"R$ 135.326,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,abril de 2024 ,hfz01h3pswp,"quarta-feira, 1 de outubro de 2025 07:27",135326.0
+308,1,,,32000,5,"R$ 92.720,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,abril de 2024 ,cgdgbvvd464p,"quarta-feira, 1 de outubro de 2025 07:27",92720.0
+308,1,,,32000,5,"R$ 86.385,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,abril de 2024 ,ccz5rv868pmp,"quinta-feira, 28 de agosto de 2025 09:01",86385.0
+308,1,,,32000,5,"R$ 200.392,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,abril de 2024 ,kw8zjzc6ztp,"quinta-feira, 28 de agosto de 2025 09:01",200392.0
+308,1,,,32000,5,"R$ 129.214,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,abril de 2024 ,g6tv9tmf2zp,"quinta-feira, 28 de agosto de 2025 09:01",129214.0
+308,1,,,32000,5,"R$ 113.540,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,abril de 2024 ,gmf5jv0kf7j1f9,"quinta-feira, 28 de agosto de 2025 09:01",113540.0
+308,1,,,32000,1,"R$ 152.022,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,abril de 2024 ,h2kwb853fyj1f9,"quinta-feira, 28 de agosto de 2025 09:01",152022.0
+308,1,,,32000,5,"R$ 86.717,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,abril de 2024 ,cc32fp9xt2pp,"quarta-feira, 1 de outubro de 2025 07:27",86717.0
+308,1,,,32000,5,"R$ 66.410,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,abril de 2024 ,4fzgdcr8m3p,"quinta-feira, 28 de agosto de 2025 09:01",66410.0
+308,1,,,32000,4,"R$ 296.852,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,abril de 2024 ,pkc0d0k62rj1f9,"quinta-feira, 28 de agosto de 2025 09:10",296852.0
+308,1,,,32000,4,"R$ 115.800,00",BYD,Dolphin Mini (Elétrico),32000,095010-6,Elétrico,1,E,abril de 2024 ,gp290c19rxj1f9,"quinta-feira, 28 de agosto de 2025 09:10",115800.0
+307,1,,,32000,5,"R$ 65.895,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,março de 2024 ,37x8lfh2mrp,"quinta-feira, 28 de agosto de 2025 09:01",65895.0
+307,1,,,32000,5,"R$ 84.656,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,março de 2024 ,ccbw9788p1dp,"quinta-feira, 28 de agosto de 2025 09:01",84656.0
+307,1,,,32000,5,"R$ 161.240,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,março de 2024 ,jfcxsstl3mp,"quinta-feira, 28 de agosto de 2025 09:01",161240.0
+307,1,,,32000,5,"R$ 100.401,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,março de 2024 ,f31l21m2qvp,"quinta-feira, 28 de agosto de 2025 09:01",100401.0
+307,1,,,32000,5,"R$ 118.609,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,março de 2024 ,gtdd131j0tj1f9,"quarta-feira, 1 de outubro de 2025 07:27",118609.0
+307,1,,,32000,5,"R$ 101.610,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,março de 2024 ,f5gkbpwh08j1f9,"quinta-feira, 28 de agosto de 2025 09:01",101610.0
+307,1,,,32000,5,"R$ 156.908,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,março de 2024 ,h79gpgzy6sp,"quinta-feira, 28 de agosto de 2025 09:01",156908.0
+307,1,,,32000,3,"R$ 268.959,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,março de 2024 ,nhn5tbmgxtcb,"quinta-feira, 28 de agosto de 2025 09:47",268959.0
+307,1,,,32000,5,"R$ 174.273,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,março de 2024 ,jxnms2yhvdp,"quinta-feira, 28 de agosto de 2025 09:01",174273.0
+307,1,,,32000,5,"R$ 97.199,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,março de 2024 ,ch2y972s8nxp,"quinta-feira, 28 de agosto de 2025 09:01",97199.0
+307,1,,,32000,3,"R$ 230.144,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,março de 2024 ,l05csc7bm4j1gy,"quinta-feira, 28 de agosto de 2025 09:47",230144.0
+307,1,,,32000,5,"R$ 134.248,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,março de 2024 ,hdqvdj4yjyp,"quinta-feira, 28 de agosto de 2025 09:01",134248.0
+307,1,,,32000,5,"R$ 112.163,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,março de 2024 ,gkt3z02vkhp,"quinta-feira, 28 de agosto de 2025 09:01",112163.0
+307,1,,,32000,5,"R$ 91.811,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,março de 2024 ,cf1sym69gncp,"quinta-feira, 28 de agosto de 2025 09:01",91811.0
+307,1,,,32000,5,"R$ 167.400,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,março de 2024 ,jnltl26zv8p,"quinta-feira, 28 de agosto de 2025 09:01",167400.0
+307,1,,,32000,5,"R$ 142.602,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,março de 2024 ,hqjg9z6d32j1f9,"quinta-feira, 28 de agosto de 2025 09:01",142602.0
+307,1,,,32000,5,"R$ 133.644,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,março de 2024 ,hc0wt5dn85p,"quinta-feira, 28 de agosto de 2025 09:01",133644.0
+307,1,,,32000,5,"R$ 152.722,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,março de 2024 ,h3c92vsr7yj1f9,"quinta-feira, 28 de agosto de 2025 09:01",152722.0
+307,1,,,32000,5,"R$ 144.005,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,março de 2024 ,hr5g40ws5pp,"quinta-feira, 28 de agosto de 2025 09:01",144005.0
+307,1,,,32000,5,"R$ 110.955,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,março de 2024 ,gjd6v7vhbyj1f9,"quinta-feira, 28 de agosto de 2025 09:01",110955.0
+307,1,,,32000,5,"R$ 84.285,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,março de 2024 ,cb6kgzvp5qlp,"quinta-feira, 28 de agosto de 2025 09:01",84285.0
+307,1,,,32000,5,"R$ 81.894,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,março de 2024 ,99jd73y703p,"quinta-feira, 28 de agosto de 2025 09:02",81894.0
+307,1,,,32000,5,"R$ 118.483,00",Honda,CITY Sedan LX 1.5 Flex 16V 4p Aut.,32000,014059-7,Flex,1,F,março de 2024 ,gs7t203b92p,"quinta-feira, 28 de agosto de 2025 09:02",118483.0
+307,1,,,32000,5,"R$ 188.676,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,março de 2024 ,kgj4gn54ywj1f9,"quinta-feira, 28 de agosto de 2025 09:02",188676.0
+307,1,,,32000,5,"R$ 114.600,00",Honda,CITY Hatchback LX 1.5 Flex 16V Aut.,32000,014116-0,Flex,1,F,março de 2024 ,gnppw022cqj1f9,"quinta-feira, 28 de agosto de 2025 09:10",114600.0
+307,1,,,32000,5,"R$ 135.845,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,março de 2024 ,hglwtvnz5pp,"quarta-feira, 1 de outubro de 2025 07:27",135845.0
+307,1,,,32000,5,"R$ 92.743,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,março de 2024 ,cgdqpz8fzf6p,"quarta-feira, 1 de outubro de 2025 07:27",92743.0
+307,1,,,32000,5,"R$ 86.764,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,março de 2024 ,cc4mh8hfpm3p,"quinta-feira, 28 de agosto de 2025 09:02",86764.0
+307,1,,,32000,5,"R$ 198.720,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,março de 2024 ,kt96lxyszsp,"quinta-feira, 28 de agosto de 2025 09:02",198720.0
+307,1,,,32000,5,"R$ 128.871,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,março de 2024 ,g6fdtzwjcwp,"quinta-feira, 28 de agosto de 2025 09:02",128871.0
+307,1,,,32000,5,"R$ 113.787,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,março de 2024 ,gmq4vdll8nj1f9,"quinta-feira, 28 de agosto de 2025 09:02",113787.0
+307,1,,,32000,1,"R$ 151.589,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,março de 2024 ,h114gtbkcdj1f9,"quinta-feira, 28 de agosto de 2025 09:02",151589.0
+307,1,,,32000,5,"R$ 85.771,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,março de 2024 ,ccrzlljpp6gp,"quarta-feira, 1 de outubro de 2025 07:27",85771.0
+307,1,,,32000,5,"R$ 64.088,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,março de 2024 ,3krg3lsdhyp,"quinta-feira, 28 de agosto de 2025 09:02",64088.0
+307,1,,,32000,4,"R$ 296.868,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,março de 2024 ,pkdlfvhl3yj1f9,"quinta-feira, 28 de agosto de 2025 09:10",296868.0
+306,1,,,32000,5,"R$ 68.752,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,fevereiro de 2024 ,5bfpzy7vyxp,"quinta-feira, 28 de agosto de 2025 09:02",68752.0
+306,1,,,32000,5,"R$ 85.156,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,fevereiro de 2024 ,ccjr103hmvdp,"quinta-feira, 28 de agosto de 2025 09:02",85156.0
+306,1,,,32000,5,"R$ 160.338,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,fevereiro de 2024 ,jc94gdyfc0p,"quinta-feira, 28 de agosto de 2025 09:02",160338.0
+306,1,,,32000,5,"R$ 99.772,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,fevereiro de 2024 ,cj14jn1k9ydp,"quinta-feira, 28 de agosto de 2025 09:02",99772.0
+306,1,,,32000,5,"R$ 121.328,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,fevereiro de 2024 ,gxk7p6w693j1f9,"quarta-feira, 1 de outubro de 2025 07:27",121328.0
+306,1,,,32000,5,"R$ 101.768,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,fevereiro de 2024 ,f5m9ch436rj1f9,"quinta-feira, 28 de agosto de 2025 09:02",101768.0
+306,1,,,32000,5,"R$ 157.123,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,fevereiro de 2024 ,h8j8x8k3spp,"quinta-feira, 28 de agosto de 2025 09:02",157123.0
+306,1,,,32000,3,"R$ 263.367,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,fevereiro de 2024 ,m83xzxjyqkcb,"quinta-feira, 28 de agosto de 2025 09:48",263367.0
+306,1,,,32000,5,"R$ 174.778,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,fevereiro de 2024 ,jx7ztd361zp,"quinta-feira, 28 de agosto de 2025 09:02",174778.0
+306,1,,,32000,5,"R$ 96.999,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,fevereiro de 2024 ,ch0mmqv4450p,"quinta-feira, 28 de agosto de 2025 09:02",96999.0
+306,1,,,32000,3,"R$ 238.870,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,fevereiro de 2024 ,mcdjvk7mztj1gy,"quinta-feira, 28 de agosto de 2025 09:48",238870.0
+306,1,,,32000,5,"R$ 134.094,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,fevereiro de 2024 ,hdj7wcyx3dp,"quinta-feira, 28 de agosto de 2025 09:02",134094.0
+306,1,,,32000,5,"R$ 111.499,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,fevereiro de 2024 ,gj1ztvkmpqp,"quinta-feira, 28 de agosto de 2025 09:02",111499.0
+306,1,,,32000,5,"R$ 91.416,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,fevereiro de 2024 ,cfw5cymf4t0p,"quinta-feira, 28 de agosto de 2025 09:02",91416.0
+306,1,,,32000,5,"R$ 167.040,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,fevereiro de 2024 ,jm5qzgnxtdp,"quinta-feira, 28 de agosto de 2025 09:02",167040.0
+306,1,,,32000,5,"R$ 142.379,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,fevereiro de 2024 ,hp8c1pynkxj1f9,"quinta-feira, 28 de agosto de 2025 09:02",142379.0
+306,1,,,32000,5,"R$ 133.795,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,fevereiro de 2024 ,hc6czgz0c1p,"quinta-feira, 28 de agosto de 2025 09:02",133795.0
+306,1,,,32000,5,"R$ 151.354,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,fevereiro de 2024 ,h1slpcbh1tj1f9,"quinta-feira, 28 de agosto de 2025 09:02",151354.0
+306,1,,,32000,5,"R$ 143.420,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,fevereiro de 2024 ,hrg6z8j5ppp,"quinta-feira, 28 de agosto de 2025 09:02",143420.0
+306,1,,,32000,5,"R$ 111.118,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,fevereiro de 2024 ,gjl4jp5040j1f9,"quinta-feira, 28 de agosto de 2025 09:02",111118.0
+306,1,,,32000,5,"R$ 83.906,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,fevereiro de 2024 ,cb13qkyvd3tp,"quinta-feira, 28 de agosto de 2025 09:02",83906.0
+306,1,,,32000,5,"R$ 81.332,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,fevereiro de 2024 ,92x4wcdf7tp,"quinta-feira, 28 de agosto de 2025 09:02",81332.0
+306,1,,,32000,5,"R$ 188.317,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,fevereiro de 2024 ,kf32yzf8mjj1f9,"quinta-feira, 28 de agosto de 2025 09:02",188317.0
+306,1,,,32000,5,"R$ 136.357,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,fevereiro de 2024 ,hg6hqpj0gwp,"quarta-feira, 1 de outubro de 2025 07:27",136357.0
+306,1,,,32000,5,"R$ 91.754,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,fevereiro de 2024 ,cf037ctwd71p,"quarta-feira, 1 de outubro de 2025 07:27",91754.0
+306,1,,,32000,5,"R$ 84.652,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,fevereiro de 2024 ,ccbvv5jhqstp,"quinta-feira, 28 de agosto de 2025 09:02",84652.0
+306,1,,,32000,5,"R$ 201.262,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,fevereiro de 2024 ,kx9lth0sqqp,"quinta-feira, 28 de agosto de 2025 09:02",201262.0
+306,1,,,32000,5,"R$ 128.784,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,fevereiro de 2024 ,g597s23wlxp,"quinta-feira, 28 de agosto de 2025 09:02",128784.0
+306,1,,,32000,5,"R$ 113.172,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,fevereiro de 2024 ,gl0swrwfz5j1f9,"quinta-feira, 28 de agosto de 2025 09:02",113172.0
+306,1,,,32000,1,"R$ 151.249,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,fevereiro de 2024 ,h1nscr05tvj1f9,"quinta-feira, 28 de agosto de 2025 09:03",151249.0
+306,1,,,32000,5,"R$ 82.984,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,fevereiro de 2024 ,cbp9lwwzwm9p,"quarta-feira, 1 de outubro de 2025 07:27",82984.0
+306,1,,,32000,5,"R$ 63.799,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,fevereiro de 2024 ,3gcfr52wlpp,"quinta-feira, 28 de agosto de 2025 09:03",63799.0
+306,1,,,32000,4,"R$ 297.097,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,fevereiro de 2024 ,pknxgngbv2j1f9,"quinta-feira, 28 de agosto de 2025 09:11",297097.0
+305,1,,,32000,5,"R$ 67.833,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,janeiro de 2024 ,4znn24cl51p,"quinta-feira, 28 de agosto de 2025 09:03",67833.0
+305,1,,,32000,5,"R$ 83.188,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,janeiro de 2024 ,cbsprgjfnxbp,"quinta-feira, 28 de agosto de 2025 09:03",83188.0
+305,1,,,32000,5,"R$ 160.159,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,janeiro de 2024 ,jc3mr0fsskp,"quinta-feira, 28 de agosto de 2025 09:03",160159.0
+305,1,,,32000,5,"R$ 95.955,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,janeiro de 2024 ,chmc5c71v63p,"quinta-feira, 28 de agosto de 2025 09:03",95955.0
+305,1,,,32000,5,"R$ 120.993,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,janeiro de 2024 ,gw517tnsd4j1f9,"quarta-feira, 1 de outubro de 2025 07:27",120993.0
+305,1,,,32000,5,"R$ 99.598,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,janeiro de 2024 ,cjz2825h71yp,"quinta-feira, 28 de agosto de 2025 09:03",99598.0
+305,1,,,32000,5,"R$ 156.608,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,janeiro de 2024 ,h7yknk3d4tp,"quinta-feira, 28 de agosto de 2025 09:03",156608.0
+305,1,,,32000,3,"R$ 260.012,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,janeiro de 2024 ,m45zqmtm9wcb,"quinta-feira, 28 de agosto de 2025 09:48",260012.0
+305,1,,,32000,5,"R$ 173.151,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,janeiro de 2024 ,jwbvk573q5p,"quinta-feira, 28 de agosto de 2025 09:03",173151.0
+305,1,,,32000,5,"R$ 97.940,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,janeiro de 2024 ,cjcnnhg3p24p,"quinta-feira, 28 de agosto de 2025 09:03",97940.0
+305,1,,,32000,3,"R$ 231.426,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,janeiro de 2024 ,l2ny8vk0mpj1gy,"quinta-feira, 28 de agosto de 2025 09:48",231426.0
+305,1,,,32000,5,"R$ 134.142,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,janeiro de 2024 ,hdlzyyv7c3p,"quinta-feira, 28 de agosto de 2025 09:03",134142.0
+305,1,,,32000,5,"R$ 109.964,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,janeiro de 2024 ,gg7574fh6dp,"quinta-feira, 28 de agosto de 2025 09:03",109964.0
+305,1,,,32000,5,"R$ 90.418,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,janeiro de 2024 ,cfjgmxjry8dp,"quinta-feira, 28 de agosto de 2025 09:03",90418.0
+305,1,,,32000,5,"R$ 164.386,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,janeiro de 2024 ,jj18kqf3kjp,"quinta-feira, 28 de agosto de 2025 09:03",164386.0
+305,1,,,32000,5,"R$ 140.849,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,janeiro de 2024 ,hngr3mwgp5j1f9,"quinta-feira, 28 de agosto de 2025 09:03",140849.0
+305,1,,,32000,5,"R$ 133.679,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,janeiro de 2024 ,hc148mn0j3p,"quinta-feira, 28 de agosto de 2025 09:03",133679.0
+305,1,,,32000,5,"R$ 151.233,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,janeiro de 2024 ,h1m6bvylk9j1f9,"quinta-feira, 28 de agosto de 2025 09:03",151233.0
+305,1,,,32000,5,"R$ 142.626,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,janeiro de 2024 ,hqkcb8dydtp,"quinta-feira, 28 de agosto de 2025 09:03",142626.0
+305,1,,,32000,5,"R$ 109.342,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,janeiro de 2024 ,ggjldz8dl9j1f9,"quinta-feira, 28 de agosto de 2025 09:03",109342.0
+305,1,,,32000,5,"R$ 83.721,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,janeiro de 2024 ,cbzyg1410lbp,"quinta-feira, 28 de agosto de 2025 09:03",83721.0
+305,1,,,32000,5,"R$ 79.565,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,janeiro de 2024 ,9d6w2x8r65p,"quinta-feira, 28 de agosto de 2025 09:03",79565.0
+305,1,,,32000,5,"R$ 187.958,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,janeiro de 2024 ,kfp1f8qc85j1f9,"quinta-feira, 28 de agosto de 2025 09:03",187958.0
+305,1,,,32000,5,"R$ 135.554,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,janeiro de 2024 ,hf79x923ncp,"quarta-feira, 1 de outubro de 2025 07:28",135554.0
+305,1,,,32000,5,"R$ 90.928,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,janeiro de 2024 ,cfqf0ccjyy5p,"quarta-feira, 1 de outubro de 2025 07:28",90928.0
+305,1,,,32000,5,"R$ 85.156,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,janeiro de 2024 ,ccjr10h61ngp,"quinta-feira, 28 de agosto de 2025 09:03",85156.0
+305,1,,,32000,5,"R$ 196.018,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,janeiro de 2024 ,kq4z3jnj82p,"quinta-feira, 28 de agosto de 2025 09:03",196018.0
+305,1,,,32000,5,"R$ 128.394,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,janeiro de 2024 ,g5v2ck58rkp,"quinta-feira, 28 de agosto de 2025 09:03",128394.0
+305,1,,,32000,5,"R$ 112.451,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,janeiro de 2024 ,gk5lhl1pqzj1f9,"quinta-feira, 28 de agosto de 2025 09:03",112451.0
+305,1,,,32000,1,"R$ 150.485,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,janeiro de 2024 ,h0r0jm8hbgj1f9,"quinta-feira, 28 de agosto de 2025 09:03",150485.0
+305,1,,,32000,5,"R$ 86.621,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,janeiro de 2024 ,cc2yjz0jg98p,"quarta-feira, 1 de outubro de 2025 07:28",86621.0
+305,1,,,32000,5,"R$ 64.067,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,janeiro de 2024 ,3khvgqh798p,"quinta-feira, 28 de agosto de 2025 09:03",64067.0
+305,1,,,32000,4,"R$ 296.800,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,janeiro de 2024 ,pj93tk2xkqj1f9,"quinta-feira, 28 de agosto de 2025 09:11",296800.0
+304,1,,,32000,5,"R$ 68.723,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,dezembro de 2023 ,49246qzynyp,"quinta-feira, 28 de agosto de 2025 09:03",68723.0
+304,1,,,32000,5,"R$ 83.317,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,dezembro de 2023 ,cbt6my4l81hp,"quinta-feira, 28 de agosto de 2025 09:03",83317.0
+304,1,,,32000,5,"R$ 159.223,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,dezembro de 2023 ,jb0l30ybcdp,"quinta-feira, 28 de agosto de 2025 09:04",159223.0
+304,1,,,32000,5,"R$ 97.928,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,dezembro de 2023 ,cjch88l2qtpp,"quinta-feira, 28 de agosto de 2025 09:04",97928.0
+304,1,,,32000,5,"R$ 121.721,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,dezembro de 2023 ,gx1jjd0pltj1f9,"quarta-feira, 1 de outubro de 2025 07:28",121721.0
+304,1,,,32000,5,"R$ 101.923,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,dezembro de 2023 ,f5tx0hxmmmj1f9,"quinta-feira, 28 de agosto de 2025 09:04",101923.0
+304,1,,,32000,5,"R$ 158.233,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,dezembro de 2023 ,h9vmmv50vgp,"quinta-feira, 28 de agosto de 2025 09:04",158233.0
+304,1,,,32000,3,"R$ 268.226,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,dezembro de 2023 ,ngtjwywcr9cb,"quinta-feira, 28 de agosto de 2025 09:48",268226.0
+304,1,,,32000,5,"R$ 174.442,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,dezembro de 2023 ,jxvr61z0vfp,"quinta-feira, 28 de agosto de 2025 09:04",174442.0
+304,1,,,32000,5,"R$ 97.223,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,dezembro de 2023 ,ch271m29lhvp,"quinta-feira, 28 de agosto de 2025 09:04",97223.0
+304,1,,,32000,3,"R$ 234.227,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,dezembro de 2023 ,l5yr941vg9j1gy,"quinta-feira, 28 de agosto de 2025 09:48",234227.0
+304,1,,,32000,5,"R$ 133.413,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,dezembro de 2023 ,hcrhkcjz9sp,"quinta-feira, 28 de agosto de 2025 09:04",133413.0
+304,1,,,32000,5,"R$ 109.130,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,dezembro de 2023 ,gf8wjyswvwp,"quinta-feira, 28 de agosto de 2025 09:04",109130.0
+304,1,,,32000,5,"R$ 90.336,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,dezembro de 2023 ,cfhhty1rtvjp,"quinta-feira, 28 de agosto de 2025 09:04",90336.0
+304,1,,,32000,5,"R$ 165.000,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,dezembro de 2023 ,jksldb5yycp,"quinta-feira, 28 de agosto de 2025 09:04",165000.0
+304,1,,,32000,5,"R$ 140.777,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,dezembro de 2023 ,hnc4zn9ltyj1f9,"quinta-feira, 28 de agosto de 2025 09:04",140777.0
+304,1,,,32000,5,"R$ 135.163,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,dezembro de 2023 ,hfs3cv6ktzp,"quinta-feira, 28 de agosto de 2025 09:04",135163.0
+304,1,,,32000,5,"R$ 149.480,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,dezembro de 2023 ,hzlg4jp6rgj1f9,"quinta-feira, 28 de agosto de 2025 09:04",149480.0
+304,1,,,32000,5,"R$ 142.646,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,dezembro de 2023 ,hqk2wtk2b2p,"quinta-feira, 28 de agosto de 2025 09:04",142646.0
+304,1,,,32000,5,"R$ 110.258,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,dezembro de 2023 ,ghlwjbb1b0j1f9,"quinta-feira, 28 de agosto de 2025 09:04",110258.0
+304,1,,,32000,5,"R$ 83.265,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,dezembro de 2023 ,cbtlq1lm0p4p,"quinta-feira, 28 de agosto de 2025 09:04",83265.0
+304,1,,,32000,5,"R$ 79.574,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,dezembro de 2023 ,9d95g7kqrzp,"quinta-feira, 28 de agosto de 2025 09:04",79574.0
+304,1,,,32000,5,"R$ 188.445,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,dezembro de 2023 ,kf8q5v8sfgj1f9,"quinta-feira, 28 de agosto de 2025 09:04",188445.0
+304,1,,,32000,5,"R$ 133.510,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,dezembro de 2023 ,hcv0vjfzgbp,"quarta-feira, 1 de outubro de 2025 07:28",133510.0
+304,1,,,32000,5,"R$ 91.475,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,dezembro de 2023 ,cfxvtp0lp4rp,"quarta-feira, 1 de outubro de 2025 07:28",91475.0
+304,1,,,32000,5,"R$ 85.433,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,dezembro de 2023 ,ccm0q3pr1rhp,"quinta-feira, 28 de agosto de 2025 09:04",85433.0
+304,1,,,32000,5,"R$ 195.415,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,dezembro de 2023 ,kqf2n1plqsp,"quinta-feira, 28 de agosto de 2025 09:04",195415.0
+304,1,,,32000,5,"R$ 129.307,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,dezembro de 2023 ,g6x723vb9qp,"quinta-feira, 28 de agosto de 2025 09:04",129307.0
+304,1,,,32000,5,"R$ 114.253,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,dezembro de 2023 ,gm82xdxzzzj1f9,"quinta-feira, 28 de agosto de 2025 09:04",114253.0
+304,1,,,32000,1,"R$ 151.296,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,dezembro de 2023 ,h1qhbc1qszj1f9,"quinta-feira, 28 de agosto de 2025 09:04",151296.0
+304,1,,,32000,5,"R$ 86.641,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,dezembro de 2023 ,cc25tbj5rrvp,"quarta-feira, 1 de outubro de 2025 07:28",86641.0
+304,1,,,32000,5,"R$ 65.650,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,dezembro de 2023 ,3416z84p7yp,"quinta-feira, 28 de agosto de 2025 09:04",65650.0
+304,1,,,32000,4,"R$ 297.037,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,dezembro de 2023 ,pklqvtj33zj1f9,"quinta-feira, 28 de agosto de 2025 09:11",297037.0
+303,1,,,32000,5,"R$ 69.004,00",Fiat,MOBI LIKE 1.0 Fire Flex 5p.,32000,001461-3,Flex,1,F,novembro de 2023 ,5fc9c21btmp,"quinta-feira, 28 de agosto de 2025 09:04",69004.0
+303,1,,,32000,5,"R$ 83.985,00",Fiat,ARGO DRIVE 1.0 6V Flex,32000,001494-0,Flex,1,F,novembro de 2023 ,cb21fpdpj2lp,"quinta-feira, 28 de agosto de 2025 09:04",83985.0
+303,1,,,32000,5,"R$ 160.468,00",Fiat,Toro Freedom 1.3 T270 4x2 Flex Aut.,32000,001538-5,Flex,1,F,novembro de 2023 ,jdgvx39q1xp,"quinta-feira, 28 de agosto de 2025 09:04",160468.0
+303,1,,,32000,5,"R$ 97.990,00",Fiat,CRONOS DRIVE 1.3 8V Flex Aut.,32000,001554-7,Flex,1,F,novembro de 2023 ,cjc7tvhyk91p,"quinta-feira, 28 de agosto de 2025 09:04",97990.0
+303,1,,,32000,5,"R$ 120.257,00",Fiat,Fastback 1.0 200 Turbo Flex Aut,32000,001568-7,Flex,1,F,novembro de 2023 ,gv99ypkpn4j1f9,"quarta-feira, 1 de outubro de 2025 07:28",120257.0
+303,1,,,32000,5,"R$ 100.654,00",Fiat,Strada Endurance 1.3 Flex 8V CS,32000,001569-5,Flex,1,F,novembro de 2023 ,f4bs40wnblj1f9,"quinta-feira, 28 de agosto de 2025 09:04",100654.0
+303,1,,,32000,5,"R$ 154.307,00",Toyota,Corolla XEi 2.0 Flex 16V Aut.,32000,002111-3,Flex,1,F,novembro de 2023 ,h47xzwk7p2p,"quinta-feira, 28 de agosto de 2025 09:04",154307.0
+303,1,,,32000,3,"R$ 268.282,00",Toyota,Hilux CD SR 4x4 2.8 TDI Diesel Aut.,32000,002142-3,Diesel,1,D,novembro de 2023 ,ngwkzy84v4cb,"quinta-feira, 28 de agosto de 2025 09:51",268282.0
+303,1,,,32000,5,"R$ 174.377,00",Toyota,Corolla Cross XRE 2.0 16V Flex Aut.,32000,002203-9,Flex,1,F,novembro de 2023 ,jxsdzl3f1tp,"quinta-feira, 28 de agosto de 2025 09:05",174377.0
+303,1,,,32000,5,"R$ 97.198,00",Toyota,YARIS XL 1.5 Flex 16V 5p Aut.,32000,002207-1,Flex,1,F,novembro de 2023 ,ch2yyydcq25p,"quinta-feira, 28 de agosto de 2025 09:05",97198.0
+303,1,,,32000,3,"R$ 239.126,00",Ford,Ranger XL 2.0 4x4 CD Diesel Mec. ,32000,003502-5,Diesel,1,D,novembro de 2023 ,mcpt9dy65rj1gy,"quinta-feira, 28 de agosto de 2025 09:51",239126.0
+303,1,,,32000,5,"R$ 132.661,00",GM - Chevrolet,SPIN PREMIER 1.8 8V Econo.Flex 5p Aut.,32000,004494-6,Flex,1,F,novembro de 2023 ,hbv47djjjlp,"quinta-feira, 28 de agosto de 2025 09:05",132661.0
+303,1,,,32000,5,"R$ 108.890,00",GM - Chevrolet,ONIX SEDAN Plus LT 1.0 12V TB Flex Aut.,32000,004501-2,Flex,1,F,novembro de 2023 ,gfz43vqzyyp,"quinta-feira, 28 de agosto de 2025 09:05",108890.0
+303,1,,,32000,5,"R$ 90.334,00",GM - Chevrolet,ONIX HATCH LT 1.0 12V Flex 5p Mec.,32000,004517-9,Flex,1,F,novembro de 2023 ,cfhg3d3pghkp,"quinta-feira, 28 de agosto de 2025 09:05",90334.0
+303,1,,,32000,5,"R$ 163.747,00",GM - Chevrolet,TRACKER Premier 1.2 Turbo 12V Flex Aut.,32000,004525-0,Flex,1,F,novembro de 2023 ,jh91kq4x8lp,"quinta-feira, 28 de agosto de 2025 09:05",163747.0
+303,1,,,32000,5,"R$ 140.804,00",GM - Chevrolet,MONTANA LTZ 1.2 Turbo Flex 12V 4p Aut.,32000,004541-1,Flex,1,F,novembro de 2023 ,hnd4dq40vtj1f9,"quinta-feira, 28 de agosto de 2025 09:05",140804.0
+303,1,,,32000,5,"R$ 135.120,00",VW - VolksWagen,VIRTUS Highline 200 TSI 1.0 Flex 12V Aut,32000,005484-4,Flex,1,F,novembro de 2023 ,hfrjxv510qp,"quinta-feira, 28 de agosto de 2025 09:05",135120.0
+303,1,,,32000,5,"R$ 151.762,00",VW - VolksWagen,T-Cross Comfor. 200 TSI 1.0 Flex 5p Aut.,32000,005509-3,Flex,1,F,novembro de 2023 ,h18fdgj5m6j1f9,"quinta-feira, 28 de agosto de 2025 09:05",151762.0
+303,1,,,32000,5,"R$ 142.137,00",VW - VolksWagen,Nivus Highline 1.0 200 TSI Flex Aut.,32000,005526-3,Flex,1,F,novembro de 2023 ,hpzlcpzg19p,"quinta-feira, 28 de agosto de 2025 09:05",142137.0
+303,1,,,32000,5,"R$ 110.535,00",VW - VolksWagen,Saveiro Robust 1.6 Total Flex 16V CD,32000,005537-9,Flex,1,F,novembro de 2023 ,ghxymq9myxj1f9,"quinta-feira, 28 de agosto de 2025 09:05",110535.0
+303,1,,,32000,5,"R$ 83.837,00",VW - VolksWagen,Polo Track 1.0 Flex 12V 5p,32000,005540-9,Flex,1,F,novembro de 2023 ,cb09m2lsygrp,"quinta-feira, 28 de agosto de 2025 09:05",83837.0
+303,1,,,32000,5,"R$ 79.441,00",Citroën,C3 Live Pack 1.0 Flex 6V 5p Mec.,32000,011223-2,Flex,1,F,novembro de 2023 ,9crtwq7cxwp,"quinta-feira, 28 de agosto de 2025 09:05",79441.0
+303,1,,,32000,5,"R$ 188.621,00",Honda,HR-V Advance 1.5  Flex TB 16V 5p Aut.,32000,014111-9,Flex,1,F,novembro de 2023 ,kgg4hd5qn7j1f9,"quinta-feira, 28 de agosto de 2025 09:05",188621.0
+303,1,,,32000,5,"R$ 134.036,00",Hyundai,Creta Comfort 1.0 TB 12V Flex Aut.,32000,015200-5,Flex,1,F,novembro de 2023 ,hdg4jcpkxrp,"quarta-feira, 1 de outubro de 2025 07:28",134036.0
+303,1,,,32000,5,"R$ 91.803,00",Hyundai,HB20S Comfort Plus 1.0 Flex 12V Mec.,32000,015239-0,Flex,1,F,novembro de 2023 ,cf1p1f6gxn0p,"quarta-feira, 1 de outubro de 2025 07:28",91803.0
+303,1,,,32000,5,"R$ 87.040,00",Hyundai,HB20 Comfort Plus 1.0 Flex 12V Mec.,32000,015245-5,Flex,1,F,novembro de 2023 ,cc7vt2bctz1p,"quinta-feira, 28 de agosto de 2025 09:05",87040.0
+303,1,,,32000,5,"R$ 195.322,00",Jeep,COMPASS LONG. T270 1.3 TB 4x2 Flex Aut.,32000,017071-2,Flex,1,F,novembro de 2023 ,kqbpwk1vlqp,"quinta-feira, 28 de agosto de 2025 09:05",195322.0
+303,1,,,32000,5,"R$ 129.327,00",Nissan,VERSA Exclusive 1.6 16V Flex Aut.,32000,023174-6,Flex,1,F,novembro de 2023 ,g6yzmn0g7zp,"quinta-feira, 28 de agosto de 2025 09:51",129327.0
+303,1,,,32000,5,"R$ 114.228,00",Nissan,KICKS Active 1.6 16V Flex Aut.,32000,023186-0,Flex,1,F,novembro de 2023 ,gm75q4js70j1f9,"quinta-feira, 28 de agosto de 2025 09:51",114228.0
+303,1,,,32000,1,"R$ 151.328,00",Nissan,Sentra Advance 2.0 16V Aut.,32000,023187-8,Gasolina,1,G,novembro de 2023 ,h1rnc2y2gfj1f9,"quinta-feira, 28 de agosto de 2025 09:51",151328.0
+303,1,,,32000,5,"R$ 86.557,00",Peugeot,208 Style 1.0 Flex 6V 5p Mec.,32000,024265-9,Flex,1,F,novembro de 2023 ,cc158vgxxtnp,"quarta-feira, 1 de outubro de 2025 07:28",86557.0
+303,1,,,32000,5,"R$ 68.965,00",Renault,KWID Zen 1.0 Flex 12V 5p Mec.,32000,025266-2,Flex,1,F,novembro de 2023 ,5dx3ymqh4zp,"quinta-feira, 28 de agosto de 2025 09:51",68965.0
+303,1,,,32000,4,"R$ 296.800,00",BYD,Seal (Elétrico),32000,095008-4,Elétrico,1,E,novembro de 2023 ,pj93thxsdlj1f9,"quinta-feira, 28 de agosto de 2025 09:51",296800.0
