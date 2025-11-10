@@ -1,0 +1,1474 @@
+origin,destination,carrier,price
+PVR,NLU,Viva,R$392
+PVR,NLU,Aeromexico,R$601
+PVR,NLU,Viva,R$392
+SFO,GDL,Aeromexico,R$929
+BOG,MEX,Avianca,R$1121
+BOG,MEX,Avianca,R$1121
+BOG,MEX,Avianca,R$1153
+BOG,MEX,Avianca,R$1343
+BOG,MEX,Aeromexico,R$1564
+BOG,MEX,Aeromexico,R$2979
+BOG,MEX,Avianca,R$1121
+BOG,MEX,Avianca,R$1153
+BOG,MEX,Avianca,R$1343
+BOG,MEX,Aeromexico,R$1564
+BOG,MEX,Aeromexico,R$2979
+FAT,GDL,Aeromexico,R$807
+FAT,GDL,Volaris,Price unavailable
+FAT,GDL,Volaris,Price unavailable
+FAT,GDL,Aeromexico,R$807
+FAT,GDL,Volaris,Price unavailable
+GDL,ATL,Delta,R$1755
+HAV,MEX,Aeromexico,R$1911
+MEX,LAP,Aeromexico,R$839
+MEX,LAP,Aeromexico,R$839
+MEX,LAP,Volaris,Price unavailable
+MEX,LAP,Aeromexico,R$839
+MEX,LAP,Aeromexico,R$839
+NLU,CLQ,Aeromexico,R$435
+MEX,PVR,Viva,R$280
+MEX,PVR,Viva,R$280
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Volaris,Price unavailable
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Aeromexico,R$639
+MEX,PVR,Viva,R$280
+MEX,PVR,Viva,R$280
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Aeromexico,R$538
+MEX,PVR,Aeromexico,R$639
+MTY,NRT,Aeromexico,R$6475
+NLU,PVR,Viva,R$234
+NLU,PVR,Aeromexico,R$372
+NLU,PVR,Viva,R$234
+CUL,MEX,Aeromexico,R$809
+CUL,MEX,Aeromexico,R$809
+CUL,MEX,Aeromexico,R$809
+CUL,MEX,Volaris,Price unavailable
+CUL,MEX,Aeromexico,R$809
+CUL,MEX,Aeromexico,R$809
+CUL,MEX,Aeromexico,R$809
+MEX,TAP,Aeromexico,R$512
+MEX,TAP,Aeromexico,R$512
+MEX,TAP,Aeromexico,R$632
+MEX,TAP,Volaris,Price unavailable
+MEX,TAP,Aeromexico,R$512
+MEX,TAP,Aeromexico,R$512
+MEX,TAP,Aeromexico,R$632
+LAX,GDL,Viva,R$359
+LAX,GDL,Viva,R$359
+LAX,GDL,Aeromexico,R$860
+LAX,GDL,Alaska,R$1019
+LAX,GDL,Volaris,Price unavailable
+LAX,GDL,Volaris,Price unavailable
+LAX,GDL,Volaris,Price unavailable
+LAX,GDL,Viva,R$359
+LAX,GDL,Viva,R$359
+LAX,GDL,Aeromexico,R$860
+LAX,GDL,Alaska,R$1019
+LAX,GDL,Volaris,Price unavailable
+LAX,GDL,Volaris,Price unavailable
+DFW,MEX,American,R$1178
+DFW,MEX,Aeromexico,R$1178
+DFW,MEX,American,R$1178
+DFW,MEX,Volaris,Price unavailable
+DFW,MEX,American,R$1178
+DFW,MEX,American,R$1178
+DFW,MEX,American,R$1178
+DFW,MEX,Aeromexico,R$1178
+DFW,MEX,American,R$1178
+DFW,MEX,American,R$1178
+DFW,MEX,American,R$1178
+MEX,TPA,Aeromexico,R$1111
+ORD,MEX,Viva,R$537
+ORD,MEX,American,R$690
+ORD,MEX,United,R$695
+ORD,MEX,Volaris,Price unavailable
+ORD,MEX,Aeromexico,R$982
+ORD,MEX,Aeromexico,R$1242
+ORD,MEX,Viva,R$537
+ORD,MEX,American,R$690
+ORD,MEX,United,R$695
+ORD,MEX,Aeromexico,R$982
+ORD,MEX,Aeromexico,R$1242
+AMS,MEX,Aeromexico,R$8920
+AMS,MEX,KLM,R$8928
+AMS,MEX,Aeromexico,R$8920
+MEX,LAX,Viva,R$888
+MEX,LAX,Aeromexico,R$1658
+MEX,LAX,Delta,R$1658
+MEX,LAX,American,R$1702
+MEX,LAX,Volaris,Price unavailable
+MEX,LAX,Aeromexico,R$1658
+MEX,LAX,Aeromexico,R$1658
+MEX,LAX,Aeromexico,R$1901
+MEX,LAX,Viva,R$888
+MEX,LAX,Aeromexico,R$1658
+MEX,LAX,Delta,R$1658
+MEX,LAX,American,R$1702
+MEX,LAX,Aeromexico,R$1658
+MEX,LAX,Aeromexico,R$1658
+MEX,LAX,Aeromexico,R$1901
+OAX,MEX,Viva,R$302
+OAX,MEX,Volaris,Price unavailable
+OAX,MEX,Aeromexico,R$690
+OAX,MEX,Aeromexico,R$690
+OAX,MEX,Aeromexico,R$723
+OAX,MEX,Aeromexico,R$824
+OAX,MEX,Viva,R$302
+OAX,MEX,Aeromexico,R$690
+OAX,MEX,Aeromexico,R$690
+OAX,MEX,Aeromexico,R$723
+OAX,MEX,Aeromexico,R$824
+MEX,SLP,Aeromexico,R$857
+MEX,SLP,Aeromexico,R$890
+MEX,SLP,Aeromexico,R$890
+MEX,SLP,Aeromexico,R$991
+MEX,SLP,Aeromexico,R$857
+MEX,SLP,Aeromexico,R$890
+MEX,SLP,Aeromexico,R$890
+MTT,MEX,Aeromexico,R$913
+MTT,MEX,Aeromexico,R$913
+MTT,MEX,Aeromexico,R$913
+MEX,CDG,Air France,R$2917
+MEX,CDG,Air France,R$2917
+MEX,CDG,Aeromexico,R$5538
+MEX,CDG,Air France,R$2917
+MEX,CDG,Air France,R$2917
+ATL,GDL,Delta,R$1465
+CEN,MEX,Aeromexico,R$781
+MEX,EZE,Aeromexico,R$5085
+EZE,MEX,Aeromexico,R$6072
+MEX,MDE,Avianca,R$1028
+MEX,MDE,Aeromexico,R$1528
+MEX,MDE,Avianca,R$1028
+MEX,RDU,Aeromexico,R$1846
+MTY,DTW,Aeromexico,R$2224
+MEX,CLO,Aeromexico,R$1388
+MEX,LHR,Aeromexico,R$4639
+MEX,LHR,British Airways,R$5069
+MEX,LHR,Aeromexico,R$4639
+LAP,MEX,Aeromexico,R$1058
+LAP,MEX,Aeromexico,R$1058
+LAP,MEX,Volaris,Price unavailable
+LAP,MEX,Aeromexico,R$1058
+LAP,MEX,Aeromexico,R$1058
+MAD,MTY,Aeromexico,R$5038
+MAD,MEX,Iberia,R$2850
+MAD,MEX,Iberia,R$2850
+MAD,MEX,Iberia,R$2850
+MAD,MEX,Aeromexico,R$6341
+MAD,MEX,Aeromexico,R$6341
+MAD,MEX,Iberia,R$2850
+MAD,MEX,Iberia,R$2850
+MAD,MEX,Aeromexico,R$6341
+MAD,MEX,Aeromexico,R$6341
+MEX,ZIH,Aeromexico,R$539
+MEX,ZIH,Aeromexico,R$539
+MEX,ZIH,Volaris,Price unavailable
+MEX,ZIH,Aeromexico,R$539
+MEX,ZIH,Aeromexico,R$539
+MEX,SAP,Aeromexico,R$1982
+MEX,ACA,Aeromexico,R$555
+MEX,ACA,Aeromexico,R$555
+MEX,ACA,Volaris,Price unavailable
+MEX,ACA,Aeromexico,R$555
+MEX,ACA,Aeromexico,R$555
+GDL,SEA,Volaris,Price unavailable
+MEX,SDQ,Aeromexico,R$2276
+VER,NLU,Viva,R$207
+VER,NLU,Aeromexico,R$253
+VER,NLU,Viva,R$207
+CUN,NLU,Viva,R$295
+CUN,NLU,Viva,R$295
+CUN,NLU,Viva,R$500
+CUN,NLU,Viva,R$500
+CUN,NLU,Volaris,Price unavailable
+CUN,NLU,Viva,R$500
+CUN,NLU,Viva,R$500
+CUN,NLU,Viva,R$606
+CUN,NLU,Viva,R$295
+CUN,NLU,Viva,R$295
+CUN,NLU,Viva,R$500
+CUN,NLU,Viva,R$500
+CUN,NLU,Viva,R$500
+CUN,NLU,Viva,R$500
+CUN,NLU,Viva,R$606
+MEX,MTT,Aeromexico,R$935
+MEX,MTT,Aeromexico,R$935
+MEX,MTT,Aeromexico,R$935
+MTY,QRO,Viva,R$227
+MTY,QRO,Viva,R$227
+MTY,QRO,Viva,R$227
+MTY,QRO,Volaris,Price unavailable
+MTY,QRO,Viva,R$227
+MTY,QRO,Viva,R$227
+MTY,QRO,Viva,R$227
+MTY,QRO,Viva,R$227
+MTY,QRO,Viva,R$227
+GDL,SMF,Aeromexico,R$1110
+GDL,SMF,Volaris,Price unavailable
+GDL,SMF,Volaris,Price unavailable
+GDL,SMF,Aeromexico,R$1110
+GDL,SMF,Volaris,Price unavailable
+MEX,JFK,Viva,R$1149
+MEX,JFK,Aeromexico,R$1945
+MEX,JFK,Aeromexico,R$1945
+MEX,JFK,American,R$1993
+MEX,JFK,Aeromexico,R$2150
+MEX,JFK,Aeromexico,R$1945
+MEX,JFK,Aeromexico,R$1945
+MEX,JFK,American,R$1993
+MEX,JFK,Aeromexico,R$2150
+MXL,MEX,Aeromexico,R$895
+MXL,MEX,Aeromexico,R$962
+MXL,MEX,Volaris,Price unavailable
+MXL,MEX,Aeromexico,R$895
+MXL,MEX,Aeromexico,R$962
+BJX,ATL,Aeromexico,R$1974
+MTY,ICN,Aeromexico,R$7040
+SEA,GDL,Volaris,Price unavailable
+CLQ,NLU,Aeromexico,R$487
+MID,NLU,Viva,R$406
+MID,NLU,Viva,R$406
+MID,NLU,Aeromexico,R$469
+MID,NLU,Volaris,Price unavailable
+MID,NLU,Viva,R$406
+MID,NLU,Viva,R$406
+MID,NLU,Aeromexico,R$469
+ZLO,MEX,Aeromexico,R$985
+ZLO,MEX,Aeromexico,R$1119
+ZLO,MEX,Aeromexico,R$985
+MTY,MIA,Viva,R$767
+MTY,MIA,American,R$1795
+MTY,MIA,Viva,R$767
+MEX,PUJ,Aeromexico,R$2963
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+MEX,BJX,Aeromexico,R$1194
+AGU,MEX,Aeromexico,R$690
+AGU,MEX,Aeromexico,R$690
+AGU,MEX,Aeromexico,R$690
+AGU,MEX,Aeromexico,R$723
+AGU,MEX,Aeromexico,R$690
+AGU,MEX,Aeromexico,R$690
+AGU,MEX,Aeromexico,R$723
+MEX,MAD,Iberia,R$2610
+MEX,MAD,Iberia,R$2610
+MEX,MAD,Aeromexico,R$4991
+MEX,MAD,Aeromexico,R$5612
+MEX,MAD,Aeromexico,R$5612
+MEX,MAD,Iberia,R$2610
+MEX,MAD,Iberia,R$2610
+MEX,MAD,Aeromexico,R$5612
+MEX,MAD,Aeromexico,R$5612
+MEX,GUA,Aeromexico,R$976
+MEX,GUA,Aeromexico,R$976
+MEX,GUA,Volaris,Price unavailable
+MEX,GUA,Volaris Costa Rica,Price unavailable
+MEX,GUA,Aeromexico,R$976
+MEX,GUA,Aeromexico,R$976
+MEX,GUA,Volaris,Price unavailable
+SAP,MEX,Aeromexico,R$2369
+NLU,TQO,Viva,R$227
+NLU,TQO,Viva,R$278
+NLU,TQO,Aeromexico,R$626
+NLU,TQO,Viva,R$227
+NLU,TQO,Viva,R$278
+SAL,MEX,Avianca,R$877
+SAL,MEX,Aeromexico,R$1087
+SAL,MEX,Avianca,R$877
+HUX,MEX,Viva,R$341
+HUX,MEX,Aeromexico,R$856
+HUX,MEX,Aeromexico,R$856
+HUX,MEX,Volaris,Price unavailable
+HUX,MEX,Viva,R$341
+HUX,MEX,Aeromexico,R$856
+HUX,MEX,Aeromexico,R$856
+MEX,PXM,Viva,R$263
+MEX,PXM,Viva,R$263
+MEX,PXM,Aeromexico,R$387
+MEX,PXM,Volaris,Price unavailable
+MEX,PXM,Viva,R$263
+MEX,PXM,Viva,R$263
+MEX,PXM,Aeromexico,R$387
+SDQ,MEX,Aeromexico,R$1974
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Volaris,Price unavailable
+TIJ,MEX,Aeromexico,R$915
+TIJ,MEX,Aeromexico,R$915
+TIJ,MEX,Aeromexico,R$949
+TIJ,MEX,Aeromexico,R$949
+TIJ,MEX,Aeromexico,R$1049
+TIJ,MEX,Aeromexico,R$1049
+TIJ,MEX,Aeromexico,R$1049
+TIJ,MEX,Volaris,Price unavailable
+TIJ,MEX,Volaris,Price unavailable
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Viva,R$366
+TIJ,MEX,Aeromexico,R$915
+TIJ,MEX,Aeromexico,R$915
+TIJ,MEX,Aeromexico,R$949
+TIJ,MEX,Aeromexico,R$949
+TIJ,MEX,Aeromexico,R$1049
+TIJ,MEX,Aeromexico,R$1049
+TIJ,MEX,Aeromexico,R$1049
+TIJ,MEX,Volaris,Price unavailable
+TIJ,MEX,Volaris,Price unavailable
+PVR,MEX,Viva,R$312
+PVR,MEX,Viva,R$370
+PVR,MEX,Aeromexico,R$698
+PVR,MEX,Volaris,Price unavailable
+PVR,MEX,Aeromexico,R$698
+PVR,MEX,Aeromexico,R$946
+PVR,MEX,Aeromexico,R$1059
+PVR,MEX,Aeromexico,R$1193
+PVR,MEX,Viva,R$312
+PVR,MEX,Viva,R$370
+PVR,MEX,Aeromexico,R$698
+PVR,MEX,Aeromexico,R$698
+PVR,MEX,Aeromexico,R$946
+PVR,MEX,Aeromexico,R$1059
+PVR,MEX,Aeromexico,R$1193
+MEX,IAD,Aeromexico,R$2111
+MEX,IAD,United,R$2111
+MEX,IAD,Aeromexico,R$2111
+ZLO,LAX,Alaska,R$1254
+MTY,MCO,Viva,R$1014
+SEA,MEX,Aeromexico,R$2469
+MAD,GDL,Aeromexico,R$5130
+NLU,VER,Viva,R$147
+NLU,VER,Aeromexico,R$277
+NLU,VER,Viva,R$147
+PTY,MEX,Aeromexico,R$2742
+PTY,MEX,COPA,R$2759
+PTY,MEX,COPA,R$2759
+PTY,MEX,COPA,R$2759
+PTY,MEX,COPA,R$2759
+PTY,MEX,COPA,R$2759
+PTY,MEX,COPA,R$2759
+PTY,MEX,COPA,R$2759
+PTY,MEX,COPA,R$2759
+PXM,MEX,Viva,R$245
+PXM,MEX,Viva,R$338
+PXM,MEX,Aeromexico,R$839
+PXM,MEX,Volaris,Price unavailable
+PXM,MEX,Viva,R$245
+PXM,MEX,Viva,R$338
+PXM,MEX,Aeromexico,R$839
+ACA,MEX,Aeromexico,R$586
+ACA,MEX,Aeromexico,R$1065
+ACA,MEX,Volaris,Price unavailable
+ACA,MEX,Aeromexico,R$586
+ACA,MEX,Aeromexico,R$1065
+MCO,GDL,Volaris,Price unavailable
+NRT,MEX,Aeromexico,R$9962
+NRT,MEX,ANA,R$10973
+NRT,MEX,Aeromexico,R$9962
+MEX,FCO,Aeromexico,R$9277
+LIM,MEX,Aeromexico,R$2402
+LIM,MEX,LATAM,R$2484
+LIM,MEX,Volaris,Price unavailable
+LIM,MEX,Aeromexico,R$2402
+LIM,MEX,LATAM,R$2484
+SLP,MEX,Aeromexico,R$875
+SLP,MEX,Aeromexico,R$875
+SLP,MEX,Aeromexico,R$875
+SLP,MEX,Aeromexico,R$875
+SLP,MEX,Aeromexico,R$875
+SLP,MEX,Aeromexico,R$875
+SLP,MEX,Aeromexico,R$875
+MEX,PHL,Aeromexico,R$2150
+LAS,GDL,Viva,R$409
+LAS,GDL,Volaris,Price unavailable
+LAS,GDL,Volaris,Price unavailable
+LAS,GDL,Viva,R$409
+LAS,GDL,Volaris,Price unavailable
+MEX,SLC,Delta,R$2398
+CUN,MEX,Viva,R$382
+CUN,MEX,Viva,R$439
+CUN,MEX,Viva,R$503
+CUN,MEX,Volaris,Price unavailable
+CUN,MEX,Viva,R$537
+CUN,MEX,Viva,R$572
+CUN,MEX,Viva,R$615
+CUN,MEX,Aeromexico,R$728
+CUN,MEX,Aeromexico,R$728
+CUN,MEX,Aeromexico,R$728
+CUN,MEX,Aeromexico,R$887
+CUN,MEX,Aeromexico,R$887
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1104
+CUN,MEX,Volaris,Price unavailable
+CUN,MEX,Volaris,Price unavailable
+CUN,MEX,Viva,R$382
+CUN,MEX,Viva,R$439
+CUN,MEX,Viva,R$503
+CUN,MEX,Viva,R$537
+CUN,MEX,Viva,R$572
+CUN,MEX,Viva,R$615
+CUN,MEX,Aeromexico,R$728
+CUN,MEX,Aeromexico,R$728
+CUN,MEX,Aeromexico,R$728
+CUN,MEX,Aeromexico,R$887
+CUN,MEX,Aeromexico,R$887
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1020
+CUN,MEX,Aeromexico,R$1104
+CUN,MEX,Volaris,Price unavailable
+CUN,MEX,Volaris,Price unavailable
+TPA,MEX,Aeromexico,R$876
+ATL,MTY,Delta,R$1552
+ATL,MTY,Delta,R$1552
+ATL,MTY,Delta,R$1552
+QRO,MEX,Aeromexico,R$930
+QRO,MEX,Aeromexico,R$930
+QRO,MEX,Aeromexico,R$1031
+QRO,MEX,Aeromexico,R$930
+QRO,MEX,Aeromexico,R$930
+TQO,NLU,Viva,R$288
+TQO,NLU,Viva,R$334
+TQO,NLU,Aeromexico,R$480
+TQO,NLU,Viva,R$288
+TQO,NLU,Viva,R$334
+YYZ,MEX,Air Canada,R$2682
+YYZ,MEX,Air Canada,R$2682
+YYZ,MEX,Aeromexico,R$2686
+YYZ,MEX,Air Canada,R$2682
+YYZ,MEX,Air Canada,R$2682
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Volaris,Price unavailable
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$1987
+MTY,MEX,Volaris,Price unavailable
+MTY,MEX,Volaris,Price unavailable
+MTY,MEX,Volaris,Price unavailable
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Viva,R$282
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$752
+MTY,MEX,Aeromexico,R$1987
+MTY,MEX,Volaris,Price unavailable
+MTY,MEX,Volaris,Price unavailable
+MTY,MEX,Volaris,Price unavailable
+MLM,MEX,Aeromexico,R$854
+MEX,VSA,Viva,R$322
+MEX,VSA,Aeromexico,R$905
+MEX,VSA,Aeromexico,R$939
+MEX,VSA,Aeromexico,R$939
+MEX,VSA,Volaris,Price unavailable
+MEX,VSA,Aeromexico,R$905
+MEX,VSA,Aeromexico,R$939
+MEX,VSA,Viva,R$322
+MEX,VSA,Aeromexico,R$905
+MEX,VSA,Aeromexico,R$939
+MEX,VSA,Aeromexico,R$939
+MEX,VSA,Aeromexico,R$905
+MEX,VSA,Aeromexico,R$939
+GDL,ORD,Viva,R$923
+GDL,ORD,Aeromexico,R$1253
+GDL,ORD,Volaris,Price unavailable
+GDL,ORD,Viva,R$923
+GDL,ORD,Aeromexico,R$1253
+SFO,MEX,United,R$955
+SFO,MEX,United,R$955
+SFO,MEX,Aeromexico,R$955
+SFO,MEX,United,R$955
+SFO,MEX,United,R$955
+SFO,MEX,United,R$955
+SFO,MEX,United,R$955
+AUS,MEX,Aeromexico,R$849
+MEX,PHX,Aeromexico,R$1266
+MEX,PHX,American,R$1305
+MEX,PHX,Aeromexico,R$1266
+GDL,LAS,Viva,R$792
+GDL,LAS,Volaris,Price unavailable
+GDL,LAS,Volaris,Price unavailable
+GDL,LAS,Viva,R$792
+GDL,LAS,Volaris,Price unavailable
+SLP,ATL,Aeromexico,R$1931
+ZIH,MEX,Aeromexico,R$602
+ZIH,MEX,Aeromexico,R$846
+ZIH,MEX,Volaris,Price unavailable
+ZIH,MEX,Aeromexico,R$602
+ZIH,MEX,Aeromexico,R$846
+GDL,MIA,Volaris,Price unavailable
+VER,MEX,Viva,R$256
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$745
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$712
+VER,MEX,Aeromexico,R$745
+MTY,LAS,Viva,R$777
+SAT,MEX,Viva,R$401
+SAT,MEX,Aeromexico,R$743
+SAT,MEX,Volaris,Price unavailable
+SAT,MEX,Viva,R$401
+SAT,MEX,Aeromexico,R$743
+ATL,BJX,Aeromexico,R$1736
+CUU,MEX,Viva,R$315
+CUU,MEX,Volaris,Price unavailable
+CUU,MEX,Aeromexico,R$1004
+CUU,MEX,Aeromexico,R$1004
+CUU,MEX,Aeromexico,R$1004
+CUU,MEX,Viva,R$315
+CUU,MEX,Aeromexico,R$1004
+CUU,MEX,Aeromexico,R$1004
+CUU,MEX,Aeromexico,R$1004
+TQO,MEX,Aeromexico,R$774
+GDL,NLU,Viva,R$212
+GDL,NLU,Viva,R$212
+GDL,NLU,Viva,R$227
+GDL,NLU,Volaris,Price unavailable
+GDL,NLU,Viva,R$273
+GDL,NLU,Aeromexico,R$370
+GDL,NLU,Viva,R$212
+GDL,NLU,Viva,R$212
+GDL,NLU,Viva,R$227
+GDL,NLU,Viva,R$273
+GDL,NLU,Aeromexico,R$370
+MEX,EWR,Aeromexico,R$1945
+MEX,EWR,United,R$2150
+MEX,EWR,United,R$2465
+MEX,EWR,Volaris,Price unavailable
+MEX,EWR,Aeromexico,R$1945
+MEX,EWR,United,R$2150
+MEX,EWR,United,R$2465
+MEX,HUX,Viva,R$278
+MEX,HUX,Aeromexico,R$571
+MEX,HUX,Aeromexico,R$571
+MEX,HUX,Volaris,Price unavailable
+MEX,HUX,Viva,R$278
+MEX,HUX,Aeromexico,R$571
+MEX,HUX,Aeromexico,R$571
+SMF,GDL,Aeromexico,R$939
+SMF,GDL,Volaris,Price unavailable
+SMF,GDL,Aeromexico,R$939
+MEX,QRO,Aeromexico,R$993
+MEX,QRO,Aeromexico,R$993
+MEX,QRO,Aeromexico,R$1127
+MEX,QRO,Aeromexico,R$993
+MEX,QRO,Aeromexico,R$993
+GDL,DEN,Volaris,Price unavailable
+MEX,GRU,Aeromexico,R$3726
+MEX,GRU,LATAM,R$3821
+MEX,GRU,Aeromexico,R$3726
+MEX,CZM,Aeromexico,R$740
+MEX,CZM,Volaris,Price unavailable
+MEX,CZM,Aeromexico,R$740
+QRO,DTW,Aeromexico,R$2255
+MDE,MEX,Avianca,R$1387
+MDE,MEX,Aeromexico,R$1861
+MDE,MEX,Avianca,R$1387
+DEN,GDL,Volaris,Price unavailable
+DEN,MEX,Aeromexico,R$732
+DEN,MEX,Volaris,Price unavailable
+DEN,MEX,Aeromexico,R$732
+REX,MEX,Viva,R$361
+REX,MEX,Aeromexico,R$621
+REX,MEX,Viva,R$361
+GRU,MEX,LATAM,R$4783
+GRU,MEX,Aeromexico,R$4783
+GRU,MEX,LATAM,R$4783
+CZM,MEX,Aeromexico,R$818
+CZM,MEX,Volaris,Price unavailable
+CZM,MEX,Aeromexico,R$818
+FCO,MEX,Aeromexico,R$12141
+YVR,MEX,Flair Airlines,R$2017
+YVR,MEX,Air Canada,R$2566
+YVR,MEX,Aeromexico,R$3518
+YVR,MEX,Flair Airlines,R$2017
+YVR,MEX,Air Canada,R$2566
+MEX,SFO,United,R$1183
+MEX,SFO,Aeromexico,R$1183
+MEX,SFO,Aeromexico,R$1183
+MEX,SFO,United,R$1426
+MEX,SFO,United,R$1183
+MEX,SFO,Aeromexico,R$1183
+MEX,SFO,United,R$1426
+NLU,GDL,Viva,R$133
+NLU,GDL,Volaris,Price unavailable
+NLU,GDL,Viva,R$133
+NLU,GDL,Viva,R$133
+NLU,GDL,Viva,R$133
+NLU,GDL,Aeromexico,R$228
+NLU,GDL,Viva,R$133
+NLU,GDL,Viva,R$133
+NLU,GDL,Viva,R$133
+NLU,GDL,Viva,R$133
+NLU,GDL,Aeromexico,R$228
+MEX,NLD,Aeromexico,R$600
+MEX,ORD,Viva,R$861
+MEX,ORD,Volaris,Price unavailable
+MEX,ORD,Aeromexico,R$1482
+MEX,ORD,Aeromexico,R$1482
+MEX,ORD,American,R$1568
+MEX,ORD,United,R$1984
+MEX,ORD,Viva,R$861
+MEX,ORD,Aeromexico,R$1482
+MEX,ORD,Aeromexico,R$1482
+MEX,ORD,American,R$1568
+MEX,ORD,United,R$1984
+MTY,MAD,Aeromexico,R$5676
+GDL,LAX,Aeromexico,R$1325
+GDL,LAX,Viva,R$1400
+GDL,LAX,Viva,R$1451
+GDL,LAX,Alaska,R$1888
+GDL,LAX,Volaris,Price unavailable
+GDL,LAX,Volaris,Price unavailable
+GDL,LAX,Volaris,Price unavailable
+GDL,LAX,Aeromexico,R$1325
+GDL,LAX,Viva,R$1400
+GDL,LAX,Viva,R$1451
+GDL,LAX,Alaska,R$1888
+GDL,LAX,Volaris,Price unavailable
+GDL,LAX,Volaris,Price unavailable
+PHX,MEX,American,R$1035
+PHX,MEX,Aeromexico,R$1035
+PHX,MEX,American,R$1035
+ATL,SLP,Aeromexico,R$1709
+LAS,MTY,Viva,R$452
+MEX,MIA,Aeromexico,R$1553
+MEX,MIA,American,R$1596
+MEX,MIA,American,R$1596
+MEX,MIA,Volaris,Price unavailable
+MEX,MIA,Aeromexico,R$1553
+MEX,MIA,Aeromexico,R$1553
+MEX,MIA,Aeromexico,R$1553
+MEX,MIA,American,R$1596
+MEX,MIA,American,R$1596
+MEX,MIA,Aeromexico,R$1553
+MEX,MIA,Aeromexico,R$1553
+MEX,NRT,ANA,R$5570
+JFK,MEX,Viva,R$830
+JFK,MEX,Aeromexico,R$1752
+JFK,MEX,Delta,R$1752
+JFK,MEX,Aeromexico,R$1752
+JFK,MEX,Aeromexico,R$1752
+JFK,MEX,Aeromexico,R$1752
+JFK,MEX,Delta,R$1752
+JFK,MEX,Aeromexico,R$1752
+JFK,MEX,Aeromexico,R$1752
+SJO,MEX,Avianca,R$803
+SJO,MEX,Aeromexico,R$1082
+SJO,MEX,Aeromexico,R$1082
+SJO,MEX,Volaris Costa Rica,Price unavailable
+SJO,MEX,Avianca,R$803
+SJO,MEX,Aeromexico,R$1082
+SJO,MEX,Aeromexico,R$1082
+MEX,YYZ,Flair Airlines,R$3548
+MEX,YYZ,Air Canada,R$3674
+MEX,YYZ,Air Canada,R$3674
+MEX,YYZ,Aeromexico,R$3719
+MEX,YYZ,Flair Airlines,R$3548
+MEX,YYZ,Air Canada,R$3674
+MEX,YYZ,Air Canada,R$3674
+SJD,MEX,Viva,R$437
+SJD,MEX,Volaris,Price unavailable
+SJD,MEX,Aeromexico,R$807
+SJD,MEX,Aeromexico,R$807
+SJD,MEX,Aeromexico,R$874
+SJD,MEX,Aeromexico,R$1010
+SJD,MEX,Viva,R$437
+SJD,MEX,Aeromexico,R$807
+SJD,MEX,Aeromexico,R$807
+SJD,MEX,Aeromexico,R$874
+SJD,MEX,Aeromexico,R$1010
+MEX,MZT,Aeromexico,R$666
+MEX,MZT,Volaris,Price unavailable
+MEX,MZT,Aeromexico,R$666
+MEX,MZT,Viva,R$695
+MEX,MZT,Aeromexico,R$715
+MEX,MZT,Aeromexico,R$666
+MEX,MZT,Aeromexico,R$666
+MEX,MZT,Viva,R$695
+MEX,MZT,Aeromexico,R$715
+DGO,MEX,Aeromexico,R$988
+DGO,MEX,Aeromexico,R$1072
+DGO,MEX,Aeromexico,R$988
+MCO,MTY,Viva,R$1037
+VSA,MEX,Viva,R$331
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Volaris,Price unavailable
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Viva,R$331
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Aeromexico,R$844
+VSA,MEX,Aeromexico,R$844
+MCO,MEX,Aeromexico,R$796
+MCO,MEX,Aeromexico,R$955
+MCO,MEX,Aeromexico,R$1513
+MCO,MEX,Volaris,Price unavailable
+MCO,MEX,Aeromexico,R$796
+MCO,MEX,Aeromexico,R$955
+MCO,MEX,Aeromexico,R$1513
+GDL,MEX,Viva,R$227
+GDL,MEX,Viva,R$227
+GDL,MEX,Viva,R$296
+GDL,MEX,Viva,R$296
+GDL,MEX,Viva,R$296
+GDL,MEX,Volaris,Price unavailable
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$493
+GDL,MEX,Aeromexico,R$493
+GDL,MEX,Aeromexico,R$547
+GDL,MEX,Aeromexico,R$614
+GDL,MEX,Aeromexico,R$710
+GDL,MEX,Volaris,Price unavailable
+GDL,MEX,Volaris,Price unavailable
+GDL,MEX,Volaris,Price unavailable
+GDL,MEX,Viva,R$227
+GDL,MEX,Viva,R$227
+GDL,MEX,Viva,R$296
+GDL,MEX,Viva,R$296
+GDL,MEX,Viva,R$296
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$460
+GDL,MEX,Aeromexico,R$493
+GDL,MEX,Aeromexico,R$493
+GDL,MEX,Aeromexico,R$547
+GDL,MEX,Aeromexico,R$614
+GDL,MEX,Aeromexico,R$710
+GDL,MEX,Volaris,Price unavailable
+GDL,MEX,Volaris,Price unavailable
+GDL,MEX,Volaris,Price unavailable
+IAH,MEX,Viva,R$477
+IAH,MEX,United,R$822
+IAH,MEX,United,R$822
+IAH,MEX,Aeromexico,R$822
+IAH,MEX,Aeromexico,R$822
+IAH,MEX,Volaris,Price unavailable
+IAH,MEX,United,R$1725
+IAH,MEX,United,R$1725
+IAH,MEX,Viva,R$477
+IAH,MEX,United,R$822
+IAH,MEX,United,R$822
+IAH,MEX,Aeromexico,R$822
+IAH,MEX,Aeromexico,R$822
+IAH,MEX,United,R$1725
+IAH,MEX,United,R$1725
+GDL,MCO,Volaris,Price unavailable
+CLO,MEX,Aeromexico,R$1776
+MEX,LAS,Viva,R$869
+MEX,LAS,Aeromexico,R$1768
+MEX,LAS,Volaris,Price unavailable
+MEX,LAS,Viva,R$869
+MEX,LAS,Aeromexico,R$1768
+MEX,CTM,Viva,R$279
+MEX,CTM,Aeromexico,R$582
+MEX,CTM,Volaris,Price unavailable
+MEX,CTM,Viva,R$279
+MEX,CTM,Aeromexico,R$582
+GDL,SLC,Aeromexico,R$2192
+LMM,MEX,Aeromexico,R$720
+LMM,MEX,Volaris,Price unavailable
+LMM,MEX,Aeromexico,R$720
+ATL,QRO,Aeromexico,R$1709
+CDG,MEX,Aeromexico,R$8593
+CDG,MEX,Air France,R$8687
+CDG,MEX,Air France,R$8687
+CDG,MEX,Aeromexico,R$8593
+CDG,MEX,Air France,R$8687
+MEX,SAL,Aeromexico,R$1012
+MEX,SAL,Avianca,R$1083
+MEX,SAL,Aeromexico,R$1012
+MEX,AGU,Aeromexico,R$733
+MEX,AGU,Aeromexico,R$767
+MEX,AGU,Aeromexico,R$733
+MEX,AGU,Aeromexico,R$814
+MEX,AGU,Aeromexico,R$733
+MEX,AGU,Aeromexico,R$733
+MEX,AGU,Aeromexico,R$814
+MEX,DFW,Aeromexico,R$1426
+MEX,DFW,American,R$1467
+MEX,DFW,Volaris,Price unavailable
+MEX,DFW,American,R$1467
+MEX,DFW,American,R$1467
+MEX,DFW,American,R$1613
+MEX,DFW,Aeromexico,R$1426
+MEX,DFW,American,R$1467
+MEX,DFW,American,R$1467
+MEX,DFW,American,R$1467
+MEX,DFW,American,R$1613
+MID,MEX,Viva,R$600
+MID,MEX,Viva,R$600
+MID,MEX,Viva,R$600
+MID,MEX,Volaris,Price unavailable
+MID,MEX,Aeromexico,R$965
+MID,MEX,Aeromexico,R$965
+MID,MEX,Aeromexico,R$965
+MID,MEX,Aeromexico,R$998
+MID,MEX,Aeromexico,R$1032
+MID,MEX,Aeromexico,R$1099
+MID,MEX,Aeromexico,R$1099
+MID,MEX,Aeromexico,R$1099
+MID,MEX,Viva,R$600
+MID,MEX,Viva,R$600
+MID,MEX,Viva,R$600
+MID,MEX,Aeromexico,R$965
+MID,MEX,Aeromexico,R$965
+MID,MEX,Aeromexico,R$965
+MID,MEX,Aeromexico,R$998
+MID,MEX,Aeromexico,R$1032
+MID,MEX,Aeromexico,R$1099
+MID,MEX,Aeromexico,R$1099
+MID,MEX,Aeromexico,R$1099
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+MTY,NLU,Viva,R$227
+TRC,MEX,Viva,R$400
+TRC,MEX,Aeromexico,R$882
+TRC,MEX,Aeromexico,R$882
+TRC,MEX,Aeromexico,R$882
+TRC,MEX,Viva,R$400
+TRC,MEX,Aeromexico,R$882
+TRC,MEX,Aeromexico,R$882
+MIA,MTY,Viva,R$610
+MIA,MTY,American,R$1672
+MIA,MTY,Viva,R$610
+MEX,YVR,Air Canada,R$3425
+MEX,YVR,Aeromexico,R$3836
+MEX,YVR,Air Canada,R$3425
+MEX,TAM,Aeromexico,R$517
+MEX,TAM,Aeromexico,R$517
+MEX,TAM,Aeromexico,R$584
+MEX,TAM,Aeromexico,R$717
+MEX,TAM,Aeromexico,R$517
+MEX,TAM,Aeromexico,R$517
+MEX,TAM,Aeromexico,R$584
+MEX,AMS,KLM,R$3085
+MEX,AMS,Aeromexico,R$6115
+MEX,AMS,KLM,R$3085
+CTM,MEX,Viva,R$392
+CTM,MEX,Aeromexico,R$644
+CTM,MEX,Volaris,Price unavailable
+CTM,MEX,Viva,R$392
+CTM,MEX,Aeromexico,R$644
+MEX,VER,Viva,R$258
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+MEX,VER,Aeromexico,R$764
+PUJ,MEX,Aeromexico,R$1786
+YUL,MEX,Air Canada,R$2755
+YUL,MEX,Aeromexico,R$2759
+YUL,MEX,Air Canada,R$2755
+MEX,GDL,Viva,R$233
+MEX,GDL,Viva,R$233
+MEX,GDL,Viva,R$233
+MEX,GDL,Volaris,Price unavailable
+MEX,GDL,Viva,R$319
+MEX,GDL,Viva,R$319
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$518
+MEX,GDL,Aeromexico,R$633
+MEX,GDL,Volaris,Price unavailable
+MEX,GDL,Volaris,Price unavailable
+MEX,GDL,Volaris,Price unavailable
+MEX,GDL,Viva,R$233
+MEX,GDL,Viva,R$233
+MEX,GDL,Viva,R$233
+MEX,GDL,Viva,R$319
+MEX,GDL,Viva,R$319
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$417
+MEX,GDL,Aeromexico,R$518
+MEX,GDL,Aeromexico,R$633
+MEX,GDL,Volaris,Price unavailable
+MEX,GDL,Volaris,Price unavailable
+MEX,GDL,Volaris,Price unavailable
+MIA,GDL,Volaris,Price unavailable
+ICN,MEX,Aeromexico,R$5867
+OAX,NLU,Viva,R$267
+OAX,NLU,Aeromexico,R$365
+OAX,NLU,Viva,R$267
+MEX,SCL,LATAM,R$3182
+CUN,MIA,Aeromexico,R$1039
+CUN,MIA,American,R$1435
+CUN,MIA,American,R$1435
+CUN,MIA,American,R$1435
+CUN,MIA,American,R$1435
+CUN,MIA,American,R$1435
+CUN,MIA,American,R$1435
+MEX,MXL,Aeromexico,R$989
+MEX,MXL,Aeromexico,R$1019
+MEX,MXL,Volaris,Price unavailable
+MEX,MXL,Aeromexico,R$989
+MEX,MXL,Aeromexico,R$1019
+MEX,TPQ,Aeromexico,R$606
+MEX,DEN,Aeromexico,R$946
+MEX,DEN,Volaris,Price unavailable
+MEX,DEN,Aeromexico,R$946
+TPQ,MEX,Aeromexico,R$637
+MEX,HMO,Viva,R$407
+MEX,HMO,Aeromexico,R$888
+MEX,HMO,Aeromexico,R$888
+MEX,HMO,Volaris,Price unavailable
+MEX,HMO,Aeromexico,R$888
+MEX,HMO,Aeromexico,R$921
+MEX,HMO,Aeromexico,R$921
+MEX,HMO,Viva,R$407
+MEX,HMO,Aeromexico,R$888
+MEX,HMO,Aeromexico,R$888
+MEX,HMO,Aeromexico,R$888
+MEX,HMO,Aeromexico,R$921
+MEX,HMO,Aeromexico,R$921
+DTW,MTY,Aeromexico,R$2568
+CTG,MEX,Aeromexico,R$2603
+MEX,MTY,Viva,R$264
+MEX,MTY,Viva,R$264
+MEX,MTY,Viva,R$264
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$299
+MEX,MTY,Volaris,Price unavailable
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$339
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$752
+MEX,MTY,Aeromexico,R$752
+MEX,MTY,Aeromexico,R$752
+MEX,MTY,Volaris,Price unavailable
+MEX,MTY,Volaris,Price unavailable
+MEX,MTY,Volaris,Price unavailable
+MEX,MTY,Viva,R$264
+MEX,MTY,Viva,R$264
+MEX,MTY,Viva,R$264
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$299
+MEX,MTY,Viva,R$339
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$719
+MEX,MTY,Aeromexico,R$752
+MEX,MTY,Aeromexico,R$752
+MEX,MTY,Aeromexico,R$752
+MEX,MTY,Volaris,Price unavailable
+MEX,MTY,Volaris,Price unavailable
+MEX,MTY,Volaris,Price unavailable
+TGZ,MEX,Viva,R$338
+TGZ,MEX,Volaris,Price unavailable
+TGZ,MEX,Aeromexico,R$808
+TGZ,MEX,Aeromexico,R$808
+TGZ,MEX,Aeromexico,R$808
+TGZ,MEX,Aeromexico,R$875
+TGZ,MEX,Viva,R$338
+TGZ,MEX,Aeromexico,R$808
+TGZ,MEX,Aeromexico,R$808
+TGZ,MEX,Aeromexico,R$808
+TGZ,MEX,Aeromexico,R$875
+GUA,MEX,Aeromexico,R$987
+GUA,MEX,Aeromexico,R$987
+GUA,MEX,Volaris Costa Rica,Price unavailable
+GUA,MEX,Volaris,Price unavailable
+GUA,MEX,Aeromexico,R$987
+GUA,MEX,Aeromexico,R$987
+GUA,MEX,Volaris Costa Rica,Price unavailable
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Volaris,Price unavailable
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$313
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$256
+NLU,CUN,Viva,R$313
+MEX,SAT,Viva,R$780
+MEX,SAT,Aeromexico,R$962
+MEX,SAT,Volaris,Price unavailable
+MEX,SAT,Viva,R$780
+MEX,SAT,Aeromexico,R$962
+GDL,FAT,Aeromexico,R$1115
+GDL,FAT,Volaris,Price unavailable
+GDL,FAT,Volaris,Price unavailable
+GDL,FAT,Aeromexico,R$1115
+GDL,FAT,Volaris,Price unavailable
+SLC,MEX,Delta,R$2124
+IAD,MEX,Aeromexico,R$1848
+IAD,MEX,United,R$1848
+IAD,MEX,Aeromexico,R$1848
+MEX,CPE,Aeromexico,R$846
+MEX,CPE,Aeromexico,R$846
+MEX,CPE,Aeromexico,R$846
+MIA,MEX,Aeromexico,R$1354
+MIA,MEX,American,R$1354
+MIA,MEX,Volaris,Price unavailable
+MIA,MEX,American,R$1354
+MIA,MEX,Aeromexico,R$1354
+MIA,MEX,Aeromexico,R$1354
+MIA,MEX,Aeromexico,R$1354
+MIA,MEX,American,R$1354
+MIA,MEX,American,R$1354
+MIA,MEX,Aeromexico,R$1354
+MIA,MEX,Aeromexico,R$1354
+TAM,MEX,Aeromexico,R$547
+TAM,MEX,Aeromexico,R$547
+TAM,MEX,Aeromexico,R$681
+TAM,MEX,Aeromexico,R$793
+TAM,MEX,Aeromexico,R$547
+TAM,MEX,Aeromexico,R$547
+TAM,MEX,Aeromexico,R$681
+MEX,OAX,Viva,R$276
+MEX,OAX,Volaris,Price unavailable
+MEX,OAX,Aeromexico,R$656
+MEX,OAX,Aeromexico,R$656
+MEX,OAX,Aeromexico,R$656
+MEX,OAX,Aeromexico,R$656
+MEX,OAX,Viva,R$276
+MEX,OAX,Aeromexico,R$656
+MEX,OAX,Aeromexico,R$656
+MEX,OAX,Aeromexico,R$656
+MEX,OAX,Aeromexico,R$656
+LAX,MEX,Viva,R$712
+LAX,MEX,Delta,R$1656
+LAX,MEX,Aeromexico,R$1656
+LAX,MEX,American,R$1656
+LAX,MEX,Volaris,Price unavailable
+LAX,MEX,Aeromexico,R$1656
+LAX,MEX,Aeromexico,R$1656
+LAX,MEX,Aeromexico,R$1656
+LAX,MEX,Viva,R$712
+LAX,MEX,Delta,R$1656
+LAX,MEX,Aeromexico,R$1656
+LAX,MEX,American,R$1656
+LAX,MEX,Aeromexico,R$1656
+LAX,MEX,Aeromexico,R$1656
+LAX,MEX,Aeromexico,R$1656
+MEX,REX,Viva,R$397
+MEX,REX,Aeromexico,R$778
+MEX,REX,Viva,R$397
+PHL,MEX,Aeromexico,R$1885
+MEX,LIM,LATAM,R$1525
+MEX,LIM,Aeromexico,R$1543
+MEX,LIM,Volaris,Price unavailable
+MEX,LIM,LATAM,R$1525
+MEX,LIM,Aeromexico,R$1543
+MEX,TIJ,Viva,R$375
+MEX,TIJ,Viva,R$375
+MEX,TIJ,Viva,R$404
+MEX,TIJ,Viva,R$462
+MEX,TIJ,Volaris,Price unavailable
+MEX,TIJ,Aeromexico,R$1026
+MEX,TIJ,Aeromexico,R$1056
+MEX,TIJ,Aeromexico,R$1056
+MEX,TIJ,Aeromexico,R$1146
+MEX,TIJ,Aeromexico,R$1146
+MEX,TIJ,Aeromexico,R$1146
+MEX,TIJ,Volaris,Price unavailable
+MEX,TIJ,Volaris,Price unavailable
+MEX,TIJ,Viva,R$375
+MEX,TIJ,Viva,R$375
+MEX,TIJ,Viva,R$404
+MEX,TIJ,Viva,R$462
+MEX,TIJ,Aeromexico,R$1026
+MEX,TIJ,Aeromexico,R$1056
+MEX,TIJ,Aeromexico,R$1056
+MEX,TIJ,Aeromexico,R$1146
+MEX,TIJ,Aeromexico,R$1146
+MEX,TIJ,Aeromexico,R$1146
+MEX,TIJ,Volaris,Price unavailable
+MEX,TIJ,Volaris,Price unavailable
+MEX,SJO,Avianca,R$916
+MEX,SJO,Aeromexico,R$1091
+MEX,SJO,Aeromexico,R$1091
+MEX,SJO,Volaris Costa Rica,Price unavailable
+MEX,SJO,Avianca,R$916
+MEX,SJO,Aeromexico,R$1091
+MEX,SJO,Aeromexico,R$1091
+MEX,CEN,Aeromexico,R$841
+MEX,ZLO,Aeromexico,R$963
+MEX,ZLO,Aeromexico,R$963
+MEX,ZLO,Aeromexico,R$963
+NLU,MTY,Viva,R$208
+NLU,MTY,Viva,R$208
+NLU,MTY,Viva,R$208
+NLU,MTY,Viva,R$237
+NLU,MTY,Viva,R$251
+NLU,MTY,Viva,R$208
+NLU,MTY,Viva,R$208
+NLU,MTY,Viva,R$237
+NLU,MTY,Viva,R$251
+ORD,GDL,Viva,R$511
+ORD,GDL,Aeromexico,R$1019
+ORD,GDL,Volaris,Price unavailable
+ORD,GDL,Volaris,Price unavailable
+ORD,GDL,Viva,R$511
+ORD,GDL,Aeromexico,R$1019
+ORD,GDL,Volaris,Price unavailable
+GDL,SFO,Aeromexico,R$1110
+QRO,MTY,Viva,R$140
+QRO,MTY,Volaris,Price unavailable
+QRO,MTY,Viva,R$140
+QRO,MTY,Viva,R$140
+QRO,MTY,Viva,R$140
+QRO,MTY,Viva,R$140
+QRO,MTY,Viva,R$140
+QRO,MTY,Viva,R$140
+QRO,MTY,Viva,R$140
+MEX,CTG,Aeromexico,R$1360
+MEX,LMM,Aeromexico,R$1256
+MEX,LMM,Volaris,Price unavailable
+MEX,LMM,Aeromexico,R$1256
+MEX,AUS,Aeromexico,R$1073
+MEX,PTY,Aeromexico,R$2951
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,Aeromexico,R$2951
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+MEX,PTY,COPA,R$2963
+HMO,MEX,Viva,R$345
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Volaris,Price unavailable
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Viva,R$345
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Aeromexico,R$827
+HMO,MEX,Aeromexico,R$827
+SCL,MEX,LATAM,R$3656
+NLU,OAX,Viva,R$167
+NLU,OAX,Aeromexico,R$268
+NLU,OAX,Viva,R$167
+MEX,HAV,Aeromexico,R$1826
+MEX,ZCL,Aeromexico,R$916
+MEX,SJD,Viva,R$380
+MEX,SJD,Volaris,Price unavailable
+MEX,SJD,Aeromexico,R$687
+MEX,SJD,Aeromexico,R$687
+MEX,SJD,Aeromexico,R$687
+MEX,SJD,Aeromexico,R$687
+MEX,SJD,Viva,R$380
+MEX,SJD,Aeromexico,R$687
+MEX,SJD,Aeromexico,R$687
+MEX,SJD,Aeromexico,R$687
+MEX,SJD,Aeromexico,R$687
+SLC,GDL,Aeromexico,R$1885
+NLU,DGO,Aeromexico,R$792
+LHR,MEX,Aeromexico,R$3806
+LHR,MEX,British Airways,R$4569
+LHR,MEX,Aeromexico,R$3806
+MEX,TQO,Aeromexico,R$704
+ZCL,MEX,Aeromexico,R$780
+RDU,MEX,Aeromexico,R$1593
+NLU,MID,Viva,R$251
+NLU,MID,Aeromexico,R$304
+NLU,MID,Viva,R$355
+NLU,MID,Volaris,Price unavailable
+NLU,MID,Viva,R$251
+NLU,MID,Aeromexico,R$304
+NLU,MID,Viva,R$355
+MEX,CJS,Viva,R$359
+MEX,CJS,Aeromexico,R$647
+MEX,CJS,Volaris,Price unavailable
+MEX,CJS,Aeromexico,R$999
+MEX,CJS,Viva,R$359
+MEX,CJS,Aeromexico,R$647
+MEX,CJS,Aeromexico,R$999
+MEX,DGO,Aeromexico,R$829
+MEX,DGO,Aeromexico,R$878
+MEX,DGO,Aeromexico,R$829
+TAP,MEX,Aeromexico,R$574
+TAP,MEX,Aeromexico,R$574
+TAP,MEX,Aeromexico,R$608
+TAP,MEX,Volaris,Price unavailable
+TAP,MEX,Aeromexico,R$574
+TAP,MEX,Aeromexico,R$574
+TAP,MEX,Aeromexico,R$608
+MEX,IAH,Viva,R$812
+MEX,IAH,United,R$1045
+MEX,IAH,Aeromexico,R$1045
+MEX,IAH,Volaris,Price unavailable
+MEX,IAH,United,R$1045
+MEX,IAH,Aeromexico,R$1045
+MEX,IAH,United,R$1155
+MEX,IAH,United,R$1282
+MEX,IAH,Viva,R$812
+MEX,IAH,United,R$1045
+MEX,IAH,Aeromexico,R$1045
+MEX,IAH,United,R$1045
+MEX,IAH,Aeromexico,R$1045
+MEX,IAH,United,R$1155
+MEX,IAH,United,R$1282
+MEX,CUU,Viva,R$371
+MEX,CUU,Volaris,Price unavailable
+MEX,CUU,Aeromexico,R$1021
+MEX,CUU,Aeromexico,R$1021
+MEX,CUU,Aeromexico,R$1021
+MEX,CUU,Viva,R$371
+MEX,CUU,Aeromexico,R$1021
+MEX,CUU,Aeromexico,R$1021
+MEX,CUU,Aeromexico,R$1021
+MEX,TRC,Viva,R$310
+MEX,TRC,Aeromexico,R$820
+MEX,TRC,Aeromexico,R$820
+MEX,TRC,Aeromexico,R$820
+MEX,TRC,Viva,R$310
+MEX,TRC,Aeromexico,R$820
+MEX,TRC,Aeromexico,R$820
+MEX,BOS,Aeromexico,R$3614
+MEX,TGZ,Viva,R$313
+MEX,TGZ,Volaris,Price unavailable
+MEX,TGZ,Aeromexico,R$674
+MEX,TGZ,Aeromexico,R$707
+MEX,TGZ,Aeromexico,R$707
+MEX,TGZ,Viva,R$313
+MEX,TGZ,Aeromexico,R$674
+MEX,TGZ,Aeromexico,R$707
+MEX,TGZ,Aeromexico,R$707
+MEX,YUL,Air Canada,R$3729
+MEX,YUL,Aeromexico,R$3780
+MEX,YUL,Air Canada,R$3729
+MEX,MCO,Aeromexico,R$1030
+MEX,MCO,Aeromexico,R$1030
+MEX,MCO,Aeromexico,R$1030
+MEX,MCO,Volaris,Price unavailable
+MEX,MCO,Aeromexico,R$1030
+MEX,MCO,Aeromexico,R$1030
+MEX,MCO,Aeromexico,R$1030
+CJS,MEX,Viva,R$367
+CJS,MEX,Volaris,Price unavailable
+CJS,MEX,Aeromexico,R$554
+CJS,MEX,Aeromexico,R$554
+CJS,MEX,Aeromexico,R$554
+CJS,MEX,Viva,R$367
+CJS,MEX,Aeromexico,R$554
+CJS,MEX,Aeromexico,R$554
+CJS,MEX,Aeromexico,R$554
+BOS,MEX,Aeromexico,R$1887
+MIA,CUN,American,R$903
+MIA,CUN,American,R$903
+MIA,CUN,American,R$903
+MIA,CUN,Aeromexico,R$903
+MIA,CUN,American,R$903
+MIA,CUN,American,R$903
+MIA,CUN,Aeromexico,R$903
+MTY,ATL,Delta,R$1821
+MTY,ATL,Delta,R$1821
+MTY,ATL,Delta,R$1821
+DGO,NLU,Aeromexico,R$360
+LAS,MEX,Viva,R$397
+LAS,MEX,Aeromexico,R$1520
+LAS,MEX,Volaris,Price unavailable
+LAS,MEX,Viva,R$397
+LAS,MEX,Aeromexico,R$1520
+MEX,MID,Viva,R$377
+MEX,MID,Viva,R$493
+MEX,MID,Viva,R$551
+MEX,MID,Volaris,Price unavailable
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Viva,R$377
+MEX,MID,Viva,R$493
+MEX,MID,Viva,R$551
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+MEX,MID,Aeromexico,R$843
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+BJX,MEX,Aeromexico,R$1191
+MZT,MEX,Viva,R$682
+MZT,MEX,Aeromexico,R$737
+MZT,MEX,Aeromexico,R$737
+MZT,MEX,Volaris,Price unavailable
+MZT,MEX,Aeromexico,R$737
+MZT,MEX,Viva,R$682
+MZT,MEX,Aeromexico,R$737
+MZT,MEX,Aeromexico,R$737
+MZT,MEX,Aeromexico,R$737
+MEX,BOG,Avianca,R$979
+MEX,BOG,Avianca,R$979
+MEX,BOG,Avianca,R$979
+MEX,BOG,Avianca,R$1062
+MEX,BOG,Aeromexico,R$1210
+MEX,BOG,Aeromexico,R$1210
+MEX,BOG,Avianca,R$979
+MEX,BOG,Avianca,R$979
+MEX,BOG,Avianca,R$1062
+MEX,BOG,Aeromexico,R$1210
+MEX,BOG,Aeromexico,R$1210
+MEX,CUL,Aeromexico,R$791
+MEX,CUL,Aeromexico,R$791
+MEX,CUL,Aeromexico,R$1296
+MEX,CUL,Volaris,Price unavailable
+MEX,CUL,Aeromexico,R$791
+MEX,CUL,Aeromexico,R$791
+MEX,CUL,Aeromexico,R$1296
+EWR,MEX,Aeromexico,R$1754
+EWR,MEX,United,R$1754
+EWR,MEX,United,R$1754
+EWR,MEX,Volaris,Price unavailable
+EWR,MEX,Aeromexico,R$1754
+EWR,MEX,United,R$1754
+EWR,MEX,United,R$1754
+MEX,MLM,Aeromexico,R$757
+MEX,SEA,Aeromexico,R$2760
+NLD,MEX,Aeromexico,R$663
+LAX,ZLO,Alaska,R$1068
+CPE,MEX,Aeromexico,R$806
+CPE,MEX,Aeromexico,R$806
+CPE,MEX,Aeromexico,R$806
