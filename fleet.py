@@ -662,7 +662,7 @@ def norm_text(s: str) -> str:
     s0 = re.sub(r'(?i)(?<!\w)(?:tb)(?!\w)', 'turbo', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:sed)(?!\w)', 'sedan', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:step)(?!\w)', 'stepway', s0)
-    s0 = re.sub(r'(?i)(?<!\w)(?:hig)(?!\w)', 'highline', s0)  # fix typo
+    s0 = re.sub(r'(?i)(?<!\w)(?:hig)(?!\w)', 'highline', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:limit)(?!\w)', 'limited', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:plat)(?!\w)', 'platinum', s0)
     s0 = re.sub(r'(?i)\b\d+[pv]\b', '', s0)
@@ -674,6 +674,8 @@ def norm_text(s: str) -> str:
     s0 = re.sub(r'(?i)\bONIX\s+SEDAN\s+Plus+\s+PREM\.\b', 'onix sedan plus premier', s0)
     s0 = re.sub(r'(?i)\bONIX\s+SD\.+\s+P\.+\s+PR\.\b', 'onix sedan plus premier', s0)
     s0 = re.sub(r'(?i)\bFastback\s+Limited+\s+Ed\.\b', 'fastback limited edition', s0)
+    s0 = re.sub(r'\brange r\.', 'range rover', s0)
+    s0 = re.sub(r'\bvel?\.', 'velar', s0)
     s0 = re.sub(r'(?i)\bAIRCROSS\s+F\.\b', 'aircross feel', s0)
     s0 = re.sub(r'(?<=xc)(\d+)', r' \1', s0)
     s0 = re.sub(r'\bnew\b(?![\s-]*(?:range|beetle)\b)', '', s0, flags=re.IGNORECASE)
@@ -686,11 +688,17 @@ def generic_norm_text(s: str) -> str:
     if s is None or (isinstance(s, float) and pd.isna(s)):
         return ""
     s0 = strip_accents(str(s).lower())
-    # Keep alphanumerics and spaces; avoid aggressive replacements that are version-specific
     s0 = re.sub(r"[^a-z0-9\s]", " ", s0)
     s0 = re.sub(r'(?<=xc)(\d+)', r' \1', s0)
     s0 = re.sub(r"\s+", " ", s0).strip()
-    return s0
+    aliases = {
+        "hb20 x": "hb20x",
+        "hb20 s": "hb20s",
+        "range rover velar": "range rover",
+        "xc60": "xc 60",
+        "xc90": "xc 90",
+    }
+    return aliases.get(s0, s0)
 
 def first_token(s: str) -> str:
     # Use generic normalization so model token not distorted by version-specific rules
@@ -2381,7 +2389,7 @@ def main():
     allp.add_argument("--discover-max-concurrency", type=int, default=2)
     allp.add_argument("--routeid")
     allp.add_argument("--throttle-cap", type=float, default=8.0)
-    allp.add_argument("--threshold", type=float, default=0.62, help="Matcher acceptance threshold")
+    allp.add_argument("--threshold", type=float, default=0.0, help="Matcher acceptance threshold")
     allp.add_argument("--force-scrape", action="store_true", help="Ignore today's raw CSVs check and always scrape/parse again")
     allp.add_argument("--force-match", action="store_true", help="Ignore today's Localiza_with_fipe_match file and run matching anyway")
 
