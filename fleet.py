@@ -1120,7 +1120,8 @@ def match_localiza(localiza_csv: Path,
                    out_csv: Path,
                    threshold: float = 0.0,
                    movida_csv_fallback: Optional[Path] = None,
-                   fipe_models_csv: Optional[Path] = None):
+                   fipe_models_csv: Optional[Path] = None,
+                   as_of_date: Optional[str] = None):
     """Match Localiza rows to FIPE codes using a cache to skip known versions.
 
     Versions already stored in ``localiza_version_match.csv`` are not re-scored.
@@ -1129,12 +1130,14 @@ def match_localiza(localiza_csv: Path,
     against ``threshold`` yields ``match_accepted``.
     """
     log = logging.getLogger("match.simple")
+
     # ---- Load Localiza dataset (already parsed CSV) ----
     loc = pd.read_csv(localiza_csv, sep=";")
     if "model_year" in loc.columns:
         loc["model_year"] = pd.to_numeric(loc["model_year"], errors="coerce").astype("Int64")
     else:
         loc["model_year"] = pd.NA
+
     for col in ("brand", "model", "version"):
         if col not in loc.columns:
             loc[col] = ""
@@ -1143,115 +1146,128 @@ def match_localiza(localiza_csv: Path,
     fm_path = fipe_models_csv or find_fipe_models_csv()
     if not (fm_path and Path(fm_path).exists()):
         raise SystemExit("match-localiza requires fipe_models.csv (data/fipe/fipe_models.csv).")
-    fipe = load_fipe_models_df(Path(fm_path))[ ["Marca","Modelo","CodigoFipe","AnoModelo"] ].copy()
-    fipe["AnoModelo"] = pd.to_numeric(fipe["AnoModelo"], errors="coerce").astype("Int64")
-    fipe = (fipe.sort_values(["CodigoFipe","AnoModelo"])
-                 .drop_duplicates(subset=["CodigoFipe","AnoModelo"])
-                 .reset_index(drop=True))
 
-    # ---- Normalize ----
-    def _safe_norm_version(s: str) -> str:
-        return norm_text(s)
-    def _safe_norm_model(s: str) -> str:
-        return generic_norm_text(s)
+    fipe_norm = load_fipe_models_df(Path(fm_path)).copy()
+    fipe_norm["AnoModelo"] = pd.to_numeric(fipe_norm["AnoModelo"], errors="coerce").astype("Int64")
 
     loc["_brand_norm"] = loc["brand"].map(norm_brand)
-    loc["_model_norm"] = loc["model"].map(_safe_norm_model)
-    loc["_version_norm"] = loc["version"].map(_safe_norm_version)
-
-    fipe_norm = fipe.copy()
-    fipe_norm["_brand_norm"] = fipe_norm["Marca"].map(norm_brand)
-    fipe_norm["_model_norm"] = fipe_norm["Modelo"].map(norm_text)
+    loc["_model_norm"] = loc["model"].map(generic_norm_text)
+    loc["_version_norm"] = loc["version"].map(norm_text)
 
     # ---- Merge existing cache ----
     cache_df = load_version_match_table()
-    key_cols = ["_brand_norm","_model_norm","_version_norm","model_year"]
-    loc = loc.merge(
-        cache_df.rename(columns={"brand_norm":"_brand_norm","model_norm":"_model_norm","version_norm":"_version_norm"}),
-        on=["_brand_norm","_model_norm","_version_norm","model_year"],
-        how="left",
-    )
+    cache_df["model_year"] = pd.to_numeric(cache_df["model_year"], errors="coerce").astype("Int64")
 
-    today_iso = date.today().isoformat()
+    key_cols_loc = ["_brand_norm","_model_norm","_version_norm","model_year"]
+    cache_key_cols = ["brand_norm","model_norm","version_norm","model_year"]
 
-    # ---- Match new keys ----
-    new_keys = (loc[loc["fipe_code"].isna()][key_cols]
-                .drop_duplicates()
-                .rename(columns={"_brand_norm":"brand_norm",
-                                 "_model_norm":"model_norm",
-                                 "_version_norm":"version_norm"}))
+    existing_keys = set(tuple(x) for x in cache_df[cache_key_cols].drop_duplicates().itertuples(index=False, name=None))
 
+    new_keys_df = (loc[key_cols_loc]
+                   .drop_duplicates()
+                   .rename(columns={"_brand_norm":"brand_norm",
+                                    "_model_norm":"model_norm",
+                                    "_version_norm":"version_norm"}))
+    new_keys_df["model_year"] = pd.to_numeric(new_keys_df["model_year"], errors="coerce").astype("Int64")
+
+    new_keys_df = new_keys_df[~new_keys_df.apply(tuple, axis=1).isin(existing_keys)]
+
+    log.info("New Localiza version keys to match: %d", len(new_keys_df))
+
+    today_iso = as_of_date or date.today().isoformat()
+    
     vm_rows: List[Dict[str, Any]] = []
-    for _, nk in new_keys.iterrows():
+
+    for _, nk in new_keys_df.iterrows():
         brand_n = nk["brand_norm"]
         model_n = nk["model_norm"]
         version_n = nk["version_norm"]
         year = nk["model_year"]
+
         if pd.isna(year) or not model_n:
-            vm_rows.append({**nk, "fipe_brand": None, "fipe_model": None, "fipe_code": None,
+            vm_rows.append({"brand_norm": brand_n, "model_norm": model_n, "version_norm": version_n, "model_year": year,
+                            "fipe_brand": None, "fipe_model": None, "fipe_code": None,
                             "score": 0.0, "match_source": "contains",
                             "first_seen": today_iso, "last_seen": today_iso})
             continue
+        
         cand = fipe_norm[(fipe_norm["_brand_norm"] == brand_n) & (fipe_norm["AnoModelo"] == int(year))]
+
         if cand.empty:
-            vm_rows.append({**nk, "fipe_brand": None, "fipe_model": None, "fipe_code": None,
+            vm_rows.append({"brand_norm": brand_n, "model_norm": model_n, "version_norm": version_n, "model_year": year,
+                            "fipe_brand": None, "fipe_model": None, "fipe_code": None,
                             "score": 0.0, "match_source": "contains",
                             "first_seen": today_iso, "last_seen": today_iso})
             continue
+
         model_tok_set = set(model_n.split())
-        cand = cand[cand["_model_norm"].apply(lambda m: model_n in m or model_tok_set.issubset(set(m.split())))]
+        cand = cand[cand["_model_norm"].apply(lambda m: (model_n in m) or model_tok_set.issubset(set(str(m).split())))]
+
         if cand.empty:
-            vm_rows.append({**nk, "fipe_brand": None, "fipe_model": None, "fipe_code": None,
+            vm_rows.append({"brand_norm": brand_n, "model_norm": model_n, "version_norm": version_n, "model_year": year,
+                            "fipe_brand": None, "fipe_model": None, "fipe_code": None,
                             "score": 0.0, "match_source": "contains",
                             "first_seen": today_iso, "last_seen": today_iso})
             continue
+
+        cand = cand.sort_values(["CodigoFipe", "Modelo"], kind="mergesort")
+
         v_toks = set(version_n.split()) if version_n else set()
-        best_score = -1.0; best_code = None; best_model = None; best_brand = None
+        best_score = -1.0
+        best_code = None
+        best_model = None
+        best_brand = None
+
         for _, fr in cand.iterrows():
             f_model_norm = fr["_model_norm"]
-            f_toks = set(f_model_norm.split())
+            f_toks = set(str(f_model_norm).split())
+
             inter = len(v_toks & f_toks)
             coverage = inter / len(v_toks) if v_toks else 0.0
             precision = inter / len(f_toks) if f_toks else 0.0
             f1 = (2 * precision * coverage / (precision + coverage)) if (precision + coverage) else 0.0
             jacc = (len(v_toks & f_toks) / len(v_toks | f_toks)) if (v_toks or f_toks) else 0.0
-            seq = SequenceMatcher(None, version_n, f_model_norm).ratio() if version_n else 0.0
+            seq = SequenceMatcher(None, version_n, str(f_model_norm)).ratio() if version_n else 0.0
             score = 0.5 * seq + 0.3 * f1 + 0.2 * jacc
             if score > best_score:
-                best_score = score; best_code = fr["CodigoFipe"]; best_model = fr["Modelo"]; best_brand = fr["Marca"]
-        vm_rows.append({**nk, "fipe_brand": best_brand, "fipe_model": best_model, "fipe_code": best_code,
+                best_score = score
+                best_code = fr["CodigoFipe"]
+                best_model = fr["Modelo"]
+                best_brand = fr["Marca"]
+        
+        vm_rows.append({"brand_norm": brand_n, "model_norm": model_n, "version_norm": version_n, "model_year": year,
+                        "fipe_brand": best_brand, "fipe_model": best_model, "fipe_code": best_code,
                         "score": round(float(best_score), 4) if best_code else 0.0,
                         "match_source": "contains", "first_seen": today_iso, "last_seen": today_iso})
 
     if vm_rows:
         add_df = pd.DataFrame(vm_rows).reindex(columns=version_match_table_columns())
-        if cache_df.empty:
-            cache_df = add_df.copy()
-        else:
-            cache_df = pd.concat([cache_df, add_df], ignore_index=True, sort=False)
+        cache_df = pd.concat([cache_df, add_df], ignore_index=True, sort=False)
 
+    present_keys = set(tuple(x) for x in loc[key_cols_loc].drop_duplicates().rename(
+        columns={"_brand_norm":"brand_norm","_model_norm":"model_norm","_version_norm":"version_norm"}
+    )[cache_key_cols].itertuples(index=False, name=None))
+    
     if not cache_df.empty:
-        present_keys = set(tuple(x) for x in loc[key_cols].drop_duplicates().rename(
-            columns={"_brand_norm":"brand_norm","_model_norm":"model_norm","_version_norm":"version_norm"}
-        ).itertuples(index=False, name=None))
-        mask = cache_df[["brand_norm","model_norm","version_norm","model_year"]].apply(tuple, axis=1).isin(present_keys)
+        mask = cache_df[cache_key_cols].apply(tuple, axis=1).isin(present_keys)
         cache_df.loc[mask, "last_seen"] = today_iso
+    
     save_version_match_table(cache_df)
 
-    loc = loc.drop(columns=[c for c in ["fipe_brand","fipe_model","fipe_code","score","match_source"] if c in loc.columns])
-    loc = loc.merge(
+    loc_out = loc.merge(
         cache_df.rename(columns={"brand_norm":"_brand_norm","model_norm":"_model_norm","version_norm":"_version_norm"}),
         on=["_brand_norm","_model_norm","_version_norm","model_year"],
         how="left",
     )
-    loc.rename(columns={"score":"match_score"}, inplace=True)
-    loc["match_score"] = pd.to_numeric(loc["match_score"], errors="coerce").fillna(0).astype(float)
-    loc["match_accepted"] = (loc["match_score"] >= threshold).astype(int)
+
+    loc_out.rename(columns={"score":"match_score"}, inplace=True)
+    loc_out["match_score"] = pd.to_numeric(loc_out["match_score"], errors="coerce").fillna(0).astype(float)
+    loc_out["match_accepted"] = ((loc_out["match_score"] >= threshold) & loc_out["fipe_code"].notna()).astype(int)
 
     out_csv = Path(out_csv)
     out_csv.parent.mkdir(parents=True, exist_ok=True)
-    loc.to_csv(out_csv, index=False, sep=";")
-    log.info("wrote %s rows -> %s (contains strategy)", len(loc), out_csv)
+    loc_out.to_csv(out_csv, index=False, sep=";")
+    log.info("wrote %s rows -> %s (contains strategy)", len(loc_out), out_csv)
 
 # -----------------------------------------------------------------------------
 # Collect tuples (fipe_code, model_year)
@@ -2413,6 +2429,7 @@ def main():
         fm_path = Path(args.fipe_models_csv) if args.fipe_models_csv else find_fipe_models_csv()
         out_path = Path(args.out) if args.out else MATCH_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"
         match_localiza(lcz_path, fipe_path, out_path, args.threshold, movida_csv_fallback=mv_fallback, fipe_models_csv=fm_path)
+
     elif args.cmd == "fipe-list":
         asyncio.run(fipe_list(args))
     elif args.cmd == "fipe-dump":
