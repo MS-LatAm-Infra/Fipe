@@ -665,7 +665,7 @@ def norm_text(s: str) -> str:
     s0 = re.sub(r'(?i)(?<!\w)(?:hig)(?!\w)', 'highline', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:limit)(?!\w)', 'limited', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:plat)(?!\w)', 'platinum', s0)
-    s0 = re.sub(r'(?i)\b\d+[pv]\b', '', s0)
+    s0 = re.sub(r'(?i)\b\d+p\b', '', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:exclu)(?!\w)', 'exclusive', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:t270)(?!\w)', 'turbo 270', s0)
     s0 = re.sub(r'(?i)(?<!\w)(?:comfort|comfor)(?!\w)', 'comfortline', s0)
@@ -1175,7 +1175,7 @@ def match_localiza(localiza_csv: Path,
     log.info("New Localiza version keys to match: %d", len(new_keys_df))
 
     today_iso = as_of_date or date.today().isoformat()
-    
+
     vm_rows: List[Dict[str, Any]] = []
 
     for _, nk in new_keys_df.iterrows():
