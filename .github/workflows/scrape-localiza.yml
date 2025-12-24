@@ -1,0 +1,49 @@
+name: Scrape Localiza
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch: # Manual trigger only
+
+jobs:
+  scrape-localiza:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run Localiza scraper
+      run: |
+        python fleet.py scrape-localiza --out localiza_offers.json --concurrency 3 --rps 0.8 --delay 1.0
+      
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: localiza-offers-${{ github.run_number }}
+        path: |
+          localiza_offers.json
+          localiza_offers.meta.json
+        retention-days: 30
+    
+    - name: Commit and push changes
+      if: success()
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add localiza_offers.json localiza_offers.meta.json
+        git diff --staged --quiet || git commit -m "chore: update Localiza offers [skip ci]"
+        git push
