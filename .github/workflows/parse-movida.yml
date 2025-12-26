@@ -4,7 +4,12 @@ permissions:
   contents: write
 
 on:
-  workflow_dispatch: # Manual trigger only
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date to parse (YYYYMMDD format, e.g., 20251215). Leave empty for newest file.'
+        required: false
+        type: string
 
 jobs:
   parse-movida:
@@ -30,7 +35,11 @@ jobs:
     
     - name: Parse Movida JSON to CSV
       run: |
-        python fleet.py parse-movida --in movida_offers.json --out-dir raw/movida
+        if [ -n "${{ inputs.date }}" ]; then
+          python fleet.py parse-movida --date ${{ inputs.date }} --out-dir raw/movida
+        else
+          python fleet.py parse-movida --out-dir raw/movida
+        fi
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
