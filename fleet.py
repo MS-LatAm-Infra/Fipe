@@ -76,12 +76,12 @@ TABLES_DIR   = DATA_DIR / "tables"
 RAW_DIR      = Path("raw")
 RAW_LOCALIZA = RAW_DIR / "localiza"
 RAW_MOVIDA   = RAW_DIR / "movida"
-
-# Where the auditable match table lives
+RAW_JSON_LOCALIZA = RAW_DIR / "json" / "localiza"
+RAW_JSON_MOVIDA   = RAW_DIR / "json" / "movida"
 MATCH_DIR = DATA_DIR / "localiza"
 MATCH_DIR.mkdir(parents=True, exist_ok=True)
 MATCH_TABLE = DATA_DIR / "localiza_match_table.csv"
-VERSION_MATCH_TABLE = DATA_DIR / "localiza_version_match.csv"  # simplified cache (brand_norm, model_norm, version_norm, model_year) → fipe_code (model_token deprecated)
+VERSION_MATCH_TABLE = DATA_DIR / "localiza_version_match.csv"
 
 
 for d in (DATA_DIR, FIPE_DIR, TUPLES_DIR, TABLES_DIR, RAW_LOCALIZA, RAW_MOVIDA):
@@ -218,7 +218,6 @@ async def _loc_fetch_page(session: aiohttp.ClientSession, page: int) -> Dict[str
     url = f"https://seminovos.localiza.com/carros?page={page}"
     max_retries = 3
     base_delay = 1.0
-    # Allow caller to stash a RateLimiter on the session for global pacing
     limiter: Optional[RateLimiter] = getattr(session, "_rate_limiter", None)
 
     for attempt in range(max_retries):
@@ -276,7 +275,10 @@ def _loc_total_pages(data: Dict[str, Any]) -> int:
         return 1
 
 async def scrape_localiza(args):
-    out = Path(args.out)
+    # Save to RAW_JSON_LOCALIZA with dated filename
+    ensure_dir(RAW_JSON_LOCALIZA)
+    date_str = ymd_compact()
+    out = RAW_JSON_LOCALIZA / f"localiza_offers_{date_str}.json"
     # Configurable pacing knobs with conservative defaults
     concurrency = max(1, int(getattr(args, "concurrency", 3)))
     rps = float(getattr(args, "rps", 0.8))  # requests per second (shared)
@@ -391,7 +393,10 @@ def _movida_session(max_retries=5, backoff_factor=1.0):
     return sess
 
 def scrape_movida(args):
-    out = Path(args.out)
+    # Save to RAW_JSON_MOVIDA with dated filename
+    ensure_dir(RAW_JSON_MOVIDA)
+    date_str = ymd_compact()
+    out = RAW_JSON_MOVIDA / f"movida_offers_{date_str}.json"
     # More conservative retry/backoff for public API
     sess = _movida_session(max_retries=6, backoff_factor=1.5)
     offset = None
@@ -502,7 +507,19 @@ def scrape_movida(args):
 
 log_parse = logging.getLogger("parse")
 
-def parse_movida(in_json: Path, out_dir: Path):
+def parse_movida(in_json: Optional[Path] = None, out_dir: Path = RAW_MOVIDA, date_str: Optional[str] = None):
+    """Parse Movida JSON to CSV. If in_json not provided, uses date_str or finds newest file."""
+    if in_json is None:
+        if date_str:
+            in_json = RAW_JSON_MOVIDA / f"movida_offers_{date_str}.json"
+            if not in_json.exists():
+                raise FileNotFoundError(f"No Movida JSON found for date {date_str}: {in_json}")
+        else:
+            in_json = latest("movida_offers_*.json", RAW_JSON_MOVIDA)
+            if in_json is None:
+                raise FileNotFoundError(f"No Movida JSON files found in {RAW_JSON_MOVIDA}")
+            log_parse.info("[movida] using newest file: %s", in_json.name)
+    
     meta = in_json.with_suffix(".meta.json")
     snap = snapshot_date_from_meta(meta)
 
@@ -559,7 +576,19 @@ def parse_movida(in_json: Path, out_dir: Path):
 
 
 
-def parse_localiza(in_json: Path, out_dir: Path):
+def parse_localiza(in_json: Optional[Path] = None, out_dir: Path = RAW_LOCALIZA, date_str: Optional[str] = None):
+    """Parse Localiza JSON to CSV. If in_json not provided, uses date_str or finds newest file."""
+    if in_json is None:
+        if date_str:
+            in_json = RAW_JSON_LOCALIZA / f"localiza_offers_{date_str}.json"
+            if not in_json.exists():
+                raise FileNotFoundError(f"No Localiza JSON found for date {date_str}: {in_json}")
+        else:
+            in_json = latest("localiza_offers_*.json", RAW_JSON_LOCALIZA)
+            if in_json is None:
+                raise FileNotFoundError(f"No Localiza JSON files found in {RAW_JSON_LOCALIZA}")
+            log_parse.info("[localiza] using newest file: %s", in_json.name)
+    
     meta = in_json.with_suffix(".meta.json")
     snap = snapshot_date_from_meta(meta)  # use meta date; do NOT overwrite with today
     raw = json.loads(in_json.read_text(encoding="utf-8"))
