@@ -104,6 +104,7 @@ def raw_today_path(vendor: str) -> Path:
 
 def latest(glob_pattern: str, base: Path) -> Optional[Path]:
     files = sorted(base.glob(glob_pattern), key=lambda p: p.stat().st_mtime, reverse=True)
+    files = [f for f in files if not f.name.endswith('.meta.json')]
     return files[0] if files else None
 
 def clean_price_to_int(x: Any):
