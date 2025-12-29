@@ -1,4 +1,4 @@
-name: Collect Full Data (ex-Scrape)
+name: Run Full Pipeline (ex-Scrape)
 
 permissions:
   contents: write
