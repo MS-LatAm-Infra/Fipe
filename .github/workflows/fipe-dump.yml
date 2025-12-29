@@ -1,4 +1,4 @@
-name: FIPE Dump
+name: Collect Seminovos Fipe Prices
 
 permissions:
   contents: write
