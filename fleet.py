@@ -2371,7 +2371,7 @@ def main():
     mtc.add_argument("--fipe-csv", default=None, help="Optional older path (fallback if models CSV missing)")
     mtc.add_argument("--movida-fallback-csv", default=None, help="Defaults to newest raw/movida/movida_seminovos_*.csv")
     mtc.add_argument("--fipe-models-csv", default=None, help="Path to fipe_models.csv (default: auto-discover)")
-    mtc.add_argument("--out", default=str(DATA_DIR / f"localiza_with_fipe_match_{ymd_compact()}.csv"))
+    mtc.add_argument("--out", default=None, help="Defaults to data/localiza/localiza_with_fipe_match_YYYYMMDD.csv")
     mtc.add_argument("--threshold", type=float, default=0.0)
 
     # fipe-list
