@@ -70,7 +70,7 @@ except Exception:
     TZ_LOCAL = timezone(timedelta(hours=-3))
 
 DATA_DIR     = Path("data")
-FIPE_DIR     = DATA_DIR / "fipe"
+FIPE_DIR     = DATA_DIR / "fipe" / "seminovos"
 TUPLES_DIR   = DATA_DIR / "tuples"
 TABLES_DIR   = DATA_DIR / "tables"
 RAW_DIR      = Path("raw")
@@ -2242,7 +2242,7 @@ def run_all(args):
             delay=getattr(args, "localiza_delay", 1.0),
             no_progress=args.no_progress
         )))
-        parse_localiza(Path("localiza_offers.json"), RAW_LOCALIZA)
+        parse_localiza(None, RAW_LOCALIZA)
         lcz_csv = latest("localiza_seminovos_*.csv", RAW_LOCALIZA)
 
     # MOVIDA
@@ -2257,7 +2257,7 @@ def run_all(args):
             gad_source=None, gad_campaignid=None, gbraid=None, gclid=None,
             no_progress=args.no_progress
         ))
-        parse_movida(Path("movida_offers.json"), RAW_MOVIDA)
+        parse_movida(None, RAW_MOVIDA)
         mvd_csv = latest("movida_seminovos_*.csv", RAW_MOVIDA)
 
     if not lcz_csv or not mvd_csv:
@@ -2356,12 +2356,12 @@ def main():
 
     # parse-movida
     mvd = sub.add_parser("parse-movida", help="Convert movida_offers.json -> dated CSV")
-    mvd.add_argument("--in", dest="in_json", default="movida_offers.json")
+    mvd.add_argument("--in", dest="in_json", default=None, help="Defaults to latest raw/json/movida/movida_offers_*.json")
     mvd.add_argument("--out-dir", default=str(RAW_MOVIDA))
 
     # parse-localiza
     lcz = sub.add_parser("parse-localiza", help="Convert Localiza localiza_offers.json -> dated CSV")
-    lcz.add_argument("--in", dest="in_json", default="localiza_offers.json")
+    lcz.add_argument("--in", dest="in_json", default=None, help="Defaults to latest raw/json/localiza/localiza_offers_*.json")
     lcz.add_argument("--out-dir", default=str(RAW_LOCALIZA))
 
     # match-localiza
@@ -2446,9 +2446,11 @@ def main():
     elif args.cmd == "scrape-movida":
         scrape_movida(args)
     elif args.cmd == "parse-movida":
-        parse_movida(Path(args.in_json), Path(args.out_dir))
+        in_json = Path(args.in_json) if args.in_json else None
+        parse_movida(in_json, Path(args.out_dir))
     elif args.cmd == "parse-localiza":
-        parse_localiza(Path(args.in_json), Path(args.out_dir))
+        in_json = Path(args.in_json) if args.in_json else None
+        parse_localiza(in_json, Path(args.out_dir))
     elif args.cmd == "match-localiza":
         lcz_path = Path(args.localiza_csv) if args.localiza_csv else latest("localiza_seminovos_*.csv", RAW_LOCALIZA)
         if not lcz_path or not lcz_path.exists():
