@@ -1,0 +1,52 @@
+name: Collect Full Fipe Data (Monthly)
+
+on:
+  schedule:
+    # Run at midnight (00:00 UTC) on the 2nd day of every month
+    - cron: '0 0 2 * *'
+  
+  # Allow manual trigger from GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  fetch-fipe-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Create data directory
+        run: mkdir -p data/fipe
+      
+      - name: Run FIPE data fetch
+        run: python fipe.py
+        timeout-minutes: 480  # 8 hours timeout (adjust as needed)
+      
+      - name: Commit and push results
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/fipe/*.csv
+          git diff --staged --quiet || git commit -m "chore: update FIPE data - $(date +'%Y-%m-%d')"
+          git push
+        continue-on-error: true
+      
+      - name: Upload data as artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fipe-data-${{ github.run_number }}
+          path: data/fipe/*.csv
+          retention-days: 90
