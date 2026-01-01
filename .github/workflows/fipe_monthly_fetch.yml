@@ -28,18 +28,18 @@ jobs:
           pip install -r requirements.txt
       
       - name: Create data directory
-        run: mkdir -p data/fipe
+        run: mkdir -p data/fipe/full
       
       - name: Run FIPE data fetch
         run: python fipe.py
-        timeout-minutes: 480  # 8 hours timeout (adjust as needed)
+        timeout-minutes: 480
       
       - name: Commit and push results
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/fipe/*.csv
-          git diff --staged --quiet || git commit -m "chore: update FIPE data - $(date +'%Y-%m-%d')"
+          git add data/fipe/full/*.csv
+          git diff --staged --quiet || git commit -m "chore: update full FIPE data - $(date +'%Y-%m-%d')"
           git push
         continue-on-error: true
       
@@ -48,5 +48,5 @@ jobs:
         if: always()
         with:
           name: fipe-data-${{ github.run_number }}
-          path: data/fipe/*.csv
+          path: data/fipe/full/*.csv
           retention-days: 90

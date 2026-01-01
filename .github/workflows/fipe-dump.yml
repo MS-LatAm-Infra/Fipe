@@ -35,7 +35,7 @@ jobs:
         pip install -r requirements.txt
     
     - name: Create output directory
-      run: mkdir -p data/fipe data/tuples
+      run: mkdir -p data/fipe/seminovos data/tuples
     
     - name: Run FIPE dump
       run: |
@@ -45,7 +45,7 @@ jobs:
         python fleet.py fipe-dump \
           --since ${SINCE} \
           --tipos ${TIPOS} \
-          --out data/fipe/fipe_dump_${DATESTAMP}.csv \
+          --out data/fipe/seminovos/fipe_dump_${DATESTAMP}.csv \
           --rps 2 \
           --max-concurrency 8
       
@@ -55,7 +55,7 @@ jobs:
       with:
         name: fipe-dump-${{ github.run_number }}
         path: |
-          data/fipe/*.csv
+          data/fipe/seminovos/*.csv
           data/tuples/*.csv
         retention-days: 90
     
@@ -64,6 +64,6 @@ jobs:
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add data/fipe/*.csv data/tuples/*.csv
+        git add data/fipe/seminovos/*.csv data/tuples/*.csv
         git diff --staged --quiet || git commit -m "chore: update FIPE dump data [skip ci]"
         git push
