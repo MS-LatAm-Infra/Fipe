@@ -8,6 +8,7 @@ This script recursively fetches brands, models, years, and prices for all vehicl
 import argparse
 import hashlib
 import os
+import random
 from typing import Any, Dict, Iterable, Optional, Set, List
 import requests
 import pandas as pd
@@ -44,8 +45,30 @@ HEADERS = {
 
 # Rate limiting
 REQUEST_DELAY = 1.0  # Delay between requests in seconds
-MAX_RETRIES = 3
-RETRY_DELAY = 4
+MAX_RETRIES = 5
+RETRY_DELAY_BASE = 2  # Base delay for exponential backoff
+
+
+def get_retry_delay(attempt: int, base: float = RETRY_DELAY_BASE, max_delay: float = 60.0) -> float:
+    """
+    Calculate retry delay with exponential backoff and jitter.
+    
+    Args:
+        attempt: Current attempt number (0-indexed)
+        base: Base delay in seconds
+        max_delay: Maximum delay cap in seconds
+        
+    Returns:
+        Delay in seconds with exponential backoff and jitter
+    """
+    # Exponential backoff: base * 2^attempt
+    exponential_delay = base * (2 ** attempt)
+    # Cap the delay
+    capped_delay = min(exponential_delay, max_delay)
+    # Add jitter: random value between 0 and capped_delay
+    jitter = random.uniform(0, capped_delay * 0.5)
+    return capped_delay + jitter
+
 
 # Vehicle types
 VEHICLE_TYPES = {
@@ -94,7 +117,9 @@ class FipeAPIClient:
             except requests.exceptions.RequestException as e:
                 logger.warning(f"Request failed (attempt {attempt + 1}/{retries}): {e}")
                 if attempt < retries - 1:
-                    time.sleep(RETRY_DELAY * (attempt + 1))
+                    delay = get_retry_delay(attempt)
+                    logger.info(f"Retrying in {delay:.2f} seconds...")
+                    time.sleep(delay)
                 else:
                     logger.error(f"All retries failed for endpoint {endpoint}")
                     return None
