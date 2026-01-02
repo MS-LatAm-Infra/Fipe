@@ -1,0 +1,53 @@
+name: Merge FIPE Parts (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Run ID of the workflow run that produced the shard artifacts"
+        required: true
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install merge deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas
+
+      # Downloads artifacts from a DIFFERENT run
+      - name: Download shard artifacts from prior run
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          run_id: ${{ inputs.run_id }}
+          path: artifacts
+
+      - name: Inspect downloaded artifacts
+        run: |
+          ls -R artifacts | head -n 200
+
+      - name: Merge into final CSV
+        run: |
+          mkdir -p data/fipe/full
+          python scripts/merge_parts.py artifacts data/fipe/full/fipe_models.csv
+          test -f data/fipe/full/fipe_models.csv
+
+      - name: Commit and push final CSV
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/fipe/full/fipe_models.csv
+          git diff --staged --quiet || git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
+          git push
