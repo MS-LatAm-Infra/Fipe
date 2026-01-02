@@ -1,0 +1,107 @@
+name: Retry Failed FIPE Fetches (Full Fipe)
+
+on:
+  workflow_dispatch:
+    inputs:
+      vehicle_type:
+        description: 'Vehicle type (1=cars, 2=motorcycles, 3=trucks)'
+        required: false
+        default: '1'
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '3'
+      shard_id:
+        description: 'Shard ID (0-based)'
+        required: false
+        default: '0'
+      shard_count:
+        description: 'Total number of shards'
+        required: false
+        default: '1'
+      request_delay:
+        description: 'Delay between requests (seconds)'
+        required: false
+        default: '1.5'
+
+jobs:
+  retry-failed:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download previous artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: fipe-data-v${{ inputs.vehicle_type }}-s${{ inputs.shard_id }}
+          path: data/fipe/full
+        continue-on-error: true
+
+      - name: Check for failed items
+        id: check-failed
+        run: |
+          FAILED_FILE="data/fipe/full/fipe_failed_v${{ inputs.vehicle_type }}_s${{ inputs.shard_id }}of${{ inputs.shard_count }}.txt"
+          if [ -f "$FAILED_FILE" ]; then
+            FAILED_COUNT=$(wc -l < "$FAILED_FILE")
+            echo "failed_count=$FAILED_COUNT" >> $GITHUB_OUTPUT
+            echo "Found $FAILED_COUNT failed items to retry"
+          else
+            echo "failed_count=0" >> $GITHUB_OUTPUT
+            echo "No failed items file found"
+          fi
+
+      - name: Retry failed items
+        if: steps.check-failed.outputs.failed_count != '0'
+        run: |
+          python fipe.py \
+            --retry-failed \
+            --vehicle-type ${{ inputs.vehicle_type }} \
+            --shard-id ${{ inputs.shard_id }} \
+            --shard-count ${{ inputs.shard_count }} \
+            --request-delay ${{ inputs.request_delay }}
+
+      - name: Upload updated data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fipe-data-v${{ inputs.vehicle_type }}-s${{ inputs.shard_id }}
+          path: |
+            data/fipe/full/*.jsonl
+            data/fipe/full/*.csv
+            data/fipe/full/*.txt
+          retention-days: 90
+          overwrite: true
+
+      - name: Report results
+        run: |
+          echo "## Retry Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          FAILED_FILE="data/fipe/full/fipe_failed_v${{ inputs.vehicle_type }}_s${{ inputs.shard_id }}of${{ inputs.shard_count }}.txt"
+          if [ -f "$FAILED_FILE" ]; then
+            REMAINING=$(wc -l < "$FAILED_FILE")
+            echo "⚠️ **$REMAINING items still failing**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ **All items recovered successfully!**" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          DONE_FILE="data/fipe/full/fipe_done_v${{ inputs.vehicle_type }}_s${{ inputs.shard_id }}of${{ inputs.shard_count }}.txt"
+          if [ -f "$DONE_FILE" ]; then
+            TOTAL_DONE=$(wc -l < "$DONE_FILE")
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "📊 Total completed items: **$TOTAL_DONE**" >> $GITHUB_STEP_SUMMARY
+          fi

@@ -262,8 +262,10 @@ class FipeDataFetcher:
         # One file per shard, append-only (JSONL).
         self.out_jsonl = self.output_dir / f"fipe_part_v{vehicle_type}_s{shard_id}of{shard_count}.jsonl"
         self.done_keys_path = self.output_dir / f"fipe_done_v{vehicle_type}_s{shard_id}of{shard_count}.txt"
+        self.failed_keys_path = self.output_dir / f"fipe_failed_v{vehicle_type}_s{shard_id}of{shard_count}.txt"
 
         self._done: Set[str] = self._load_done_keys()
+        self._failed: Set[str] = set()  # Track failures in current run
 
     def _load_done_keys(self) -> Set[str]:
         done: Set[str] = set()
@@ -277,6 +279,60 @@ class FipeDataFetcher:
         self._done.add(key)
         with open(self.done_keys_path, "a", encoding="utf-8") as f:
             f.write(key + "\n")
+
+    def _mark_failed(self, key: str, reason: str) -> None:
+        """Track items that failed to fetch for later retry."""
+        if key in self._failed:
+            return
+        self._failed.add(key)
+        logger.warning(f"Failed to fetch {key}: {reason}")
+        with open(self.failed_keys_path, "a", encoding="utf-8") as f:
+            f.write(f"{key}|{reason}|{datetime.now().isoformat()}\n")
+
+    def _load_failed_keys(self) -> List[Dict[str, str]]:
+        """Load failed keys from file for retry."""
+        failed_items = []
+        if self.failed_keys_path.exists():
+            for line in self.failed_keys_path.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                parts = line.strip().split("|")
+                if len(parts) >= 5:  # key format: table|vehicle|brand|model|year
+                    key = "|".join(parts[:5])
+                    reason = parts[5] if len(parts) > 5 else "unknown"
+                    failed_items.append({"key": key, "reason": reason})
+        return failed_items
+
+    def _clear_failed_key(self, key: str) -> None:
+        """Remove a key from the failed list after successful retry."""
+        if key in self._failed:
+            self._failed.discard(key)
+
+    def _rewrite_failed_file(self, remaining_failures: Set[str]) -> None:
+        """Rewrite the failed file with only remaining failures."""
+        if not remaining_failures:
+            # All retries succeeded, remove the file
+            if self.failed_keys_path.exists():
+                self.failed_keys_path.unlink()
+            return
+        
+        # Read existing entries to preserve reasons
+        existing_entries = {}
+        if self.failed_keys_path.exists():
+            for line in self.failed_keys_path.read_text(encoding="utf-8").splitlines():
+                if line.strip():
+                    parts = line.strip().split("|")
+                    if len(parts) >= 5:
+                        key = "|".join(parts[:5])
+                        existing_entries[key] = line.strip()
+        
+        # Write only remaining failures
+        with open(self.failed_keys_path, "w", encoding="utf-8") as f:
+            for key in remaining_failures:
+                if key in existing_entries:
+                    f.write(existing_entries[key] + "\n")
+                else:
+                    f.write(f"{key}|unknown|{datetime.now().isoformat()}\n")
 
     def _append_jsonl(self, obj: Dict[str, Any]) -> None:
         with open(self.out_jsonl, "a", encoding="utf-8") as f:
@@ -334,6 +390,7 @@ class FipeDataFetcher:
 
                     price_data = self.client.get_price(table_code, brand_code, model_code, year_code)
                     if not price_data:
+                        self._mark_failed(item_key, "no_response_after_retries")
                         continue
 
                     price_data["BrandCode"] = brand_code
@@ -352,6 +409,88 @@ class FipeDataFetcher:
                     self._mark_done(item_key)
 
         logger.info(f"Shard complete. Output: {self.out_jsonl}")
+        
+        # Report failures summary
+        if self._failed:
+            logger.warning(f"⚠️  {len(self._failed)} items failed. See: {self.failed_keys_path}")
+        else:
+            logger.info("✓ All items fetched successfully.")
+
+    def retry_failed_items(self) -> int:
+        """
+        Retry fetching only the items that previously failed.
+        Updates the main output file and clears successful retries from failed list.
+        
+        Returns:
+            Number of successfully recovered items
+        """
+        failed_items = self._load_failed_keys()
+        if not failed_items:
+            logger.info("No failed items to retry.")
+            return 0
+
+        logger.info(f"Retrying {len(failed_items)} failed items...")
+
+        # Get current reference table
+        table = self.client.get_reference_table()
+        if not table:
+            logger.error("Failed to get reference table")
+            return 0
+
+        table_code = table["Codigo"]
+        table_month = table["Mes"]
+
+        recovered = 0
+        still_failed: Set[str] = set()
+
+        for item in tqdm(failed_items, desc="Retrying failed items"):
+            key = item["key"]
+            parts = key.split("|")
+            if len(parts) < 5:
+                continue
+
+            orig_table_code, vehicle_type, brand_code, model_code, year_code = parts[:5]
+
+            # Check if already recovered in a previous retry
+            if key in self._done:
+                continue
+
+            price_data = self.client.get_price(table_code, brand_code, model_code, year_code)
+            if not price_data:
+                still_failed.add(key)
+                continue
+
+            # Get brand and model names (we need to fetch them)
+            brand_name = price_data.get("Marca", "Unknown")
+            model_name = price_data.get("Modelo", "Unknown")
+            year_label = price_data.get("AnoModelo", year_code)
+
+            price_data["BrandCode"] = brand_code
+            price_data["BrandName"] = brand_name
+            price_data["ModelCode"] = model_code
+            price_data["ModelName"] = model_name
+            price_data["YearCode"] = year_code
+            price_data["YearLabel"] = str(year_label)
+            price_data["TableCode"] = table_code
+            price_data["TableMonth"] = table_month
+            price_data["VehicleType"] = int(vehicle_type)
+            price_data["VehicleTypeName"] = VEHICLE_TYPES.get(int(vehicle_type), "unknown")
+            price_data["FetchDate"] = datetime.now().isoformat()
+            price_data["RetryRecovered"] = True  # Mark as recovered from retry
+
+            self._append_jsonl(price_data)
+            self._mark_done(key)
+            recovered += 1
+
+        # Update the failed file
+        self._rewrite_failed_file(still_failed)
+
+        if recovered > 0:
+            logger.info(f"✓ Recovered {recovered} items successfully.")
+        if still_failed:
+            logger.warning(f"⚠️  {len(still_failed)} items still failed. See: {self.failed_keys_path}")
+
+        return recovered
 
     def jsonl_to_parquet_or_csv(self, out_path: Optional[str] = None) -> Optional[Path]:
         """Convert shard JSONL to parquet (preferred) or csv."""
@@ -395,6 +534,13 @@ def main():
 
     # Optional: keep the intermediate JSONL (useful for debugging)
     parser.add_argument("--keep-jsonl", action="store_true", help="Do not delete intermediate JSONL")
+    
+    # Retry mode: only retry previously failed items
+    parser.add_argument(
+        "--retry-failed",
+        action="store_true",
+        help="Only retry items that previously failed (reads from failed keys file)"
+    )
 
     args = parser.parse_args()
 
@@ -421,11 +567,18 @@ def main():
         request_delay=args.request_delay,
     )
 
-    # Runs the shard and writes JSONL incrementally (safe/resumable)
-    fetcher.fetch_all_data_streaming()
-
-    # Always produce CSV (default behavior)
-    fetcher.jsonl_to_parquet_or_csv(str(out_csv))
+    # Either retry failed items or run full fetch
+    if args.retry_failed:
+        recovered = fetcher.retry_failed_items()
+        if recovered > 0:
+            # Re-export CSV with recovered items
+            fetcher.jsonl_to_parquet_or_csv(str(out_csv))
+            logger.info(f"Updated output with {recovered} recovered items: {out_csv}")
+    else:
+        # Runs the shard and writes JSONL incrementally (safe/resumable)
+        fetcher.fetch_all_data_streaming()
+        # Always produce CSV (default behavior)
+        fetcher.jsonl_to_parquet_or_csv(str(out_csv))
 
     # Optional cleanup
     if not args.keep_jsonl:
