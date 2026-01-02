@@ -1,4 +1,4 @@
-name: Collect Full Data (Monthly)
+name: Run Full Pipeline (Monthly)
 
 permissions:
   contents: write
