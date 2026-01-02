@@ -1,15 +1,207 @@
+"""
+FIPE API Data Fetcher
+=====================
+Monolithic script to fetch all car prices from the FIPE table API.
+This script recursively fetches brands, models, years, and prices for all vehicles.
+"""
+
 import argparse
 import hashlib
-import json
 import os
+from typing import Any, Dict, Iterable, Optional, Set, List
+import requests
+import pandas as pd
+import time
+import json
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Iterable, Optional, Set
-
-import pandas as pd
 from tqdm import tqdm
+import logging
 
-# ... keep your existing imports, constants, FipeAPIClient, VEHICLE_TYPES, etc.
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# API Configuration
+FIPE_BASE = "https://veiculos.fipe.org.br"
+ENDPOINTS = {
+    "tabelas": "/api/veiculos/ConsultarTabelaDeReferencia",
+    "marcas": "/api/veiculos/ConsultarMarcas",
+    "modelos": "/api/veiculos/ConsultarModelos",
+    "modelos_por_ano": "/api/veiculos/ConsultarModelosAtravesDoAno",
+    "anos_modelo": "/api/veiculos/ConsultarAnoModelo",
+    "valor_todos_params": "/api/veiculos/ConsultarValorComTodosParametros",
+}
+
+# Request configuration
+HEADERS = {
+    'Content-Type': 'application/json',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+}
+
+# Rate limiting
+REQUEST_DELAY = 1.0  # Delay between requests in seconds
+MAX_RETRIES = 3
+RETRY_DELAY = 4
+
+# Vehicle types
+VEHICLE_TYPES = {
+    1: 'carros',      # Cars
+    2: 'motos',       # Motorcycles
+    3: 'caminhoes'    # Trucks
+}
+
+
+class FipeAPIClient:
+    """Client for interacting with the FIPE API."""
+    
+    def __init__(self, vehicle_type: int = 1):
+        """
+        Initialize the FIPE API client.
+        
+        Args:
+            vehicle_type: Type of vehicle (1=cars, 2=motorcycles, 3=trucks)
+        """
+        self.vehicle_type = vehicle_type
+        self.session = requests.Session()
+        self.session.headers.update(HEADERS)
+        self.base_payload = {"codigoTabelaReferencia": None}
+        
+    def _make_request(self, endpoint: str, payload: Dict[str, Any], 
+                     retries: int = MAX_RETRIES) -> Optional[Any]:
+        """
+        Make a POST request to the FIPE API with retry logic.
+        
+        Args:
+            endpoint: API endpoint key from ENDPOINTS dict
+            payload: Request payload
+            retries: Number of retry attempts
+            
+        Returns:
+            JSON response or None if all retries fail
+        """
+        url = FIPE_BASE + ENDPOINTS[endpoint]
+        
+        for attempt in range(retries):
+            try:
+                time.sleep(REQUEST_DELAY)
+                response = self.session.post(url, json=payload, timeout=30)
+                response.raise_for_status()
+                return response.json()
+            except requests.exceptions.RequestException as e:
+                logger.warning(f"Request failed (attempt {attempt + 1}/{retries}): {e}")
+                if attempt < retries - 1:
+                    time.sleep(RETRY_DELAY * (attempt + 1))
+                else:
+                    logger.error(f"All retries failed for endpoint {endpoint}")
+                    return None
+        return None
+    
+    def get_reference_table(self) -> Optional[Dict[str, Any]]:
+        """
+        Get the current reference table (month/year).
+        
+        Returns:
+            Most recent reference table entry
+        """
+        payload = {}
+        result = self._make_request("tabelas", payload)
+        if result and len(result) > 0:
+            return result[0]  # Return most recent table
+        return None
+    
+    def get_brands(self, table_code: int) -> List[Dict[str, Any]]:
+        """
+        Get all brands for the specified vehicle type.
+        
+        Args:
+            table_code: Reference table code
+            
+        Returns:
+            List of brands
+        """
+        payload = {
+            "codigoTabelaReferencia": table_code,
+            "codigoTipoVeiculo": self.vehicle_type
+        }
+        result = self._make_request("marcas", payload)
+        return result if result else []
+    
+    def get_models(self, table_code: int, brand_code: str) -> List[Dict[str, Any]]:
+        """
+        Get all models for a specific brand.
+        
+        Args:
+            table_code: Reference table code
+            brand_code: Brand code
+            
+        Returns:
+            List of models
+        """
+        payload = {
+            "codigoTabelaReferencia": table_code,
+            "codigoTipoVeiculo": self.vehicle_type,
+            "codigoMarca": brand_code
+        }
+        result = self._make_request("modelos", payload)
+        if result and isinstance(result, dict) and 'Modelos' in result:
+            return result['Modelos']
+        return []
+    
+    def get_years(self, table_code: int, brand_code: str, 
+                 model_code: str) -> List[Dict[str, Any]]:
+        """
+        Get all available years for a specific model.
+        
+        Args:
+            table_code: Reference table code
+            brand_code: Brand code
+            model_code: Model code
+            
+        Returns:
+            List of year variants
+        """
+        payload = {
+            "codigoTabelaReferencia": table_code,
+            "codigoTipoVeiculo": self.vehicle_type,
+            "codigoMarca": brand_code,
+            "codigoModelo": model_code
+        }
+        result = self._make_request("anos_modelo", payload)
+        return result if result else []
+    
+    def get_price(self, table_code: int, brand_code: str, 
+                 model_code: str, year_code: str) -> Optional[Dict[str, Any]]:
+        """
+        Get the price for a specific vehicle configuration.
+        
+        Args:
+            table_code: Reference table code
+            brand_code: Brand code
+            model_code: Model code
+            year_code: Year code (format: "YYYY-F" where F is fuel type)
+            
+        Returns:
+            Price information dict
+        """
+        # Split year_code into year and fuel type
+        year_parts = year_code.split('-')
+        year = year_parts[0] if len(year_parts) > 0 else year_code
+        fuel_type = year_parts[1] if len(year_parts) > 1 else "1"
+        
+        payload = {
+            "codigoTabelaReferencia": table_code,
+            "codigoTipoVeiculo": self.vehicle_type,
+            "codigoMarca": brand_code,
+            "codigoModelo": model_code,
+            "anoModelo": int(year),
+            "codigoTipoCombustivel": int(fuel_type),
+            "tipoConsulta": "tradicional"
+        }
+        return self._make_request("valor_todos_params", payload)
 
 
 def _stable_mod_hash(s: str, mod: int) -> int:
