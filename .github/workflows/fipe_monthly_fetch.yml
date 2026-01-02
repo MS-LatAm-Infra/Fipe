@@ -70,7 +70,7 @@ jobs:
       - name: Merge parts into final CSV
         run: |
           mkdir -p data/fipe/full
-          python scripts/merge_parts.py artifacts data/fipe/full/fipe_models.csv
+          python merge_parts.py artifacts data/fipe/full/fipe_models.csv
 
       - name: Commit and push final CSV
         run: |
