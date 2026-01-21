@@ -71,6 +71,7 @@ except Exception:
 
 DATA_DIR     = Path("data")
 FIPE_DIR     = DATA_DIR / "fipe" / "seminovos"
+FIPE_FULL_DIR = DATA_DIR / "fipe" / "full"
 TUPLES_DIR   = DATA_DIR / "tuples"
 TABLES_DIR   = DATA_DIR / "tables"
 RAW_DIR      = Path("raw")
@@ -765,28 +766,51 @@ def norm_brand(s: str) -> str:
 # fipe_models.csv discovery & robust loader (cars only)
 # -----------------------------------------------------------------------------
 
+log_fipe_load = logging.getLogger("fipe.load")
+
 def find_fipe_models_csv(explicit: Optional[str] = None) -> Optional[Path]:
     if explicit:
         p = Path(explicit)
         return p if p.exists() else None
-    for candidate in (DATA_DIR / "fipe_models.csv", Path("fipe_models.csv")):
+    for candidate in (FIPE_FULL_DIR / "fipe_models.csv", Path("fipe_models.csv")):
         if candidate.exists():
             return candidate
     return None
 
-def load_fipe_models_df(path: Path) -> pd.DataFrame:
+
+def _discover_fipe_snapshots(directory: Path) -> list[tuple[str, Path]]:
     """
-    Robust loader for fipe_models.csv. Guarantees columns:
-      - 'Marca', 'Modelo', 'CodigoFipe', 'AnoModelo'
-    Adds helpers: '_brand_norm', '_model_norm', '_toks', '_engine'
-    Filters cars (CodigoTipoVeiculo == '1') if column exists.
+    Find all fipe_models_YYYYMMDD.csv files in the directory.
+    Returns list of (date_str, path) sorted by date ascending.
     """
+    pattern = re.compile(r"^fipe_models_(\d{8})\.csv$", re.IGNORECASE)
+    snapshots = []
+    if not directory.exists():
+        return snapshots
+    for f in directory.iterdir():
+        if f.is_file():
+            m = pattern.match(f.name)
+            if m:
+                snapshots.append((m.group(1), f))
+    snapshots.sort(key=lambda x: x[0])
+    return snapshots
+
+
+def _read_single_fipe_snapshot(path: Path) -> pd.DataFrame:
+    """Read a single fipe snapshot CSV file with robust delimiter detection."""
     try:
         df = pd.read_csv(path, sep=None, engine="python", encoding="utf-8-sig")
     except Exception:
         df = pd.read_csv(path, sep=";", encoding="utf-8-sig")
-
     df.columns = [str(c).replace("\ufeff", "").strip() for c in df.columns]
+    return df
+
+
+def _normalize_fipe_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Normalize column names and ensure required columns exist.
+    Returns dataframe with standardized column names.
+    """
     idx = {c.casefold(): c for c in df.columns}
 
     def pick(*names):
@@ -802,47 +826,210 @@ def load_fipe_models_df(path: Path) -> pd.DataFrame:
     col_modelo     = pick("Modelo", "modelo")
     col_codfipe    = pick("CodigoFipe", "codigo_fipe", "codigo fipe", "Codigo Fipe")
     col_anomodelo  = pick("AnoModelo", "AnoModeloParam", "ano_modelo", "ano modelo", "anoModelo")
+    col_combustivel = pick("Combustivel", "combustivel", "Combustível", "combustível")
     col_tipo       = pick("CodigoTipoVeiculo", "codigo_tipo_veiculo", "tipo", "tipo_veiculo")
 
     missing = [name for name, col in {
         "Marca": col_marca, "Modelo": col_modelo, "CodigoFipe": col_codfipe
     }.items() if col is None]
     if missing:
-        raise SystemExit(f"fipe_models.csv is missing required columns: {', '.join(missing)}")
+        raise ValueError(f"CSV is missing required columns: {', '.join(missing)}")
     if col_anomodelo is None:
-        raise SystemExit("fipe_models.csv does not contain a year column (expected one of: "
-                         "'AnoModelo', 'AnoModeloParam', 'ano_modelo').")
+        raise ValueError("CSV does not contain a year column (expected: 'AnoModelo', 'AnoModeloParam', etc.).")
 
-    if col_marca != "Marca":
-        df.rename(columns={col_marca: "Marca"}, inplace=True)
-    if col_modelo != "Modelo":
-        df.rename(columns={col_modelo: "Modelo"}, inplace=True)
-    if col_codfipe != "CodigoFipe":
-        df.rename(columns={col_codfipe: "CodigoFipe"}, inplace=True)
-    if col_anomodelo != "AnoModelo":
-        df.rename(columns={col_anomodelo: "AnoModelo"}, inplace=True)
+    rename_map = {}
+    if col_marca and col_marca != "Marca":
+        rename_map[col_marca] = "Marca"
+    if col_modelo and col_modelo != "Modelo":
+        rename_map[col_modelo] = "Modelo"
+    if col_codfipe and col_codfipe != "CodigoFipe":
+        rename_map[col_codfipe] = "CodigoFipe"
+    if col_anomodelo and col_anomodelo != "AnoModelo":
+        rename_map[col_anomodelo] = "AnoModelo"
+    if col_combustivel and col_combustivel != "Combustivel":
+        rename_map[col_combustivel] = "Combustivel"
+    if col_tipo and col_tipo != "CodigoTipoVeiculo":
+        rename_map[col_tipo] = "CodigoTipoVeiculo"
 
-    if col_tipo:
-        if col_tipo != "CodigoTipoVeiculo":
-            df.rename(columns={col_tipo: "CodigoTipoVeiculo"}, inplace=True)
-        #df = df[df["CodigoTipoVeiculo"].astype(str) == "1"].copy()
+    if rename_map:
+        df = df.rename(columns=rename_map)
 
-    df["Marca"]      = df["Marca"].astype(str).str.strip().str.lower()
-    df["Modelo"]     = df["Modelo"].astype(str).str.strip().str.lower()
+    return df
+
+
+def load_fipe_models_df(path: Optional[Path] = None) -> pd.DataFrame:
+    """
+    Incrementally load and consolidate FIPE models from snapshot files.
+    
+    Scans FIPE_FULL_DIR for fipe_models_YYYYMMDD.csv files and builds a
+    consolidated fipe_models.csv with unique observations based on:
+      [AnoModelo, CodigoFipe, Combustivel]
+    
+    The function is incremental: it reads the existing fipe_models.csv (if present),
+    checks which snapshots have already been integrated (via _integrated_snapshots column),
+    and only processes new snapshot files.
+    
+    Side effect: exports consolidated fipe_models.csv to FIPE_FULL_DIR.
+    
+    Args:
+        path: Optional explicit path. If provided and no snapshots exist, uses legacy loading.
+              If snapshots exist, this parameter is ignored (incremental mode is used).
+    
+    Returns DataFrame with columns:
+      - 'Marca', 'Modelo', 'CodigoFipe', 'AnoModelo', 'Combustivel'
+      - Helpers: '_brand_norm', '_model_norm', '_toks', '_engine'
+    """
+    consolidated_path = FIPE_FULL_DIR / "fipe_models.csv"
+    unique_keys = ["CodigoFipe", "AnoModelo", "Combustivel"]
+    
+    # Discover all snapshot files
+    snapshots = _discover_fipe_snapshots(FIPE_FULL_DIR)
+    
+    # If no snapshots found, fall back to legacy behavior
+    if not snapshots:
+        if consolidated_path.exists():
+            log_fipe_load.info("No snapshots found, using existing consolidated file: %s", consolidated_path)
+            return _load_fipe_models_legacy(consolidated_path)
+        if path and path.exists():
+            log_fipe_load.info("No snapshots found, falling back to explicit path: %s", path)
+            return _load_fipe_models_legacy(path)
+        raise SystemExit(f"No fipe_models_YYYYMMDD.csv snapshots found in {FIPE_FULL_DIR}")
+    
+    # Load existing consolidated file if it exists
+    existing_df = None
+    integrated_snapshots: set[str] = set()
+    
+    if consolidated_path.exists():
+        try:
+            existing_df = _read_single_fipe_snapshot(consolidated_path)
+            existing_df = _normalize_fipe_columns(existing_df)
+            # Parse integrated snapshots from the metadata column (first non-null value)
+            if "_integrated_snapshots" in existing_df.columns:
+                first_val = existing_df["_integrated_snapshots"].dropna()
+                if len(first_val) > 0:
+                    integrated_snapshots = set(str(first_val.iloc[0]).split(","))
+                existing_df = existing_df.drop(columns=["_integrated_snapshots"])
+            log_fipe_load.info("Loaded existing consolidated file with %d rows, %d snapshots integrated",
+                              len(existing_df), len(integrated_snapshots))
+        except Exception as e:
+            log_fipe_load.warning("Could not load existing consolidated file: %s", e)
+            existing_df = None
+    
+    # Determine which snapshots need to be processed
+    new_snapshots = [(d, p) for d, p in snapshots if d not in integrated_snapshots]
+    
+    if not new_snapshots and existing_df is not None:
+        log_fipe_load.info("No new snapshots to process, using existing consolidated file")
+        df = existing_df
+    else:
+        # Process ALL snapshots if existing_df is None or corrupted, otherwise just new ones
+        frames = []
+        
+        if existing_df is not None and len(existing_df) > 0:
+            frames.append(existing_df)
+            log_fipe_load.info("Starting with %d existing rows", len(existing_df))
+        
+        for date_str, snap_path in new_snapshots:
+            try:
+                log_fipe_load.info("Processing snapshot: %s", snap_path.name)
+                snap_df = _read_single_fipe_snapshot(snap_path)
+                snap_df = _normalize_fipe_columns(snap_df)
+                log_fipe_load.info("  -> %d rows in snapshot", len(snap_df))
+                frames.append(snap_df)
+                integrated_snapshots.add(date_str)
+            except Exception as e:
+                log_fipe_load.warning("Failed to process snapshot %s: %s", snap_path.name, e)
+        
+        if not frames:
+            raise SystemExit("No valid FIPE data could be loaded")
+        
+        # Concatenate all frames
+        df = pd.concat(frames, ignore_index=True)
+        log_fipe_load.info("Total rows after concat: %d", len(df))
+        
+        # Ensure Combustivel column exists and normalize it
+        if "Combustivel" not in df.columns:
+            df["Combustivel"] = ""
+        
+        # Standardize data types before deduplication
+        df["CodigoFipe"] = df["CodigoFipe"].astype(str).str.strip()
+        df["AnoModelo"] = pd.to_numeric(df["AnoModelo"], errors="coerce")
+        # Normalize Combustivel: fill NaN with empty string, strip whitespace, lowercase
+        df["Combustivel"] = df["Combustivel"].fillna("").astype(str).str.strip().str.lower()
+        
+        # Drop rows with invalid keys before deduplication
+        before_drop = len(df)
+        df = df.dropna(subset=["CodigoFipe", "AnoModelo"])
+        df = df[df["CodigoFipe"].ne("")]
+        after_drop = len(df)
+        if before_drop != after_drop:
+            log_fipe_load.info("Dropped %d rows with invalid keys", before_drop - after_drop)
+        
+        # Keep LAST occurrence (newest snapshot data takes precedence)
+        before_dedup = len(df)
+        df = df.drop_duplicates(subset=unique_keys, keep="last").reset_index(drop=True)
+        after_dedup = len(df)
+        log_fipe_load.info("Deduplication: %d -> %d rows (removed %d duplicates)",
+                          before_dedup, after_dedup, before_dedup - after_dedup)
+        
+        # Save consolidated file with integrated snapshots tracking
+        save_df = df.copy()
+        save_df["_integrated_snapshots"] = ",".join(sorted(integrated_snapshots))
+        ensure_dir(FIPE_FULL_DIR)
+        save_df.to_csv(consolidated_path, index=False, sep=";", encoding="utf-8-sig")
+        log_fipe_load.info("Saved consolidated fipe_models.csv: %d rows, %d snapshots -> %s",
+                          len(df), len(integrated_snapshots), consolidated_path)
+    
+    # Apply standard processing (same as before)
+    df["Marca"] = df["Marca"].astype(str).str.strip().str.lower()
+    df["Modelo"] = df["Modelo"].astype(str).str.strip().str.lower()
     df["CodigoFipe"] = df["CodigoFipe"].astype(str).str.strip()
-    df["AnoModelo"]  = pd.to_numeric(df["AnoModelo"], errors="coerce").astype("Int64")
+    df["AnoModelo"] = pd.to_numeric(df["AnoModelo"], errors="coerce").astype("Int64")
+    
+    # Filter invalid rows
+    df = df[df["CodigoFipe"].ne("") & df["Modelo"].ne("") & df["AnoModelo"].notna()].copy()
+    
+    # Add helper columns
+    df["_brand_norm"] = df["Marca"].map(norm_brand)
+    df["_model_norm"] = df["Modelo"].map(norm_text)
+    df["_toks"] = df["_model_norm"].str.split().apply(set)
+    df["_engine"] = df["_model_norm"].map(extract_engine)
+    
+    if (df["_model_norm"] == "").all():
+        log_fipe_load.warning("All _model_norm empty after normalization (check strip_accents / norm_text).")
+    
+    df = df.drop_duplicates(subset=["CodigoFipe", "Modelo", "AnoModelo"]).reset_index(drop=True)
+    
+    return df
 
+
+def _load_fipe_models_legacy(path: Path) -> pd.DataFrame:
+    """
+    Legacy loader for fipe_models.csv (fallback when no snapshots exist).
+    Guarantees columns: 'Marca', 'Modelo', 'CodigoFipe', 'AnoModelo'
+    Adds helpers: '_brand_norm', '_model_norm', '_toks', '_engine'
+    """
+    df = _read_single_fipe_snapshot(path)
+    df = _normalize_fipe_columns(df)
+
+    if "CodigoTipoVeiculo" in df.columns:
+        pass  # Could filter by type if needed: df = df[df["CodigoTipoVeiculo"].astype(str) == "1"].copy()
+
+    df["Marca"] = df["Marca"].astype(str).str.strip().str.lower()
+    df["Modelo"] = df["Modelo"].astype(str).str.strip().str.lower()
+    df["CodigoFipe"] = df["CodigoFipe"].astype(str).str.strip()
+    df["AnoModelo"] = pd.to_numeric(df["AnoModelo"], errors="coerce").astype("Int64")
 
     df = df[df["CodigoFipe"].ne("") & df["Modelo"].ne("") & df["AnoModelo"].notna()].copy()
     df["_brand_norm"] = df["Marca"].map(norm_brand)
     df["_model_norm"] = df["Modelo"].map(norm_text)
-    df["_toks"]       = df["_model_norm"].str.split().apply(set)
-    df["_engine"]     = df["_model_norm"].map(extract_engine)
-    
-    if (df["_model_norm"] == "").all():
-        logging.getLogger("fipe.load").warning("All _model_norm empty after normalization (check strip_accents / norm_text).")
+    df["_toks"] = df["_model_norm"].str.split().apply(set)
+    df["_engine"] = df["_model_norm"].map(extract_engine)
 
-    df = df.drop_duplicates(subset=["CodigoFipe","Modelo","AnoModelo"]).reset_index(drop=True)
+    if (df["_model_norm"] == "").all():
+        log_fipe_load.warning("All _model_norm empty after normalization (check strip_accents / norm_text).")
+
+    df = df.drop_duplicates(subset=["CodigoFipe", "Modelo", "AnoModelo"]).reset_index(drop=True)
 
     return df
 

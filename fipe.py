@@ -528,8 +528,8 @@ def main():
         type=str,
         default=None,
         help="Output CSV path. If omitted: "
-             "single shard -> data/fipe/full/fipe_models.csv; "
-             "multi-shard -> data/fipe/full/parts/part-<shard>.csv"
+             "single shard -> data/fipe/full/fipe_models_YYYYMMDD.csv; "
+             "multi-shard -> data/fipe/full/parts/part-<shard>_YYYYMMDD.csv"
     )
 
     # Optional: keep the intermediate JSONL (useful for debugging)
@@ -547,14 +547,15 @@ def main():
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Default output naming
+    # Default output naming with datestamp
+    date_stamp = datetime.now().strftime("%Y%m%d")
     if args.output is None:
         if args.shard_count == 1:
-            out_csv = output_dir / "fipe_models.csv"
+            out_csv = output_dir / f"fipe_models_{date_stamp}.csv"
         else:
             parts_dir = output_dir / "parts"
             parts_dir.mkdir(parents=True, exist_ok=True)
-            out_csv = parts_dir / f"part-{args.shard_id}.csv"
+            out_csv = parts_dir / f"part-{args.shard_id}_{date_stamp}.csv"
     else:
         out_csv = Path(args.output)
         out_csv.parent.mkdir(parents=True, exist_ok=True)

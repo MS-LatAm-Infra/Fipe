@@ -41,13 +41,14 @@ jobs:
       - name: Merge into final CSV
         run: |
           mkdir -p data/fipe/full
-          python merge_parts.py artifacts data/fipe/full/fipe_models.csv
-          test -f data/fipe/full/fipe_models.csv
+          DATE_STAMP=$(date +'%Y%m%d')
+          python merge_parts.py artifacts data/fipe/full/fipe_models_${DATE_STAMP}.csv
+          test -f data/fipe/full/fipe_models_${DATE_STAMP}.csv
 
       - name: Commit and push final CSV
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/fipe/full/fipe_models.csv
+          git add data/fipe/full/fipe_models_*.csv
           git diff --staged --quiet || git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
           git push
