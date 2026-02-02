@@ -75,16 +75,12 @@ jobs:
 
       - name: Commit and push final CSV
         run: |
+          DATESTAMP=$(date +'%Y%m%d')   # ← FIX LINE 1 (redefine DATESTAMP)
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/fipe/full/fipe_models_${DATESTAMP}.csv
+          git add data/fipe/full/fipe_models_${DATESTAMP}.csv  # ← FIX LINE 2 (now valid)
           git diff --staged --quiet || git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
           git push
         continue-on-error: true
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: fipe-models-${{ github.run_number }}
-          path: data/fipe/full/fipe_models_*.csv
-          if-no-files-found: warn
-          retention-days: 90
+
+      - nam
