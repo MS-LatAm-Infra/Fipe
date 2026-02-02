@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] # 20 shards
     steps:
       - uses: actions/checkout@v4
 
@@ -50,6 +50,8 @@ jobs:
   merge-and-commit:
     runs-on: ubuntu-latest
     needs: dump
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -71,23 +73,13 @@ jobs:
         run: |
           mkdir -p data/fipe/full
           DATESTAMP=$(date +'%Y%m%d')
-          python merge_parts.py artifacts data/fipe/full/fipe_models_${DATESTAMP}.csv
+          OUT="data/fipe/full/fipe_models_${DATESTAMP}.csv"
+
+          python merge_parts.py artifacts "$OUT"
+
+          echo "DATESTAMP=$DATESTAMP" >> $GITHUB_ENV
+          echo "OUT_FILE=$OUT" >> $GITHUB_ENV
 
       - name: Commit and push final CSV
         run: |
-          DATESTAMP=$(date +'%Y%m%d')
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add data/fipe/full/fipe_models_${DATESTAMP}.csv
-          git diff --staged --quiet || git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
-          git push
-        continue-on-error: true
-
-      - name: Upload merged FIPE CSV (if present)
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: fipe-models-${{ github.run_number }}
-          path: data/fipe/full/fipe_models_*.csv
-          if-no-files-found: warn
-          retention-days: 90
+          git config --local user.email "github-actions[bot]@users.noreply.githu
