@@ -72,7 +72,7 @@ jobs:
       - name: Merge, commit and export artifact
         run: |
           DATESTAMP=$(date +'%Y%m%d')
-          OUT="data/fipe/full/fipe_models_${DATESTAMP}.csv"
+          OUT="data/fipe/full/fipe_models${DATESTAMP}.csv"
 
           mkdir -p data/fipe/full
           python merge_parts.py artifacts "$OUT"
