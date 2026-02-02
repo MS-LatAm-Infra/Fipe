@@ -50,8 +50,6 @@ jobs:
   merge-and-commit:
     runs-on: ubuntu-latest
     needs: dump
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -65,34 +63,27 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas
 
-      # Baixa todos os artifacts "fipe-part-*" e "achata" tudo em um único diretório
-      - name: Download shard artifacts (flatten)
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
           path: artifacts
-          pattern: fipe-part-*
-          merge-multiple: true
 
-      - name: Merge, commit and export artifact
+      - name: Merge parts into final CSV
         run: |
-          DATESTAMP=$(date +'%Y%m%d')
-          OUT="data/fipe/full/fipe_models_${DATESTAMP}.csv"
-
           mkdir -p data/fipe/full
-          python merge_parts.py artifacts "$OUT"
+          python merge_parts.py artifacts data/fipe/full/fipe_models.csv
 
+      - name: Commit and push final CSV
+        run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add "$OUT"
+          git add data/fipe/full/fipe_models.csv
           git diff --staged --quiet || git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
-          git push || true
-
-          echo "OUT_FILE=$OUT" >> $GITHUB_ENV
+          git push
+        continue-on-error: true
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: fipe-models-${{ github.run_number }}
-          path: ${{ env.OUT_FILE }}
+          path: data/fipe/full/fipe_models.csv
           retention-days: 90
-
