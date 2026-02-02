@@ -65,14 +65,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas
 
-      - uses: actions/download-artifact@v4
+      # Baixa todos os artifacts "fipe-part-*" e "achata" tudo em um único diretório
+      - name: Download shard artifacts (flatten)
+        uses: actions/download-artifact@v4
         with:
           path: artifacts
+          pattern: fipe-part-*
+          merge-multiple: true
 
       - name: Merge, commit and export artifact
         run: |
           DATESTAMP=$(date +'%Y%m%d')
-          OUT="data/fipe/full/fipe_models${DATESTAMP}.csv"
+          OUT="data/fipe/full/fipe_models_${DATESTAMP}.csv"
 
           mkdir -p data/fipe/full
           python merge_parts.py artifacts "$OUT"
@@ -91,3 +95,4 @@ jobs:
           name: fipe-models-${{ github.run_number }}
           path: ${{ env.OUT_FILE }}
           retention-days: 90
+
