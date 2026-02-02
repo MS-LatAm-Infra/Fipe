@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] # 20 shards
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     steps:
       - uses: actions/checkout@v4
 
@@ -75,12 +75,19 @@ jobs:
 
       - name: Commit and push final CSV
         run: |
-          DATESTAMP=$(date +'%Y%m%d')   # ← FIX LINE 1 (redefine DATESTAMP)
+          DATESTAMP=$(date +'%Y%m%d')
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add data/fipe/full/fipe_models_${DATESTAMP}.csv  # ← FIX LINE 2 (now valid)
+          git add data/fipe/full/fipe_models_${DATESTAMP}.csv
           git diff --staged --quiet || git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
           git push
         continue-on-error: true
 
-      - nam
+      - name: Upload merged FIPE CSV (if present)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fipe-models-${{ github.run_number }}
+          path: data/fipe/full/fipe_models_*.csv
+          if-no-files-found: warn
+          retention-days: 90
