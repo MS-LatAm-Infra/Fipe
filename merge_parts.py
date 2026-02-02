@@ -10,7 +10,7 @@ def main():
     artifacts_dir = Path(sys.argv[1])
     out_csv = Path(sys.argv[2])
 
-    parts = sorted(artifacts_dir.glob("fipe-part-*/part-*.csv"))
+    parts = sorted(artifacts_dir.rglob("part-*.csv"))
     if not parts:
         raise SystemExit(f"No part CSVs found under {artifacts_dir}")
 
