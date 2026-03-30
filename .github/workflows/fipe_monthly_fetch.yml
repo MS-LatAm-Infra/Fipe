@@ -1,5 +1,4 @@
 name: Collect Full Fipe Data (Monthly)
-
 on:
   schedule:
     - cron: '0 0 2 * *'
@@ -15,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19] # 20 shards
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
     steps:
       - uses: actions/checkout@v4
 
@@ -73,13 +72,26 @@ jobs:
         run: |
           mkdir -p data/fipe/full
           DATESTAMP=$(date +'%Y%m%d')
-          OUT="data/fipe/full/fipe_models_${DATESTAMP}.csv"
-
-          python merge_parts.py artifacts "$OUT"
-
+          python merge_parts.py artifacts data/fipe/full/fipe_models_${DATESTAMP}.csv
           echo "DATESTAMP=$DATESTAMP" >> $GITHUB_ENV
-          echo "OUT_FILE=$OUT" >> $GITHUB_ENV
 
       - name: Commit and push final CSV
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.githu
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/fipe/full/fipe_models_*.csv
+          git diff --staged --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
+
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            echo "Push failed (attempt $i), retrying..."
+            sleep $((i * 5))
+          done
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fipe-models-${{ github.run_number }}
+          path: data/fipe/full/fipe_models_${{ env.DATESTAMP }}.csv
+          retention-days: 90
