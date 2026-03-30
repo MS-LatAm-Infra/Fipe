@@ -1,54 +1,51 @@
 name: Merge FIPE Parts (manual)
-
 on:
   workflow_dispatch:
     inputs:
       run_id:
         description: "Run ID of the workflow run that produced the shard artifacts"
         required: true
-
 permissions:
   actions: read
   contents: write
-
 jobs:
   merge:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
-
       - name: Install merge deps
         run: |
           python -m pip install --upgrade pip
           pip install pandas
-
-      # Downloads artifacts from a DIFFERENT run
       - name: Download shard artifacts from prior run
         uses: dawidd6/action-download-artifact@v3
         with:
           run_id: ${{ inputs.run_id }}
           path: artifacts
-
       - name: Inspect downloaded artifacts
         run: |
           ls -R artifacts | head -n 200
-
       - name: Merge into final CSV
         run: |
           mkdir -p data/fipe/full
           DATE_STAMP=$(date +'%Y%m%d')
           python merge_parts.py artifacts data/fipe/full/fipe_models_${DATE_STAMP}.csv
           test -f data/fipe/full/fipe_models_${DATE_STAMP}.csv
-
       - name: Commit and push final CSV
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/fipe/full/fipe_models_*.csv
-          git diff --staged --quiet || git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
-          git push
+          git diff --staged --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "chore: update FIPE models - $(date +'%Y-%m-%d')"
+
+          # Retry loop para lidar com push rejeitado por race condition
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            echo "Push falhou (tentativa $i), tentando novamente..."
+            sleep $((i * 5))
+          done
