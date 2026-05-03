@@ -10,7 +10,6 @@ import hashlib
 import os
 import random
 from typing import Any, Dict, Iterable, Optional, Set, List
-import requests
 import pandas as pd
 import time
 import json
@@ -18,6 +17,10 @@ from datetime import datetime
 from pathlib import Path
 from tqdm import tqdm
 import logging
+
+# curl_cffi: browser-impersonating HTTP client (bypasses Cloudflare TLS fingerprinting).
+# Replaces the standard `requests` library for all FIPE API calls.
+from curl_cffi.requests import Session as CurlSession
 
 # Configure logging
 logging.basicConfig(
@@ -37,16 +40,23 @@ ENDPOINTS = {
     "valor_todos_params": "/api/veiculos/ConsultarValorComTodosParametros",
 }
 
-# Request configuration
+# Request headers — user-agent is intentionally omitted: curl_cffi injects a
+# matching browser UA automatically when impersonating.
 HEADERS = {
-    'Content-Type': 'application/json',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    "accept": "application/json, text/javascript, */*; q=0.01",
+    "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    "origin": FIPE_BASE,
+    "referer": FIPE_BASE + "/",
+    "x-requested-with": "XMLHttpRequest",
 }
 
 # Rate limiting
 REQUEST_DELAY = 1.0  # Delay between requests in seconds
 MAX_RETRIES = 5
 RETRY_DELAY_BASE = 2  # Base delay for exponential backoff
+
+# Default browser to impersonate (can be overridden via --impersonate CLI flag).
+DEFAULT_IMPERSONATE = "chrome124"
 
 
 def get_retry_delay(attempt: int, base: float = RETRY_DELAY_BASE, max_delay: float = 60.0) -> float:
@@ -79,19 +89,39 @@ VEHICLE_TYPES = {
 
 
 class FipeAPIClient:
-    """Client for interacting with the FIPE API."""
+    """
+    Client for interacting with the FIPE API.
+
+    Uses curl_cffi.requests.Session with browser impersonation so that
+    Cloudflare's TLS/JA3 fingerprint check passes even when running from
+    GitHub Actions datacenter IPs.
+    """
     
-    def __init__(self, vehicle_type: int = 1):
+    def __init__(self, vehicle_type: int = 1, impersonate: str = DEFAULT_IMPERSONATE):
         """
         Initialize the FIPE API client.
         
         Args:
             vehicle_type: Type of vehicle (1=cars, 2=motorcycles, 3=trucks)
+            impersonate: Browser profile for curl_cffi to impersonate (e.g. 'chrome124')
         """
         self.vehicle_type = vehicle_type
-        self.session = requests.Session()
+        # curl_cffi Session — drop-in replacement for requests.Session.
+        # The `impersonate` argument makes it mimic a real browser TLS handshake,
+        # bypassing Cloudflare bot-detection that blocks plain requests/aiohttp.
+        self.session = CurlSession(impersonate=impersonate)
         self.session.headers.update(HEADERS)
         self.base_payload = {"codigoTabelaReferencia": None}
+
+    def _bootstrap_cookies(self) -> None:
+        """
+        Visit the FIPE homepage once to pick up any session/challenge cookies
+        that Cloudflare sets before we start hitting the API endpoints.
+        """
+        try:
+            self.session.get(FIPE_BASE, timeout=20)
+        except Exception:
+            pass
         
     def _make_request(self, endpoint: str, payload: Dict[str, Any], 
                      retries: int = MAX_RETRIES) -> Optional[Any]:
@@ -111,10 +141,13 @@ class FipeAPIClient:
         for attempt in range(retries):
             try:
                 time.sleep(REQUEST_DELAY)
-                response = self.session.post(url, json=payload, timeout=30)
+                # curl_cffi Session.post accepts the same `data=` / `json=` kwargs
+                # as requests. We send as form-encoded (data=) to match what the
+                # FIPE site's XHR does; using json= would set the wrong Content-Type.
+                response = self.session.post(url, data=payload, timeout=30)
                 response.raise_for_status()
                 return response.json()
-            except requests.exceptions.RequestException as e:
+            except Exception as e:
                 logger.warning(f"Request failed (attempt {attempt + 1}/{retries}): {e}")
                 if attempt < retries - 1:
                     delay = get_retry_delay(attempt)
@@ -245,8 +278,9 @@ class FipeDataFetcher:
         shard_id: int = 0,
         shard_count: int = 1,
         request_delay: Optional[float] = None,
+        impersonate: str = DEFAULT_IMPERSONATE,
     ):
-        self.client = FipeAPIClient(vehicle_type)
+        self.client = FipeAPIClient(vehicle_type, impersonate=impersonate)
         self.vehicle_type = vehicle_type
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -351,6 +385,9 @@ class FipeDataFetcher:
             f"Starting FIPE data fetch (vehicle_type={self.vehicle_type}, shard={self.shard_id}/{self.shard_count})"
         )
 
+        # Bootstrap cookies before hitting any API endpoint.
+        self.client._bootstrap_cookies()
+
         table = self.client.get_reference_table()
         if not table:
             logger.error("Failed to get reference table")
@@ -430,6 +467,9 @@ class FipeDataFetcher:
             return 0
 
         logger.info(f"Retrying {len(failed_items)} failed items...")
+
+        # Bootstrap cookies before hitting any API endpoint.
+        self.client._bootstrap_cookies()
 
         # Get current reference table
         table = self.client.get_reference_table()
@@ -521,6 +561,13 @@ def main():
     parser.add_argument("--shard-id", type=int, default=int(os.getenv("SHARD_ID", "0")))
     parser.add_argument("--shard-count", type=int, default=int(os.getenv("SHARD_COUNT", "1")))
     parser.add_argument("--request-delay", type=float, default=None, help="Override REQUEST_DELAY seconds")
+    parser.add_argument(
+        "--impersonate",
+        type=str,
+        default=DEFAULT_IMPERSONATE,
+        help="curl_cffi browser profile to impersonate (default: chrome124). "
+             "Other options: chrome120, firefox, safari.",
+    )
 
     # New: CSV output path (default computed)
     parser.add_argument(
@@ -566,6 +613,7 @@ def main():
         shard_id=args.shard_id,
         shard_count=args.shard_count,
         request_delay=args.request_delay,
+        impersonate=args.impersonate,
     )
 
     # Either retry failed items or run full fetch
