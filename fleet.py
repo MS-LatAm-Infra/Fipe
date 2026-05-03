@@ -28,6 +28,9 @@ import requests
 from requests.adapters import HTTPAdapter, Retry
 from tqdm import tqdm  # horizontal progress bars
 
+# curl_cffi: browser-impersonating HTTP client (bypasses Cloudflare TLS fingerprinting)
+from curl_cffi.requests import AsyncSession as CurlAsyncSession
+
 # -----------------------------------------------------------------------------
 # Logging utilities
 # -----------------------------------------------------------------------------
@@ -1935,14 +1938,17 @@ ENDPOINTS = {
     "anos_modelo": "/api/veiculos/ConsultarAnoModelo",
     "valor_todos_params": "/api/veiculos/ConsultarValorComTodosParametros",
 }
+
+# Headers for FIPE API — note: user-agent is intentionally omitted here because
+# curl_cffi injects a realistic browser UA automatically when impersonating.
 DEFAULT_HEADERS = {
     "accept": "application/json, text/javascript, */*; q=0.01",
     "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
     "origin": BASE_URL,
     "referer": BASE_URL + "/",
     "x-requested-with": "XMLHttpRequest",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
 }
+
 TIPO_STR = {"1":"carro","2":"moto","3":"caminhao"}
 
 # Some FIPE codes require a specific combustivel (fuel) code to return a price.
@@ -2025,7 +2031,15 @@ class DiskCache:
         except Exception: pass
 
 class FipeClient:
-    def __init__(self, session: aiohttp.ClientSession, cache: DiskCache,
+    """
+    FIPE API client backed by curl_cffi for browser-realistic TLS fingerprinting.
+
+    curl_cffi's AsyncSession is passed in as ``session`` and impersonates a real
+    Chrome build at the TLS/JA3 level, which bypasses the Cloudflare bot-protection
+    that rejects plain aiohttp requests from CI runner IPs.
+    """
+
+    def __init__(self, session: CurlAsyncSession, cache: DiskCache,
                  rate_limiter: RateLimiter, sem: asyncio.Semaphore, progress: bool):
         self.session = session
         self.cache = cache
@@ -2044,9 +2058,12 @@ class FipeClient:
         self.pow2_cap  = 8.0
 
     async def _bootstrap_cookies(self):
+        """
+        Visit the FIPE homepage to pick up any session cookies Cloudflare sets
+        before we start hitting the API endpoints.
+        """
         try:
-            async with self.session.get(BASE_URL, timeout=20) as resp:
-                await resp.text()
+            await self.session.get(BASE_URL, timeout=20)
         except Exception:
             pass
 
@@ -2077,38 +2094,48 @@ class FipeClient:
             delay = 1.0
             for attempt in range(7):
                 try:
-                    async with self.session.post(url, data=data, headers=DEFAULT_HEADERS, timeout=40) as resp:
-                        if resp.status in (200, 201):
-                            if key and self.pow2_level[key] > 0: self.pow2_level[key] -= 1
-                            try: js = await resp.json(content_type=None)
-                            except Exception:
-                                txt = await resp.text()
-                                js = json.loads(txt)
-                            # Do not write to cache for reference table endpoint
-                            if not bypass_cache:
-                                self.cache.set(endpoint, data, js)
-                            return js
-                        elif resp.status == 429:
-                            retry_after = resp.headers.get("Retry-After")
-                            if key:
-                                max_level = int(math.log2(max(self.pow2_cap / max(self.pow2_seed, 1e-9), 1)))
-                                if self.pow2_level[key] < max_level: self.pow2_level[key] += 1
-                            ra = 0.0
-                            try: ra = float(retry_after) if retry_after else 0.0
-                            except Exception: ra = 0.0
-                            await asyncio.sleep(max(delay, ra))
-                            delay = min(delay * 2, 30)
-                        elif resp.status in (500, 502, 503, 504):
-                            retry_after = resp.headers.get("Retry-After")
-                            ra = 0.0
-                            try: ra = float(retry_after) if retry_after else 0.0
-                            except Exception: ra = 0.0
-                            await asyncio.sleep(max(delay, ra))
-                            delay = min(delay * 2, 30)
-                        else:
-                            txt = await resp.text()
-                            raise RuntimeError(f"HTTP {resp.status} for {endpoint}: {txt[:200]}")
+                    # curl_cffi uses keyword arg ``data`` for form-encoded bodies,
+                    # same as aiohttp — the interface is intentionally compatible.
+                    resp = await self.session.post(
+                        url,
+                        data=data,
+                        headers=DEFAULT_HEADERS,
+                        timeout=40,
+                    )
+                    status = resp.status_code  # curl_cffi uses .status_code (requests-style)
+                    if status in (200, 201):
+                        if key and self.pow2_level[key] > 0: self.pow2_level[key] -= 1
+                        try:
+                            js = resp.json()
+                        except Exception:
+                            js = json.loads(resp.text)
+                        # Do not write to cache for reference table endpoint
+                        if not bypass_cache:
+                            self.cache.set(endpoint, data, js)
+                        return js
+                    elif status == 429:
+                        retry_after = resp.headers.get("Retry-After")
+                        if key:
+                            max_level = int(math.log2(max(self.pow2_cap / max(self.pow2_seed, 1e-9), 1)))
+                            if self.pow2_level[key] < max_level: self.pow2_level[key] += 1
+                        ra = 0.0
+                        try: ra = float(retry_after) if retry_after else 0.0
+                        except Exception: ra = 0.0
+                        await asyncio.sleep(max(delay, ra))
+                        delay = min(delay * 2, 30)
+                    elif status in (500, 502, 503, 504):
+                        retry_after = resp.headers.get("Retry-After")
+                        ra = 0.0
+                        try: ra = float(retry_after) if retry_after else 0.0
+                        except Exception: ra = 0.0
+                        await asyncio.sleep(max(delay, ra))
+                        delay = min(delay * 2, 30)
+                    else:
+                        txt = resp.text
+                        raise RuntimeError(f"HTTP {status} for {endpoint}: {txt[:200]}")
                 except asyncio.CancelledError:
+                    raise
+                except RuntimeError:
                     raise
                 except Exception:
                     if attempt >= 6: raise
@@ -2286,13 +2313,13 @@ def plan_tasks_from_tuples(code_years: Set[Tuple[str,int]], cod_tab: str, mes_re
 
 async def fipe_list(args):
     log = logging.getLogger("fipe.list")
-    conn = aiohttp.TCPConnector(limit=args.max_concurrency, ttl_dns_cache=300)
-    cookie_jar = aiohttp.CookieJar(unsafe=True)
-    if args.routeid: cookie_jar.update_cookies({"ROUTEID": str(args.routeid)})
-    cache = DiskCache(Path(args.cache_dir))
-    limiter = RateLimiter(args.rps)
-    sem = asyncio.Semaphore(args.max_concurrency)
-    async with aiohttp.ClientSession(connector=conn, cookie_jar=cookie_jar) as session:
+    impersonate = getattr(args, "impersonate", "chrome124")
+    async with CurlAsyncSession(impersonate=impersonate) as session:
+        if getattr(args, "routeid", None):
+            session.cookies.set("ROUTEID", str(args.routeid))
+        cache = DiskCache(Path(args.cache_dir))
+        limiter = RateLimiter(args.rps)
+        sem = asyncio.Semaphore(args.max_concurrency)
         client = FipeClient(session, cache, limiter, sem, True)
         await client._bootstrap_cookies()
         tabs = await client._post_json(ENDPOINTS["tabelas"], {}) or []
@@ -2333,10 +2360,17 @@ async def fipe_dump(args):
     cache = DiskCache(cache_dir)
     limiter = RateLimiter(args.rps)
     sem = asyncio.Semaphore(args.max_concurrency)
-    conn = aiohttp.TCPConnector(limit=args.max_concurrency, ttl_dns_cache=300)
-    cookie_jar = aiohttp.CookieJar(unsafe=True)
-    if getattr(args, "routeid", None): cookie_jar.update_cookies({"ROUTEID": str(args.routeid)})
-    async with aiohttp.ClientSession(connector=conn, cookie_jar=cookie_jar) as session:
+
+    # ------------------------------------------------------------------
+    # Use curl_cffi AsyncSession for browser-realistic TLS fingerprinting.
+    # This bypasses the Cloudflare bot-protection that blocks plain aiohttp
+    # requests originating from GitHub Actions datacenter IPs.
+    # ------------------------------------------------------------------
+    impersonate = getattr(args, "impersonate", "chrome124")
+    async with CurlAsyncSession(impersonate=impersonate) as session:
+        if getattr(args, "routeid", None):
+            session.cookies.set("ROUTEID", str(args.routeid))
+
         client = FipeClient(session, cache, limiter, sem, args.progress)
         client.pow2_cap = float(args.throttle_cap)
         await client._bootstrap_cookies()
@@ -2366,7 +2400,6 @@ async def fipe_dump(args):
             log.warning("Nenhuma tabela >= %s; usando a mais recente disponível: %s  (cod %s).",
                         args.since, latest_tab.get("Mes"), latest_tab.get("Codigo"))
             target_tabs = [latest_tab]
-            #target_tabs = [{"Codigo": 325, "Mes": "setembro/2025"}]
 
         tuples: Optional[Set[Tuple[str,int]]] = getattr(args, "tuples", None)
         if not tuples:
@@ -2376,7 +2409,7 @@ async def fipe_dump(args):
 
         writer = CsvWriter(Path(args.out), resume=args.resume, progress=args.progress)
         total_tasks = 0
-        for tab in target_tabs:   # FIXED (honor since/tabelas)
+        for tab in target_tabs:
             cod_tab = str(tab.get("Codigo"))
             mes_ref = tab.get("Mes")
             for tipo in [str(t) for t in (args.tipos or ["1"])]:
@@ -2505,6 +2538,7 @@ def run_all(args):
         throttle_cap=args.throttle_cap,
         tuples=tuples,
         no_progress=args.no_progress,
+        impersonate=getattr(args, "impersonate", "chrome124"),
     )
     asyncio.run(fipe_dump(fargs))
 
@@ -2567,6 +2601,7 @@ def main():
     fls.add_argument("--rps", type=float, default=2.0)
     fls.add_argument("--cache-dir", default=".fipe_cache")
     fls.add_argument("--routeid", help="Cookie ROUTEID (ex.: .13)")
+    fls.add_argument("--impersonate", default="chrome124", help="curl_cffi browser to impersonate (default: chrome124)")
 
     # fipe-dump
     fdp = sub.add_parser("fipe-dump", help="Dump FIPE prices; tuples-only if run via run-all")
@@ -2587,6 +2622,7 @@ def main():
     fdp.add_argument("--routeid")
     fdp.add_argument("--throttle-cap", type=float, default=8.0)
     fdp.add_argument("--tuples-csv", help="Independent CSV with fipe_code,model_year (optionally with fuel_code)")
+    fdp.add_argument("--impersonate", default="chrome124", help="curl_cffi browser to impersonate (default: chrome124)")
 
     # build-tables
     tbl = sub.add_parser("build-tables", help="Generate Localiza, Movida and FIPE output tables")
@@ -2625,6 +2661,7 @@ def main():
     allp.add_argument("--threshold", type=float, default=0.0, help="Matcher acceptance threshold")
     allp.add_argument("--force-scrape", action="store_true", help="Ignore today's raw CSVs check and always scrape/parse again")
     allp.add_argument("--force-match", action="store_true", help="Ignore today's Localiza_with_fipe_match file and run matching anyway")
+    allp.add_argument("--impersonate", default="chrome124", help="curl_cffi browser to impersonate (default: chrome124)")
 
     args = p.parse_args()
     setup_logging(args.log_level, getattr(args, "verbose", False))
