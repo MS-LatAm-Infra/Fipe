@@ -106,9 +106,6 @@ class FipeAPIClient:
             impersonate: Browser profile for curl_cffi to impersonate (e.g. 'chrome124')
         """
         self.vehicle_type = vehicle_type
-        # curl_cffi Session — drop-in replacement for requests.Session.
-        # The `impersonate` argument makes it mimic a real browser TLS handshake,
-        # bypassing Cloudflare bot-detection that blocks plain requests/aiohttp.
         self.session = CurlSession(impersonate=impersonate)
         self.session.headers.update(HEADERS)
         self.base_payload = {"codigoTabelaReferencia": None}
@@ -141,9 +138,6 @@ class FipeAPIClient:
         for attempt in range(retries):
             try:
                 time.sleep(REQUEST_DELAY)
-                # curl_cffi Session.post accepts the same `data=` / `json=` kwargs
-                # as requests. We send as form-encoded (data=) to match what the
-                # FIPE site's XHR does; using json= would set the wrong Content-Type.
                 response = self.session.post(url, data=payload, timeout=30)
                 response.raise_for_status()
                 return response.json()
@@ -157,17 +151,20 @@ class FipeAPIClient:
                     logger.error(f"All retries failed for endpoint {endpoint}")
                     return None
         return None
-    
-def get_reference_table(self) -> Optional[Dict[str, Any]]:
-    # Hardcoded fallback for when the API is blocked from CI runner IPs.
-    # Update Codigo and Mes manually each month before triggering the workflow.
-    FALLBACK = {"Codigo": 325, "Mes": "maio/2026"}
-    result = self._make_request("tabelas", {})
-    if result and len(result) > 0:
-        return result[0]
-    logger.warning("API blocked, using hardcoded fallback table: %s", FALLBACK)
-    return FALLBACK
-    
+
+    def get_reference_table(self) -> Optional[Dict[str, Any]]:
+        """
+        Get the current reference table (month/year).
+        Falls back to a hardcoded value if the API is blocked from CI runner IPs.
+        Update FALLBACK manually each month before triggering the workflow.
+        """
+        FALLBACK = {"Codigo": 325, "Mes": "maio/2026"}
+        result = self._make_request("tabelas", {})
+        if result and len(result) > 0:
+            return result[0]
+        logger.warning("API blocked, using hardcoded fallback table: %s", FALLBACK)
+        return FALLBACK
+
     def get_brands(self, table_code: int) -> List[Dict[str, Any]]:
         """
         Get all brands for the specified vehicle type.
@@ -342,12 +339,10 @@ class FipeDataFetcher:
     def _rewrite_failed_file(self, remaining_failures: Set[str]) -> None:
         """Rewrite the failed file with only remaining failures."""
         if not remaining_failures:
-            # All retries succeeded, remove the file
             if self.failed_keys_path.exists():
                 self.failed_keys_path.unlink()
             return
         
-        # Read existing entries to preserve reasons
         existing_entries = {}
         if self.failed_keys_path.exists():
             for line in self.failed_keys_path.read_text(encoding="utf-8").splitlines():
@@ -357,7 +352,6 @@ class FipeDataFetcher:
                         key = "|".join(parts[:5])
                         existing_entries[key] = line.strip()
         
-        # Write only remaining failures
         with open(self.failed_keys_path, "w", encoding="utf-8") as f:
             for key in remaining_failures:
                 if key in existing_entries:
@@ -370,7 +364,6 @@ class FipeDataFetcher:
             f.write(json.dumps(obj, ensure_ascii=False) + "\n")
 
     def _owns_model(self, table_code: int, brand_code: str, model_code: str) -> bool:
-        # Balance across shards using a stable hash of (table, vehicle, brand, model)
         key = f"{table_code}|{self.vehicle_type}|{brand_code}|{model_code}"
         return _stable_mod_hash(key, self.shard_count) == self.shard_id
 
@@ -382,7 +375,6 @@ class FipeDataFetcher:
             f"Starting FIPE data fetch (vehicle_type={self.vehicle_type}, shard={self.shard_id}/{self.shard_count})"
         )
 
-        # Bootstrap cookies before hitting any API endpoint.
         self.client._bootstrap_cookies()
 
         table = self.client.get_reference_table()
@@ -397,8 +389,6 @@ class FipeDataFetcher:
         brands = self.client.get_brands(table_code)
         logger.info(f"Found {len(brands)} brands")
 
-        # Note: we still iterate brands, but we skip most models quickly,
-        # and we do NOT fetch years/prices for models not owned by this shard.
         for brand in tqdm(brands, desc=f"Shard {self.shard_id}: brands"):
             brand_code = brand["Value"]
             brand_name = brand["Label"]
@@ -417,7 +407,6 @@ class FipeDataFetcher:
                     year_code = year["Value"]
                     year_label = year["Label"]
 
-                    # Unique key for resumability (per (table, vehicle, brand, model, year_code))
                     item_key = f"{table_code}|{self.vehicle_type}|{brand_code}|{model_code}|{year_code}"
                     if item_key in self._done:
                         continue
@@ -444,7 +433,6 @@ class FipeDataFetcher:
 
         logger.info(f"Shard complete. Output: {self.out_jsonl}")
         
-        # Report failures summary
         if self._failed:
             logger.warning(f"⚠️  {len(self._failed)} items failed. See: {self.failed_keys_path}")
         else:
@@ -453,7 +441,6 @@ class FipeDataFetcher:
     def retry_failed_items(self) -> int:
         """
         Retry fetching only the items that previously failed.
-        Updates the main output file and clears successful retries from failed list.
         
         Returns:
             Number of successfully recovered items
@@ -465,10 +452,8 @@ class FipeDataFetcher:
 
         logger.info(f"Retrying {len(failed_items)} failed items...")
 
-        # Bootstrap cookies before hitting any API endpoint.
         self.client._bootstrap_cookies()
 
-        # Get current reference table
         table = self.client.get_reference_table()
         if not table:
             logger.error("Failed to get reference table")
@@ -488,7 +473,6 @@ class FipeDataFetcher:
 
             orig_table_code, vehicle_type, brand_code, model_code, year_code = parts[:5]
 
-            # Check if already recovered in a previous retry
             if key in self._done:
                 continue
 
@@ -497,7 +481,6 @@ class FipeDataFetcher:
                 still_failed.add(key)
                 continue
 
-            # Get brand and model names (we need to fetch them)
             brand_name = price_data.get("Marca", "Unknown")
             model_name = price_data.get("Modelo", "Unknown")
             year_label = price_data.get("AnoModelo", year_code)
@@ -513,13 +496,12 @@ class FipeDataFetcher:
             price_data["VehicleType"] = int(vehicle_type)
             price_data["VehicleTypeName"] = VEHICLE_TYPES.get(int(vehicle_type), "unknown")
             price_data["FetchDate"] = datetime.now().isoformat()
-            price_data["RetryRecovered"] = True  # Mark as recovered from retry
+            price_data["RetryRecovered"] = True
 
             self._append_jsonl(price_data)
             self._mark_done(key)
             recovered += 1
 
-        # Update the failed file
         self._rewrite_failed_file(still_failed)
 
         if recovered > 0:
@@ -544,7 +526,6 @@ class FipeDataFetcher:
         if outp.suffix.lower() == ".csv":
             df.to_csv(outp, index=False, encoding="utf-8-sig")
         else:
-            # parquet by default
             df.to_parquet(outp, index=False)
 
         logger.info(f"Converted shard output to: {outp}")
@@ -565,8 +546,6 @@ def main():
         help="curl_cffi browser profile to impersonate (default: chrome124). "
              "Other options: chrome120, firefox, safari.",
     )
-
-    # New: CSV output path (default computed)
     parser.add_argument(
         "--output",
         type=str,
@@ -575,11 +554,7 @@ def main():
              "single shard -> data/fipe/full/fipe_models_YYYYMMDD.csv; "
              "multi-shard -> data/fipe/full/parts/part-<shard>_YYYYMMDD.csv"
     )
-
-    # Optional: keep the intermediate JSONL (useful for debugging)
     parser.add_argument("--keep-jsonl", action="store_true", help="Do not delete intermediate JSONL")
-    
-    # Retry mode: only retry previously failed items
     parser.add_argument(
         "--retry-failed",
         action="store_true",
@@ -591,7 +566,6 @@ def main():
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Default output naming with datestamp
     date_stamp = datetime.now().strftime("%Y%m%d")
     if args.output is None:
         if args.shard_count == 1:
@@ -613,20 +587,15 @@ def main():
         impersonate=args.impersonate,
     )
 
-    # Either retry failed items or run full fetch
     if args.retry_failed:
         recovered = fetcher.retry_failed_items()
         if recovered > 0:
-            # Re-export CSV with recovered items
             fetcher.jsonl_to_parquet_or_csv(str(out_csv))
             logger.info(f"Updated output with {recovered} recovered items: {out_csv}")
     else:
-        # Runs the shard and writes JSONL incrementally (safe/resumable)
         fetcher.fetch_all_data_streaming()
-        # Always produce CSV (default behavior)
         fetcher.jsonl_to_parquet_or_csv(str(out_csv))
 
-    # Optional cleanup
     if not args.keep_jsonl:
         try:
             fetcher.out_jsonl.unlink(missing_ok=True)
