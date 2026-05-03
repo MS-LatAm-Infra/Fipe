@@ -158,18 +158,15 @@ class FipeAPIClient:
                     return None
         return None
     
-    def get_reference_table(self) -> Optional[Dict[str, Any]]:
-        """
-        Get the current reference table (month/year).
-        
-        Returns:
-            Most recent reference table entry
-        """
-        payload = {}
-        result = self._make_request("tabelas", payload)
-        if result and len(result) > 0:
-            return result[0]  # Return most recent table
-        return None
+def get_reference_table(self) -> Optional[Dict[str, Any]]:
+    # Hardcoded fallback for when the API is blocked from CI runner IPs.
+    # Update Codigo and Mes manually each month before triggering the workflow.
+    FALLBACK = {"Codigo": 325, "Mes": "maio/2026"}
+    result = self._make_request("tabelas", {})
+    if result and len(result) > 0:
+        return result[0]
+    logger.warning("API blocked, using hardcoded fallback table: %s", FALLBACK)
+    return FALLBACK
     
     def get_brands(self, table_code: int) -> List[Dict[str, Any]]:
         """
